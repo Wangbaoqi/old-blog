@@ -16,6 +16,7 @@ category: React
 
 ## React Diff -->
 
+
 在react中，更新`UI`必须生成新的`JSX`对象（称之为`visual DOM`），而`新的JSX`对象和`老的visual DOM`之间对比以最小的操作次数来获取`差异节点`（也称之为副作用），从而高效的更新`UI`。
 
 用现在[最优的算法](https://grfia.dlsi.ua.es/ml/algorithms/references/editsurvey_bille.pdf)解决也需要时间复杂度为`O(n^3)`来解决，这对于web页面这么多的节点而言，采用这种算法代价太高了，可以说是灾难。
@@ -37,6 +38,40 @@ react中，有两种类型的`diff`算法，**单节点diff**和**多节点diff*
 * `mount`(挂载)阶段主要是`创建Fiber树`的过程。
 
 下面是`diff算法`的入口：
+
+
+```jsx
+function FilterableProductTable({ products }) {
+  const [filterText, setFilterText] = useState('');
+  const [inStockOnly, setInStockOnly] = useState(false);
+
+  return (
+    <div>
+      <SearchBar 
+        filterText={filterText} 
+        inStockOnly={inStockOnly} />
+      <ProductTable 
+        products={products}
+        filterText={filterText}
+        inStockOnly={inStockOnly} />
+    </div>
+  );
+}
+
+const PRODUCTS = [
+  {category: "Fruits", price: "$1", stocked: true, name: "Apple"},
+  {category: "Fruits", price: "$1", stocked: true, name: "Dragonfruit"},
+  {category: "Fruits", price: "$2", stocked: false, name: "Passionfruit"},
+  {category: "Vegetables", price: "$2", stocked: true, name: "Spinach"},
+  {category: "Vegetables", price: "$4", stocked: false, name: "Pumpkin"},
+  {category: "Vegetables", price: "$1", stocked: true, name: "Peas"}
+];
+
+export default function App() {
+  return <FilterableProductTable products={PRODUCTS} />;
+}
+
+```
 
 ```js
 // react/packages/react-reconciler/src/ReactChildFiber.old.js
