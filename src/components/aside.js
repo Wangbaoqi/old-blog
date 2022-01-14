@@ -49,8 +49,8 @@ const Aside = ({location}) => {
               <Link
                 to={item.path}
                 activeClassName='active-link'
-                className="w-full font-thin uppercase text-primary flex items-center p-4 my-2 
-                  hover:transition-colors hover:duration-200 hover:justify-start hover:bg-gradient-to-r hover:from-secondary-content to-primary-content hover:border-r-4 hover:border-secondary"
+                className="w-full font-bold uppercase text-primary flex items-center p-4 my-2 
+                  hover:transition-colors hover:duration-200 hover:justify-start hover:bg-gradient-to-r hover:from-secondary-content to-primary-content hover:border-r-4 hover:border-secondary hover:text-primary-focus"
                 
               >
                 <span className="text-left">
@@ -64,7 +64,7 @@ const Aside = ({location}) => {
                     <path d="M1070 1178l306-564h-654l-306 564h654zm722-282q0 182-71 348t-191 286-286 191-348 71-348-71-286-191-191-286-71-348 71-348 191-286 286-191 348-71 348 71 286 191 191 286 71 348z"></path>
                   </svg>
                 </span>
-                <span className="mx-4 text-sm font-normal">{item.title}</span>
+                <span className="mx-4 text-sm ">{item.title}</span>
               </Link>
             </div>
           ))

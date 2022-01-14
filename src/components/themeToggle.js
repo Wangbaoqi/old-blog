@@ -15,7 +15,7 @@ const ThemeToggle = props => {
     setTheme(mode)
   }
   return (
-    <span onClick={changeColorMode} className="text-secondary">
+    <span onClick={changeColorMode} className="text-primary">
       {
         theme === "dark" ? 
           <IoSunnyOutline className=" h-6 w-6"/> : 

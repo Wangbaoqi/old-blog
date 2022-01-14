@@ -1,0 +1,236 @@
+---
+title: JS this
+date: 2021-02-23 15:28:48
+cover: https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/JavaScript/bg/this.png
+tags: 
+  - JavaScript
+categories: 
+  - JavaScript
+---
+
+
+> this 是在运行时绑定的，不是在编写时绑定的（词法作用域），上下文取决于调用的条件。创建的每一个函数都有一个prototype（原型）属性，它是一个指针，指向一个对象（包含了所有的实例共享的属性和方法）；字面意思来讲，prototype就是通过构造函数创建的对象实例的原型对象。
+
+this 是在运行时绑定的，不是在编写时绑定的（词法作用域），上下文取决于调用的条件
+
+## this的调用位置
+
+调用位置是函数在代码中被调用的位置，不是声明是的位置。
+
+其次就是函数调用栈。
+
+```javascript
+function baz() {
+  bar(); // 调用位置
+}
+
+function bar () {
+  foo(); // 调用位置
+}
+
+function foo() {
+  // ...
+}
+baz()
+```
+
+## 绑定规则
+
+函数的执行过程中调用位置如何决定this的绑定对象
+
+### 默认绑定
+
+```javascript
+function bar() {
+  console.log(this.a)
+}
+var a = 2;
+bar()
+```
+
+在此种情况下，`foo`是直接使用不带任何修饰的函数引用进行调用的，只能使用默认绑定规则，但是这种是在非严格模式下。如果是在严格模式下，此时`this`是`undefined`
+
+### 隐式绑定
+
+此种情况下看调用位置是否有上下文对象，或者说是否被某个对象拥有或者包含。
+
+```javascript
+function foo() {
+  console.log(this.a)
+}
+var obj = {
+  a: 3,
+  foo: foo
+}
+obj.foo() // 3
+```
+
+**对象属性引用链中只有对顶层或者最后一层会影响调用位置**
+
+```javascript
+function foo() {
+  console.log(this.a)
+}
+var obj = {
+  a: 2
+  foo: foo
+}
+var obj1 = {
+  a: 43,
+  obj: obj
+}
+obj1.obj.foo(); // 2
+```
+
+### 隐式丢失
+
+```javascript
+function foo() {
+  console.log(this.a)
+}
+var obj = {
+  a: '1',
+  foo: foo
+}
+var a = 'global',
+var bar = obj.foo; // 函数引用的副本
+bar(); // global
+```
+
+在看个例子, 函数传参\(回调函数\)
+
+```javascript
+function foo() {
+  console.log(this.a)
+}
+function doFun(fn) {
+  fn()
+}
+var obj = {
+  a: '2',
+  foo: foo
+}
+doFun(obj.foo); // 参数也是foo引用的副本 global
+
+// setTimeout
+setTimeout(obj.foo, 1000); // global
+```
+
+### 显式绑定
+
+> `call` `apply` `bind` 都可以改变当前调用函数的`this`指向
+
+```javascript
+function foo(s) {
+  console.log(this.a, s)
+}
+var obj = {
+  a: 3,
+  foo: foo
+}
+foo.call(obj); // 3
+foo.apply(obj); // 3
+
+var bar = foo.bind(obj);
+bar(); // 3
+```
+
+**手写bind**
+
+```javascript
+function foo() {
+  console.log(this.a)
+}
+var obj1 = {
+  a: 3
+}
+
+// 手写bind
+function eBind(fn, obj) {
+  return function() {
+    return fn.apply(obj, arguments);
+  }
+}
+// 原型bind
+Function.prototype.eBind = function(ctx) {
+  let self = this;
+  return function() {
+    self.apply(ctx, arguments)
+  }
+  // es6 写法
+  return () => {
+    this.apply(ctx, arguments)
+  }
+}
+```
+
+## new绑定
+
+> 首先我们重新定义一下 JavaScript 中的“构造函数”。在 JavaScript 中，构造函数只是一些 使用 new 操作符时被调用的函数。它们并不会属于某个类，也不会实例化一个类。实际上， 它们甚至都不能说是一种特殊的函数类型，它们只是被 new 操作符调用的普通函数而已。
+
+使用 new 来调用函数或者说是构造函数调用时，会自动执行以下操作：
+
+1. 创建一个全新的对象。
+2. 这个新对象会被执行\[\[原型\]\]连接，连接到构造函数的原型
+3. 这个新对象会绑定到函数调用的this并且执行构造函数
+4. 如果函数没有返回其他对象，那么new表达式中的函数调用会自动返回这个对象
+
+```javascript
+function Foo(a) {
+  this.a = a
+}
+
+var bar = new Foo(2)
+bar.a; // 2
+```
+
+### 手写 new
+
+根据上述 `new` 的实现过程来手写一个 **new**
+
+```javascript
+// 构造函数
+function Foo() {
+  this.a = '11'
+}
+
+// new 实现
+
+function m_new() {
+  // 创建一个新对象
+  let obj = new Object();
+  // 获取构造函数 参数一个位
+  let Constructor = Array.prototype.shift.call(arguments);
+  // 将构造函数的原型绑定到新对象的
+  obj.__proto__ = Constructor.prototype;
+  // 绑定 this 构造函数内部的this绑定到了新对象上
+  let res = Constructor.call(obj, arguments);
+  // 返回对象 如果构造函数返回对象，则改构造函数是一个普通函数，则改对象会覆盖新建对象
+  return typeof res === 'object' ? res : obj;
+}
+
+let m_obj = m_new(Foo); // Foo{a: '11'}
+```
+
+### 绑定优先级
+
+**隐式绑定 显示绑定**
+
+### 绑定例外
+
+### this词法
+
+```javascript
+function foo() {
+  setTimeout(function() {
+    console.log(this.a)
+  })
+  // 改进 1. 保存this 2. => 
+}
+var obj = {
+  a: 2,
+  foo: foo
+}
+obj.foo() // undefined this -> window
+```
+

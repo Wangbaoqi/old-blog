@@ -1,0 +1,99 @@
+---
+title: HTML 知识体系
+date: 2021-01-10 19:28:48
+cover: https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/html/html-all-cover.png
+tags: 
+  - HTML
+categories: 
+  - HTML
+---
+
+
+
+
+## HTML 知识体系
+
+首先`整理法`将HTML的知识整理成为脑图，将HTML的知识以`计算机语言`、`HTML语法`、`HTML as SGML`、`HTML as XML`几个维度进行分类。
+可以看到，这几个分类跟`HTML`本身内容关系不大，这是因为只有了解了`HTML`的源头，才能更好的掌握好`HTML`。
+
+![](https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/html/html-mind.png)
+
+* 计算机语言
+* 标记语言
+* HTML 语法
+
+其次以`追本溯源`的方式，将每一个知识点的来源以及概念弄清楚。
+
+接下来逐步的分析以上述两种方法归纳的每一块知识点。
+
+### 计算机语言
+
+> `计算机语言`指用于人与计算机之间通讯的语言，是人与计算机之间传递信息的介质。但是其概念比通用的编程语言要更广泛。
+
+> `编程语言`是用来定义计算机程序的形式语言。它是一种被标准化的交流技巧，用来向计算机发出指令，一种能够让程序员准确地定义计算机所需要使用数据的计算机语言，并精确地定义在不同情况下所应当采取的行动。
+
+问题来了，`HTML`是一门编程语言吗？
+
+`HTML`的全称是超文本标记语言是一种将文本（Text）以及文本相关的其他信息结合起来，展现出关于文档结构和数据处理细节的计算机文字编码。
+
+从概念上来看，`HTML`并不是一门**编程语言**，而是一门[计算机语言](https://en.wikipedia.org/wiki/Computer_language)。
+
+再追本溯源，语言从语法上分为
+
+* 非形式语言
+* 形式语言
+
+**非形式语言**： 也就是我们表达的语言，中文或者英文等。
+
+**形式语言**：是根据[乔姆斯基体系](https://www.fedcourt.gov.au/fcfcoa/judgments-fcc-september?sq_content_src=%2BdXJsPWh0dHBzJTNBJTJGJTJGemgubS53aWtpcGVkaWEub3JnJTJGd2lraSUyRiUyNUU0JTI1QjklMjU5NCUyNUU1JTI1QTclMjU4NiUyNUU2JTI1OTYlMjVBRiUyNUU1JTI1OUYlMjVCQSUyNUU4JTI1QjAlMjVCMSUyNUU3JTI1QjMlMjVCQiZhbGw9MQ%3D%3D)分类的，有以下四种形式：
+
+1. 0型 - 递归可枚举语言
+2. 1型 - 上下文相关语言
+3. 2型 - 上下文无关语言
+4. 3型 - 正规语言
+
+形式语言从`用途`上分为**数据描述语言**和**编程语言**。
+
+`数据描述语言`广泛意义来讲也可以是`计算机语言`，包括`HTML`、`JSON`、`CSS`、`XML`等。
+`编程语言`，包括`C`、`C#`、`Java`、`JavaScript`等。
+
+形式语言从`表达方式`上分为**声明式语言**和**命令式语言**。
+
+### 标记语言
+
+在目前Web流行的标记语言有`HTML`和`XML`，而这两者跟`SGML`分不开。
+
+![](https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/html/sgml-xml-relationships.png)
+
+`SGML（Standard Generilized MarkUp Language）`: 标准通用标记语言，是描述电子文档标记的国际标准。SGML通过标记来描述文档结构，以便存储、提取、处理文档中的数据。换句话说，SGML 规定了某些语言可以做什么或不能做什么，必须包含哪些元素，例如标签，以及语言的基本结构，SGML 将结构和格式规则传递给标记语言。
+
+准确的来说，SGML是一种元语言-可以衍生出其他的语言，如XML或者HTML。
+
+超文本标记语言 (HTML) 是`SGML`的子项或应用程序，是遵循了**DTD**标准的SGML文档，也算是`SGML`的一个实例，也就是在HTML5之前，都需要定义HTML文档的DTD。
+
+![](https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/html/sgml-html.gif)
+
+可扩展标记语言（XML）用于描绘封装数据，而HTML超文本标记语言用于展示数据，XML是`SGML`的一个子集，也有自己的**DTD**。
+
+XHTML就是用XML规则规范的HTML，由于XML语法严格，因此，XHTML要求:
+
+* 元素被正确嵌套
+* 必须有关闭标签
+* 必须小写
+* 属性必须有值且用双引号,用id代替name
+
+![](https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/html/sgml-xml.gif)
+
+经过后来的发展，2019年W3C和WHATWG联合发布了唯一一个HTML的规范版本，也就是现在的[HTML5规范](https://html.spec.whatwg.org/multipage/index.html#contents)
+
+## HTML 历史版本
+
+首先我们来看一下HTML从最原始到现在至今整个HTML语言的历史发展过程。
+
+* HTML 1.0：在1993年6月作为互联网工程工作小组(IETF)工作草案发布,由此超文本标记语言第一版诞生。
+* [HTML 2.0](https://www.ietf.org/rfc/rfc1866.txt)：1995年1 1月作为RFC 1866发布，于2000年6月发布之后被宣布已经过时。
+* [HTML 3.2](https://www.w3.org/TR/2018/SPSD-html32-20180315/)：1997年1月14日，W3C推荐标准。
+* [HTML 4.0](https://www.w3.org/TR/1998/REC-html40-19980424/)：1997年12月18日，W3C推荐标准。
+* [HTML 5](https://html.spec.whatwg.org/multipage/)：HTML5是公认的下一代Web语言，极大地提升了Web在富媒体、富内容和富应用等方面的能力，被喻为终将改变移动互联网的重要推手。
+
+现在使用的HTML版本必然是HTML5，从语法上讲，跟之前的HTML版本没有一点关系，HTML5没有基于SGML规范，而是全新的一套语法，因此也就没有`DTD`声明了；从元素上将，新增了很多元素，包括`video`，`audio`等，也修改和删除了之前版本的一些元素。

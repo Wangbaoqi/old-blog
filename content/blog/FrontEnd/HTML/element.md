@@ -1,0 +1,541 @@
+---
+title: HTML元素
+date: 2021-01-15 19:54:05
+cover: https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/html/html-cover-ele.png
+tags: 
+  - HTML
+categories: 
+  - HTML
+---
+
+
+## HTML 元素分类
+
+HTML 元素是日常开发中使用最多的，因为元素的种类很多，这里根据`功能`和`语法`两种方式进行分别分类。
+
+### 功能分类
+
+从功能上进行分类，更容易将众多繁杂的元素进行分块记忆。
+
+![](https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/html/html-ele.png)
+
+上图根据[MDN-元素参考](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element)来进行分的类，每个元素的详情可以查看。
+
+### 语法分类
+
+在HTML规范中，每一个元素的定义都会有[content model](https://html.spec.whatwg.org/multipage/dom.html#content-models)属性，也就是元素定义时所规定内容描述。
+
+**HTML 按内容模型分类有以下几种**：
+
+* [Metadata content](https://html.spec.whatwg.org/multipage/dom.html#metadata-content) - 元数据内容
+* [Flow content](https://html.spec.whatwg.org/multipage/dom.html#flow-content) - 流内容
+* [Sectioning content](https://html.spec.whatwg.org/multipage/dom.html#sectioning-content) - 分段内容
+* [Heading content](https://html.spec.whatwg.org/multipage/dom.html#heading-content) - 标题内容
+* [Phrasing content](https://html.spec.whatwg.org/multipage/dom.html#phrasing-content) - 短语内容
+* [Embedded content](https://html.spec.whatwg.org/multipage/dom.html#embedded-content-2) - 嵌入内容
+* [Interactive content](https://html.spec.whatwg.org/multipage/dom.html#interactive-content) - 交互性内容
+
+其实语法上的分类整体跟功能分类差不多，其中最重要的一点就是**元素的嵌套性**。
+
+比如，规范规定具有`Flow content`类型的元素可以嵌套具有`Sectioning content`类型的元素。如下图，就是几种`content model`中元素的嵌套规则。
+
+![](https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/html/html-ele-cate.png)
+
+上图来自[whatWg-kinds of content](https://html.spec.whatwg.org/multipage/dom.html#kinds-of-content),原图具有交互性，可以看到每一类包含了哪些元素以及嵌套规则等等。
+
+如果编写的HTML元素不符合嵌套规则（无穷的`div`标签），浏览器具有很强的容错功能，会将错误的HTML结构进行调整。
+
+## HTML 元素模块
+
+### 文档meta
+
+[文档meta](./html%20meta.md)元素代表了元数据的集合，其包含了以下几种元素：
+
+* head
+* title
+* base
+* link
+* style
+* script
+* meta
+
+#### title 元素
+
+`title`是文档的标题或者名称，被展示的浏览器。其是重要的对于[SEO](https://searchengineland.com/guide/what-is-seo)来讲。
+
+#### base 元素
+
+`base`元素指定用于一个文档中包含的所有相对 URL 的根 URL。
+
+如果使用了多个`base`元素，只会指定第一个，其他都会被忽略。
+
+```html
+<base href="https://wangbaoqi.github.io" target="_blank">
+<!-- target="_self | _parent | _top" -->
+```
+
+#### link 元素
+
+`link` 元素定义了当前文档和其他资源之间关系，通过属性`href`设置连接地址。
+
+`link` 元素可以使用[全局属性](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes)。
+
+`link` [元素属性](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/link#%E5%B1%9E%E6%80%A7)
+
+`link` 连接资源的类型是由属性`rel`来指定的，且`rel`必须有一个值，否则不会创建任何连接，其包含的`token`有：
+
+更多的[规范 - token type](https://html.spec.whatwg.org/multipage/links.html#linkTypes)、[MDN - token type](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Link_types)
+
+#### script 元素
+
+`script` 元素主要用于嵌入或者引入脚本。
+
+`script` 元素可以使用[全局属性](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes)。
+
+`script` 元素的属性常使用的`src`、`type`、`defer`、`async`
+
+* src: 嵌入脚本的地址
+* type: 脚本的媒体类型
+* defer: 脚本的加载方式（异步加载，直到文档解析完成后在<mark style="color:green">DOMContentLoaded</mark>事件之前执行）
+* async: 脚本的加载方式（异步加载，加载完成之后立马执行）
+
+其他的[属性](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/script#%E5%B1%9E%E6%80%A7)
+
+#### meta 元素
+
+`meta`元素表示不能被其他 **meta element**(`title`,`link`,`script`,`style`,`base`) 所代表的内容。
+
+其属性有<mark style="color:green">name</mark>、<mark style="color:green">charset</mark>和<mark style="color:green">http-equiv</mark>和<mark style="color:green">[itemprop 微数据属性](https://html.spec.whatwg.org/multipage/microdata.html#microdata)</mark>
+
+* name - 指定name属性，则meta元素提供了整个文档的元数据
+* charset - 指定整个文档使用什么字符集
+* http-equiv - 指定了编译指令，允许的值都是特定的HTTP header 的名称
+* itemprop - meta 元素提供用户定义的元数据
+
+**<mark style="color:green">meta 元素属性语法</mark>**
+
+1. 必须指定四者中的其一
+2. 如果指定了`name`,`http-equiv`和`itemprop`中的其一，则**必须**指定`content`属性
+3. 每个文档必须只有一个`charset`元元素
+
+**<mark style="color:rgb(247, 125, 5)">1. 属性name的值</mark>**
+
+* application-name: 应用程序的名称
+* author: 作者
+* description：描述
+* keywords：与文档内容相关的关键字，content用`,`逗号隔开
+* generator
+* referrer： 控制由当前页面发出的请求的HTTP Referrer header
+* theme-color: 用户代理应该使用的建议颜色来自定义页面或周围用户界面的显示[theme-color](https://html.spec.whatwg.org/multipage/semantics.html#attr-meta-name)
+* color-scheme: [CSS 颜色调整规范](https://drafts.csswg.org/css-color/#typedef-color)定义了color-scheme配色的规范
+* viewport: [CSS 设备适配规范](https://drafts.csswg.org/css-device-adapt/#viewport-meta)定义了`viewport`视口的规范，目前仅仅用于移动端。
+
+**<mark style="color:rgb(247, 125, 5)">2. 属性http-equiv的值</mark>**
+
+* content-language
+* content-type
+* default-style
+* refresh
+* set-cookie
+* x-ua-compatible
+* content-security-policy
+
+详细内容[pragma directives](https://html.spec.whatwg.org/multipage/semantics.html#pragma-directives)
+
+### 内容分区
+
+内容分区允许将文档内容从逻辑上进行划分，以便区分各个区的内容。
+
+* body
+* article
+* section
+* nav
+* aside
+* main
+* header
+* footer
+* h1 / h2 / h3 / h4 / h5 / h6
+
+关于[内容分区详情 - MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element#%E5%86%85%E5%AE%B9%E5%88%86%E5%8C%BA)、[内容分区详情 - whatWG](https://html.spec.whatwg.org/multipage/sections.html#sections)
+### 文本内容
+
+文本内容元素在分区根元素`body`之间，这些元素能够标识内容的语义以及结构，对于 `accessibility` 和 `SEO`很重要。
+
+* blockquote
+* div
+* p
+* pre
+* hr
+* ul
+* li
+* ol
+* dd
+* dt
+* dl
+* figure
+* figcaption
+
+关于[文本内容详情 - MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element#%E6%96%87%E6%9C%AC%E5%86%85%E5%AE%B9)、[文本内容详情 - whatWG](https://html.spec.whatwg.org/multipage/grouping-content.html#grouping-content)
+
+### 内联文本语义
+
+内联文本语义（Inline text semantics）定义一个单词、一行内容，或任意文字的语义、结构或样式。
+
+* a
+* em
+* strong
+* small
+* s
+* cite
+* q
+* dfn
+* abbr
+* ruby
+* rt
+* rp
+* data
+* time
+* code
+* var 
+* samp
+* kbd
+* sub
+* i
+* b
+* u
+* mark
+* bdi
+* bdo
+* span
+* br
+* wbr
+
+关于[内联文本详情 - MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element#%E5%86%85%E8%81%94%E6%96%87%E6%9C%AC%E8%AF%AD%E4%B9%89)、[内联文本详情 - whatWG](https://html.spec.whatwg.org/multipage/text-level-semantics.html#text-level-semantics)
+
+### 图片和多媒体
+
+HTML 支持各种多媒体资源，例如图像、音频和视频。
+
+* area
+* audio
+* img
+* map
+* track
+* video
+
+关于[图片和多媒体详情 - MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element#%E5%9B%BE%E7%89%87%E5%92%8C%E5%A4%9A%E5%AA%92%E4%BD%93)、[图片和多媒体详情 - whatWG](https://html.spec.whatwg.org/multipage/embedded-content.html#embedded-content)
+
+### 内嵌元素
+
+除了常规的多媒体内容，HTML 可以包括各种其他的内容，即使它并不容易交互。
+
+* picture
+* iframe
+* source
+* embed
+* object
+* param
+
+[图片和多媒体详情 - whatWG](https://html.spec.whatwg.org/multipage/embedded-content.html#embedded-content)
+
+### 脚本元素
+
+为了创建动态内容和 Web 应用程序，HTML 支持使用脚本语言，最突出的就是 JavaScript。某些元素用于支持此功能。
+
+* canvas
+* noscript
+* script
+
+### 交互元素
+
+HTML 提供了一系列有助于创建交互式用户界面对象的元素。
+
+* details
+* dialog
+* menu
+* summary
+
+### 表单内容
+
+HTML 提供了许多可一起使用的元素，这些元素能用来创建一个用户可以填写并提交到网站或应用程序的表单。
+
+* form
+* label
+* input
+* button
+* select
+* datalist
+* optgroup
+* option
+* textarea
+* output
+* progress
+* meter
+* filedset
+* legend
+
+### 表格内容
+
+用于创建和处理表格数据。
+
+* table
+* caption
+* colgroup
+* col
+* tbody
+* thead
+* tfoot
+* tr
+* td
+* th
+
+### 编辑标识
+
+这些元素能标示出某个文本被更改过的部分。
+
+* del
+* ins
+
+### web组件
+
+Web 组件是一种与 HTML 相关联（HTML-related）的技术，简单来说，它允许开发者创建自定义元素，并如同普通的 HTML 一样使用它们。另外，也可以创建经过自定义的标准 HTML 元素。
+
+* content
+* shadow
+* slot
+* template
+
+
+## HTML 全局属性
+
+
+### event handle 属性
+
+* onauxclick
+* onblur*
+* oncancel
+* oncanplay
+* oncanplaythrough
+* onchange
+* onclick
+* onclose
+* oncontextlost
+* oncontextmenu
+* oncontextrestored
+* oncopy
+* oncuechange
+* oncut
+* ondblclick
+* ondrag
+* ondragend
+* ondragenter
+* ondragleave
+* ondragover
+* ondragstart
+* ondrop
+* ondurationchange
+* onemptied
+* onended
+* onerror*
+* onfocus*
+* onformdata
+* oninput
+* oninvalid
+* onkeydown
+* onkeypress
+* onkeyup
+* onload*
+* onloadeddata
+* onloadedmetadata
+* onloadstart
+* onmousedown
+* onmouseenter
+* onmouseleave
+* onmousemove
+* onmouseout
+* onmouseover
+* onmouseup
+* onpaste
+* onpause
+* onplay
+* onplaying
+* onprogress
+* onratechange
+* onreset
+* onresize*
+* onscroll*
+* onsecuritypolicyviolation
+* onseeked
+* onseeking
+* onselect
+* onslotchange
+* onstalled
+* onsubmit
+* onsuspend
+* ontimeupdate
+* ontoggle
+* onvolumechange
+* onwaiting
+* onwheel
+
+## HTML5 和 HTML
+
+HTML5 是新一代的HTML，增加了不同类型的元素以及修改了之前的元素。
+
+|  HTML   |  HTML  |
+| --- | --- |
+|  如果不使用 Flash 播放器支持，它不支持音频和视频。   |  支持使用 `<audio>` 和 `<video>` 标签的音频和视频控件。   |
+|  它使用 cookie 来存储临时数据。   |   使用 SQL 数据库和应用程序缓存来存储离线数据。  |
+|  不允许 JavaScript 在浏览器中运行。  |  允许 JavaScript 在后台运行。 由于 HTML5 中的 JS Web worker API，这是可能的。   |
+|  在 VML、Silver-light、Flash 等各种技术的帮助下，HTML 中的矢量图形成为可能。   |   矢量图形也是 HTML5 的一个组成部分，如 SVG 和画布。  |
+|  不允许拖放效果。  |  允许拖放效果。   |
+|  无法绘制圆形、矩形、三角形等形状。   |  允许绘制圆形、矩形、三角形等形状   |
+|  它适用于所有旧浏览器。   |  Firefox、Mozilla、Chrome、Safari 等所有新浏览器都支持它。   |
+|   Doctype 声明太长太复杂。  |  Doctype 声明非常简单和容易。   |
+|   `<nav>`、`<header>`等元素不存在。  |  支持网络结构的新元素，如导航、页眉、页脚等。   |
+|  借助浏览器几乎不可能获得用户的真实地理位置。   |   可以使用 JS GeoLocation API 轻松跟踪用户的 GeoLocation。  |
+|  字符编码声明太长太复杂  |  字符编码声明非常简单和容易   |
+|  它无法处理不准确的语法。   |   它能够处理不准确的语法。  |
+
+还有一些元素在HTML5中被修改了或者被删除了。
+
+| Element	| In HTML5 |
+| --- | --- |
+| `<applet>`	 | Changed to `<object>`
+| `<acronym>`	| Changed to `<abbr>`
+| `<dir>` | Changed to `<ul>`
+| `<frameset>` | Removed
+| `<frame>`	| Removed
+| `<noframes>` |	Removed
+| `<strike>` |	Removed
+| `<big>` |	Removed
+| `<basefont>` |	Removed
+| `<font>` | Removed
+| `<center>` | Removed
+| `<content>` | Removed
+| `<tt>` | Removed
+
+HTML5也新增了很多的新元素，
+
+### 新增语义结构的元素
+
+* article
+* aside
+* bdi
+* details
+* dialog
+* figcaption
+* figure
+* footer
+* header
+* main
+* mark
+* meter
+* nav
+* progress
+* rp
+* rt
+* ruby
+* section
+* summary
+* time
+* wbr
+
+
+
+### 表单增强
+
+#### 新增Form元素
+
+* datalist
+* output
+
+#### 新增input元素类型
+
+* color
+* date
+* datetime
+* datetime-local
+* email
+* month
+* number
+* range
+* search
+* tel
+* time
+* url
+* week
+
+#### 新增input元素属性
+
+* autocomplete
+* autofocus
+* form
+* formaction
+* formenctype
+* formmethod
+* formnovalidate
+* formtarget
+* height and width
+* list
+* min and max
+* multiple
+* pattern (regexp)
+* placeholder
+* required
+* step
+
+## HTML Question
+
+**doctype 的意义**
+
+**HTML XHTML HTML5**
+
+**HTML5 变化**
+
+1. 新的语义化元素
+2. 表单增强
+3. 新的API（离线、音视频、图形、实时通信、本地存储、设备能力）
+4. 元素分类和嵌套规则变更 eg. 
+
+**em 和 i区别**
+
+1. em 是语义化标签，表示强调
+2. i 是样式标签，表示斜体
+3. i 用作图表
+
+**语义化的意义**
+
+1. 开发者容易理解
+2. 机器容易理解结构（搜索引擎、读屏软件）
+3. 有助于SEO
+4. semantic microData
+
+**那些元素可以闭合**
+
+1. 表单元素
+2. 图片
+3. br hr
+4. meta link
+
+**HTML和DOM的关系**
+
+1. HTML是“死”，是一段字符串
+2. DOM是由HTML解析的，是一个对象
+3. JS可以维护DOM
+
+**property 和 attribute**
+
+1. property是DOM对象的属性
+2. attribute是“死”的，是HTML的一个属性
+3. property的值和attribute的值是互不干扰的
+
+**form的作用**
+
+1. 直接提交表单
+2. 使用submit/reset按钮
+3. 便于浏览器保存表单
+4. 第三方库可以整体提取值
+5. 第三方库可以进行表单验证
+
+

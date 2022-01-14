@@ -7,9 +7,13 @@
 @layer utilities {
 
 
+
+
+
+
   /* aside */
   .active-link {
-    @apply transition-colors duration-200 justify-start bg-gradient-to-r from-secondary-content to-primary-content border-r-4 border-secondary
+    @apply transition-colors duration-200 justify-start bg-gradient-to-r from-secondary-content to-primary-content border-r-4 border-secondary text-secondary
   }
 
 
@@ -38,24 +42,27 @@
   }
 
   /* home article */
+  .home-card {
+    @apply w-full px-6 py-10 mb-10 bg-cover rounded-2xl shadow-lg bg-secondary-content text-primary
+  }
+
   .article-container {
-    @apply container relative flex pl-2 mb-20 after:absolute after:top-20 after:bottom-4 after:w-1 after:right-0 after:shadow-lg after:bg-gradient-to-r from-cyan-500 to-blue-500 
+    @apply relative px-6 py-10 pl-2 mb-20 bg-secondary-content bg-cover rounded-2xl shadow-lg
   }
 
   .article-header {
-    @apply relative flex flex-col justify-end shrink-0 grow-0 basis-64 mt-16 pb-8 pl-3 z-0 mr-1 before:absolute before:bg-gradient-to-r from-cyan-500 to-blue-500 
-    before:-top-1 before:-right-1 before:w-calc-10 before:h-calc-10 before:rounded-xl before:-z-10
-    after:absolute after:top-px after:right-px after:w-full after:h-full after:rounded-lg after:bg-secondary-content after:-z-10
+    @apply relative flex flex-col justify-end shrink-0 grow-0 basis-64 mt-16 pb-8 pl-3 z-0 mr-1
   }
-
+  
   .article-card {
-    @apply relative z-10 w-80 h-80 p-8 bg-secondary-content transition rounded-2xl 
+    @apply relative z-10 min-w-20 h-80 p-8  transition rounded-2xl 
+           focus-within:rotate-6 hover:-translate-y-4 hover:rotate-6 focus-within:-translate-y-4
   }
-  .article-card {
-    @apply focus-within:rotate-12 hover:-translate-y-10 hover:rotate-12 focus-within:-translate-y-10 
+  .mini-card {
+    @apply bg-card-bi shadow-card-h shadow-primary-content
   }
   .article-card:focus-within~.article-card, .article-card:hover~.article-card {
-    @apply translate-x-40
+    @apply translate-x-36
   }
   .article-card:not(:first-child) {
     @apply -ml-32
