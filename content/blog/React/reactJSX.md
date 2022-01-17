@@ -4,8 +4,7 @@ date: 2021-07-02 10:28:48
 cover: https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/react/react-jsx.png
 tags:
   - React
-categories:
-  - React
+categories: React
 ---
 
 **JSX** 是 JavaScript 语法的一种扩展，可以在 JavaScript 中编写`HTML`代码，这样做是为了更好的将页面逻辑和页面结构结合在一起，符合 React 的组件化的开发模式。

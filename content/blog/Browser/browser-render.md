@@ -4,8 +4,7 @@ date: 2021-04-26 19:00
 cover: https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/browser/bg/render.png
 tags: 
   - Browser
-categories: 
-  - Browser
+categories: Browser
 ---
 
 

@@ -11,12 +11,11 @@ const RecommendArticle = () => {
     {
       allMarkdownRemark(
         sort: {fields: frontmatter___date, order: DESC},
-        limit: 4
+        limit: 10
       ) {
         nodes {
           excerpt
           frontmatter {
-            category
             cover
             date(formatString: "YYYY-MM-DD")
             description
@@ -32,23 +31,6 @@ const RecommendArticle = () => {
     }
   `)
 
-  let a = 'shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]'
-
-  const bgColor = [
-    {
-      from: `from-orange-400`,
-      to: `to-orange-200`,
-    },{
-      from: `from-cyan-400`,
-      to: `to-cyan-200`,
-    },{
-      from: `from-amber-400`,
-      to: `to-orange-400`,
-    },{
-      from: `from-green-400`,
-      to: `to-cyan-400`,
-    }
-  ]
 
   const curMonthArticle = data.allMarkdownRemark.nodes || []
 
@@ -60,30 +42,30 @@ const RecommendArticle = () => {
           Recommend Article this month
         </p>
       </div>
-      <div className="article-box  overflow-hidden py-8 pl-4">
-        <div className='overflow-x-scroll flex w-full'>
-          {
-            curMonthArticle.map((ac,idx) => {
-              return (
-                <article className='article-card mini-card' key={idx}>
-                  <section className=''>
+      <div className="article-box overflow-x-scroll flex w-full pt-8 pb-1 pl-4">
+        {
+          curMonthArticle.map((ac) => {
+            return (
+              <article className='article-card mini-card' key={ac.id}>
+                <div className=''>
+                  <section className='mb-6'>
                     {
-                      (ac.frontmatter.tags || []).map(tag => (
-                        <Link to='/'>{tag}</Link>
+                      (ac.frontmatter.tags || []).map((tag, idx) => (
+                        <Link to='/' key={idx}><em>#{tag}</em></Link>
                       ))
                     }
                   </section>
-                  <h1>
+                  <h1 className='mb-6 text-2xl'>
                     <Link to={ac.fields.slug} itemProp="url">{ac.frontmatter.title}</Link>
                   </h1>
-                  <span className=''>{ac.frontmatter.date}</span>
-                  
-                </article>
-              )
-            })
-          }
-        </div>
-        
+                </div>
+                
+                <span className=''>{ac.frontmatter.date}</span>
+                
+              </article>
+            )
+          })
+        }
       </div>
     </section>
   )

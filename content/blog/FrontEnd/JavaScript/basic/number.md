@@ -4,8 +4,7 @@ date: 2021-02-20 18:28:48
 cover: https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/JavaScript/bg/number.png
 tags: 
   - JavaScript
-categories: 
-  - JavaScript
+categories: JavaScript
 ---
 
 **Number**类型在JavaScript中会被频繁使用，其使用**IEEE 754**格式表示整数和浮点值，也就是`双精度值`。不同的数值类型会有对应的字面量格式。

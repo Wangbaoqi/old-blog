@@ -18,57 +18,65 @@ const BlogPostTemplate = ({ data, location }) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
-      <section className="relative grid gap-8 grid-cols-main-grid rounded-2xl bg-secondary-content ">
-        <article
-          className="relative max-w-full p-8 typo prose tn-typo "
-          itemScope
-          itemType="http://schema.org/Article"
-        >
-          <header>
-            <h1 itemProp="headline">{post.frontmatter.title}</h1>
-            <p>{post.frontmatter.date}</p>
-          </header>
-          <section
-            dangerouslySetInnerHTML={{ __html: post.html }}
-            itemProp="articleBody"
-          />
-          <hr />
-          <footer>
-            <Bio />
-          </footer>
-        </article>
+
+      <section className="relative gap-12 grid grid-cols-main-grid rounded-2xl bg-secondary-content ">
+
+        <div className="max-w-7xl mx-auto max-w">
+          <article
+            className="relative p-8 typo prose tn-typo max-w-5xl"
+            itemScope
+            itemType="http://schema.org/Article"
+          >
+            <header>
+              <h1 itemProp="headline">{post.frontmatter.title}</h1>
+              <p>{post.frontmatter.date}</p>
+            </header>
+            <section
+              dangerouslySetInnerHTML={{ __html: post.html }}
+              itemProp="articleBody"
+            />
+            <hr />
+
+            <nav className="blog-post-nav">
+              <ul
+                style={{
+                  display: `flex`,
+                  flexWrap: `wrap`,
+                  justifyContent: `space-between`,
+                  listStyle: `none`,
+                  padding: 0,
+                }}
+              >
+                <li>
+                  {previous && (
+                    <Link to={previous.fields.slug} rel="prev">
+                      ← {previous.frontmatter.title}
+                    </Link>
+                  )}
+                </li>
+                <li>
+                  {next && (
+                    <Link to={next.fields.slug} rel="next">
+                      {next.frontmatter.title} →
+                    </Link>
+                  )}
+                </li>
+              </ul>
+            </nav>
+            <footer>
+              <Bio />
+            </footer>
+          </article>
+          
+        </div>
+        
         <aside className="article-content">
           <h2 className="font-bold mb-4">on this page</h2>
           <section className="article-list" dangerouslySetInnerHTML={{ __html: post.tableOfContents}}></section>
         </aside>
       </section>
       
-      <nav className="blog-post-nav">
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
-          <li>
-            {previous && (
-              <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
-              </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
-              </Link>
-            )}
-          </li>
-        </ul>
-      </nav>
+      
     </Layout>
   )
 }

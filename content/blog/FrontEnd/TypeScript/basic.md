@@ -4,8 +4,7 @@ date: 2021-03-05 10:28:48
 cover: https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/bg/bg19.jpeg
 tags: 
   - TypeScript
-categories: 
-  - TypeScript
+categories: TypeScript
 ---
 
 

@@ -69,8 +69,6 @@ const Aside = ({location}) => {
             </div>
           ))
         }
-        
-        
       </nav>
     </div>
   )

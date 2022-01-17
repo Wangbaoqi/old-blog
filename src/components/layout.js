@@ -15,8 +15,8 @@ const Layout = ({ children }) => {
   return (
     <ThemeProvider>
       <div className="bg-primary-content text-primary h-screen overflow-hidden relative font-mono text-base antialiased">
-        <div className="container mx-auto flex items-start justify-between">
-          <aside className="h-screen hidden lg:block md:pt-4 ml-4 shadow-lg relative w-96">
+        <div className=" mx-auto flex items-start justify-between">
+          <aside className="h-screen hidden lg:block md:pt-4 ml-4 shadow-lg relative w-80">
             <Aside />
           </aside>
           <main className="h-screen flex flex-col w-full pl-0 md:p-4 md:space-y-4">
@@ -26,7 +26,6 @@ const Layout = ({ children }) => {
             </section>
           </main>
         </div>
-        
       </div>
     </ThemeProvider>
   )

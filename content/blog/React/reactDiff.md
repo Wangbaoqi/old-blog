@@ -4,8 +4,7 @@ date: 2021-07-10 10:28:48
 cover: https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/react/react-diff.png
 tags:
   - React
-categories:
-  - React
+categories: React
 ---
 
 <!-- 1. 什么是 Diff 算法？

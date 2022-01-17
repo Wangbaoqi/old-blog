@@ -1,10 +1,9 @@
 ---
 title: HTML语法 - 解析文档
 date: 2021-01-19 16:34:05
+categories: HTML
 cover: https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/html/html-cover-parse.png
 tags: 
-  - HTML
-categories: 
   - HTML
 ---
 

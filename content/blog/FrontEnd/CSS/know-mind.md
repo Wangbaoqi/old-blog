@@ -1,10 +1,9 @@
 ---
 title: CSS 知识体系
 date: 2021-01-28 10:28:48
+categories: CSS
 cover: https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/css/css-cover-all.png
 tags: 
-  - CSS
-categories: 
   - CSS
 ---
 

@@ -6,6 +6,7 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import TopArticle from "../components/topArticle"
 import RecommendArticle from "../components/recommendArticle"
+import NewestArticle from "../components/newestArticle"
 
 const BlogIndex = () => {
   
@@ -16,7 +17,7 @@ const BlogIndex = () => {
 
       <TopArticle/>
       <RecommendArticle/>
-
+      <NewestArticle />
     </Layout>
   )
 }

@@ -4,8 +4,7 @@ date: 2021-04-28 10:28:48
 cover: https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/browser/bg/event.png
 tags: 
   - Browser
-categories: 
-  - Browser
+categories: Browser
 ---
 
 > 事件循环是什么？为什么会有事件循环机制？ JS是单线程的语言，如果在执行过程中遇到异步的代码，不可能一直等待（浪费资源。。。）, 至此，事件循环机制就运用而生了。

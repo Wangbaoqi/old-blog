@@ -4,8 +4,7 @@ date: 2021-03-04 10:28:48
 cover: https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/JavaScript/bg/module.png
 tags: 
   - JavaScript
-categories: 
-  - JavaScript
+categories: JavaScript
 ---
 
 

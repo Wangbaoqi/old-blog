@@ -23,7 +23,6 @@ const TopArticle = () => {
             description
             title
             tags
-            category
           }
         }
       }

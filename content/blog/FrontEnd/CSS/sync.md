@@ -4,8 +4,7 @@ date: 2021-01-29 12:28:48
 cover: https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/css/css-syntax.png
 tags: 
   - CSS
-categories: 
-  - CSS
+categories: CSS
 ---
 
 ## CSS 语法描述

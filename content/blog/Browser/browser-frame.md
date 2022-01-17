@@ -2,9 +2,8 @@
 title: Browser 架构
 date: 2021-04-25 10:28:48
 cover: https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/browser/bg/frame.png
+categories: Browser
 tags: 
-  - Browser
-categories: 
   - Browser
 ---
 

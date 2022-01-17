@@ -1,11 +1,11 @@
 ---
 title: CSS 层叠与继承
 date: 2021-01-31 19:28:48
+categories: CSS
 cover: https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/css/css-inherit.png
 tags: 
   - CSS
-categories: 
-  - CSS
+
 ---
 
 > CSS 层叠和继承模块描述如何整理样式规则并为所有元素的所有属性赋值。通过级联和继承，可以为所有元素的所有属性传播值。

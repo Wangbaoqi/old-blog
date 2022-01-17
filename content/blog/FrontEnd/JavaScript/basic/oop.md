@@ -4,8 +4,7 @@ date: 2021-02-28 10:28:48
 cover: https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/JavaScript/bg/oop.png
 tags: 
   - JavaScript
-categories: 
-  - JavaScript
+categories: JavaScript
 ---
 
 > 将整个系统划分成规 模更小的部分，各部分之间彼此独立。如果这些较小的部分能够尽可能多地隐藏实现细节，它们 6 就会变得易于使用

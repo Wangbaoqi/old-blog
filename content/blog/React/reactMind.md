@@ -4,8 +4,7 @@ date: 2021-07-01 10:28:48
 cover: https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/react/react-core.png
 tags: 
   - React
-categories: 
-  - React
+categories: React
 ---
 
 > React 是用 JavaScript 构建**快速响应**的大型 Web 应用程序的首选方式。它在 Facebook 和 Instagram 上表现优秀。

@@ -4,8 +4,7 @@ date: 2021-02-21 18:28:48
 cover: https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/JavaScript/bg/string.png
 tags: 
   - JavaScript
-categories: 
-  - JavaScript
+categories: JavaScript
 ---
 
 ## SourceCharacter 

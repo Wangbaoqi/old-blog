@@ -3,9 +3,9 @@ title: 从源码看 React API
 date: 2021-07-06 10:28:48
 cover: https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/react/react-api.png
 tags: 
-  - React 
-categories: 
   - React
+
+categories: React
 ---
 
 React 中导出了很多的API，这里对这些API结合例子来进行学习

@@ -2,10 +2,8 @@
 title: JS 数组
 date: 2021-02-26 10:28:48
 cover: https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/JavaScript/bg/array.png
-tags: 
-  - JavaScript
-categories: 
-  - JavaScript
+tags: ['JavaScript']
+categories: JavaScript
 ---
 
 

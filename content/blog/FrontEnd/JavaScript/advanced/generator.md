@@ -3,9 +3,8 @@ title: JS 迭代器与异步函数
 date: 2021-03-02 10:28:48
 cover: https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/JavaScript/bg/generator.png
 tags: 
-  - JavaScript
-categories: 
-  - JavaScript
+  - javascript
+categories: javascript
 ---
 
 ## 迭代协议
