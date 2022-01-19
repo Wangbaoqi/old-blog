@@ -11,6 +11,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // Define a template for blog post
   const blogPost = path.resolve(`./src/templates/blog-post.js`)
   const tagTemplate = path.resolve("./src/templates/blog-tags.js")
+  const categoryTemplate = path.resolve("./src/templates/blog-category.js")
 
   // Get all markdown blog posts sorted by date
   const result = await graphql(
@@ -44,7 +45,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     return
   }
 
-  console.log(result.data, 'postsRemark');
   const posts = result.data.postsRemark.nodes || []
 
   // Create blog posts pages
@@ -90,11 +90,32 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   if (node.internal.type === `MarkdownRemark`) {
     const value = createFilePath({ node, getNode })
 
+    const parent = getNode(_.get(node, 'parent'))
+
+    createNodeField({
+      node,
+      name: 'collection',
+      value: _.get(parent, 'sourceInstanceName'),
+    })
+
+    const date = new Date(node.frontmatter.date)
+
+    const year = date.getFullYear()
+    const month = date.getMonth() + 1
+    const year_month = `${year}-${month}`
+    const day = date.getDate()
+
     createNodeField({
       name: `slug`,
       node,
       value,
     })
+    
+
+    createNodeField({ node, name: "year", value: year })
+    createNodeField({ node, name: "month", value: month })
+    createNodeField({ node, name: "year-month", value: year_month })
+    createNodeField({ node, name: "day", value: day })
   }
 }
 

@@ -4,7 +4,7 @@ date: 2021-01-19 16:34:05
 categories: HTML
 cover: https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/html/html-cover-parse.png
 tags: 
-  - HTML
+  - html
 ---
 
 > HTML 解析过程的输入由一系列代码点组成，这些代码点通过一个标记化阶段，然后是树构造阶段。输出是一个 Document 对象。

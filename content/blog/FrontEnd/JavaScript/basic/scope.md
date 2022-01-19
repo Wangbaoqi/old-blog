@@ -3,8 +3,8 @@ title: JS 作用域以及闭包
 date: 2021-02-22 10:28:48
 cover: https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/JavaScript/bg/scope.png
 tags: 
-  - JavaScript
-categories: JavaScript
+  - javascript
+categories: 前端
 ---
 
 ## 理解作用域

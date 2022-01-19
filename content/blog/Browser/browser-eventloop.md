@@ -3,7 +3,7 @@ title: Browser EventLoop
 date: 2021-04-28 10:28:48
 cover: https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/browser/bg/event.png
 tags: 
-  - Browser
+  - browser
 categories: Browser
 ---
 

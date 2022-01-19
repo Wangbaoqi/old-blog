@@ -2,19 +2,18 @@
 title: JS 代理与反射
 date: 2021-03-03 10:28:48
 cover: https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/JavaScript/bg/Proxy.png
-tags: 
-  - JavaScript
-categories: JavaScript
+tags:
+  - javascript
+categories: 前端
 ---
 
-
-Proxy 是**ECMAScript6**最新提出来的一种拦截并且可以增加一些额外操作的能力。比如拦截对象，在真正访问到目标对象之前做一些额外的操作。类似于 `Object.defineProperty()`  ，可以拦截对象的**属性，**而**Proxy**拦截的整个目标对象，当然也可以拦截其对象属性。
+Proxy 是**ECMAScript6**最新提出来的一种拦截并且可以增加一些额外操作的能力。比如拦截对象，在真正访问到目标对象之前做一些额外的操作。类似于 `Object.defineProperty()` ，可以拦截对象的**属性，**而**Proxy**拦截的整个目标对象，当然也可以拦截其对象属性。
 
 ## 空代理
 
 ```javascript
 const target = {
-  name: 'nate'
+  name: "nate",
 }
 // 空代理
 const handle = {}
@@ -33,62 +32,61 @@ console.log(proxy.name) // nate
 
 ```javascript
 const target = {
-  name: 'nate'
+  name: "nate",
 }
 const handle = {
   get() {
-    return 'baoqi'
-  }
+    return "baoqi"
+  },
 }
 const proxy = new Proxy(target, handle)
-console.log(proxy.name); // baoqi
+console.log(proxy.name) // baoqi
 ```
 
 这种直接拦截了`name` 属性的获取，直接返回了拦截器中返回的值。
 
-除此之外，get可以接收三个参数，`trapTarget`、`property`、`receive` 分别对应的目标对象、获取的属性名、代理对象。
+除此之外，get 可以接收三个参数，`trapTarget`、`property`、`receive` 分别对应的目标对象、获取的属性名、代理对象。
 
 ```javascript
 const target = {
-  name: 'nate'
+  name: "nate",
 }
 const handle = {
   get(trapTarget, property, receive) {
-    console.log(trapTarget == target); // true
-    console.log(property); // name
-    console.log(receive == proxy); // true
+    console.log(trapTarget == target) // true
+    console.log(property) // name
+    console.log(receive == proxy) // true
     // 返回目标对象的属性值
-    return trapTarget[property]; 
-    
-  }
+    return trapTarget[property]
+  },
 }
 const proxy = new Proxy(target, handle)
-console.log(proxy.name); // nate
+console.log(proxy.name) // nate
 ```
 
 还有一种方式，就是使用反射**Reflect API（封装了原始的行为），这些方式与捕获器拦截的方法具有同样的名称和函数签名，也具有相同的行为。**
 
-反射API也可以定义出空代理的模式
+反射 API 也可以定义出空代理的模式
 
 ```javascript
 const target = {
-  name: 'nate'
+  name: "nate",
 }
 const handle = {
   get() {
     return Reflect.get(...arguments)
-  }
+  },
 }
 const proxy = new Proxy(target, handle)
-console.log(proxy.name); // nate
-console.log(target.name); // nate
+console.log(proxy.name) // nate
+console.log(target.name) // nate
 ```
 
 还有简洁的定义的方式
 
 ```javascript
 const handle = {
-  get: Reflect.get
+  get: Reflect.get,
 }
 ```
 
@@ -97,29 +95,29 @@ const handle = {
 撤销代理可以将目标对象了代理对象之间的联系断开，其操作是不可逆的，撤销操作是幂等的，调用多少次结果都是一样的，撤销操作之后再使用代理会直接抛出异常
 
 ```javascript
-const {proxy, revoke} = new Proxy(target, handle);
-console.log(prxoy.name); // nate
-revoke(); // 撤销代理
-console.log(proxy.name); // TypeError
+const { proxy, revoke } = new Proxy(target, handle)
+console.log(prxoy.name) // nate
+revoke() // 撤销代理
+console.log(proxy.name) // TypeError
 ```
 
-## 代理捕获器和反射API
+## 代理捕获器和反射 API
 
-上述讲过，捕获器和反射API是对应的，[反射API](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Proxy#)是封装了原生的方法
+上述讲过，捕获器和反射 API 是对应的，[反射 API](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Proxy#)是封装了原生的方法
 
-* `get`
-* `set`
-* `has`
-* `defineProperty`
-* `getOwnPropertyDescription`
-* `deleteProperty`
-* `ownKeys`
-* `getPrototypeOf`
-* `setPrototypeOf`
-* `isExtensible`
-* `preventExtentsions`
-* `apply`
-* `construct`
+- `get`
+- `set`
+- `has`
+- `defineProperty`
+- `getOwnPropertyDescription`
+- `deleteProperty`
+- `ownKeys`
+- `getPrototypeOf`
+- `setPrototypeOf`
+- `isExtensible`
+- `preventExtentsions`
+- `apply`
+- `construct`
 
 ## 代理模式
 
@@ -131,14 +129,13 @@ console.log(proxy.name); // TypeError
 
 ```javascript
 const proxy_p = new Proxy(object, {
-
   get(trapTarget, property, receiver) {
     return Reflect.get(...arguments)
   },
 
   set(target, property, value, receiver) {
     return Reflect.set(...arguments)
-  }
+  },
 })
 ```
 
@@ -147,22 +144,20 @@ const proxy_p = new Proxy(object, {
 既然可以拦截属性，那么也可以对属性操作就跟简单了
 
 ```javascript
-const hidden = ['name']
+const hidden = ["name"]
 const proxy_p = new Proxy(object, {
-
   get(target, property, receiver) {
-    if(hidden.includes(property)) {
+    if (hidden.includes(property)) {
       return undefined
     }
     return Reflect.get(...arguments)
   },
 
   has(target, property) {
-    if(hidden.includes(property)) return false;
+    if (hidden.includes(property)) return false
     return Reflect.has(...arguments)
-  }
+  },
 })
-
 ```
 
 ## 属性验证
@@ -171,13 +166,12 @@ const proxy_p = new Proxy(object, {
 
 ```javascript
 const proxy_p = new Proxy(object, {
-
   set(target, property, value) {
-    if(typeof value != 'string') {
+    if (typeof value != "string") {
       return false
     }
     return Reflect.set(...arguments)
-  }
+  },
 })
 ```
 
@@ -186,24 +180,22 @@ const proxy_p = new Proxy(object, {
 拦截函数的参数是否是想要的类型
 
 ```javascript
-
 const fn = (...num) => {
   return num.sort()
 }
 
 const proxy_fn = new Proxy(fn, {
   apply(target, thisArg, argList) {
-    [...argList].map(e => {
-      if(typeof e != 'number') {
-        throw new Error('args not all is a number type')
+    ;[...argList].map(e => {
+      if (typeof e != "number") {
+        throw new Error("args not all is a number type")
       }
     })
     return Reflect.apply(...arguments)
-  }
+  },
 })
 
-console.log(proxy_fn(1,'3',3), 'func'); // Uncaught Error: args not all is a number type
-
+console.log(proxy_fn(1, "3", 3), "func") // Uncaught Error: args not all is a number type
 ```
 
 拦截构造函数的参数，判断是否需要参数
@@ -217,14 +209,14 @@ class Person {
 
 const Proxy_c = new Proxy(Person, {
   construct(target, thisArg, newTarget) {
-    if(!thisArg[0]) {
-      throw new Error('constructor need a param')
+    if (!thisArg[0]) {
+      throw new Error("constructor need a param")
     }
     return Reflect.construct(...arguments)
-  }
+  },
 })
 
-console.log(new Proxy_c(), 'func');
+console.log(new Proxy_c(), "func")
 ```
 
 ## 数据绑定和可观察对象
@@ -235,32 +227,31 @@ console.log(new Proxy_c(), 'func');
 const personList = []
 const Proxy_d = new Proxy(Person, {
   construct() {
-    const proxy = Reflect.construct(...arguments);
+    const proxy = Reflect.construct(...arguments)
     personList.push(proxy)
     return proxy
-  }
+  },
 })
 
-console.log(new Proxy_d('nate'), 'func');
-console.log(personList, 'personList');
+console.log(new Proxy_d("nate"), "func")
+console.log(personList, "personList")
 ```
 
 可观察对象 在添加消息的时候将这个消息分发出去
 
 ```javascript
-const msgList = [];
-const emit = (msg) => {
-  console.log(msg, 'emit');
+const msgList = []
+const emit = msg => {
+  console.log(msg, "emit")
 }
 const proxy_m = new Proxy(msgList, {
   set(target, property, value, receiver) {
     const proxy = Reflect.set(...arguments)
-    proxy && emit(Reflect.get(target, property, receiver));
+    proxy && emit(Reflect.get(target, property, receiver))
     return proxy
-  }
+  },
 })
 
-proxy_m.push('nate')
-console.log(msgList, 'func');
+proxy_m.push("nate")
+console.log(msgList, "func")
 ```
-

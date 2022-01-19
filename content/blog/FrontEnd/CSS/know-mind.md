@@ -4,7 +4,7 @@ date: 2021-01-28 10:28:48
 categories: CSS
 cover: https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/css/css-cover-all.png
 tags: 
-  - CSS
+  - css
 ---
 
 CSS（层叠样式表），英文 `Cascading Stylesheets`，其目的是去绘制结构性文档在页面上的呈现。

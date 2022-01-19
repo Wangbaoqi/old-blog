@@ -3,8 +3,8 @@ title: JS 函数、类
 date: 2021-02-27 10:28:48
 cover: https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/JavaScript/bg/function-class.png
 tags: 
-  - JavaScript
-categories: JavaScript
+  - javascript
+categories: 前端
 ---
 
 

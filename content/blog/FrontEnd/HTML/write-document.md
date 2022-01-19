@@ -3,7 +3,7 @@ title: HTML语法 - 编写文档
 date: 2021-01-23 14:44:05
 cover: https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/html/html-cover-write.png
 tags: 
-  - HTML
+  - html
 categories: HTML
 ---
 

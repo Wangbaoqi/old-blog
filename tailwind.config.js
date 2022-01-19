@@ -1,10 +1,25 @@
+const colors = require('tailwindcss/colors')
+
+
 module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
     extend: {
 
+      colors: {
+
+        html: colors.cyan,
+        css: colors.red,
+        javascript: colors.yellow,
+        typescript: colors.sky,
+        designPattern: colors.lime,
+        react: colors.sky,
+        browser: colors.teal
+      },
+
       minWidth: {
         '20': '20rem'
+
       },
       spacing: {
         'calc-10': 'calc(100% + 10px)',
@@ -15,7 +30,7 @@ module.exports = {
         'card-h': '-2rem 0 3rem -2rem var(--sc)',
       },
       backgroundImage: {
-        'card-bi': 'linear-gradient(85deg, hsl(var(--pc)), hsl(var(--sc)))'
+        'card-bi': 'linear-gradient(85deg, hsl(var(--sc)), hsl(var(--pc)))'
       },
       boxShadowColor: {
         'card-c': 'var(--sc)'
@@ -31,6 +46,7 @@ module.exports = {
       className: 'typo',
     }),
     require('daisyui'),
+    require('@tailwindcss/line-clamp'),
   ],
   daisyui: {
     styled: true,
@@ -39,11 +55,11 @@ module.exports = {
         'light': {
           'primary': '#000', // 字体颜色
           'primary-focus': '#087ea4',  // 聚焦颜色
-          'primary-content': '#f1f5f9', // 内容颜色
+          'primary-content': '#ffffff', // 内容颜色
 
           'secondary': '#087ea4', // 字体颜色 border 颜色
           'secondary-focus': '#bd0091',
-          'secondary-content': '#ffffff',
+          'secondary-content': '#d1d5db',
 
           // md style
           'accent': '#087ea4',

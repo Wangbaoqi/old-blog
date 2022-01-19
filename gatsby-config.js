@@ -18,14 +18,11 @@ module.exports = {
         title: '首页',
         path: '/'
       },{
+        title: '标签',
+        path: '/tags/html'
+      },{
         title: '归档',
         path: '/archive'
-      },{
-        title: '分类',
-        path: '/category'
-      },{
-        title: '标签',
-        path: '/tags'
       }
     ]
   },
@@ -44,6 +41,13 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        extensions: [`.mdx`, `.md`],
+        
       },
     },
     {

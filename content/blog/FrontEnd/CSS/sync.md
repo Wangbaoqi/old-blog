@@ -3,7 +3,7 @@ title: CSS 语法
 date: 2021-01-29 12:28:48
 cover: https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/css/css-syntax.png
 tags: 
-  - CSS
+  - css
 categories: CSS
 ---
 

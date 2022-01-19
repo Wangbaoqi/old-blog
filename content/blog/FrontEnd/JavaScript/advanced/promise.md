@@ -3,8 +3,8 @@ title: JS 期约Promise
 date: 2021-03-01 10:28:48
 cover: https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/JavaScript/bg/promise.png
 tags: 
-  - JavaScript
-categories: JavaScript
+  - javascript
+categories: 前端
 ---
 
 

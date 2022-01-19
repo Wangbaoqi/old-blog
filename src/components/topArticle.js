@@ -10,7 +10,7 @@ const TopArticle = () => {
       allMarkdownRemark(
         filter: {}
         sort: {order: DESC, fields: frontmatter___date}
-        limit: 2
+        limit: 1
       ) {
         nodes {
           excerpt
@@ -33,59 +33,49 @@ const TopArticle = () => {
 
   
   return (
-    <div className="home-card">
-      <div className="flex items-center mb-4 justify-between">
-        <p className="font-bold text-md">
-          Top Article 
-        </p>
-       
-      </div>
-      <section className="grid grid-cols-2 gap-5">
-        {
-          articles.map((im,idx) => (
-            <div key={idx} className="card shadow-xl bg-gradient-to-r from-cyan-500 to-blue-500">
-              <div className="justify-end card-body">
-                <h2 className="card-title">
-                  <Link to={im.fields.slug} itemProp="url">
-                    {im.frontmatter.title}
-                  </Link>
-                </h2> 
-                <ul className="flex">
-                  {(im.frontmatter.tags || []).map((tag, idx) => (
-                    <li key={idx}>
-                      <em>{`#${tag}`}</em>
-                    </li>
-                  ))}
-                </ul>
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: im.frontmatter.description || im.excerpt,
-                  }}
-                  itemProp="description"
-                />
-                <div className="">
-                  {im.frontmatter.date}
+    <section className="home-card pt-20">
+      {
+        articles.map((im,idx) => (
+          <div key={idx} className="flex flex-col lg:h-80 lg:flex-row">
+            <figure className="basis-1/2 pr-10">
+              <img src="https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/react/react-diff.png" className="rounded-xl h-full" />
+            </figure> 
+            <div className="basis-1/2 flex flex-col justify-between">
+              <ul className="flex mb-4">
+                {(im.frontmatter.tags || []).map((tag, idx) => (
+                  <li key={idx}>
+                    <em>{`#${tag}`}</em>
+                  </li>
+                ))}
+              </ul>
+
+              <h2 className="mb-4 text-4xl hover:text-primary-focus">
+                <Link to={im.fields.slug} itemProp="url">
+                  {im.frontmatter.title}
+                </Link>
+              </h2> 
+              
+              <p 
+                className="mb-4"
+                dangerouslySetInnerHTML={{
+                  __html: im.frontmatter.description || im.excerpt,
+                }}
+                itemProp="description"
+              />
+              <div className="avatar">
+                <div className="mr-6 w-12 h-12 mask mask-squircle">
+                  <img src="http://daisyui.com/tailwind-css-component-profile-2@56w.png" />
                 </div>
-              </div>
-            </div>
-          ))
-        }
-        
-        {/* <div class="card shadow-xl image-full before:opacity-20">
-          <figure>
-            <img src="https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/react/react-diff.png" />
-          </figure> 
-          <div class="justify-end card-body">
-            <h2 class="card-title">Image overlay</h2> 
-            <p>Rerum reiciendis beatae tenetur excepturi aut pariatur est eos. Sit sit necessitatibus veritatis sed molestiae voluptates incidunt iure sapiente.</p> 
-            <div class="">
-             
+                <section className="flex flex-col justify-around">
+                  <span className="text-base">Nate Wang</span>
+                  <span className="text-xs">{im.frontmatter.date}</span>
+                </section>
+              </div> 
             </div>
           </div>
-        </div> */}
-      </section>
-      
-    </div>
+        ))
+      }
+    </section>
   )
 }
 

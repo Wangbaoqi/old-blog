@@ -3,7 +3,7 @@ title: React 理念
 date: 2021-07-01 10:28:48
 cover: https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/react/react-core.png
 tags: 
-  - React
+  - react
 categories: React
 ---
 

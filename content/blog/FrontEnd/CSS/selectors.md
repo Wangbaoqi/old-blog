@@ -4,7 +4,7 @@ date: 2021-01-30 20:28:48
 categories: CSS
 cover: https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/css/css-selector.png
 tags: 
-  - CSS
+  - css
 ---
 
 

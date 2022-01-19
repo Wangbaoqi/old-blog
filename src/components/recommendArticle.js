@@ -37,12 +37,7 @@ const RecommendArticle = () => {
 
   return (
     <section className="home-card">
-      <div className="flex items-center mb-4 justify-between">
-        <p className="font-bold text-md">
-          Recommend Article this month
-        </p>
-      </div>
-      <div className="article-box overflow-x-scroll flex w-full pt-8 pb-1 pl-4">
+      <div className="article-box overflow-x-scroll flex w-full pt-8 pb-1 pl-4 -ml-4">
         {
           curMonthArticle.map((ac) => {
             return (
@@ -55,13 +50,19 @@ const RecommendArticle = () => {
                       ))
                     }
                   </section>
-                  <h1 className='mb-6 text-2xl'>
+                  <h1 className='mb-6 text-2xl hover:text-primary-focus'>
                     <Link to={ac.fields.slug} itemProp="url">{ac.frontmatter.title}</Link>
                   </h1>
                 </div>
-                
-                <span className=''>{ac.frontmatter.date}</span>
-                
+                <div className="avatar">
+                  <div className="mr-6 w-12 h-12 mask mask-squircle">
+                    <img src="http://daisyui.com/tailwind-css-component-profile-2@56w.png" />
+                  </div>
+                  <section className="flex flex-col justify-around">
+                    <span className="text-base">Nate Wang</span>
+                    <span className="text-xs">{ac.frontmatter.date}</span>
+                  </section>
+                </div> 
               </article>
             )
           })

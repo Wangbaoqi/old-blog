@@ -13,7 +13,7 @@
 
   /* aside */
   .active-link {
-    @apply transition-colors duration-200 justify-start bg-gradient-to-r from-secondary-content to-primary-content border-r-4 border-secondary text-secondary
+    @apply transition-colors duration-200 text-primary-focus
   }
 
 
@@ -45,11 +45,11 @@
 
 
   .home-card {
-    @apply w-full px-6 pt-10 pb-8 mb-10 bg-cover rounded-2xl shadow-lg bg-secondary-content text-primary
+    @apply w-full mt-20 mb-20 rounded-2xl  bg-primary-content text-primary
   }
 
   .article-container {
-    @apply relative px-6 py-10 pl-2 mb-20 bg-secondary-content bg-cover rounded-2xl shadow-lg
+    @apply relative px-6 py-10 pl-2 mb-20 bg-primary-content bg-cover rounded-2xl shadow-lg
   }
 
   .article-header {

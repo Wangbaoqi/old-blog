@@ -4,7 +4,7 @@ date: 2021-01-31 19:28:48
 categories: CSS
 cover: https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/css/css-inherit.png
 tags: 
-  - CSS
+  - css
 
 ---
 

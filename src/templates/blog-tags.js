@@ -5,36 +5,29 @@ import PropTypes from "prop-types"
 import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
+import Article from "../components/article"
+import TagsPage from '../pages/tags'
 
 const Tags = ({ pageContext, data }) => {
+
   const { tag } = pageContext
 
-  console.log('tag template', tag);
   const { edges, totalCount } = data.allMarkdownRemark
-  const tagHeader = `${totalCount} post${
-    totalCount === 1 ? "" : "s"
-  } tagged with "${tag}"`
+  const tagHeader = `关于 ${tag} 共有${totalCount} 篇文章`
 
   return (
-    <Layout>
-      <h1>{tagHeader}</h1>
-      <ul>
-        {edges.map(({ node }) => {
-          const { slug } = node.fields
-          const { title } = node.frontmatter
-          return (
-            <li key={slug}>
-              <Link to={slug}>{title}</Link>
-            </li>
-          )
-        })}
-      </ul>
-   
-      <Link to="/tags">All tags</Link>
-    </Layout>
+    <TagsPage>
+      <h1 className="text-2xl text-center my-10">{tagHeader}</h1>
+      <div className='grid gap-16 lg:grid-cols-3 xl:grid-cols-3'>
+        {
+          edges.map(({node}) => (
+            <Article key={node.id} data={node}/>
+          ))
+        }
+      </div>
+    </TagsPage>
   )
 }
-
 
 export default Tags
 
@@ -48,10 +41,16 @@ export const pageQuery = graphql`
       totalCount
       edges {
         node {
+          id
+          excerpt
           fields {
             slug
           }
           frontmatter {
+            cover
+            date(formatString: "YYYY-MM-DD")
+            description
+            tags
             title
           }
         }

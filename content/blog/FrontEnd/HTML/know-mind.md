@@ -3,7 +3,7 @@ title: HTML 知识体系
 date: 2021-01-10 19:28:48
 cover: https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/html/html-all-cover.png
 tags: 
-  - HTML
+  - html
 categories: HTML
 ---
 

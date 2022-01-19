@@ -3,8 +3,8 @@ title: JS 运算符
 date: 2021-02-21 10:28:48
 cover: https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/JavaScript/bg/operator.png
 tags: 
-  - JavaScript
-categories: JavaScript
+  - javascript
+categories: 前端
 ---
 
 > EMCA-262 描述了一组可以用于数据值的操作符。包括 **数学操作符、位运算符、关系运算符、相等运算符**。

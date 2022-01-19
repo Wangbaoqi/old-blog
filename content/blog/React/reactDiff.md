@@ -3,7 +3,7 @@ title: 从源码看 React Diff 算法
 date: 2021-07-10 10:28:48
 cover: https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/react/react-diff.png
 tags:
-  - React
+  - react
 categories: React
 ---
 

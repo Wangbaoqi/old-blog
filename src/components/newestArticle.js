@@ -36,7 +36,7 @@ const NewestArticle = () => {
 
   return (
     <section className='home-card'>
-      <div className='grid gap-12 lg:grid-cols-4 xl:grid-cols-4'>
+      <div className='grid gap-24 lg:grid-cols-4 xl:grid-cols-3'>
       {
         articleList.map((item) => (
           <Article key={item.id} data={item}/>

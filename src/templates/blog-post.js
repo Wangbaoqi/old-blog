@@ -10,8 +10,6 @@ const BlogPostTemplate = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = data
 
-  console.log(post.tableOfContents);
-
   return (
     <Layout location={location} title={siteTitle}>
       <Seo
@@ -19,7 +17,7 @@ const BlogPostTemplate = ({ data, location }) => {
         description={post.frontmatter.description || post.excerpt}
       />
 
-      <section className="relative gap-12 grid grid-cols-main-grid rounded-2xl bg-secondary-content ">
+      <section className="relative gap-12 grid grid-cols-main-grid rounded-2xl ">
 
         <div className="max-w-7xl mx-auto max-w">
           <article

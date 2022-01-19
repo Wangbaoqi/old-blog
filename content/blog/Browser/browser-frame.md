@@ -4,7 +4,7 @@ date: 2021-04-25 10:28:48
 cover: https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/browser/bg/frame.png
 categories: Browser
 tags: 
-  - Browser
+  - browser
 ---
 
 想要构建高性能的Web应用程序（网络流程、渲染流程、JavaScript执行以及Web安全），必然离不开浏览器。因此，掌握浏览器是非常重要的。

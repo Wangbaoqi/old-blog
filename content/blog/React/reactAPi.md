@@ -3,7 +3,7 @@ title: 从源码看 React API
 date: 2021-07-06 10:28:48
 cover: https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/react/react-api.png
 tags: 
-  - React
+  - react
 
 categories: React
 ---

@@ -3,8 +3,8 @@ title: JS this
 date: 2021-02-23 15:28:48
 cover: https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/JavaScript/bg/this.png
 tags: 
-  - JavaScript
-categories: JavaScript
+  - javascript
+categories: 前端
 ---
 
 
