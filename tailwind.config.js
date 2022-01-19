@@ -7,14 +7,35 @@ module.exports = {
     extend: {
 
       colors: {
-
-        html: colors.cyan,
-        css: colors.red,
-        javascript: colors.yellow,
-        typescript: colors.sky,
-        designPattern: colors.lime,
-        react: colors.sky,
-        browser: colors.teal
+        html: {
+          c: 'text-primary',
+          b: '#f2552c'
+        },
+        css: {
+          c: 'text-primary',
+          b: '#bc70a4'
+        },
+        javascript: {
+          c: 'text-primary',
+          b: '#ecdb54'
+        },
+        typescript: {
+          c: 'text-primary',
+          b: '#3776ab'
+        },
+        designPattern: {
+          c: 'text-primary',
+          b: '#3776ab'
+        },
+        react: {
+          c: 'text-primary',
+          b: '#61dafb'
+        },
+        browser: {
+          c: 'text-primary',
+          b: '#5b5ea6'
+        },
+        node: '#026e00'
       },
 
       minWidth: {
@@ -73,7 +94,8 @@ module.exports = {
           'base-100': '#ffffff',
           'base-200': '#f9fafb',
           'base-300': '#d1d5db',
-          'base-content': '#087ea4',
+
+          'base-content': '#39AFC8',
 
           'info': '#B65700',
           'success': '#009485',

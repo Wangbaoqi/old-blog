@@ -1,6 +1,6 @@
 ---
 title: React 理念
-date: 2021-07-01 10:28:48
+date: 2022-01-01 10:28:48
 cover: https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/react/react-core.png
 tags: 
   - react
@@ -11,7 +11,7 @@ categories: React
 
 **快速响应**，正是衡量一个Web应用程序是否是优秀的、体验好的标准。
 
-对于快速响应，主要体现在**屏幕刷新**和**服务快速响应**。*
+对于快速响应，主要体现在**屏幕刷新**和**服务快速响应**
 
 ### 屏幕刷新
 

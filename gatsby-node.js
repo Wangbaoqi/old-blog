@@ -4,14 +4,12 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 const _ = require("lodash")
 
 
-
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
   // Define a template for blog post
   const blogPost = path.resolve(`./src/templates/blog-post.js`)
   const tagTemplate = path.resolve("./src/templates/blog-tags.js")
-  const categoryTemplate = path.resolve("./src/templates/blog-category.js")
 
   // Get all markdown blog posts sorted by date
   const result = await graphql(
@@ -110,7 +108,6 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       node,
       value,
     })
-    
 
     createNodeField({ node, name: "year", value: year })
     createNodeField({ node, name: "month", value: month })

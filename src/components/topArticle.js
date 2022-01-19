@@ -2,6 +2,7 @@
 import * as React from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
 
+import { tagColorEnum } from '../config'
 
 const TopArticle = () => {
 
@@ -31,32 +32,37 @@ const TopArticle = () => {
 
   const articles = data.allMarkdownRemark.nodes || []
 
+  const getTagCls = (tag) => {
+    const tagColor = tagColorEnum[tag] ;
+
+    return `px-2 py-1 text-sm rounded-full ${tagColor} bg-react-b text-react-c`
+  } 
   
   return (
-    <section className="home-card pt-20">
+    <section className="home-card pt-20 transition duration-500 ease-in-out transform hover:scale-100">
       {
         articles.map((im,idx) => (
           <div key={idx} className="flex flex-col lg:h-80 lg:flex-row">
             <figure className="basis-1/2 pr-10">
-              <img src="https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/react/react-diff.png" className="rounded-xl h-full" />
+              <img src="https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/react/react-diff.png" className="rounded-3xl h-full" />
             </figure> 
             <div className="basis-1/2 flex flex-col justify-between">
               <ul className="flex mb-4">
                 {(im.frontmatter.tags || []).map((tag, idx) => (
-                  <li key={idx}>
+                  <li key={idx} className={getTagCls(tag)}>
                     <em>{`#${tag}`}</em>
                   </li>
                 ))}
               </ul>
 
-              <h2 className="mb-4 text-4xl hover:text-primary-focus">
+              <h2 className="mb-4 text-4xl font-medium hover:text-primary-focus">
                 <Link to={im.fields.slug} itemProp="url">
                   {im.frontmatter.title}
                 </Link>
               </h2> 
               
               <p 
-                className="mb-4"
+                className="mb-4 line-clamp-4"
                 dangerouslySetInnerHTML={{
                   __html: im.frontmatter.description || im.excerpt,
                 }}

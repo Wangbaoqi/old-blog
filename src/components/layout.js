@@ -18,7 +18,7 @@ const Layout = ({ children }) => {
         <header className="shadow-lg fixed top-0 z-50 w-full">
           <Aside />
         </header>
-        <main className="max-w-screen-xl mx-auto px-4 sm:px-6 md:px-12 z-1 mt-20">
+        <main className="max-w-screen-xl mx-auto px-4 sm:px-6 md:px-8 z-1 mt-20">
           {/* <Header /> */}
           <section className="relative h-screen pb-24 pt-2 pr-2 pl-2 md:pt-0 md:pr-0 md:pl-0">
             {children}
