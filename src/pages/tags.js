@@ -21,7 +21,7 @@ const TagsPage = ({children}) => {
 
   const data = useStaticQuery(graphql`
     {
-      allMarkdownRemark {
+      allMdx {
         group(field: frontmatter___tags) {
           fieldValue
           totalCount
@@ -31,7 +31,7 @@ const TagsPage = ({children}) => {
   `);
 
   const {
-    allMarkdownRemark: { group },
+    allMdx: { group },
     // site: {
     //   siteMetadata: { title },
     // },

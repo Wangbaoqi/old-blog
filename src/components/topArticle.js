@@ -8,7 +8,7 @@ const TopArticle = () => {
 
   const data = useStaticQuery(graphql`
     {
-      allMarkdownRemark(
+      allMdx(
         filter: {}
         sort: {order: DESC, fields: frontmatter___date}
         limit: 1
@@ -21,7 +21,6 @@ const TopArticle = () => {
           id
           frontmatter {
             date
-            description
             title
             tags
           }
@@ -30,7 +29,7 @@ const TopArticle = () => {
     }
   `)
 
-  const articles = data.allMarkdownRemark.nodes || []
+  const articles = data.allMdx.nodes || []
 
   const getTagCls = (tag) => {
     const tagColor = tagColorEnum[tag] ;

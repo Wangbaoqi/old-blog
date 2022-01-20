@@ -1,12 +1,13 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
 const BlogPostTemplate = ({ data, location }) => {
-  const post = data.markdownRemark
+  const post = data.mdx
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = data
 
@@ -17,11 +18,11 @@ const BlogPostTemplate = ({ data, location }) => {
         description={post.frontmatter.description || post.excerpt}
       />
 
-      <section className="relative gap-12 grid grid-cols-main-grid rounded-2xl ">
+      <section className="relative rounded-2xl flex ">
 
         <div className="max-w-7xl mx-auto max-w">
           <article
-            className="relative p-8 typo prose tn-typo max-w-5xl"
+            className="relative p-8 typo prose tn-typo max-w-4xl" 
             itemScope
             itemType="http://schema.org/Article"
           >
@@ -29,10 +30,7 @@ const BlogPostTemplate = ({ data, location }) => {
               <h1 itemProp="headline">{post.frontmatter.title}</h1>
               <p>{post.frontmatter.date}</p>
             </header>
-            <section
-              dangerouslySetInnerHTML={{ __html: post.html }}
-              itemProp="articleBody"
-            />
+            <MDXRenderer>{post.body}</MDXRenderer>
             <hr />
 
             <nav className="blog-post-nav">
@@ -65,7 +63,6 @@ const BlogPostTemplate = ({ data, location }) => {
               <Bio />
             </footer>
           </article>
-          
         </div>
         
         <aside className="article-content">
@@ -92,18 +89,18 @@ export const pageQuery = graphql`
         title
       }
     }
-    markdownRemark(id: { eq: $id }) {
+    mdx(id: { eq: $id }) {
       id
       excerpt(pruneLength: 160)
-      html
+      body
       tableOfContents
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
-        description
+        tags
       }
     }
-    previous: markdownRemark(id: { eq: $previousPostId }) {
+    previous: mdx(id: { eq: $previousPostId }) {
       fields {
         slug
       }
@@ -111,7 +108,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    next: markdownRemark(id: { eq: $nextPostId }) {
+    next: mdx(id: { eq: $nextPostId }) {
       fields {
         slug
       }

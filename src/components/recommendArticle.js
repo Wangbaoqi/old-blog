@@ -9,7 +9,7 @@ const RecommendArticle = () => {
 
   const data = useStaticQuery(graphql`
     {
-      allMarkdownRemark(
+      allMdx(
         sort: {fields: frontmatter___date, order: DESC},
         limit: 10
       ) {
@@ -18,7 +18,6 @@ const RecommendArticle = () => {
           frontmatter {
             cover
             date(formatString: "YYYY-MM-DD")
-            description
             tags
             title
           }
@@ -32,7 +31,7 @@ const RecommendArticle = () => {
   `)
 
 
-  const curMonthArticle = data.allMarkdownRemark.nodes || []
+  const curMonthArticle = data.allMdx.nodes || []
 
 
   return (

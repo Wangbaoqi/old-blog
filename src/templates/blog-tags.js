@@ -12,7 +12,7 @@ const Tags = ({ pageContext, data }) => {
 
   const { tag } = pageContext
 
-  const { edges, totalCount } = data.allMarkdownRemark
+  const { edges, totalCount } = data.allMdx
   const tagHeader = `关于 ${tag} 共有${totalCount} 篇文章`
 
   return (
@@ -33,7 +33,7 @@ export default Tags
 
 export const pageQuery = graphql`
   query($tag: String) {
-    allMarkdownRemark(
+    allMdx(
       limit: 2000
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { tags: { in: [$tag] } } }
@@ -49,7 +49,6 @@ export const pageQuery = graphql`
           frontmatter {
             cover
             date(formatString: "YYYY-MM-DD")
-            description
             tags
             title
           }

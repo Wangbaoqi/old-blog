@@ -7,14 +7,11 @@ tags:
 categories: React
 ---
 
-<!-- 1. 什么是 Diff 算法？
-2. 传统的 diff 算法时间复杂度 O^3
-3. 在同层中对比节点 降低时间复杂度，手写 Diff 算法
-4. react diff 过程
-5. 对比 vue diff
-6. 总结
 
-## React Diff -->
+
+```jsx react-live
+render( <strong>Hello World!</strong>)
+```
 
 在react中，更新`UI`必须生成新的`JSX`对象（称之为`visual DOM`），而`新的JSX`对象和`老的visual DOM`之间对比以最小的操作次数来获取`差异节点`（也称之为副作用），从而高效的更新`UI`。
 
@@ -38,8 +35,7 @@ react中，有两种类型的`diff`算法，**单节点diff**和**多节点diff*
 
 下面是`diff算法`的入口：
 
-```js
-// react/packages/react-reconciler/src/ReactChildFiber.old.js
+```js highlights=3-5 file=ReactChildFiber.old.js
 reconcileChildFibers(
     returnFiber: Fiber,
     currentFirstChild: Fiber | null,

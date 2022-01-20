@@ -10,7 +10,7 @@ const Archive = () => {
 
   const data = useStaticQuery(graphql`
     {
-      allMarkdownRemark(
+      allMdx(
         sort: {order: DESC, fields: [frontmatter___date, fields___year, fields___month]}
       ) {
         group(field: fields___year) {
@@ -24,7 +24,6 @@ const Archive = () => {
                 }
                 frontmatter {
                   date(formatString: "YYYY-MM-DD")
-                  description
                   tags
                   title
                 }
@@ -38,7 +37,7 @@ const Archive = () => {
   `)
 
 
-  const dateGroup = data.allMarkdownRemark.group; 
+  const dateGroup = data.allMdx.group; 
 
   const yearGroup = []
   // const monthGroup = []
@@ -91,12 +90,12 @@ const Archive = () => {
               <Tab.Panels className='relative basis-3/4'>
                 <div className="relative px-4 before:absolute before:top-2 before:bottom-0 before:w-0.5 before:-left-3 before:bg-primary-focus/75">
                   {
-                    monthGroup.map((node, idx) => (
+                    monthGroup.map((node, fdx) => (
 
-                      <Tab.Panel>
+                      <Tab.Panel key={fdx}>
                         {
-                          node.edges.map(({node}, idx) => (
-                            <div className="flex flex-col mb-12 relative before:absolute before:top-2 before:w-4 before:h-4 before:rounded-full before:left-[-35px] before:z-[1] before:bg-primary-focus">
+                          node.edges.map(({node}, sdx) => (
+                            <div key={sdx} className="flex flex-col mb-12 relative before:absolute before:top-2 before:w-4 before:h-4 before:rounded-full before:left-[-35px] before:z-[1] before:bg-primary-focus">
                               <h3 className="text-xl font-semibold tracking-wide hover:text-primary-focus">
                                 <Link to={node.fields.slug}>{node.frontmatter.title}</Link>
                               </h3>

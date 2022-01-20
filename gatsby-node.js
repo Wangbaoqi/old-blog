@@ -15,7 +15,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const result = await graphql(
     `
       {
-        postsRemark: allMarkdownRemark(
+        postsRemark: allMdx(
           sort: { fields: [frontmatter___date], order: ASC }
           limit: 1000
         ) {
@@ -26,7 +26,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             }
           }
         }
-        tagsGroup: allMarkdownRemark(limit: 2000) {
+        tagsGroup: allMdx(limit: 2000) {
           group(field: frontmatter___tags) {
             fieldValue
           }
@@ -85,19 +85,10 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
-  if (node.internal.type === `MarkdownRemark`) {
+  if (node.internal.type === `MarkdownRemark` || node.internal.type === `Mdx`) {
     const value = createFilePath({ node, getNode })
 
-    const parent = getNode(_.get(node, 'parent'))
-
-    createNodeField({
-      node,
-      name: 'collection',
-      value: _.get(parent, 'sourceInstanceName'),
-    })
-
     const date = new Date(node.frontmatter.date)
-
     const year = date.getFullYear()
     const month = date.getMonth() + 1
     const year_month = `${year}-${month}`

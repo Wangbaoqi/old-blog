@@ -11,7 +11,7 @@ const NewestArticle = () => {
 
   const data = useStaticQuery(graphql`
     {
-      allMarkdownRemark(
+      allMdx(
         sort: {order: DESC, fields: frontmatter___date},
         limit: 12
       ) {
@@ -23,7 +23,6 @@ const NewestArticle = () => {
           }
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
-            description
             title
             tags
             cover
@@ -32,7 +31,7 @@ const NewestArticle = () => {
       }
     }
   `)
-  const articleList = data.allMarkdownRemark.nodes;
+  const articleList = data.allMdx.nodes;
 
   return (
     <section className='home-card'>
