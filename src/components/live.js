@@ -11,11 +11,15 @@ const StyledProvider = styled(LiveProvider)`
   margin-bottom: ${polished.rem(100)};
 `;
 
+const LiveBox = styled.section`
+
+`
+
 const LiveWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: stretch;
-  align-items: stretch;
+  justify-content: space-between;
+  margin: 0 -1rem;
   @media (max-width: 600px) {
     flex-direction: column;
   }
@@ -33,8 +37,8 @@ const column = css`
 `;
 
 const StyledEditor = styled.div`
-  background: ${polished.darken(0.06, '#42374a')};
-  font-family: 'Source Code Pro', monospace;
+  background: var(--sp-colors-bg-default);
+  font-family: inherit;
   font-size: ${polished.rem(14)};
   height: ${polished.rem(350)};
   max-height: ${polished.rem(350)};
@@ -47,8 +51,9 @@ const StyledEditor = styled.div`
 
 const StyledPreview = styled(LivePreview)`
   position: relative;
-  padding: 0.5rem;
+  padding: 1rem;
   background: white;
+  border-left: 1px solid var(--sp-colors-fg-inactive);
   color: black;
   height: auto;
   overflow: hidden;
@@ -58,24 +63,31 @@ const StyledPreview = styled(LivePreview)`
 const StyledError = styled(LiveError)`
   display: block;
   padding: ${polished.rem(8)};
-  background: #42374a;
+  // background: #42374a;
   color: #ff5555;
   white-space: pre-wrap;
   text-align: left;
   font-size: 0.9em;
-  font-family: 'Source Code Pro', monospace;
+  font-family: inherit;
 `;
 
 const LiveEdit = ({ noInline, code }) => (
   <StyledProvider code={code} noInline={noInline} theme={reactLiveHome}>
-    <LiveWrapper>
-      <StyledEditor>
-        <LiveEditor />
-      </StyledEditor>
-      <StyledPreview />
-    </LiveWrapper>
-
-    <StyledError />
+    <div className='shadow-lg rounded-lg pb-8 -mx-48 bg-neutral-content'>
+      <div className='flex justify-between p-2 pl-6 items-center relative z-10 border-b rounded-t-lg rounded-b-none'>
+        <div>APP.js</div>
+      </div>
+      <div className='px-4'>
+        <LiveWrapper>
+          <StyledEditor>
+            <LiveEditor />
+          </StyledEditor>
+          <StyledPreview />
+          <StyledError />
+        </LiveWrapper>
+      </div>
+    </div>
+    
   </StyledProvider>
 );
 

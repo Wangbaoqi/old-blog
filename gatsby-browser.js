@@ -3,7 +3,7 @@
 
 import './src/styles/global.css';
 
-// import "./src/style.css"
+import "./src/style.css"
 
 
 import { wrapRootElement as wrap } from "./src/components/codeBlock"

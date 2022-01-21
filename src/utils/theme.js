@@ -1,22 +1,40 @@
 export const reactLiveHome = {
   plain: {
-    color: '#e7d2ed'
+    color: 'var(--theme-plain)'
   },
   styles: [
     {
+      types: ['attr-equals', 'attr-value', 'script'],
+      style: {
+        color: 'var(--theme-plain)'
+      }
+    },
+    {
+      types: ['function'],
+      style: {
+        color: 'var(--theme-definition)'
+      }
+    },
+    {
+      types: ['string'],
+      style: {
+        color: 'var(--theme-string)'
+      }
+    },
+    {
       types: ['prolog', 'comment', 'doctype', 'cdata'],
       style: {
-        color: 'hsl(30, 20%, 50%)'
+        color: 'var(--theme-comment)'
       }
     },
     {
       types: ['property', 'tag', 'boolean', 'number', 'constant', 'symbol'],
-      style: { color: '#f677e1' }
+      style: { color: 'var(--theme-tag)' }
     },
     {
-      types: ['attr-name', 'string', 'char', 'builtin', 'insterted'],
+      types: ['attr-name', 'char', 'builtin', 'insterted', 'parameter'],
       style: {
-        color: 'hsl(75, 70%, 70%)'
+        color: 'var(--theme-property)'
       }
     },
     {
@@ -24,12 +42,13 @@ export const reactLiveHome = {
         'operator',
         'entity',
         'url',
-        'string',
+        '',
         'variable',
-        'language-css'
+        'language-css',
+        
       ],
       style: {
-        color: 'hsl(40, 90%, 70%)'
+        // color: 'hsl(40, 90%, 70%)'
       }
     },
     {
@@ -57,15 +76,15 @@ export const reactLiveHome = {
       }
     },
     {
-      types: ['atrule', 'attr-value', 'keyword'],
+      types: ['atrule', '', 'keyword', ''],
       style: {
-        color: '#f677e1'
+        color: 'var(--theme-keyword)'
       }
     },
     {
       types: ['punctuation', 'symbol'],
       style: {
-        opacity: '0.7'
+        // opacity: '0.7'
       }
     }
   ]

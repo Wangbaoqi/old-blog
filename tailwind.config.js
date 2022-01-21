@@ -87,7 +87,8 @@ module.exports = {
           'accent-focus': '#087ea4',
           'accent-content': '#ffffff',
 
-          'neutral': '#ffffff',
+          // react live style
+          'neutral': '#',
           'neutral-focus': '#2a2e37',
           'neutral-content': '#ffffff',
 
@@ -119,7 +120,7 @@ module.exports = {
 
           'neutral': '#23272F',
           'neutral-focus': '#2a2e37',
-          'neutral-content': '#000000' ,
+          'neutral-content': '#343A46' ,
 
           'base-content': '#087ea4',
 
