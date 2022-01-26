@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import * as polished from 'polished';
-import { reactLiveHome } from '../utils/theme';
+import theme from '../utils/codeTheme';
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
 
 const StyledProvider = styled(LiveProvider)`
@@ -20,6 +20,7 @@ const LiveWrapper = styled.div`
   flex-direction: row;
   justify-content: space-between;
   margin: 0 -1rem;
+  border-bottom: 1px solid var(--sp-colors-fg-inactive);
   @media (max-width: 600px) {
     flex-direction: column;
   }
@@ -49,6 +50,10 @@ const StyledEditor = styled.div`
   }
 `;
 
+const StyleLiveEditor = styled(LiveEditor)`
+  font-family: inherit !important;
+`
+
 const StyledPreview = styled(LivePreview)`
   position: relative;
   padding: 1rem;
@@ -71,16 +76,16 @@ const StyledError = styled(LiveError)`
   font-family: inherit;
 `;
 
-const LiveEdit = ({ noInline, code }) => (
-  <StyledProvider code={code} noInline={noInline} theme={reactLiveHome}>
-    <div className='shadow-lg rounded-lg pb-8 -mx-48 bg-neutral-content'>
-      <div className='flex justify-between p-2 pl-6 items-center relative z-10 border-b rounded-t-lg rounded-b-none'>
-        <div>APP.js</div>
+const LiveEdit = ({ noInline, code, file }) => (
+  <StyledProvider code={code} noInline={noInline} theme={theme}>
+    <div className='shadow-3xl rounded-lg pb-10 -mx-20 my-8 bg-neutral-content'>
+      <div className='flex justify-between p-2 pl-6 items-center relative z-10 border-b border-secondary-content rounded-t-lg rounded-b-none'>
+        <div>{file || 'edit area'}</div>
       </div>
       <div className='px-4'>
         <LiveWrapper>
           <StyledEditor>
-            <LiveEditor />
+            <StyleLiveEditor />
           </StyledEditor>
           <StyledPreview />
           <StyledError />

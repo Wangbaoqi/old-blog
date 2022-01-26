@@ -7,31 +7,59 @@ tags:
 categories: React
 ---
 
+```jsx react-live file=index.js
+render(
+  <div>
+    <strong>Hello World!</strong>
+  </div>
 
-
-```jsx react-live
-render( <strong>Hello World!</strong>)
+)
 ```
 
-在react中，更新`UI`必须生成新的`JSX`对象（称之为`visual DOM`），而`新的JSX`对象和`老的visual DOM`之间对比以最小的操作次数来获取`差异节点`（也称之为副作用），从而高效的更新`UI`。
+```jsx
+"use strict"
 
-用现在[最优的算法](https://grfia.dlsi.ua.es/ml/algorithms/references/editsurvey_bille.pdf)解决也需要时间复杂度为`O(n^3)`来解决，这对于web页面这么多的节点而言，采用这种算法代价太高了，可以说是灾难。
+function LikeButton() {
+  const [liked, setLiked] = React.useState(false)
 
-不过，react在两个假设的基础上提出了一套时间复杂度为`O(n)`的算法，而这种算法在操作DOM的场景下都成立。
+  if (liked) {
+    return "You liked this!"
+  }
+
+  return React.createElement(
+    "button",
+    {
+      onClick: () => setLiked(true),
+    },
+    "Like"
+  )
+}
+
+const domContainer = document.getElementById("component-goes-here")
+ReactDOM.render(React.createElement(LikeButton), domContainer)
+
+return <button onClick={() => setLiked(true)}>Like</button>
+```
+
+在 react 中，更新`UI`必须生成新的`JSX`对象（称之为`visual DOM`），而`新的JSX`对象和`老的visual DOM`之间对比以最小的操作次数来获取`差异节点`（也称之为副作用），从而高效的更新`UI`。
+
+用现在[最优的算法](https://grfia.dlsi.ua.es/ml/algorithms/references/editsurvey_bille.pdf)解决也需要时间复杂度为`O(n^3)`来解决，这对于 web 页面这么多的节点而言，采用这种算法代价太高了，可以说是灾难。
+
+不过，react 在两个假设的基础上提出了一套时间复杂度为`O(n)`的算法，而这种算法在操作 DOM 的场景下都成立。
 
 1. **不同类型的元素会产生不同的树**，比如之前节点类型是`p`，之后又变成了`div`，那么这两个节点是不同的两棵树。
-2. **节点的属性key值可以限制节点能否复用**，如果前后前两个节点的`key`值不同，则两个节点也是不同的两个树。
+2. **节点的属性 key 值可以限制节点能否复用**，如果前后前两个节点的`key`值不同，则两个节点也是不同的两个树。
 
 最重要的一点，执行这两个限制条件的前提是**必须是同级对比**，如果节点跨层级了，那么也不会去复用，而是去新建一个节点。这样才能保证该算法的时间复杂度为`O(n)`,`n`为节点的个数。
 
-react中，有两种类型的`diff`算法，**单节点diff**和**多节点diff**。
+react 中，有两种类型的`diff`算法，**单节点 diff**和**多节点 diff**。
 
 > 从源码看，`diff`算法是在`render阶段`的[beginWork](https://github.com/Wangbaoqi/react/blob/17.0.2/packages/react-reconciler/src/ReactFiberBeginWork.old.js#L3083)中。
 
 `beginWork`主要有两个过程（`mount`和`update`）：
 
-* `update`（更新）阶段主要是`diff算法`的过程。
-* `mount`(挂载)阶段主要是`创建Fiber树`的过程。
+- `update`（更新）阶段主要是`diff算法`的过程。
+- `mount`(挂载)阶段主要是`创建Fiber树`的过程。
 
 下面是`diff算法`的入口：
 
@@ -71,7 +99,7 @@ reconcileChildFibers(
 }
 ```
 
-## 单节点Diff
+## 单节点 Diff
 
 > `单节点Diff源码`[这里](https://github.com/Wangbaoqi/react/blob/17.0.2/packages/react-reconciler/src/ReactChildFiber.old.js#L1135)
 
@@ -93,11 +121,11 @@ function reconcileSingleElement(
   returnFiber: Fiber,
   currentFirstChild: Fiber | null,
   element: ReactElement,
-  lanes: Lanes,
+  lanes: Lanes
 ): Fiber {
-  const key = element.key;
-  let child = currentFirstChild;
-  // update 阶段 child 不为 null 
+  const key = element.key
+  let child = currentFirstChild
+  // update 阶段 child 不为 null
   while (child !== null) {
     if (child.key === key) {
       switch (child.tag) {
@@ -105,41 +133,39 @@ function reconcileSingleElement(
           // 处理 Fragment
         }
         case Block:
-          // 处理 Block
+        // 处理 Block
         default: {
-          if (
-            child.elementType === element.type
-          ) {
+          if (child.elementType === element.type) {
             // 为当前节点的所有兄弟节点打上Deletion的EffectTag，因为单节点一旦复用，其他兄弟节点都会被标记删除
             // 同时构建EffectList链表
-            deleteRemainingChildren(returnFiber, child.sibling);
-            const existing = useFiber(child, element.props);
-            existing.ref = coerceRef(returnFiber, child, element);
-            existing.return = returnFiber;
-            return existing;
+            deleteRemainingChildren(returnFiber, child.sibling)
+            const existing = useFiber(child, element.props)
+            existing.ref = coerceRef(returnFiber, child, element)
+            existing.return = returnFiber
+            return existing
           }
-          break;
+          break
         }
       }
       // Didn't match.
-      deleteRemainingChildren(returnFiber, child);
-      break;
+      deleteRemainingChildren(returnFiber, child)
+      break
     } else {
       // 给需要删除的节点打上Deletion的EffectTag，并且构建effectList链表
-      deleteChild(returnFiber, child);
+      deleteChild(returnFiber, child)
     }
     // 存在 多节点更新之后变为单节点
-    child = child.sibling;
+    child = child.sibling
   }
 
   if (element.type === REACT_FRAGMENT_TYPE) {
     // 处理 Fragment
   } else {
     // 创建新的Fiber节点 根据JSX type
-    const created = createFiberFromElement(element, returnFiber.mode, lanes);
-    created.ref = coerceRef(returnFiber, currentFirstChild, element);
-    created.return = returnFiber;
-    return created;
+    const created = createFiberFromElement(element, returnFiber.mode, lanes)
+    created.ref = coerceRef(returnFiber, currentFirstChild, element)
+    created.return = returnFiber
+    return created
   }
 }
 ```
@@ -168,12 +194,12 @@ function reconcileSingleElement(
 ```html
 <!-- 更新前 -->
 <div>
-  <span key='a'>0</span>
+  <span key="a">0</span>
 </div>
 
 <!-- 更新后 -->
 <div>
-  <span key='a'>1</span>
+  <span key="a">1</span>
 </div>
 ```
 
@@ -183,8 +209,8 @@ function reconcileSingleElement(
 
 `completeWork`也有两个过程（`mount`和`update`）：
 
-* `update`（更新）阶段主要是计算`newProps`和`oldProps`的差异，如果存在，则为当前`Fiber`打上`Update`的`effectTag`。
-* `mount`(挂载)阶段主要是`创建Fiber节点对应的DOM节点`的过程。
+- `update`（更新）阶段主要是计算`newProps`和`oldProps`的差异，如果存在，则为当前`Fiber`打上`Update`的`effectTag`。
+- `mount`(挂载)阶段主要是`创建Fiber节点对应的DOM节点`的过程。
 
 所以，更新前后的`span`标签的`children`更新的，所以`span`标签的`Fiber`节点会有`Update`的`effectTag`。
 
@@ -199,15 +225,15 @@ function reconcileSingleElement(
 ```html
 <!-- 更新前 -->
 <div>
-  <span key='a'>0</span>
-  <span key='b'>1</span>
-  <span key='c'>2</span>
-  <span key='d'>3</span>
+  <span key="a">0</span>
+  <span key="b">1</span>
+  <span key="c">2</span>
+  <span key="d">3</span>
 </div>
 
 <!-- 更新后 -->
 <div>
-  <span key='c'>4</span>
+  <span key="c">4</span>
 </div>
 ```
 
@@ -225,7 +251,7 @@ function reconcileSingleElement(
 
 ![](https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/react/diif-single-m.png)
 
-## 多节点Diff
+## 多节点 Diff
 
 > 从`源码`[这里](https://github.com/Wangbaoqi/react/blob/main/packages/react-reconciler/src/ReactChildFiber.old.js#L750)角度来看，多节点`Diff`算法会有两轮循环。
 
@@ -248,23 +274,23 @@ function reconcileChildrenArray(
   lanes: Lanes
 ): Fiber | null {
   // * 最终返回的fiber节点 - 也就是带有sibling的子链表
-  let resultingFirstChild: Fiber | null = null;
+  let resultingFirstChild: Fiber | null = null
   // * 中间变量 用来保存每一次新生成的newFiber
-  let previousNewFiber: Fiber | null = null;
+  let previousNewFiber: Fiber | null = null
 
   // * 用来跟newChildren对比的currentFiber
-  let oldFiber = currentFirstChild;
+  let oldFiber = currentFirstChild
   // * 中间变量 用来保存oldFiber 链表的当前节点
-  let nextOldFiber = null;
+  let nextOldFiber = null
 
   // * 用来记录Fiber节点对应的DOM节点的位置
-  let lastPlacedIndex = 0;
+  let lastPlacedIndex = 0
 
   // * 遍历更新元素数组的索引
-  let newIdx = 0;
+  let newIdx = 0
 
   // TODO ...
-  return resultingFirstChild;
+  return resultingFirstChild
 }
 ```
 
@@ -288,47 +314,42 @@ function reconcileChildrenArray(
 // 第一遍轮换
 for (; oldFiber !== null && newIdx < newChildren.length; newIdx++) {
   if (oldFiber.index > newIdx) {
-    nextOldFiber = oldFiber;
-    oldFiber = null;
+    nextOldFiber = oldFiber
+    oldFiber = null
   } else {
-    nextOldFiber = oldFiber.sibling;
+    nextOldFiber = oldFiber.sibling
   }
-  const newFiber = updateSlot(
-    returnFiber,
-    oldFiber,
-    newChildren[newIdx],
-    lanes
-  );
+  const newFiber = updateSlot(returnFiber, oldFiber, newChildren[newIdx], lanes)
   // key值不同，不能复用，直接跳出循环，进入第二轮循环
   if (newFiber === null) {
     if (oldFiber === null) {
-      oldFiber = nextOldFiber;
+      oldFiber = nextOldFiber
     }
-    break;
+    break
   }
   // shouldTrackSideEffects 更新节点为true
   if (shouldTrackSideEffects) {
     // 新创建的Fiber节点 alternate 为 null
     if (oldFiber && newFiber.alternate === null) {
-      deleteChild(returnFiber, oldFiber);
+      deleteChild(returnFiber, oldFiber)
     }
   }
 
-  lastPlacedIndex = placeChild(newFiber, lastPlacedIndex, newIdx);
+  lastPlacedIndex = placeChild(newFiber, lastPlacedIndex, newIdx)
 
   if (previousNewFiber === null) {
-    resultingFirstChild = newFiber;
+    resultingFirstChild = newFiber
   } else {
-    previousNewFiber.sibling = newFiber;
+    previousNewFiber.sibling = newFiber
   }
-  previousNewFiber = newFiber;
-  oldFiber = nextOldFiber;
+  previousNewFiber = newFiber
+  oldFiber = nextOldFiber
 }
 // newChildren 遍历结束 直接跳出第一轮循环
 if (newIdx === newChildren.length) {
   // We've reached the end of the new children. We can delete the rest.
-  deleteRemainingChildren(returnFiber, oldFiber);
-  return resultingFirstChild;
+  deleteRemainingChildren(returnFiber, oldFiber)
+  return resultingFirstChild
 }
 ```
 
@@ -354,9 +375,9 @@ if (newIdx === newChildren.length) {
 
 进入第二轮主要的场景有:
 
-* 节点增加 - 符合上述场景`3`
-* 节点减少 - 符合上述场景`2`
-* 节点移动 - 符合上述场景`1`
+- 节点增加 - 符合上述场景`3`
+- 节点减少 - 符合上述场景`2`
+- 节点移动 - 符合上述场景`1`
 
 ![](https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/react/diff-second-loop.png)
 
@@ -367,20 +388,20 @@ if (newIdx === newChildren.length) {
 if (oldFiber === null) {
   for (; newIdx < newChildren.length; newIdx++) {
     // 创建Fiber
-    const newFiber = createChild(returnFiber, newChildren[newIdx], lanes);
+    const newFiber = createChild(returnFiber, newChildren[newIdx], lanes)
     if (newFiber === null) {
-      continue;
+      continue
     }
     // 为Fiber添加Placement的Tag
-    lastPlacedIndex = placeChild(newFiber, lastPlacedIndex, newIdx);
+    lastPlacedIndex = placeChild(newFiber, lastPlacedIndex, newIdx)
     if (previousNewFiber === null) {
-      resultingFirstChild = newFiber;
+      resultingFirstChild = newFiber
     } else {
-      previousNewFiber.sibling = newFiber;
+      previousNewFiber.sibling = newFiber
     }
-    previousNewFiber = newFiber;
+    previousNewFiber = newFiber
   }
-  return resultingFirstChild;
+  return resultingFirstChild
 }
 ```
 
@@ -392,7 +413,7 @@ if (oldFiber === null) {
 // 符合场景1、2的源码
 
 // oldFiber添加Map
-const existingChildren = mapRemainingChildren(returnFiber, oldFiber);
+const existingChildren = mapRemainingChildren(returnFiber, oldFiber)
 
 for (; newIdx < newChildren.length; newIdx++) {
   // 复用逻辑
@@ -401,30 +422,28 @@ for (; newIdx < newChildren.length; newIdx++) {
     returnFiber,
     newIdx,
     newChildren[newIdx],
-    lanes,
-  );
+    lanes
+  )
   if (newFiber !== null) {
     if (shouldTrackSideEffects) {
       if (newFiber.alternate !== null) {
-        existingChildren.delete(
-          newFiber.key === null ? newIdx : newFiber.key,
-        );
+        existingChildren.delete(newFiber.key === null ? newIdx : newFiber.key)
       }
     }
-    lastPlacedIndex = placeChild(newFiber, lastPlacedIndex, newIdx);
+    lastPlacedIndex = placeChild(newFiber, lastPlacedIndex, newIdx)
     if (previousNewFiber === null) {
-      resultingFirstChild = newFiber;
+      resultingFirstChild = newFiber
     } else {
-      previousNewFiber.sibling = newFiber;
+      previousNewFiber.sibling = newFiber
     }
-    previousNewFiber = newFiber;
+    previousNewFiber = newFiber
   }
 }
 //  map中还存在oldFiber节点的话，直接当上Deletion的EffectTag
 if (shouldTrackSideEffects) {
-  existingChildren.forEach(child => deleteChild(returnFiber, child));
+  existingChildren.forEach(child => deleteChild(returnFiber, child))
 }
-return resultingFirstChild;
+return resultingFirstChild
 ```
 
 至此，多节点的`Diff算法`的大致过程就结束了，下面针对每种不同的场景看下对应的`双缓存的Fiber`树和其产生的`effectList`。
@@ -460,7 +479,7 @@ return resultingFirstChild;
 </div>
 ```
 
-这种场景，在`Diff`的过程，会直接复用`oldFiber`节点，此时更新后的节点全部遍历了，进入到了`newIdx === newChildren.length`，如果还存在`oldFiber`没有遍历(*更新前1*场景)，则执行`deleteRemainingChildren`将没有遍历的`oldFiber`节点都打上`Deletion`的`effectTag`
+这种场景，在`Diff`的过程，会直接复用`oldFiber`节点，此时更新后的节点全部遍历了，进入到了`newIdx === newChildren.length`，如果还存在`oldFiber`没有遍历(*更新前 1*场景)，则执行`deleteRemainingChildren`将没有遍历的`oldFiber`节点都打上`Deletion`的`effectTag`
 
 **节点类型更新**
 
@@ -488,7 +507,7 @@ return resultingFirstChild;
 
 接下来看下在`节点更新`中`属性更新`和`类型更新`在生成`effectList`有什么不同？
 
-**节点属性更新 - Fiber树**
+**节点属性更新 - Fiber 树**
 
 ![](https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/react/diff-multi-update-Fiber.png)
 
@@ -502,7 +521,7 @@ return resultingFirstChild;
 
 > [这里](https://github.com/facebook/react/blob/17.0.2/packages/react-reconciler/src/ReactFiberWorkLoop.old.js#L1706)可以看到在`completeWork`阶段处理`effectList`链表的源码
 
-**节点类型更新 - Fiber树**
+**节点类型更新 - Fiber 树**
 
 ![](https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/react/diff-multi-updatev-fiber.png)
 
@@ -541,11 +560,11 @@ return resultingFirstChild;
 
 这里，第一轮循环结束之后，会继续遍历`newChildren`，生成第三个`span Fiber`节点，为其打上`Placement`的`effectTag`，然后生成`effectList`。
 
-下图为节点增加的**双缓存Fiber树**
+下图为节点增加的**双缓存 Fiber 树**
 
 ![](https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/react/diff-multi-add-fiber.png)
 
-同理，不能复用的节点或者新增的节点都会生成Fiber节点，都没有`alternate`指向其`current Fiber`。
+同理，不能复用的节点或者新增的节点都会生成 Fiber 节点，都没有`alternate`指向其`current Fiber`。
 
 下面看下节点增加最后产生的**effectList**
 
@@ -574,7 +593,7 @@ return resultingFirstChild;
 
 此时，`newChildren`遍历结束，`oldFiber`还有的话，需要为每一个`oldFiber`节点打上`Deletion`的`effectTag`，然后产生`effectList`。
 
-下图为节点减少的**双缓存Fiber树**
+下图为节点减少的**双缓存 Fiber 树**
 
 ![](https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/react/diff-multi-short-fiber.png)
 
@@ -602,7 +621,7 @@ return resultingFirstChild;
 </div>
 ```
 
-这里，只是节点的位置发生了变化，因此节点是可以复用的，如下图**双缓存Fiber树**
+这里，只是节点的位置发生了变化，因此节点是可以复用的，如下图**双缓存 Fiber 树**
 
 ![](https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/react/diff-multi-position-fiber.png)
 
@@ -618,8 +637,8 @@ return resultingFirstChild;
 
 在遍历`newChildren`的过程中，`lastPlaceIndex`会保存可复用节点的上一次位置索引`index`，初始值为`0`
 
-* 如果可复用节点的索引`oldIndex < lastPlaceIndex`，那么当前`newChildren[newIdx]`的`Fiber`节点会打上`Placement`的`effectTag`的tag，表示该节点需要移动；同时下一次循环复用该`lastPlaceIndex`.
-* 如果可复用节点的索引`oldIndex >= lastPlaceIndex`, 那么用`oldIndex`更新`lastPlaceIndex`，表示该节点此次不需要移动。
+- 如果可复用节点的索引`oldIndex < lastPlaceIndex`，那么当前`newChildren[newIdx]`的`Fiber`节点会打上`Placement`的`effectTag`的 tag，表示该节点需要移动；同时下一次循环复用该`lastPlaceIndex`.
+- 如果可复用节点的索引`oldIndex >= lastPlaceIndex`, 那么用`oldIndex`更新`lastPlaceIndex`，表示该节点此次不需要移动。
 
 > [这里](https://github.com/Wangbaoqi/react/blob/main/packages/react-reconciler/src/ReactChildFiber.old.js#L332)可以看到此次`Diff`的位置对比源码，在`placeChild`方法中。
 
@@ -631,6 +650,6 @@ return resultingFirstChild;
 
 **React diff**算法是在被限制场景下进行的高效对比算法，在`双缓存 Fiber树`的前提下，构建`workInProgress Fiber`树完全是在内存中进行的，这也是`diff`操作的一个优点，并不会干扰页面的呈现。
 
-**React diff**算法也是**render阶段**（也被称为协调过程）中最重要的一环，在`mount`阶段创建`workInProgress Fiber`树，然后在**commit阶段**将`workInProgress Fiber`指向`current Fiber`树；在`update`阶段进行`diff`算法，对比`current Fiber`节点同级的`JSX`对象，生成`worKInProgress Fiber`树，同时产生`effectList`链表，在**commit阶段**遍历这条链表，依次执行副作用。
+**React diff**算法也是**render 阶段**（也被称为协调过程）中最重要的一环，在`mount`阶段创建`workInProgress Fiber`树，然后在**commit 阶段**将`workInProgress Fiber`指向`current Fiber`树；在`update`阶段进行`diff`算法，对比`current Fiber`节点同级的`JSX`对象，生成`worKInProgress Fiber`树，同时产生`effectList`链表，在**commit 阶段**遍历这条链表，依次执行副作用。
 
-这里**React diff**算法大致就结束了，在后面会继续深入**commit阶段**，是如何遍历`effectList`链表的。
+这里**React diff**算法大致就结束了，在后面会继续深入**commit 阶段**，是如何遍历`effectList`链表的。

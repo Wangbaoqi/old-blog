@@ -6,6 +6,14 @@ module.exports = {
   theme: {
     extend: {
 
+
+
+      height: {
+        '81': '21rem'
+      },
+
+      
+
       colors: {
         html: {
           c: 'text-primary',
@@ -48,7 +56,7 @@ module.exports = {
       },
 
       boxShadow: {
-        'card-h': '-2rem 0 3rem -2rem var(--sc)',
+        '3xl': '0px 0.8px 2px rgba(0,0,0,0.032),0px 2.7px 6.7px rgba(0,0,0,0.048),0px 12px 30px rgba(0,0,0,0.08)',
       },
       backgroundImage: {
         'card-bi': 'linear-gradient(85deg, hsl(var(--sc)), hsl(var(--pc)))'

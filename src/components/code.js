@@ -1,10 +1,11 @@
 import React from "react"
 import Highlight, { defaultProps } from "prism-react-renderer"
 import rangeParser from "parse-numeric-range"
-import theme from "prism-react-renderer/themes/nightOwl"
+// import theme from "prism-react-renderer/themes/synthwave84"
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from "react-live";
 import LiveEdit from './live'
-import { transparent } from "daisyui/colors";
+
+import theme from '../utils/codeTheme'
 
 const calculateLinesToHighlight = raw => {
   const lineNumbers = rangeParser(raw)
@@ -43,28 +44,28 @@ const Code = props => {
 
   if (props.children.props["react-live"]) {
     return (
-      <LiveEdit code={code} noInline={true}/>
+      <LiveEdit code={code} noInline={true} file={file}/>
     );
   }
 
   return (
     <div
-      className="rounded-lg mt-8 pl-6 shadow-lg bg-primary-content"
+      className="rounded-lg mt-8 pl-1 shadow-3xl"
       style={{
-        background: "#011627",
+        background: "var(--sp-colors-bg-default)",
       }}
     >
       <div style={{ display: "flex", position: "relative" }}>
         <div
+          className="text-primary"
           style={{
-            background: "#ffffff",
-            marginRight: "1rem",
+            background: "var(--sp-colors-fg-inactive)",
+            margin: "0 1rem",
             paddingLeft: "0.5rem",
             paddingRight: "0.5rem",
             textTransform: "uppercase",
             borderBottomLeftRadius: "0.5rem",
             borderBottomRightRadius: "0.5rem",
-            fontFamily: "Montserrat",
             fontWeight: "bold",
             textAlign: "center",
             display: "flex",
@@ -74,8 +75,7 @@ const Code = props => {
         >{`${language}`}</div>
         <div
           style={{
-            color: "#9d9d9d",
-            fontFamily: "Montserrat",
+            color: "var(--sp-colors-fg-active)",
             fontStyle: "italic",
             display: "flex",
             justifyContent: "center",
@@ -95,11 +95,11 @@ const Code = props => {
             marginRight: "1.5rem",
             marginTop: "0.5rem",
             padding: "8px 12px",
-            background: "#00f5c426",
+            background: "var(--sp-colors-fg-inactive)",
             border: "none",
             borderRadius: "8px",
             cursor: "pointer",
-            color: "#E2E8F0",
+            color: "var(--sp-colors-fg-active)",
             fontSize: "14px",
             fontFamily: "sans-serif",
             lineHeight: "1",
@@ -112,7 +112,7 @@ const Code = props => {
       className="bg-primary-content"
         style={{
           overflow: "auto",
-          background: "#011627",
+          background: "var(--sp-colors-bg-default)",
           borderRadius: "0.5rem",
         }}
       >
@@ -130,6 +130,7 @@ const Code = props => {
                 backgroundColor: "transparent",
                 float: "left",
                 minWidth: "100%",
+                margin: '0 0'
               }}
             >
               {tokens.map((line, i) => (
@@ -138,8 +139,10 @@ const Code = props => {
                   style={{
                     background: highlights(i) ? "#00f5c426" : "transparent",
                     display: "block",
+
                   }}
                 >
+                  <span className="mr-4">{i + 1}</span>
                   {line.map((token, key) => (
                     <span key={key} {...getTokenProps({ token, key })} />
                   ))}

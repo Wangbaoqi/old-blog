@@ -2,6 +2,115 @@
 # yarn lockfile v1
 
 
+"@algolia/cache-browser-local-storage@4.12.0":
+  version "4.12.0"
+  resolved "https://registry.npmmirror.com/@algolia/cache-browser-local-storage/download/@algolia/cache-browser-local-storage-4.12.0.tgz#1f873e4f28a39d25b0a589ebe8f826509458e1fb"
+  integrity sha512-l+G560B6N1k0rIcOjTO1yCzFUbg2Zy2HCii9s03e13jGgqduVQmk79UUCYszjsJ5GPJpUEKcVEtAIpP7tjsXVA==
+  dependencies:
+    "@algolia/cache-common" "4.12.0"
+
+"@algolia/cache-common@4.12.0":
+  version "4.12.0"
+  resolved "https://registry.npmmirror.com/@algolia/cache-common/download/@algolia/cache-common-4.12.0.tgz#c1111a4d3e9ba2d52cadb4523152580db0887293"
+  integrity sha512-2Z8BV+NX7oN7RmmQbLqmW8lfN9aAjOexX1FJjzB0YfKC9ifpi9Jl4nSxlnbU+iLR6QhHo0IfuyQ7wcnucCGCGQ==
+
+"@algolia/cache-in-memory@4.12.0":
+  version "4.12.0"
+  resolved "https://registry.npmmirror.com/@algolia/cache-in-memory/download/@algolia/cache-in-memory-4.12.0.tgz#f4bdcbf8a6419f0166cfc7ef5594af871741e29e"
+  integrity sha512-b6ANkZF6vGAo+sYv6g25W5a0u3o6F549gEAgtTDTVA1aHcdWwe/HG/dTJ7NsnHbuR+A831tIwnNYQjRp3/V/Jw==
+  dependencies:
+    "@algolia/cache-common" "4.12.0"
+
+"@algolia/client-account@4.12.0":
+  version "4.12.0"
+  resolved "https://registry.npmmirror.com/@algolia/client-account/download/@algolia/client-account-4.12.0.tgz#b28445b47e2abf81dc76982d16ba8458f5c99521"
+  integrity sha512-gzXN75ZydNheNXUN3epS+aLsKnB/PHFVlGUUjXL8WHs4lJP3B5FtHvaA/NCN5DsM3aamhuY5p0ff1XIA+Lbcrw==
+  dependencies:
+    "@algolia/client-common" "4.12.0"
+    "@algolia/client-search" "4.12.0"
+    "@algolia/transporter" "4.12.0"
+
+"@algolia/client-analytics@4.12.0":
+  version "4.12.0"
+  resolved "https://registry.npmmirror.com/@algolia/client-analytics/download/@algolia/client-analytics-4.12.0.tgz#470f115517256c92a5605ae95762531c7906ec74"
+  integrity sha512-rO2cZCt00Opk66QBZb7IBGfCq4ZE3EiuGkXssf2Monb5urujy0r8CknK2i7bzaKtPbd2vlvhmLP4CEHQqF6SLQ==
+  dependencies:
+    "@algolia/client-common" "4.12.0"
+    "@algolia/client-search" "4.12.0"
+    "@algolia/requester-common" "4.12.0"
+    "@algolia/transporter" "4.12.0"
+
+"@algolia/client-common@4.12.0":
+  version "4.12.0"
+  resolved "https://registry.npmmirror.com/@algolia/client-common/download/@algolia/client-common-4.12.0.tgz#402395e2cffad89188d76b83615acffb3e45e658"
+  integrity sha512-fcrFN7FBmxiSyjeu3sF4OnPkC1l7/8oyQ8RMM8CHpVY8cad6/ay35MrfRfgfqdzdFA8LzcBYO7fykuJv0eOqxw==
+  dependencies:
+    "@algolia/requester-common" "4.12.0"
+    "@algolia/transporter" "4.12.0"
+
+"@algolia/client-personalization@4.12.0":
+  version "4.12.0"
+  resolved "https://registry.npmmirror.com/@algolia/client-personalization/download/@algolia/client-personalization-4.12.0.tgz#09c89c1558a91db3bfa60d17f7258ae63861352b"
+  integrity sha512-wCJfSQEmX6ZOuJBJGjy+sbXiW0iy7tMNAhsVMV9RRaJE4727e5WAqwFWZssD877WQ74+/nF/VyTaB1+wejo33Q==
+  dependencies:
+    "@algolia/client-common" "4.12.0"
+    "@algolia/requester-common" "4.12.0"
+    "@algolia/transporter" "4.12.0"
+
+"@algolia/client-search@4.12.0":
+  version "4.12.0"
+  resolved "https://registry.npmmirror.com/@algolia/client-search/download/@algolia/client-search-4.12.0.tgz#ac099ee9f8de85ec204d840bcac734224c7d150c"
+  integrity sha512-ik6dswcTQtOdZN+8aKntI9X2E6Qpqjtyda/+VANiHThY9GD2PBXuNuuC2HvlF26AbBYp5xaSE/EKxn1DIiIJ4Q==
+  dependencies:
+    "@algolia/client-common" "4.12.0"
+    "@algolia/requester-common" "4.12.0"
+    "@algolia/transporter" "4.12.0"
+
+"@algolia/events@^4.0.1":
+  version "4.0.1"
+  resolved "https://registry.npmmirror.com/@algolia/events/download/@algolia/events-4.0.1.tgz#fd39e7477e7bc703d7f893b556f676c032af3950"
+  integrity sha512-FQzvOCgoFXAbf5Y6mYozw2aj5KCJoA3m4heImceldzPSMbdyS4atVjJzXKMsfX3wnZTFYwkkt8/z8UesLHlSBQ==
+
+"@algolia/logger-common@4.12.0":
+  version "4.12.0"
+  resolved "https://registry.npmmirror.com/@algolia/logger-common/download/@algolia/logger-common-4.12.0.tgz#0f9dbe7ace88194b395a2cb958490eb47ac91f8e"
+  integrity sha512-V//9rzLdJujA3iZ/tPhmKR/m2kjSZrymxOfUiF3024u2/7UyOpH92OOCrHUf023uMGYHRzyhBz5ESfL1oCdh7g==
+
+"@algolia/logger-console@4.12.0":
+  version "4.12.0"
+  resolved "https://registry.npmmirror.com/@algolia/logger-console/download/@algolia/logger-console-4.12.0.tgz#a40edeb989bf0d7ff79d989171dad64cd0f01225"
+  integrity sha512-pHvoGv53KXRIJHLk9uxBwKirwEo12G9+uo0sJLWESThAN3v5M+ycliU1AkUXQN8+9rds2KxfULAb+vfyfBKf8A==
+  dependencies:
+    "@algolia/logger-common" "4.12.0"
+
+"@algolia/requester-browser-xhr@4.12.0":
+  version "4.12.0"
+  resolved "https://registry.npmmirror.com/@algolia/requester-browser-xhr/download/@algolia/requester-browser-xhr-4.12.0.tgz#64e8e4d4f0724e477421454215195400351cfe61"
+  integrity sha512-rGlHNMM3jIZBwSpz33CVkeXHilzuzHuFXEEW1icP/k3KW7kwBrKFJwBy42RzAJa5BYlLsTCFTS3xkPhYwTQKLg==
+  dependencies:
+    "@algolia/requester-common" "4.12.0"
+
+"@algolia/requester-common@4.12.0":
+  version "4.12.0"
+  resolved "https://registry.npmmirror.com/@algolia/requester-common/download/@algolia/requester-common-4.12.0.tgz#b4d96f3cbd73206b6042e523d414a34cc005c2e2"
+  integrity sha512-qgfdc73nXqpVyOMr6CMTx3nXvud9dP6GcMGDqPct+fnxogGcJsp24cY2nMqUrAfgmTJe9Nmy7Lddv0FyHjONMg==
+
+"@algolia/requester-node-http@4.12.0":
+  version "4.12.0"
+  resolved "https://registry.npmmirror.com/@algolia/requester-node-http/download/@algolia/requester-node-http-4.12.0.tgz#8d8e1b67edbaec8e8e8b8c7c606945b969667267"
+  integrity sha512-mOTRGf/v/dXshBoZKNhMG00ZGxoUH9QdSpuMKYnuWwIgstN24uj3DQx+Ho3c+uq0TYfq7n2v71uoJWuiW32NMQ==
+  dependencies:
+    "@algolia/requester-common" "4.12.0"
+
+"@algolia/transporter@4.12.0":
+  version "4.12.0"
+  resolved "https://registry.npmmirror.com/@algolia/transporter/download/@algolia/transporter-4.12.0.tgz#e375e10731df95f1be3593b32e86b5c6452cc213"
+  integrity sha512-MOQVHZ4BcBpf3LtOY/3fqXHAcvI8MahrXDHk9QrBE/iGensQhDiZby5Dn3o2JN/zd9FMnVbdPQ8gnkiMwZiakQ==
+  dependencies:
+    "@algolia/cache-common" "4.12.0"
+    "@algolia/logger-common" "4.12.0"
+    "@algolia/requester-common" "4.12.0"
+
 "@ardatan/aggregate-error@0.0.6":
   version "0.0.6"
   resolved "https://registry.nlark.com/@ardatan/aggregate-error/download/@ardatan/aggregate-error-0.0.6.tgz#fe6924771ea40fc98dc7a7045c2e872dc8527609"
@@ -1023,7 +1132,7 @@
     core-js-pure "^3.20.2"
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.10.0", "@babel/runtime@^7.10.2", "@babel/runtime@^7.14.0", "@babel/runtime@^7.15.4", "@babel/runtime@^7.16.3", "@babel/runtime@^7.3.4", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
+"@babel/runtime@^7.1.2", "@babel/runtime@^7.10.0", "@babel/runtime@^7.10.2", "@babel/runtime@^7.10.5", "@babel/runtime@^7.13.10", "@babel/runtime@^7.14.0", "@babel/runtime@^7.15.4", "@babel/runtime@^7.16.3", "@babel/runtime@^7.3.4", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
   version "7.16.7"
   resolved "https://registry.npmmirror.com/@babel/runtime/download/@babel/runtime-7.16.7.tgz#03ff99f64106588c9c403c6ecb8c3bafbbdff1fa"
   integrity sha512-9E9FJowqAsytyOY6LG+1KuueckRL+aQW+mKvXRXnuFGyRAyepJPmEo9vgMfXUA6O9u3IeEdv9MAkppFcaQwogQ==
@@ -1079,7 +1188,12 @@
     "@babel/helper-validator-identifier" "^7.16.7"
     to-fast-properties "^2.0.0"
 
-"@emotion/is-prop-valid@^0.8.8":
+"@emotion/core@^11.0.0":
+  version "11.0.0"
+  resolved "https://registry.npmmirror.com/@emotion/core/download/@emotion/core-11.0.0.tgz#d075867e07864119de7cfd5268c15012bd2d6290"
+  integrity sha1-0HWGfgeGQRnefP1SaMFQEr0tYpA=
+
+"@emotion/is-prop-valid@^0.8.7", "@emotion/is-prop-valid@^0.8.8":
   version "0.8.8"
   resolved "https://registry.npmmirror.com/@emotion/is-prop-valid/download/@emotion/is-prop-valid-0.8.8.tgz#db28b1c4368a259b60a97311d6a952d4fd01ac1a"
   integrity sha1-2yixxDaKJZtgqXMR1qlS1P0BrBo=
@@ -1787,6 +1901,22 @@
     escape-string-regexp "^2.0.0"
     lodash.deburr "^4.1.0"
 
+"@styled-icons/fa-solid@^10.34.0":
+  version "10.34.0"
+  resolved "https://registry.nlark.com/@styled-icons/fa-solid/download/@styled-icons/fa-solid-10.34.0.tgz#315a6f6f25d38202d3387928191731e4c7a3bb18"
+  integrity sha1-MVpvbyXTggLTOHkoGRcx5Mejuxg=
+  dependencies:
+    "@babel/runtime" "^7.14.0"
+    "@styled-icons/styled-icon" "^10.6.3"
+
+"@styled-icons/styled-icon@^10.6.3":
+  version "10.6.3"
+  resolved "https://registry.nlark.com/@styled-icons/styled-icon/download/@styled-icons/styled-icon-10.6.3.tgz#eae0e5e18fd601ac47e821bb9c2e099810e86403"
+  integrity sha1-6uDl4Y/WAaxH6CG7nC4JmBDoZAM=
+  dependencies:
+    "@babel/runtime" "^7.10.5"
+    "@emotion/is-prop-valid" "^0.8.7"
+
 "@szmarczak/http-timer@^1.1.2":
   version "1.1.2"
   resolved "https://registry.nlark.com/@szmarczak/http-timer/download/@szmarczak/http-timer-1.1.2.tgz#b1665e2c461a2cd92f4c1bbf50d5454de0d4b421"
@@ -2410,6 +2540,33 @@ ajv@^8.0.1:
     require-from-string "^2.0.2"
     uri-js "^4.2.2"
 
+algoliasearch-helper@^3.7.0:
+  version "3.7.0"
+  resolved "https://registry.npmmirror.com/algoliasearch-helper/download/algoliasearch-helper-3.7.0.tgz#c0a0493df84d850360f664ad7a9d4fc78a94fd78"
+  integrity sha512-XJ3QfERBLfeVCyTVx80gon7r3/rgm/CE8Ha1H7cbablRe/X7SfYQ14g/eO+MhjVKIQp+gy9oC6G5ilmLwS1k6w==
+  dependencies:
+    "@algolia/events" "^4.0.1"
+
+algoliasearch@^4.12.0, algoliasearch@^4.9.1:
+  version "4.12.0"
+  resolved "https://registry.npmmirror.com/algoliasearch/download/algoliasearch-4.12.0.tgz#30f2619b6e3a5b79b6aa0f18ab66fbce88240aba"
+  integrity sha512-fZOMMm+F3Bi5M/MoFIz7hiuyCitJza0Hu+r8Wzz4LIQClC6YGMRq7kT6NNU1fSSoFDSeJIwMfedbbi5G9dJoVQ==
+  dependencies:
+    "@algolia/cache-browser-local-storage" "4.12.0"
+    "@algolia/cache-common" "4.12.0"
+    "@algolia/cache-in-memory" "4.12.0"
+    "@algolia/client-account" "4.12.0"
+    "@algolia/client-analytics" "4.12.0"
+    "@algolia/client-common" "4.12.0"
+    "@algolia/client-personalization" "4.12.0"
+    "@algolia/client-search" "4.12.0"
+    "@algolia/logger-common" "4.12.0"
+    "@algolia/logger-console" "4.12.0"
+    "@algolia/requester-browser-xhr" "4.12.0"
+    "@algolia/requester-common" "4.12.0"
+    "@algolia/requester-node-http" "4.12.0"
+    "@algolia/transporter" "4.12.0"
+
 alphanum-sort@^1.0.2:
   version "1.0.2"
   resolved "https://registry.npmmirror.com/alphanum-sort/download/alphanum-sort-1.0.2.tgz#97a1119649b211ad33691d9f9f486a8ec9fbe0a3"
@@ -2671,6 +2828,11 @@ autoprefixer@^10.4.0, autoprefixer@^10.4.2:
     normalize-range "^0.1.2"
     picocolors "^1.0.0"
     postcss-value-parser "^4.2.0"
+
+available-typed-arrays@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.nlark.com/available-typed-arrays/download/available-typed-arrays-1.0.5.tgz#92f95616501069d07d10edb2fc37d3e1c65123b7"
+  integrity sha1-kvlWFlAQadB9EO2y/DfT4cZRI7c=
 
 axe-core@^4.3.5:
   version "4.3.5"
@@ -3369,7 +3531,7 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
-classnames@^2.3.1:
+classnames@^2.2.5, classnames@^2.3.1:
   version "2.3.1"
   resolved "https://registry.npmmirror.com/classnames/download/classnames-2.3.1.tgz#dfcfa3891e306ec1dad105d0e88f4417b8535e8e"
   integrity sha512-OlQdbZ7gLfGarSqxesMesDa5uz7KFbID8Kpq/SxIoNGDqY8lSYs0D+hhtBXhcdB3rcbXArFr7vlHheLk1voeNA==
@@ -4072,6 +4234,27 @@ decompress-response@^6.0.0:
   dependencies:
     mimic-response "^3.1.0"
 
+deep-equal@^2.0.5:
+  version "2.0.5"
+  resolved "https://registry.npm.taobao.org/deep-equal/download/deep-equal-2.0.5.tgz?cache=0&sync_timestamp=1606859714626&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fdeep-equal%2Fdownload%2Fdeep-equal-2.0.5.tgz#55cd2fe326d83f9cbf7261ef0e060b3f724c5cb9"
+  integrity sha1-Vc0v4ybYP5y/cmHvDgYLP3JMXLk=
+  dependencies:
+    call-bind "^1.0.0"
+    es-get-iterator "^1.1.1"
+    get-intrinsic "^1.0.1"
+    is-arguments "^1.0.4"
+    is-date-object "^1.0.2"
+    is-regex "^1.1.1"
+    isarray "^2.0.5"
+    object-is "^1.1.4"
+    object-keys "^1.1.1"
+    object.assign "^4.1.2"
+    regexp.prototype.flags "^1.3.0"
+    side-channel "^1.0.3"
+    which-boxed-primitive "^1.0.1"
+    which-collection "^1.0.1"
+    which-typed-array "^1.1.2"
+
 deep-extend@^0.6.0:
   version "0.6.0"
   resolved "https://registry.nlark.com/deep-extend/download/deep-extend-0.6.0.tgz#c4fa7c95404a17a9c3e8ca7e1537312b736330ac"
@@ -4389,6 +4572,11 @@ dot-prop@^5.2.0:
   dependencies:
     is-obj "^2.0.0"
 
+dotenv@^14.3.2:
+  version "14.3.2"
+  resolved "https://registry.npmmirror.com/dotenv/download/dotenv-14.3.2.tgz#7c30b3a5f777c79a3429cb2db358eef6751e8369"
+  integrity sha512-vwEppIphpFdvaMCaHfCEv9IgwcxMljMw2TnAQBB4VWPvzXQLTb82jwmdOKzlEVUL3gNFT4l4TPKO+Bn+sqcrVQ==
+
 dotenv@^8.6.0:
   version "8.6.0"
   resolved "https://registry.npmmirror.com/dotenv/download/dotenv-8.6.0.tgz#061af664d19f7f4d8fc6e4ff9b584ce237adcb8b"
@@ -4526,7 +4714,7 @@ error-stack-parser@^2.0.6:
   dependencies:
     stackframe "^1.1.1"
 
-es-abstract@^1.17.2, es-abstract@^1.19.0, es-abstract@^1.19.1:
+es-abstract@^1.17.2, es-abstract@^1.18.5, es-abstract@^1.19.0, es-abstract@^1.19.1:
   version "1.19.1"
   resolved "https://registry.npmmirror.com/es-abstract/download/es-abstract-1.19.1.tgz?cache=0&sync_timestamp=1633234313248&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fes-abstract%2Fdownload%2Fes-abstract-1.19.1.tgz#d4885796876916959de78edaa0df456627115ec3"
   integrity sha1-1IhXlodpFpWd547aoN9FZicRXsM=
@@ -4551,6 +4739,20 @@ es-abstract@^1.17.2, es-abstract@^1.19.0, es-abstract@^1.19.1:
     string.prototype.trimend "^1.0.4"
     string.prototype.trimstart "^1.0.4"
     unbox-primitive "^1.0.1"
+
+es-get-iterator@^1.1.1:
+  version "1.1.2"
+  resolved "https://registry.npm.taobao.org/es-get-iterator/download/es-get-iterator-1.1.2.tgz#9234c54aba713486d7ebde0220864af5e2b283f7"
+  integrity sha1-kjTFSrpxNIbX694CIIZK9eKyg/c=
+  dependencies:
+    call-bind "^1.0.2"
+    get-intrinsic "^1.1.0"
+    has-symbols "^1.0.1"
+    is-arguments "^1.1.0"
+    is-map "^2.0.2"
+    is-set "^2.0.2"
+    is-string "^1.0.5"
+    isarray "^2.0.5"
 
 es-module-lexer@^0.9.0:
   version "0.9.3"
@@ -4631,6 +4833,11 @@ escape-string-regexp@^4.0.0:
   version "4.0.0"
   resolved "https://registry.nlark.com/escape-string-regexp/download/escape-string-regexp-4.0.0.tgz#14ba83a5d373e3d311e5afca29cf5bfad965bf34"
   integrity sha1-FLqDpdNz49MR5a/KKc9b+tllvzQ=
+
+escape-string-regexp@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.nlark.com/escape-string-regexp/download/escape-string-regexp-5.0.0.tgz#4683126b500b61762f2dbebace1806e8be31b1c8"
+  integrity sha1-RoMSa1ALYXYvLb66zhgG6L4xscg=
 
 eslint-config-react-app@^6.0.0:
   version "6.0.0"
@@ -5113,6 +5320,11 @@ fd@~0.0.2:
   resolved "https://registry.nlark.com/fd/download/fd-0.0.3.tgz#b3240de86dbf5a345baae7382a07d4713566ff0c"
   integrity sha1-syQN6G2/WjRbquc4KgfUcTVm/ww=
 
+fetch-retry@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.nlark.com/fetch-retry/download/fetch-retry-4.1.1.tgz#fafe0bb22b54f4d0a9c788dff6dd7f8673ca63f3"
+  integrity sha1-+v4LsitU9NCpx4jf9t1/hnPKY/M=
+
 figures@^3.0.0:
   version "3.2.0"
   resolved "https://registry.npmmirror.com/figures/download/figures-3.2.0.tgz#625c18bd293c604dc4a8ddb2febf0c88341746af"
@@ -5256,6 +5468,11 @@ for-in@^1.0.2:
   version "1.0.2"
   resolved "https://registry.nlark.com/for-in/download/for-in-1.0.2.tgz#81068d295a8142ec0ac726c6e2200c30fb6d5e80"
   integrity sha1-gQaNKVqBQuwKxybG4iAMMPttXoA=
+
+foreach@^2.0.5:
+  version "2.0.5"
+  resolved "https://registry.npm.taobao.org/foreach/download/foreach-2.0.5.tgz#0bee005018aeb260d0a3af3ae658dd0136ec1b99"
+  integrity sha1-C+4AUBiusmDQo6865ljdATbsG5k=
 
 fork-ts-checker-webpack-plugin@4.1.6:
   version "4.1.6"
@@ -5480,6 +5697,15 @@ gatsby-page-utils@^2.5.0:
     lodash "^4.17.21"
     micromatch "^4.0.4"
 
+gatsby-plugin-algolia@^0.25.0:
+  version "0.25.0"
+  resolved "https://registry.npmmirror.com/gatsby-plugin-algolia/download/gatsby-plugin-algolia-0.25.0.tgz#34966c1bb7c2187bc61f5663ec6584b56c78a82b"
+  integrity sha512-aRsLTuBtlBjW6rf/v8zLd3Zcbe2Mrza478ePn4nh+5a1AjMPeTgdDn/jMJDr/gWZEW/331bSK5NU/Du1vUIVvA==
+  dependencies:
+    algoliasearch "^4.9.1"
+    deep-equal "^2.0.5"
+    lodash.chunk "^4.2.0"
+
 gatsby-plugin-feed@^4.4.0:
   version "4.5.0"
   resolved "https://registry.npmmirror.com/gatsby-plugin-feed/download/gatsby-plugin-feed-4.5.0.tgz#4cb3fd9e7cf6b1ce9a66d2df8cdb4213afd08fee"
@@ -5659,6 +5885,13 @@ gatsby-plugin-sharp@^4.4.0:
     svgo "1.3.2"
     uuid "3.4.0"
 
+gatsby-plugin-styled-components@^5.6.0:
+  version "5.6.0"
+  resolved "https://registry.npmmirror.com/gatsby-plugin-styled-components/download/gatsby-plugin-styled-components-5.6.0.tgz#adbb6bb964d33c604831e247aac3af3a5ce8d699"
+  integrity sha512-D/LmioFAA0l6fe3+q0/Y6zj7i9TAJBWhFq3htHHIP8kGbK1gUlRMqLXjdHVo7aYnKqHb76X7kHyjoyYfD2s3aA==
+  dependencies:
+    "@babel/runtime" "^7.15.4"
+
 gatsby-plugin-typescript@^4.5.0:
   version "4.5.0"
   resolved "https://registry.npmmirror.com/gatsby-plugin-typescript/download/gatsby-plugin-typescript-4.5.0.tgz#dee887539bd08ddbbbf8ff0bc0b06dcef572529b"
@@ -5710,6 +5943,18 @@ gatsby-remark-copy-linked-files@^5.4.0:
     lodash "^4.17.21"
     path-is-inside "^1.0.2"
     probe-image-size "^6.0.0"
+    unist-util-visit "^2.0.3"
+
+gatsby-remark-embedder@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.npmmirror.com/gatsby-remark-embedder/download/gatsby-remark-embedder-5.0.0.tgz#87863c546816863bb3161897788433d5d85995c4"
+  integrity sha1-h4Y8VGgWhjuzFhiXeIQz1dhZlcQ=
+  dependencies:
+    "@babel/runtime" "^7.13.10"
+    fetch-retry "^4.1.1"
+    hast-util-from-parse5 "^6.0.1"
+    node-fetch "^2.6.1"
+    parse5 "^6.0.1"
     unist-util-visit "^2.0.3"
 
 gatsby-remark-images@^6.4.0:
@@ -6034,7 +6279,7 @@ get-caller-file@^2.0.1:
   resolved "https://registry.npm.taobao.org/get-caller-file/download/get-caller-file-2.0.5.tgz#4f94412a82db32f36e3b0b9741f8a97feb031f7e"
   integrity sha1-T5RBKoLbMvNuOwuXQfipf+sDH34=
 
-get-intrinsic@^1.0.2, get-intrinsic@^1.1.0, get-intrinsic@^1.1.1:
+get-intrinsic@^1.0.1, get-intrinsic@^1.0.2, get-intrinsic@^1.1.0, get-intrinsic@^1.1.1:
   version "1.1.1"
   resolved "https://registry.npmmirror.com/get-intrinsic/download/get-intrinsic-1.1.1.tgz#15f59f376f855c446963948f0d24cd3637b4abc6"
   integrity sha1-FfWfN2+FXERpY5SPDSTNNje0q8Y=
@@ -6447,7 +6692,7 @@ hast-to-hyperscript@^9.0.0:
     unist-util-is "^4.0.0"
     web-namespaces "^1.0.0"
 
-hast-util-from-parse5@^6.0.0:
+hast-util-from-parse5@^6.0.0, hast-util-from-parse5@^6.0.1:
   version "6.0.1"
   resolved "https://registry.nlark.com/hast-util-from-parse5/download/hast-util-from-parse5-6.0.1.tgz#554e34abdeea25ac76f5bd950a1f0180e0b3bc2a"
   integrity sha1-VU40q97qJax29b2VCh8BgOCzvCo=
@@ -6840,6 +7085,14 @@ is-alphanumerical@^1.0.0:
     is-alphabetical "^1.0.0"
     is-decimal "^1.0.0"
 
+is-arguments@^1.0.4, is-arguments@^1.1.0:
+  version "1.1.1"
+  resolved "https://registry.nlark.com/is-arguments/download/is-arguments-1.1.1.tgz#15b3f88fda01f2a97fec84ca761a560f123efa9b"
+  integrity sha1-FbP4j9oB8ql/7ITKdhpWDxI++ps=
+  dependencies:
+    call-bind "^1.0.2"
+    has-tostringtag "^1.0.0"
+
 is-arrayish@^0.2.1:
   version "0.2.1"
   resolved "https://registry.npmmirror.com/is-arrayish/download/is-arrayish-0.2.1.tgz#77c99840527aa8ecb1a8ba697b80645a7a926a9d"
@@ -6915,7 +7168,7 @@ is-data-descriptor@^1.0.0:
   dependencies:
     kind-of "^6.0.0"
 
-is-date-object@^1.0.1:
+is-date-object@^1.0.1, is-date-object@^1.0.2:
   version "1.0.5"
   resolved "https://registry.nlark.com/is-date-object/download/is-date-object-1.0.5.tgz?cache=0&sync_timestamp=1628202499310&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fis-date-object%2Fdownload%2Fis-date-object-1.0.5.tgz#0841d5536e724c25597bf6ea62e1bd38298df31f"
   integrity sha1-CEHVU25yTCVZe/bqYuG9OCmN8x8=
@@ -7037,6 +7290,11 @@ is-lower-case@^1.1.0:
   dependencies:
     lower-case "^1.1.0"
 
+is-map@^2.0.1, is-map@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.npm.taobao.org/is-map/download/is-map-2.0.2.tgz?cache=0&sync_timestamp=1608632330372&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fis-map%2Fdownload%2Fis-map-2.0.2.tgz#00922db8c9bf73e81b7a335827bc2a43f2b91127"
+  integrity sha1-AJItuMm/c+gbejNYJ7wqQ/K5ESc=
+
 is-negative-zero@^2.0.1:
   version "2.0.2"
   resolved "https://registry.npmmirror.com/is-negative-zero/download/is-negative-zero-2.0.2.tgz#7bf6f03a28003b8b3965de3ac26f664d765f3150"
@@ -7113,7 +7371,7 @@ is-promise@^2.2.2:
   resolved "https://registry.nlark.com/is-promise/download/is-promise-2.2.2.tgz#39ab959ccbf9a774cf079f7b40c7a26f763135f1"
   integrity sha1-OauVnMv5p3TPB597QMeib3YxNfE=
 
-is-regex@^1.1.4:
+is-regex@^1.1.1, is-regex@^1.1.4:
   version "1.1.4"
   resolved "https://registry.nlark.com/is-regex/download/is-regex-1.1.4.tgz?cache=0&sync_timestamp=1628221905423&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fis-regex%2Fdownload%2Fis-regex-1.1.4.tgz#eef5663cd59fa4c0ae339505323df6854bb15958"
   integrity sha1-7vVmPNWfpMCuM5UFMj32hUuxWVg=
@@ -7144,6 +7402,11 @@ is-root@2.1.0:
   version "2.1.0"
   resolved "https://registry.nlark.com/is-root/download/is-root-2.1.0.tgz#809e18129cf1129644302a4f8544035d51984a9c"
   integrity sha1-gJ4YEpzxEpZEMCpPhUQDXVGYSpw=
+
+is-set@^2.0.1, is-set@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.npm.taobao.org/is-set/download/is-set-2.0.2.tgz?cache=0&sync_timestamp=1608628369223&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fis-set%2Fdownload%2Fis-set-2.0.2.tgz#90755fa4c2562dc1c5d4024760d6119b94ca18ec"
+  integrity sha1-kHVfpMJWLcHF1AJHYNYRm5TKGOw=
 
 is-shared-array-buffer@^1.0.1:
   version "1.0.1"
@@ -7181,6 +7444,17 @@ is-symbol@^1.0.2, is-symbol@^1.0.3:
   dependencies:
     has-symbols "^1.0.2"
 
+is-typed-array@^1.1.7:
+  version "1.1.8"
+  resolved "https://registry.nlark.com/is-typed-array/download/is-typed-array-1.1.8.tgz?cache=0&sync_timestamp=1630390512808&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fis-typed-array%2Fdownload%2Fis-typed-array-1.1.8.tgz#cbaa6585dc7db43318bc5b89523ea384a6f65e79"
+  integrity sha1-y6plhdx9tDMYvFuJUj6jhKb2Xnk=
+  dependencies:
+    available-typed-arrays "^1.0.5"
+    call-bind "^1.0.2"
+    es-abstract "^1.18.5"
+    foreach "^2.0.5"
+    has-tostringtag "^1.0.0"
+
 is-typedarray@^1.0.0:
   version "1.0.0"
   resolved "https://registry.nlark.com/is-typedarray/download/is-typedarray-1.0.0.tgz#e479c80858df0c1b11ddda6940f96011fcda4a9a"
@@ -7207,12 +7481,25 @@ is-valid-path@^0.1.1:
   dependencies:
     is-invalid-path "^0.1.0"
 
+is-weakmap@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.npm.taobao.org/is-weakmap/download/is-weakmap-2.0.1.tgz#5008b59bdc43b698201d18f62b37b2ca243e8cf2"
+  integrity sha1-UAi1m9xDtpggHRj2KzeyyiQ+jPI=
+
 is-weakref@^1.0.1:
   version "1.0.2"
   resolved "https://registry.npmmirror.com/is-weakref/download/is-weakref-1.0.2.tgz#9529f383a9338205e89765e0392efc2f100f06f2"
   integrity sha512-qctsuLZmIQ0+vSSMfoVvyFe2+GSEvnmZ2ezTup1SBse9+twCCeial6EEi3Nc2KFcf6+qz2FBPnjXsk8xhKSaPQ==
   dependencies:
     call-bind "^1.0.2"
+
+is-weakset@^2.0.1:
+  version "2.0.2"
+  resolved "https://registry.npmmirror.com/is-weakset/download/is-weakset-2.0.2.tgz#4569d67a747a1ce5a994dfd4ef6dcea76e7c0a1d"
+  integrity sha512-t2yVvttHkQktwnNNmBQ98AhENLdPUTDTE21uPqAQ0ARwQfGeQKRVS0NNurH7bTf7RrvcVn1OOge45CnBeHCSmg==
+  dependencies:
+    call-bind "^1.0.2"
+    get-intrinsic "^1.1.1"
 
 is-whitespace-character@^1.0.0:
   version "1.0.4"
@@ -7250,6 +7537,11 @@ isarray@1.0.0, isarray@~1.0.0:
   version "1.0.0"
   resolved "https://registry.nlark.com/isarray/download/isarray-1.0.0.tgz#bb935d48582cba168c06834957a54a3e07124f11"
   integrity sha1-u5NdSFgsuhaMBoNJV6VKPgcSTxE=
+
+isarray@^2.0.5:
+  version "2.0.5"
+  resolved "https://registry.npmmirror.com/isarray/download/isarray-2.0.5.tgz#8af1e4c1221244cc62459faf38940d4e644a5723"
+  integrity sha512-xHjhDr3cNBK0BzdUJSPXZntQUx/mwMS5Rw4A7lPJ90XGAO6ISP/ePDNuo0vhqOZU+UD5JoodwCAAoZQd3FeAKw==
 
 isexe@^2.0.0:
   version "2.0.0"
@@ -7627,6 +7919,11 @@ lodash.castarray@^4.4.0:
   version "4.4.0"
   resolved "https://registry.nlark.com/lodash.castarray/download/lodash.castarray-4.4.0.tgz#c02513515e309daddd4c24c60cfddcf5976d9115"
   integrity sha1-wCUTUV4wna3dTCTGDP3c9ZdtkRU=
+
+lodash.chunk@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.npm.taobao.org/lodash.chunk/download/lodash.chunk-4.2.0.tgz#66e5ce1f76ed27b4303d8c6512e8d1216e8106bc"
+  integrity sha1-ZuXOH3btJ7QwPYxlEujRIW6BBrw=
 
 lodash.clonedeep@4.5.0:
   version "4.5.0"
@@ -8674,6 +8971,14 @@ object-inspect@^1.11.0, object-inspect@^1.9.0:
   resolved "https://registry.npmmirror.com/object-inspect/download/object-inspect-1.12.0.tgz#6e2c120e868fd1fd18cb4f18c31741d0d6e776f0"
   integrity sha512-Ho2z80bVIvJloH+YzRmpZVQe87+qASmBUKZDWgx9cu+KDrX2ZDH/3tMy+gXbZETVGs2M8YdxObOh7XAtim9Y0g==
 
+object-is@^1.1.4:
+  version "1.1.5"
+  resolved "https://registry.npm.taobao.org/object-is/download/object-is-1.1.5.tgz?cache=0&sync_timestamp=1613857698573&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fobject-is%2Fdownload%2Fobject-is-1.1.5.tgz#b9deeaa5fc7f1846a0faecdceec138e5778f53ac"
+  integrity sha1-ud7qpfx/GEag+uzc7sE45XePU6w=
+  dependencies:
+    call-bind "^1.0.2"
+    define-properties "^1.1.3"
+
 object-keys@^1.0.12, object-keys@^1.1.1:
   version "1.1.1"
   resolved "https://registry.npmmirror.com/object-keys/download/object-keys-1.1.1.tgz#1c47f272df277f3b1daf061677d9c82e2322c60e"
@@ -9656,7 +9961,7 @@ prompts@^2.4.2:
     kleur "^3.0.3"
     sisteransi "^1.0.5"
 
-prop-types@^15.6.1, prop-types@^15.7.2:
+prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.8.1"
   resolved "https://registry.npmmirror.com/prop-types/download/prop-types-15.8.1.tgz#67d87bf1a694f48435cf332c24af10214a3140b5"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
@@ -9855,7 +10160,7 @@ react-error-overlay@^6.0.9:
   resolved "https://registry.npmmirror.com/react-error-overlay/download/react-error-overlay-6.0.10.tgz#0fe26db4fa85d9dbb8624729580e90e7159a59a6"
   integrity sha512-mKR90fX7Pm5seCOfz8q9F+66VCc1PGsWSBxKbITjfKVQHMNF2zudxHnMdJiB1fRCb+XsbQV9sO9DCkgsMQgBIA==
 
-react-fast-compare@^3.1.1:
+react-fast-compare@^3.0.0, react-fast-compare@^3.1.1:
   version "3.2.0"
   resolved "https://registry.nlark.com/react-fast-compare/download/react-fast-compare-3.2.0.tgz#641a9da81b6a6320f270e89724fb45a0b39e43bb"
   integrity sha1-ZBqdqBtqYyDycOiXJPtFoLOeQ7s=
@@ -9874,6 +10179,28 @@ react-icons@^4.3.1:
   version "4.3.1"
   resolved "https://registry.npmmirror.com/react-icons/download/react-icons-4.3.1.tgz#2fa92aebbbc71f43d2db2ed1aed07361124e91ca"
   integrity sha1-L6kq67vHH0PS2y7RrtBzYRJOkco=
+
+react-instantsearch-core@6.21.1:
+  version "6.21.1"
+  resolved "https://registry.npmmirror.com/react-instantsearch-core/download/react-instantsearch-core-6.21.1.tgz#d145e503a30781ac724aec3dbe0dac7d430b723a"
+  integrity sha512-be4+J9sOA2cR+uYi4vGvZGC4u19Rs379UtOzv0JBNSUD8hDSxewhxqovqhJRhMH6y5RKw7EFYQUYp9bHxj01rw==
+  dependencies:
+    "@babel/runtime" "^7.1.2"
+    algoliasearch-helper "^3.7.0"
+    prop-types "^15.6.2"
+    react-fast-compare "^3.0.0"
+
+react-instantsearch-dom@^6.21.1:
+  version "6.21.1"
+  resolved "https://registry.npmmirror.com/react-instantsearch-dom/download/react-instantsearch-dom-6.21.1.tgz#9b2faae499a0b7cf775aa53afb2454322367548a"
+  integrity sha512-3f7VrKW4L1jnah51UbRitDMcfFIl6FoLSc2JmCF9qND2nbDh/NlZvcT45BPxbCYnK4qNc2HJFx0ipe+zoGbNtA==
+  dependencies:
+    "@babel/runtime" "^7.1.2"
+    algoliasearch-helper "^3.7.0"
+    classnames "^2.2.5"
+    prop-types "^15.6.2"
+    react-fast-compare "^3.0.0"
+    react-instantsearch-core "6.21.1"
 
 react-is@^16.13.1, react-is@^16.7.0:
   version "16.13.1"
@@ -10030,6 +10357,14 @@ regex-not@^1.0.0, regex-not@^1.0.2:
   dependencies:
     extend-shallow "^3.0.2"
     safe-regex "^1.1.0"
+
+regexp.prototype.flags@^1.3.0:
+  version "1.4.1"
+  resolved "https://registry.npmmirror.com/regexp.prototype.flags/download/regexp.prototype.flags-1.4.1.tgz#b3f4c0059af9e47eca9f3f660e51d81307e72307"
+  integrity sha512-pMR7hBVUUGI7PMA37m2ofIdQCsomVnas+Jn5UPGAHQ+/LlwKm/aTLJHdasmHRzlfeZwHiAOaRSo2rbBDm3nNUQ==
+  dependencies:
+    call-bind "^1.0.2"
+    define-properties "^1.1.3"
 
 regexp.prototype.flags@^1.3.1:
   version "1.3.1"
@@ -10687,7 +11022,7 @@ shell-quote@1.7.2:
   resolved "https://registry.npmmirror.com/shell-quote/download/shell-quote-1.7.2.tgz?cache=0&sync_timestamp=1634798222474&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fshell-quote%2Fdownload%2Fshell-quote-1.7.2.tgz#67a7d02c76c9da24f99d20808fcaded0e0e04be2"
   integrity sha1-Z6fQLHbJ2iT5nSCAj8re0ODgS+I=
 
-side-channel@^1.0.4:
+side-channel@^1.0.3, side-channel@^1.0.4:
   version "1.0.4"
   resolved "https://registry.nlark.com/side-channel/download/side-channel-1.0.4.tgz#efce5c8fdc104ee751b25c58d4290011fa5ea2cf"
   integrity sha1-785cj9wQTudRslxY1CkAEfpeos8=
@@ -12321,7 +12656,7 @@ whatwg-url@^5.0.0:
     tr46 "~0.0.3"
     webidl-conversions "^3.0.0"
 
-which-boxed-primitive@^1.0.2:
+which-boxed-primitive@^1.0.1, which-boxed-primitive@^1.0.2:
   version "1.0.2"
   resolved "https://registry.nlark.com/which-boxed-primitive/download/which-boxed-primitive-1.0.2.tgz#13757bc89b209b049fe5d86430e21cf40a89a8e6"
   integrity sha1-E3V7yJsgmwSf5dhkMOIc9AqJqOY=
@@ -12332,10 +12667,32 @@ which-boxed-primitive@^1.0.2:
     is-string "^1.0.5"
     is-symbol "^1.0.3"
 
+which-collection@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.npm.taobao.org/which-collection/download/which-collection-1.0.1.tgz#70eab71ebbbd2aefaf32f917082fc62cdcb70906"
+  integrity sha1-cOq3Hru9Ku+vMvkXCC/GLNy3CQY=
+  dependencies:
+    is-map "^2.0.1"
+    is-set "^2.0.1"
+    is-weakmap "^2.0.1"
+    is-weakset "^2.0.1"
+
 which-module@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npm.taobao.org/which-module/download/which-module-2.0.0.tgz#d9ef07dce77b9902b8a3a8fa4b31c3e3f7e6e87a"
   integrity sha1-2e8H3Od7mQK4o6j6SzHD4/fm6Ho=
+
+which-typed-array@^1.1.2:
+  version "1.1.7"
+  resolved "https://registry.nlark.com/which-typed-array/download/which-typed-array-1.1.7.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fwhich-typed-array%2Fdownload%2Fwhich-typed-array-1.1.7.tgz#2761799b9a22d4b8660b3c1b40abaa7739691793"
+  integrity sha1-J2F5m5oi1LhmCzwbQKuqdzlpF5M=
+  dependencies:
+    available-typed-arrays "^1.0.5"
+    call-bind "^1.0.2"
+    es-abstract "^1.18.5"
+    foreach "^2.0.5"
+    has-tostringtag "^1.0.0"
+    is-typed-array "^1.1.7"
 
 which@^1.2.9, which@^1.3.1:
   version "1.3.1"

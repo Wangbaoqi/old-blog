@@ -20,26 +20,16 @@
  
   .tn-typo {
     @apply 
-      my-5 text-primary 
-      /* typo-pre:shadow-lg typo-pre:rounded-2xl typo-pre:bg-accent-content */
+      text-primary 
       typo-a:link-accent typo-a:link-hover
       typo-blockquote:bg-info typo-blockquote:bg-opacity-20
       typo-blockquote:p-1 typo-blockquote:pl-6 typo-blockquote:rounded-xl
   }
 
   .article-content {
-    @apply fixed z-20 top-[5.8125rem] bottom-0 right-1 w-[20rem] py-10 px-4 overflow-y-auto hidden xl:block
+    @apply fixed z-20 top-[5.8125rem] bottom-0 right-0 w-[15rem] py-10 overflow-y-auto hidden 2xl:block
   }
-  .article-content ul { 
-    @apply -mb-5
-  }
-
-  .article-content p { 
-    @apply mb-4
-  }
-  .article-content li {
-    @apply text-sm px-4 py-1 mb-4 rounded-l-lg hover:text-secondary
-  }
+  
 
   /* home article */
 
@@ -61,7 +51,7 @@
            focus-within:rotate-6 hover:-translate-y-4 hover:rotate-6 focus-within:-translate-y-4
   }
   .mini-card {
-    @apply bg-card-bi shadow-card-h shadow-primary-content
+    @apply bg-card-bi 
   }
   .article-card:focus-within~.article-card, .article-card:hover~.article-card {
     @apply translate-x-36

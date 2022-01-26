@@ -38,11 +38,11 @@ const TopArticle = () => {
   } 
   
   return (
-    <section className="home-card pt-20 transition duration-500 ease-in-out transform hover:scale-100">
+    <section className="home-card cursor-pointer">
       {
         articles.map((im,idx) => (
-          <div key={idx} className="flex flex-col lg:h-80 lg:flex-row">
-            <figure className="basis-1/2 pr-10">
+          <div key={idx} className="flex flex-col lg:h-81 lg:flex-row px-4 lg:px-0">
+            <figure className="basis-1/2 lg:pr-5">
               <img src="https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/react/react-diff.png" className="rounded-3xl h-full" />
             </figure> 
             <div className="basis-1/2 flex flex-col justify-between">

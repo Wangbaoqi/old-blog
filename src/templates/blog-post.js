@@ -11,6 +11,8 @@ const BlogPostTemplate = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = data
 
+  console.log(location)
+
   return (
     <Layout location={location} title={siteTitle}>
       <Seo
@@ -18,60 +20,86 @@ const BlogPostTemplate = ({ data, location }) => {
         description={post.frontmatter.description || post.excerpt}
       />
 
-      <section className="relative rounded-2xl flex ">
+      <section className="overflow-y-auto">
+        <article
+          className="typo prose tn-typo mx-auto max-w-4xl"
+          itemScope
+          itemType="http://schema.org/Article"
+        >
+          <header>
+            <h1 itemProp="headline">{post.frontmatter.title}</h1>
+            <p>{post.frontmatter.date}</p>
+          </header>
+          <MDXRenderer>{post.body}</MDXRenderer>
+          <hr />
 
-        <div className="max-w-7xl mx-auto max-w">
-          <article
-            className="relative p-8 typo prose tn-typo max-w-4xl" 
-            itemScope
-            itemType="http://schema.org/Article"
-          >
-            <header>
-              <h1 itemProp="headline">{post.frontmatter.title}</h1>
-              <p>{post.frontmatter.date}</p>
-            </header>
-            <MDXRenderer>{post.body}</MDXRenderer>
-            <hr />
+          <nav className="blog-post-nav">
+            <ul
+              style={{
+                display: `flex`,
+                flexWrap: `wrap`,
+                justifyContent: `space-between`,
+                listStyle: `none`,
+                padding: 0,
+              }}
+            >
+              <li>
+                {previous && (
+                  <Link to={previous.fields.slug} rel="prev">
+                    ← {previous.frontmatter.title}
+                  </Link>
+                )}
+              </li>
+              <li>
+                {next && (
+                  <Link to={next.fields.slug} rel="next">
+                    {next.frontmatter.title} →
+                  </Link>
+                )}
+              </li>
+            </ul>
+          </nav>
+          <footer>{/* <Bio /> */}</footer>
+        </article>
 
-            <nav className="blog-post-nav">
-              <ul
-                style={{
-                  display: `flex`,
-                  flexWrap: `wrap`,
-                  justifyContent: `space-between`,
-                  listStyle: `none`,
-                  padding: 0,
-                }}
-              >
-                <li>
-                  {previous && (
-                    <Link to={previous.fields.slug} rel="prev">
-                      ← {previous.frontmatter.title}
-                    </Link>
-                  )}
-                </li>
-                <li>
-                  {next && (
-                    <Link to={next.fields.slug} rel="next">
-                      {next.frontmatter.title} →
-                    </Link>
-                  )}
-                </li>
-              </ul>
-            </nav>
-            <footer>
-              <Bio />
-            </footer>
-          </article>
-        </div>
-        
         <aside className="article-content">
           <h2 className="font-bold mb-4">on this page</h2>
-          <section className="article-list" dangerouslySetInnerHTML={{ __html: post.tableOfContents}}></section>
+          <section className="article-list">
+            <ul className="text-sm">
+              {post.tableOfContents.items.map((im, idx) => {
+                console.log(im.url, location)
+                return (
+                  <li className="px-2 " key={idx}>
+                    <Link
+                      className="py-2 block rounded-lg  hover:text-secondary"
+                      to={im.url}
+                      href
+                      activeClassName="hover:bg-base-content/10"
+                    >
+                      {im.title}
+                    </Link>
+                    <ul className="pl-1">
+                      {im.items &&
+                        im.items.map((it, id) => (
+                          <li className="rounded-lg" key={id}>
+                            <Link
+                              className="block pl-3 py-2 hover:bg-base-content/10 hover:text-secondary"
+                              to={it.url}
+                              href
+                              activeClassName="hover:bg-base-content/10"
+                            >
+                              {it.title}
+                            </Link>
+                          </li>
+                        ))}
+                    </ul>
+                  </li>
+                )
+              })}
+            </ul>
+          </section>
         </aside>
       </section>
-      
-      
     </Layout>
   )
 }

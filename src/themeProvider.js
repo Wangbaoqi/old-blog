@@ -2,7 +2,7 @@ import React, { createContext, useEffect, useState } from 'react';
 
 
 const initTheme = () => {
-  if(window?.localStorage) {
+  if(typeof window != 'undefined' && window?.localStorage) {
     const localTheme = window.localStorage.getItem('theme')
     if(typeof localTheme === 'string') {
       return localTheme
@@ -12,6 +12,7 @@ const initTheme = () => {
     }
     return 'light'
   }
+  return 'dark'
 }
 
 export const ThemeContext = createContext();
@@ -22,13 +23,7 @@ export const ThemeProvider = ({initialTheme, children}) => {
 
   const checkTheme = (existing) => {
     const root = document.documentElement;
-    // const isDark = existing === 'dark';
-
     root.setAttribute('data-theme', existing)
-
-    // root.classList.remove(isDark ? 'light' : 'dark');
-    // root.classList.add(existing);
-
     localStorage.setItem('theme', existing);
   }
 

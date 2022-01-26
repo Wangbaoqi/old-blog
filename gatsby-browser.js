@@ -1,5 +1,6 @@
 // custom typefaces
 
+import "./src/normalize.css"
 
 import './src/styles/global.css';
 
@@ -15,7 +16,6 @@ export const wrapRootElement = wrap
 // import "typeface-montserrat"
 // import "typeface-merriweather"
 // normalize CSS across browsers
-// import "./src/normalize.css"
 // custom CSS styles
 
 // Highlighting for code blocks
