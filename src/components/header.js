@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 
 import ThemeToggle from "./themeToggle"
 import { Link, graphql, useStaticQuery } from "gatsby"
@@ -36,14 +36,20 @@ const Aside = ({location}) => {
 
   const { menuLinks = [], social = [], title = '', } = data.site.siteMetadata;
 
+  const [showSearch, setShowSearch] = useState(false);
 
   return ( 
     <div className="max-w-screen-xl mx-auto flex items-center justify-between">
-      <section className="flex py-6 ">
-        <h1 className="text-xl">{title}</h1>
+      <section className="flex items-center py-6 ">
+        <div className="">
+          <h1 className="text-xl">{title}</h1>
+        </div>
+        <div onClick={() => setShowSearch(true)}>
+          search
+        </div>
       </section>
       <section className="flex items-center basis-1/3 justify-between" >
-        <nav className="flex">
+        <nav className="flex items-center">
           {
             menuLinks.map((item, idx) => (
               <div key={idx}>
@@ -61,10 +67,13 @@ const Aside = ({location}) => {
         </nav>
         <div className="tool">
           <ThemeToggle />
+        </div>
+      </section>
+      <section className={`fixed w-screen h-screen top-0 left-0 right-0 bottom-0 bg-black/10 backdrop-blur-sm z-10 p-36 ${!showSearch ? "hidden" : ''}`}>
+        <div className="mx-auto max-w-2xl flex flex-col" >
           <Search indices={searchIndices} />
         </div>
       </section>
-      
     </div>
   )
 }

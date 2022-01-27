@@ -1,5 +1,6 @@
 const escapeStringRegexp = require('escape-string-regexp');
 
+
 const pagePath = `content`;
 const indexName = process.env.GATSBY_ALGOLIA_INDEX_NAME;
 

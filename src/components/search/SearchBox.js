@@ -7,7 +7,7 @@ import './SearchBox.css';
 export default connectSearchBox(({ refine, currentRefinement, className, onFocus }) => (
   <form className={className}>
     <input
-      className="SearchInput"
+      className=""
       type="text"
       placeholder="Search"
       aria-label="Search"
