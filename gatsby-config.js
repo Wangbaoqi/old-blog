@@ -104,15 +104,15 @@ module.exports = {
     //     queries: require("./src/utils/algolia-queries")
     //   },
     // },
-    {
-      resolve: `gatsby-plugin-algolia-docsearch`,
-      options: {
-        apiKey: process.env.ALGOLIA_ADMIN_KEY, // required
-        indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME, // required
-        inputSelector: "ALGOLIA_DOCUSEARCH_INPUT_SELCTOR", // required
-        debug: false // (bool) Optional. Default `false`
-      }
-    }
+    // {
+    //   resolve: `gatsby-plugin-algolia-docsearch`,
+    //   options: {
+    //     apiKey: process.env.ALGOLIA_ADMIN_KEY, // required
+    //     indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME, // required
+    //     inputSelector: "ALGOLIA_DOCUSEARCH_INPUT_SELCTOR", // required
+    //     debug: false // (bool) Optional. Default `false`
+    //   }
+    // }
     `gatsby-plugin-react-helmet`,
   ],
 }
