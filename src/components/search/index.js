@@ -6,7 +6,13 @@ import { ThemeProvider } from 'styled-components';
 import StyledSearchBox from './StyledSearchBox';
 import StyledSearchResult from './StyledSearchResult';
 import StyledSearchRoot from './StyledSearchRoot';
+import StylePower from './StylePower';
 import useClickOutside from './useClickOutside';
+
+
+import SearchBox from './SearchBox';
+import SearchResult from './SearchResult';
+
 
 const theme = {
   foreground: '#050505',
@@ -27,17 +33,19 @@ const Search = function ({ indices }) {
 
   return (
     <ThemeProvider theme={theme}>
-      <StyledSearchRoot ref={rootRef}>
+      <div ref={rootRef} className="fixed top-32 z-50 left-1/2 right-1/2 overflow-hidden  transform -translate-x-1/2 max-w-3xl w-full bg-secondary-content text-primary rounded-xl">
         <InstantSearch
           searchClient={searchClient}
           indexName={indices[0].name}
           // eslint-disable-next-line no-shadow
           onSearchStateChange={({ query }) => setQuery(query)}
         >
-          <StyledSearchBox onFocus={() => setFocus(true)} hasFocus={hasFocus} />
+          <SearchBox onFocus={() => setFocus(true)} hasFocus={hasFocus} />
           <StyledSearchResult show={query && query.length > 0 && hasFocus} indices={indices} />
+          <StylePower />
+
         </InstantSearch>
-      </StyledSearchRoot>
+      </div>
     </ThemeProvider>
   );
 };

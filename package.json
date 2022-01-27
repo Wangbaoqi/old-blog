@@ -23,6 +23,7 @@
     "escape-string-regexp": "^4.0.0",
     "gatsby": "^4.4.0",
     "gatsby-plugin-algolia": "^0.25.0",
+    "gatsby-plugin-algolia-docsearch": "^1.0.5",
     "gatsby-plugin-feed": "^4.4.0",
     "gatsby-plugin-gatsby-cloud": "^4.4.0",
     "gatsby-plugin-google-analytics": "^4.4.0",

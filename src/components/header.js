@@ -44,9 +44,9 @@ const Aside = ({location}) => {
         <div className="">
           <h1 className="text-xl">{title}</h1>
         </div>
-        <div onClick={() => setShowSearch(true)}>
+        {/* <div onClick={() => setShowSearch(true)}>
           search
-        </div>
+        </div> */}
       </section>
       <section className="flex items-center basis-1/3 justify-between" >
         <nav className="flex items-center">
@@ -69,11 +69,8 @@ const Aside = ({location}) => {
           <ThemeToggle />
         </div>
       </section>
-      <section className={`fixed w-screen h-screen top-0 left-0 right-0 bottom-0 bg-black/10 backdrop-blur-sm z-10 p-36 ${!showSearch ? "hidden" : ''}`}>
-        <div className="mx-auto max-w-2xl flex flex-col" >
-          <Search indices={searchIndices} />
-        </div>
-      </section>
+      <div className={`fixed w-screen h-screen top-0 left-0 right-0 bottom-0 bg-black/10 backdrop-blur-sm z-10 ${!showSearch ? "hidden" : ''}`} onClick={() => setShowSearch(false)}></div>
+      { !showSearch ? '' : <Search indices={searchIndices} />}
     </div>
   )
 }

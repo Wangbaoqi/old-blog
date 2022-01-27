@@ -2,24 +2,17 @@ import styled, { css } from 'styled-components';
 import SearchResult from './SearchResult';
 
 const Popover = css`
-  max-height: 80vh;
+  max-height: 50vh;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
-  position: absolute;
   z-index: 2;
-  right: 0;
-  top: 100%;
   margin-top: 0.5em;
-  width: 80vw;
-  max-width: 30em;
   box-shadow: 0 0 5px 0;
   padding: 1em;
   border-radius: 2px;
-  background: ${({ theme }) => theme.background};
 `;
 
 export default styled(SearchResult)`
-  display: ${(props) => (props.show ? `block` : `none`)};
   ${Popover}
 
   .HitCount {
@@ -45,16 +38,6 @@ export default styled(SearchResult)`
           margin-bottom: 0.2em;
         }
       }
-    }
-  }
-
-  .ais-PoweredBy {
-    display: flex;
-    justify-content: flex-end;
-    font-size: 80%;
-
-    svg {
-      width: 70px;
     }
   }
 `;

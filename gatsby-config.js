@@ -96,14 +96,23 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    // {
+    //   resolve: `gatsby-plugin-algolia`,
+    //   options: {
+    //     appId: process.env.GATSBY_ALGOLIA_APP_ID,
+    //     apiKey: process.env.ALGOLIA_ADMIN_KEY,
+    //     queries: require("./src/utils/algolia-queries")
+    //   },
+    // },
     {
-      resolve: `gatsby-plugin-algolia`,
+      resolve: `gatsby-plugin-algolia-docsearch`,
       options: {
-        appId: process.env.GATSBY_ALGOLIA_APP_ID,
-        apiKey: process.env.ALGOLIA_ADMIN_KEY,
-        queries: require("./src/utils/algolia-queries")
-      },
-    },
+        apiKey: process.env.ALGOLIA_ADMIN_KEY, // required
+        indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME, // required
+        inputSelector: "ALGOLIA_DOCUSEARCH_INPUT_SELCTOR", // required
+        debug: false // (bool) Optional. Default `false`
+      }
+    }
     `gatsby-plugin-react-helmet`,
   ],
 }
