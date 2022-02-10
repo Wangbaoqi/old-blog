@@ -15,7 +15,7 @@ const Layout = ({ children }) => {
       <header className="shadow-lg fixed top-0 z-50 h-20 w-full bg-primary-content">
         <Header />
       </header>
-      <div className="bg-primary-content text-primary pt-20 relative font-mono text-base antialiased">
+      <div className="bg-primary-content text-primary pt-20 relative font-mono min-h-screen text-base antialiased">
         <main className="max-w-screen-xl mx-auto z-0  pt-10 bg-primary-content overflow-y-auto">
           {children}
         </main>

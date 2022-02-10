@@ -78,7 +78,7 @@ const StyledError = styled(LiveError)`
 
 const LiveEdit = ({ noInline, code, file }) => (
   <StyledProvider code={code} noInline={noInline} theme={theme}>
-    <div className='shadow-3xl rounded-lg pb-10 -mx-20 my-8 bg-neutral-content'>
+    <div className='shadow-3xl rounded-lg pb-10 my-8 bg-neutral-content'>
       <div className='flex justify-between p-2 pl-6 items-center relative z-10 border-b border-secondary-content rounded-t-lg rounded-b-none'>
         <div>{file || 'edit area'}</div>
       </div>

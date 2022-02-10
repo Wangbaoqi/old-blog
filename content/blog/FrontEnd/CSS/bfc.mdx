@@ -11,18 +11,40 @@ categories: css
 
 ## 什么是BFC
 
+**BFC**是网页中独立的一个`渲染区域`，也称为**块级格式上下文**，规定了内部块级元素如何布局，且与外部区域毫不相关（外部也不会影响内部区域），以及只能有**块级元素**参加。
 
-https://codepen.io/wangbaoqi/pen/oNoNaGG
+当元素`display`属性为`block`、`list-item`以及为`table`时，会在当前元素内产生块级格式上下文。
+
+除了**BFC**渲染区域外，还有另外一种**IFC**（行级格式上下文），规定了内部行级元素如何布局。
+
+当元素`display`属性为`inline`、`inline-block`以及为`inline-table`时，会在当前元素内产生行级格式上下文。
+
+
+## BFC的布局规则
+
+1. 默认，内部的块元素会在垂直方向布局，并且每一个块级元素独占一行
+2. 块元素垂直方向的距离由盒子高度`+ margin`组成
+3. 同一个BFC内垂直方向的块级元素的`margin`会发生重叠，水平方向不会
+4. 左侧BFC渲染区域的`margin`和右侧BFC渲染区域的`margin`不能相互重叠
+5. 计算父元素BFC渲染区域的高度时，内部浮动的元素的高度也要计算
+
+
+## BFC渲染区域的形成
+
+1. `float`的值不为`none`
+2. `position`的值不为`static`或者`relative`
+3. `display`的值是`inline-block`、`table-cell`、`table-caption`、`flex`、`inline-flex`、`grid`、`inline-grid`
+4. `overflow`的值不为`visible`的元素
+
+
+## BFC 解决的问题
+
+1. 防止高度坍塌 - [4种解决方法](https://q.wangbaoqi.tech/frontend/css/high-collapse.html)
+2. 解决块元素垂直方向`margin`折叠 [5种解法方法](https://q.wangbaoqi.tech/frontend/css/margin-collapse.html)
+3. 避免垂直方向`margin`溢出 类似于`margin`折叠
+4. 解决两栏布局中采用`float`的方式
 
 
 
-
-
-
-<iframe height="300" style="width: 100%;" scrolling="no" title="BFC - 高度坍塌" src="https://codepen.io/wangbaoqi/embed/preview/oNoNaGG?default-tab=html%2Cresult&editable=true&theme-id=dark" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href="https://codepen.io/wangbaoqi/pen/oNoNaGG">
-  BFC - 高度坍塌</a> by wangbaoqi (<a href="https://codepen.io/wangbaoqi">@wangbaoqi</a>)
-  on <a href="https://codepen.io">CodePen</a>.
-</iframe>
 
 

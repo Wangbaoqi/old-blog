@@ -20,9 +20,9 @@ const BlogPostTemplate = ({ data, location }) => {
         description={post.frontmatter.description || post.excerpt}
       />
 
-      <section className="overflow-y-auto">
+      <section className="overflow-y-auto flex justify-between">
         <article
-          className="typo prose tn-typo mx-auto max-w-4xl"
+          className="typo prose tn-typo max-w-4xl"
           itemScope
           itemType="http://schema.org/Article"
         >
@@ -63,15 +63,15 @@ const BlogPostTemplate = ({ data, location }) => {
         </article>
 
         <aside className="article-content">
-          <h2 className="font-bold mb-4">on this page</h2>
           <section className="article-list">
+            <h2 className="font-bold mb-4 w-full px-2">on this page</h2>
             <ul className="text-sm">
               {post.tableOfContents.items.map((im, idx) => {
                 console.log(im.url, location)
                 return (
                   <li className="px-2 " key={idx}>
                     <Link
-                      className="py-2 block rounded-lg  hover:text-secondary"
+                      className="py-1 block rounded-lg hover:text-secondary"
                       to={im.url}
                       href
                       activeClassName="hover:bg-base-content/10"

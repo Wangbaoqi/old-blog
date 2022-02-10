@@ -20,14 +20,14 @@
  
   .tn-typo {
     @apply 
-      text-primary 
+      text-primary text-base
       typo-a:link-accent typo-a:link-hover
       typo-blockquote:bg-info typo-blockquote:bg-opacity-20
       typo-blockquote:p-1 typo-blockquote:pl-6 typo-blockquote:rounded-xl
   }
 
   .article-content {
-    @apply fixed z-20 top-[5.8125rem] bottom-0 right-0 w-[15rem] py-10 overflow-y-auto hidden 2xl:block
+    @apply fixed z-20 top-[4rem] bottom-0 right-[max(0px,calc(50%-40rem))] w-[15rem] py-10 overflow-y-auto hidden 2xl:flex 2xl:flex-col 2xl:items-center
   }
   
 
