@@ -13,10 +13,10 @@ const Article = ({
     fields = {},
   } = data;
 
-  const baseHovCls = `bg-primary-content overflow-hidden justify-between cursor-pointer`
+  const baseHovCls = `overflow-hidden justify-between cursor-pointer`
 
   const hovCls = isTop ? `md:flex` : 'h-article-height';
-  const inwCls = isTop ? `md:w-1/2 lg:h-80 lg:w-80` : 'md:w-full lg:h-80 lg:w-80';
+  const inwCls = isTop ? `md:w-1/2` : 'md:w-full ';
   const inrCls = isTop ? `p-8` : `pt-4`
 
   return (
@@ -44,7 +44,7 @@ const Article = ({
         </h2>
         <section className="pb-4">
           <p
-            className="line-clamp-2 text-base"
+            className="line-clamp-2 text-sm"
             dangerouslySetInnerHTML={{
               __html: frontmatter.description || excerpt,
             }}
@@ -52,7 +52,7 @@ const Article = ({
           />
         </section>
         <div className="avatar">
-          <div className="mr-6 w-12 h-12 mask mask-squircle">
+          <div className="mr-4 w-12 h-12 mask mask-squircle">
             <img src="http://daisyui.com/tailwind-css-component-profile-2@56w.png" />
           </div>
           <section className="flex flex-col justify-around">

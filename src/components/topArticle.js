@@ -23,6 +23,7 @@ const TopArticle = () => {
             date
             title
             tags
+            cover
           }
         }
       }
@@ -34,19 +35,19 @@ const TopArticle = () => {
   const getTagCls = (tag) => {
     const tagColor = tagColorEnum[tag] ;
 
-    return `px-2 py-1 text-sm rounded-full ${tagColor} bg-react-b text-react-c`
+    return `px-2 py-1 text-sm rounded-lg ${tagColor} bg-react-b text-react-c`
   } 
   
   return (
-    <section className="home-card cursor-pointer">
+    <section className="py-10 cursor-pointer">
       {
         articles.map((im,idx) => (
-          <div key={idx} className="flex flex-col lg:h-81 lg:flex-row px-4 lg:px-0">
+          <div key={idx} className="flex flex-col lg:h-81 lg:flex-row px-4  lg:px-0">
             <figure className="basis-1/2 lg:pr-5">
-              <img src="https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/react/react-diff.png" className="rounded-3xl h-full" />
+              <img src={im.frontmatter.cover} className="rounded-3xl h-full"/>
             </figure> 
-            <div className="basis-1/2 flex flex-col justify-between">
-              <ul className="flex mb-4">
+            <div className="basis-1/2 flex flex-col justify-between pt-4 lg:pt-0">
+              <ul className="flex mb-4 lg:mb-0">
                 {(im.frontmatter.tags || []).map((tag, idx) => (
                   <li key={idx} className={getTagCls(tag)}>
                     <em>{`#${tag}`}</em>
@@ -54,21 +55,21 @@ const TopArticle = () => {
                 ))}
               </ul>
 
-              <h2 className="mb-4 text-4xl font-medium hover:text-primary-focus">
+              <h2 className="mb-4 lg:mb-0 text-2xl lg:text-4xl font-medium hover:text-primary-focus">
                 <Link to={im.fields.slug} itemProp="url">
                   {im.frontmatter.title}
                 </Link>
               </h2> 
               
               <p 
-                className="mb-4 line-clamp-4"
+                className="mb-4 lg:mb-0 line-clamp-4 text-sm leading-7 lg:text-base"
                 dangerouslySetInnerHTML={{
                   __html: im.frontmatter.description || im.excerpt,
                 }}
                 itemProp="description"
               />
               <div className="avatar">
-                <div className="mr-6 w-12 h-12 mask mask-squircle">
+                <div className="mr-4 w-12 h-12 mask mask-squircle">
                   <img src="http://daisyui.com/tailwind-css-component-profile-2@56w.png" />
                 </div>
                 <section className="flex flex-col justify-around">

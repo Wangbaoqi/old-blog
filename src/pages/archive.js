@@ -60,12 +60,12 @@ const Archive = () => {
       <Seo title="" />
       <section className="">
         <div className="px-2 py-20">
-          <div className="flex justify-start w-full">
+          <div className="flex flex-col px-6 lg:px-0 lg:flex-row justify-start w-full">
             <Tab.Group defaultIndex={0}>
-              <Tab.List className=" basis-1/4 mr-20">
+              <Tab.List className="mb-6 lg:mb-0 lg:basis-1/4 lg:mr-20">
                 {
                   yearGroup.map((y, fid) => (
-                    <div className="collapse w-48 rounded-box collapse-arrow mb-5" key={fid}>
+                    <div className="collapse w-full lg:w-48 rounded-box collapse-arrow mb-5" key={fid}>
                       <input type="checkbox" className="px-3"/> 
                       <div className="collapse-title text-base font-medium bg-base-content">
                         {y.year}
@@ -74,7 +74,7 @@ const Archive = () => {
                         {
                           y.month.map((node, sid) => (
                             <Tab key={sid} className={( {selected }) => 
-                              ClassName('w-48 py-2 mb-1 hover:bg-secondary/10 rounded-lg', selected ? 'text-secondary bg-secondary/20' : '')
+                              ClassName('w-full lg:w-48 py-2 mb-1 hover:bg-secondary/10 rounded-lg', selected ? 'text-secondary bg-secondary/20' : '')
                             }>
                               <div className='text-center w-full'>
                                 <h3 className="text-base ">{y.year}-{node}</h3>

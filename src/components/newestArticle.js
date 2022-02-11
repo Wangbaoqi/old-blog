@@ -34,18 +34,17 @@ const NewestArticle = () => {
   const articleList = data.allMdx.nodes;
 
   return (
-    <section className='home-card'>
-      <div className='grid gap-24 lg:grid-cols-4 xl:grid-cols-3'>
+    <div className='grid gap-14 lg:gap-24 lg:grid-cols-4 xl:grid-cols-3 px-4 pt-5 lg:pt-0 lg:px-0'>
       {
         articleList.map((item) => (
           <Article key={item.id} data={item}/>
         ))
       }
-      </div>
-      <div className="flex justify-center mt-10 py-5 rounded-xl shadow-lg cursor-pointer  bg-primary-content">
+      <div className="flex justify-center mt-10 py-5 rounded-xl shadow-lg cursor-pointer ">
         查看更多文章...
       </div>
-    </section>
+    </div>
+   
     
   )
 }

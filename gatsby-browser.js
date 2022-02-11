@@ -12,7 +12,6 @@ import { wrapRootElement as wrap } from "./src/components/codeBlock"
 export const wrapRootElement = wrap
 
 
-
 // import "typeface-montserrat"
 // import "typeface-merriweather"
 // normalize CSS across browsers

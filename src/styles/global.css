@@ -9,6 +9,9 @@
 
 
 
+  body {
+    @apply bg-primary-content
+  }
 
 
   /* aside */
