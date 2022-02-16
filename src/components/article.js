@@ -13,17 +13,17 @@ const Article = ({
     fields = {},
   } = data;
 
-  const baseHovCls = `overflow-hidden justify-between cursor-pointer`
+  const baseHovCls = `overflow-hidden justify-between cursor-pointer bg-secondary-content rounded-xl shadow-lg`
 
   const hovCls = isTop ? `md:flex` : 'h-article-height';
   const inwCls = isTop ? `md:w-1/2` : 'md:w-full ';
-  const inrCls = isTop ? `p-8` : `pt-4`
+  const inrCls = isTop ? `p-8` : `py-4 px-4`
 
   return (
     <article className={`${baseHovCls} ${hovCls}`}>
       <div className={`md:shrink-0 ${inwCls}`}>
         <img
-          className="w-full object-cover md:h-full rounded-xl"
+          className="w-full object-cover md:h-full rounded-t-xl"
           src={frontmatter.cover}
           alt=""
         />

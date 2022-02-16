@@ -39,16 +39,12 @@ const Aside = ({location}) => {
   const [showSearch, setShowSearch] = useState(false);
 
   return ( 
-    <div className="max-w-screen-xl mx-auto flex items-center justify-between">
-      <section className="flex items-center py-6 ">
-        <div className="">
-          <h1 className="text-xl">{title}</h1>
+    <div className="max-w-screen-xl mx-auto flex h-20 items-center justify-between">
+      <section className="flex items-center h-full">
+        <div className="flex flex-col justify-start relative z-10 font-medium ob-drop-shadow cursor-pointer">
+          <h1 className="text-2xl mr-5">{title}</h1>
+          <span className="text-sm">NateWang</span>
         </div>
-        {/* <div onClick={() => setShowSearch(true)}>
-          search
-        </div> */}
-      </section>
-      <section className="flex items-center basis-1/3 justify-between" >
         <nav className="flex items-center">
           {
             menuLinks.map((item, idx) => (
@@ -56,21 +52,25 @@ const Aside = ({location}) => {
                 <Link
                   to={item.path}
                   activeClassName='active-link'
-                  className="w-full font-bold uppercase text-primary flex items-center p-4 my-2 
+                  className="w-full font-bold uppercase flex items-center p-4 my-2 
                     hover:transition-colors hover:duration-200 hover:text-primary-focus"
                 >
-                  <span className="mx-4 text-sm ">{item.title}</span>
+                  <span className="mx-4 text-sm">{item.title}</span>
                 </Link>
               </div>
             ))
           }
         </nav>
+      </section>
+      <section className="flex items-center basis-1/3 justify-end" >
+        {/* <div onClick={() => setShowSearch(true)}>
+          search
+        </div> */}
         <div className="tool">
           <ThemeToggle />
         </div>
       </section>
-      <div className={`fixed w-screen h-screen top-0 left-0 right-0 bottom-0 bg-black/10 backdrop-blur-sm z-10 ${!showSearch ? "hidden" : ''}`} onClick={() => setShowSearch(false)}></div>
-      { !showSearch ? '' : <Search indices={searchIndices} />}
+    
     </div>
   )
 }

@@ -6,44 +6,15 @@ module.exports = {
   theme: {
     extend: {
 
-
-
       height: {
         '81': '21rem'
       },
-
-      
+      maxWidth: {
+        '5xl': '60rem'
+      },
 
       colors: {
-        html: {
-          c: 'text-primary',
-          b: '#f2552c'
-        },
-        css: {
-          c: 'text-primary',
-          b: '#bc70a4'
-        },
-        javascript: {
-          c: 'text-primary',
-          b: '#ecdb54'
-        },
-        typescript: {
-          c: 'text-primary',
-          b: '#3776ab'
-        },
-        designPattern: {
-          c: 'text-primary',
-          b: '#3776ab'
-        },
-        react: {
-          c: 'text-primary',
-          b: '#61dafb'
-        },
-        browser: {
-          c: 'text-primary',
-          b: '#5b5ea6'
-        },
-        node: '#026e00'
+        
       },
 
       minWidth: {
@@ -59,7 +30,7 @@ module.exports = {
         '3xl': '0px 0.8px 2px rgba(0,0,0,0.032),0px 2.7px 6.7px rgba(0,0,0,0.048),0px 12px 30px rgba(0,0,0,0.08)',
       },
       backgroundImage: {
-        'card-bi': 'linear-gradient(85deg, hsl(var(--sc)), hsl(var(--pc)))'
+        'card-bi': 'linear-gradient(85deg, #087ea4, hsl(var(--pc)))'
       },
       boxShadowColor: {
         'card-c': 'var(--sc)'
@@ -88,7 +59,7 @@ module.exports = {
 
           'secondary': '#087ea4', // 字体颜色 border 颜色
           'secondary-focus': '#bd0091',
-          'secondary-content': '#d1d5db',
+          'secondary-content': '#F6F7F9',
 
           // md style
           'accent': '#087ea4',
@@ -114,7 +85,7 @@ module.exports = {
 
         },
         'dark': {
-          'primary' : '#ffffff',
+          'primary' : '#EBECF0',
           'primary-focus' : '#149ECA',
           'primary-content' : '#23272F',
 
@@ -131,7 +102,6 @@ module.exports = {
           'neutral-content': '#343A46' ,
 
           'base-content': '#087ea4',
-
 
           'info': '#B65700',
           'success': '#009485',

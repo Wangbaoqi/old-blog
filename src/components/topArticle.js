@@ -2,7 +2,7 @@
 import * as React from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
 
-import { tagColorEnum } from '../config'
+import { tagColorEnum } from '../config/tag/config'
 
 const TopArticle = () => {
 
@@ -33,20 +33,17 @@ const TopArticle = () => {
   const articles = data.allMdx.nodes || []
 
   const getTagCls = (tag) => {
-    const tagColor = tagColorEnum[tag] ;
 
-    return `px-2 py-1 text-sm rounded-lg ${tagColor} bg-react-b text-react-c`
+    return `px-2 py-1 text-sm font-semibold rounded-md `
   } 
   
   return (
-    <section className="py-10 cursor-pointer">
+    <section className="cursor-pointer   px-4 lg:px-0 my-8">
       {
         articles.map((im,idx) => (
-          <div key={idx} className="flex flex-col lg:h-81 lg:flex-row px-4  lg:px-0">
-            <figure className="basis-1/2 lg:pr-5">
-              <img src={im.frontmatter.cover} className="rounded-3xl h-full"/>
-            </figure> 
-            <div className="basis-1/2 flex flex-col justify-between pt-4 lg:pt-0">
+          <div key={idx} className="overflow-hidden bg-secondary-content rounded-3xl shadow-lg flex flex-col lg:h-72 lg:flex-row ">
+            <img src={im.frontmatter.cover} className="object-cover lg:pr-10 h-full rounded-3xl lg:rounded-l-3xl"/>
+            <div className="basis-1/2 flex flex-col justify-between pt-4 py-3">
               <ul className="flex mb-4 lg:mb-0">
                 {(im.frontmatter.tags || []).map((tag, idx) => (
                   <li key={idx} className={getTagCls(tag)}>

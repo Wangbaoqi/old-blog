@@ -13,7 +13,7 @@ import Tags from '../templates/blog-tags'
 import Layout from "../components/layout"
 import _ from "lodash"
 
-import { tagColorEnum } from '../config'
+import { tagColorEnum } from '../config/tag/config'
 
 
 

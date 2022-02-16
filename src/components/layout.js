@@ -12,11 +12,11 @@ const Layout = ({ children }) => {
 
   return (
     <ThemeProvider>
-      <header className="shadow-lg fixed top-0 z-50 h-20 w-full bg-primary-content">
+      <header className="shadow-lg fixed top-0 z-50 w-full bg-primary-content text-primary">
         <Header />
       </header>
-      <div className="bg-primary-content text-primary pt-20 relative font-mono min-h-screen text-base antialiased">
-        <main className="max-w-screen-xl mx-auto z-0 bg-primary-content overflow-y-auto">
+      <div className="text-primary pt-20 relative font-mono min-h-screen text-base antialiased">
+        <main className="max-w-screen-xl mx-auto z-0 overflow-y-auto lg:px-4">
           {children}
         </main>
       </div>
