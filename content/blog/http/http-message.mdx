@@ -26,7 +26,7 @@ Client发送一个HTTP请求向服务端，这个请求以一个请求行（requ
 
 ### 报文语法
 
-```http
+```shell
 HTTP-message = start-line
                *(header-field CRLF)
                CRLF
@@ -219,11 +219,17 @@ Accept header 主要是告知服务器 客户端可以处理什么类型的内�
 
 对资源有多种的表示方法。
 
-协商首部有  `Accept-Ranges` 、 `Vary` ，后面对协商首部会有详述。
+协商首部有  `Accept-Ranges` 、 `Vary` ，`ETag`，后面对协商首部会有详述。
+
+| Header | Description      |
+| ------ | ---------------- |
+| Accept-Ranges | 是否接收字节范围请求   |
+| Vary | 代理服务器缓存的管理信息 |
+| ETag | 资源的匹配信息 |
 
 #### 安全首部
 
-安全首部跟请求首部类似      
+安全首部跟请求首部类似 
 
 ### 实体首部
 
