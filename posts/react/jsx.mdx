@@ -1,24 +1,20 @@
 ---
-title: 'react'
+title: 'React JSX'
 excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus.'
-coverImage: '/assets/blog/hello-world/cover.jpg'
+coverImage: '/assets/blog/react/jsx/cover.png'
 date: '2020-03-16T05:35:07.322Z'
 author:
   name: Tim Neutkens
-  picture: '/assets/blog/authors/tim.jpeg'
+  picture: '/assets/authors/logo.png'
 ogImage:
-  url: '/assets/blog/hello-world/cover.jpg'
+  url: '/assets/blog/react/jsx/cover.png'
+tags:
+  - React
+categories:
+  - React
 ---
 
 
-> **JSX** 是 JavaScript 语法的一种扩展，可以在 JavaScript 中编写`HTML`代码，这样做是为了更好的将页面逻辑和页面结构结合在一起，符合 React 的组件化的开发模式。
-
-
-
-
-::: tip
-即佛地
-:::
 
 **JSX** 是 JavaScript 语法的一种扩展，可以在 JavaScript 中编写`HTML`代码，这样做是为了更好的将页面逻辑和页面结构结合在一起，符合 React 的组件化的开发模式。
 
@@ -254,9 +250,6 @@ const ReactElement = function (type, key, ref, self, source, owner, props) {
 下面有几点对元素类型的注意事项：
 
 - 如果没有使用 React 新的编译方式，则必须引入 React， 否则会抛出异常`ReferenceError: React is not defined`
-- 标签的大小写，小写则被编译成`HTML`标签，自定义的组件，则必须要大写
-- 在**JSX**类型中可以使用点语法
-- 在运行时可以选择组件的类型
 
 ```js
 // react version < 17
@@ -266,6 +259,12 @@ function App() {
   return <div>react</div>;
 }
 ```
+
+- 标签的大小写，小写则被编译成`HTML`标签，自定义的组件，则必须要大写
+
+- 在**JSX**类型中可以使用点语法
+
+- 在运行时可以选择组件的类型
 
 ### 元素的 Props
 
@@ -363,6 +362,3 @@ function App() {
 ## 总结
 
 `JSX`是**JavaScript**的扩展语法，可以在`js`中写`html`代码，也是`createElement`的语法糖，通过`babel`在运行时进行编译，生成`jsx对象`，元素的属性都会被保存在`props`属性中，也是常说的`visual dom`，在**react diff**算法中，也是通过对比`JSX`对象来获取差异节点。
-
-
-
