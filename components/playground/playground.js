@@ -78,7 +78,7 @@ const PlayGround = ({
   };
 
   return (
-    <div className=" shadow-3xl">
+    <div className=" shadow-3xl md:-mx-12 md:my-10">
       <div className="">
         <ToolBar
           title={title}

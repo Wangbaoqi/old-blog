@@ -37,7 +37,7 @@ export default function TableContent({
   const activeId = useActiveId(tocIds)
   return (
     <>
-      <nav className=" sticky top-20 ">
+      <nav className=" sticky top-20 md:w-64">
         <h2 className="text-lg mb-6">TABLE OF CONTENT</h2>
         <ul>
           {

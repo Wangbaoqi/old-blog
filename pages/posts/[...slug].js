@@ -10,10 +10,10 @@ const Post = ({ post }) => {
     <>
       <Layout>
         <section className="flex flex-col md:flex-row mt-10 px-3 md:px-0">
-          <div className="w-full md:w-9/12 md:pr-5">
+          <div className="w-full md:w-9/12 md:px-12">
             <MDXRenderer {...rest} />
           </div>
-          <div className="w-full md:w-3/12 hidden md:block md:px-3">
+          <div className="w-full md:w-3/12 hidden md:block md:pl-20">
             {
               // <Category />
               <TableContent toc={toc} />

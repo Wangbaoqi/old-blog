@@ -30,7 +30,7 @@ const MDXRenderer = ({ code, frontmatter, prev, next, toc }) => {
         <p>Loading…</p>
       ) : (
         <>
-          <article className="mb-32 max-w-3xl mx-auto">
+          <article className="mb-32 max-w-4xl mx-auto">
             
             {/* <PostHeader
               title={post.title}
