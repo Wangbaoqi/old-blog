@@ -38,7 +38,9 @@ export default function FeaturePost({
           </div>
           <div className='absolute flex justify-center items-center right-14 bottom-10 h-16 w-16 rounded-full border-border-color border cursor-pointer'>
             <Link href={`/posts/${slug}`}>
-              <VscChevronRight className='text-2xl'/>
+              <a>
+                <VscChevronRight className='text-2xl'/>
+              </a>
             </Link>
           </div>
         </div>

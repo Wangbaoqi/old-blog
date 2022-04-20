@@ -10,6 +10,7 @@
       "@styles/*": ["styles/*"],
       "@utils/*": ["utils/*"],
       "@config/*": ["config/*"],
+      "@hooks/*": ["hooks/*"],
     }
   }
 }

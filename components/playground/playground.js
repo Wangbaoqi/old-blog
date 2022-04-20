@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 
-import ToolBar from "./toolbar/toolBar";
+import { ToolBar, RefreshBtn } from "./toolbar";
 import Editer from "./display/editer";
+import Result from "./display/result";
 
 import SplitPane from "./layout/splitPane";
 import { Pane } from "./layout";
@@ -9,18 +10,22 @@ import { Pane } from "./layout";
 import { usePrettier, usePaneData } from './hooks/index'
 
 const PlayGround = ({
+  id=1,
   html,
   js,
   css,
   mode = "react",
   title = "",
   code = '',
-  language
+  language,
+  boxSizing = 'border-box'
 }) => {
 
   const [htmlCode, setHtmlCode] = useState(html?.trim());
   const [cssCode, setCssCode] = useState(css?.trim());
   const [jsCode, setJsCode] = useState(js?.trim());
+
+  const [randomId, setRandomId] = useState('init');
 
   // 格式化字符串code
   const handleFormat = usePrettier({
@@ -41,6 +46,15 @@ const PlayGround = ({
     jsCode,
     setJsCode,
   });
+
+  const codeMap = useMemo(
+    () => ({
+      markup: htmlCode,
+      css: cssCode,
+      javascript: jsCode,
+    }),
+    [htmlCode, cssCode, jsCode]
+  );
 
   const handleReset = () => {};
 
@@ -63,7 +77,27 @@ const PlayGround = ({
               />
             </Pane>
           }
-          rightChild={<p>rightChild</p>} />
+          rightChild={
+            <Pane
+              title='Result'
+              actions={
+                <RefreshBtn handleRefresh={() => setRandomId(Math.random().toString()) }/>
+              }
+            >
+              <Result
+                key={randomId}
+                id={id}
+                codeMap={codeMap}
+                mode={mode}
+                // centered={centered}
+                // stretched={stretchResults}
+                // layoutMode={layoutMode}
+                // isFullscreened={isFullscreened}
+                boxSizing={boxSizing}
+              />
+            </Pane>
+          }
+        />
       </>
     );
   };
@@ -78,7 +112,7 @@ const PlayGround = ({
   };
 
   return (
-    <div className=" shadow-3xl md:-mx-12 md:my-10">
+    <div className="overflow-hidden shadow-3xl rounded-lg md:-mx-12 md:my-10">
       <div className="">
         <ToolBar
           title={title}

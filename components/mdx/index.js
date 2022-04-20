@@ -1,8 +1,3 @@
-import MDXRenderer from "./mdxRender";
-import CodePre from "./codePre";
-import TableContent from "./tableContent";
-export {
-  MDXRenderer,
-  CodePre,
-  TableContent
-}
+export { default as MDXRenderer } from './mdxRender';
+export { default as CodePre } from './codePre';
+export { default as TableContent } from './tableContent';

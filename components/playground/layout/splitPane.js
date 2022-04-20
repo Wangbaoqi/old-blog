@@ -12,9 +12,9 @@ const SplitPane = ({
 
 
   return (
-    <div className=" max-w-full overflow-hidden">
+    <div className=" max-w-full overflow-hidden ">
       <div className="flex flex-col md:flex-row items-stretch h-full bg-code-bg">
-        <div className="flex-1 py-2 px-5">{ leftChild }</div>
+        <div className="flex-1 p-5 pt-0 -mr-2 ">{ leftChild }</div>
         <button
           className="
             relative md:w-4 md:cursor-col-resize md:p-0 block m-0 border-0 outline-none
@@ -23,7 +23,7 @@ const SplitPane = ({
             md:hover:bg-border-color-5
           ">
         </button>
-        <div className="flex-1">{ rightChild }</div>
+        <div className="flex-1 flex flex-col -ml-2 bg-gray-100 dark:bg-transparent p-5 pt-0">{ rightChild }</div>
 
       </div>
 

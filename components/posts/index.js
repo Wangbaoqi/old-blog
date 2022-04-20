@@ -1,7 +1,2 @@
-import FeaturePost from "./featurePost";
-import FeatureCard from "./featureCard";
-
-export {
-  FeatureCard,
-  FeaturePost
-}
+export { default as FeatureCard } from './featureCard';
+export { default as FeaturePost } from './FeaturePost';

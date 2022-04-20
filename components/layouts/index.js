@@ -1,18 +1,7 @@
-
-import Container from "./container";
-import Header from "./header";
-import Layout from "./layout";
-import Footer from "./footer";
-import MobileNav from "./mobileNav";
-import ThemeSwitch from "./themeSwitch";
-import HeaderWrapper from "./headerWrapper";
-
-export {
-  Layout,
-  Container,
-  Header,
-  Footer,
-  MobileNav,
-  ThemeSwitch,
-  HeaderWrapper
-}
+export { default as Container } from './container';
+export { default as Header } from './header';
+export { default as Layout } from './layout';
+export { default as Footer } from './footer';
+export { default as MobileNav } from './mobileNav';
+export { default as ThemeSwitch } from './themeSwitch';
+export { default as HeaderWrapper } from './headerWrapper';
