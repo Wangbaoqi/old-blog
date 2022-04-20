@@ -5,8 +5,6 @@ import { FeatureCard } from '@components/posts/index';
 
 
 export default function BlogList({ posts }) {
-  const heroPost = posts[0];
-  const featurePosts = posts.slice(1);
   return (
     <>
       <Layout type='page'>
