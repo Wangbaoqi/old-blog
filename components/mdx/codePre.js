@@ -105,6 +105,7 @@ const CodePre = (props) => {
             >
               {tokens.map((line, i) => (
                 <div
+                  key={i}
                   {...getLineProps({ line, key: i })}
                   style={{
                     background: highlights(i) ? "#00f5c426" : "transparent",

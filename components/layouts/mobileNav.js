@@ -3,7 +3,8 @@ import Link from "next/link";
 import headList from '@data/headNav';
 import cn from 'classnames';
 
-import { VscListFlat, VscChromeClose } from 'react-icons/vsc';
+
+import { AlignCenter, X} from 'react-feather';
 
 const MobileNav = () => {
   const [status, setToogle] = useState(false)
@@ -24,10 +25,10 @@ const MobileNav = () => {
   return (
     <div className="sm:hidden">
       <div className='' onClick={() => setToogle(!status)}>
-        <VscListFlat className='text-xl'/>
+        <AlignCenter className='text-xl'/>
       </div>
       <div className={navCls}>
-        <VscChromeClose onClick={() => setToogle(!status)}/>
+        <X onClick={() => setToogle(!status)}/>
         <nav className=' visible'>
           <ul>
             {

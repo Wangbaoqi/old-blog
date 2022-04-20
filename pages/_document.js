@@ -4,9 +4,8 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="en" className='scroll-smooth'>
-        <Head>
-          <title>Next.js Blog Example with</title>
-        </Head>
+        <Head />
+          
         <body className=' dark:bg-primary-bg dark:text-primary-color font-sans text-bs text-bs text-tiny '>
           <Main />
           <NextScript />

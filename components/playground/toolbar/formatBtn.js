@@ -9,10 +9,10 @@ const FormatBtn = ({
 
   return (
     <button
-      className="w-8 h-8 flex justify-center items-center"
+      className=" text-xs text-third-color h-8 flex justify-center items-center"
       onClick={handleFormat}
     >
-      <Zap size={16} color={'var(--fg-third)'} />
+      <Zap size={13} color={'var(--fg-third)'} className='mr-1' /> Format 
     </button>
   )
 }

@@ -56,11 +56,10 @@ const PlayGround = ({
     [htmlCode, cssCode, jsCode]
   );
 
-  const handleReset = () => {};
-
-  
-  const handleUpdate = () => { 
-
+  const handleReset = () => {
+    setHtmlCode(html?.trim());
+    setCssCode(css?.trim());
+    setJsCode(js?.trim());
   };
 
   const getSideBySide = () => {

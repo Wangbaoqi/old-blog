@@ -4,7 +4,6 @@ import Image from 'next/image';
 
 import { FeaturePost } from '@components/posts'
 
-import { VscArrowRight } from 'react-icons/vsc';
 // import longArrow from '../public/favicons/long-arrow.png'
 
 

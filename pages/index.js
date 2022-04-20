@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { getAllPosts } from "@lib/mdx";
 import { Layout, Container } from '@components/layouts';
-import { FeatureCard } from '@components/posts';
+import { FeatureCard } from '@components/posts/index';
 
 
 export default function BlogList({ posts }) {
