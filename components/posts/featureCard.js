@@ -2,10 +2,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-import { FeaturePost } from '@components/posts'
-
-// import longArrow from '../public/favicons/long-arrow.png'
-
+import { FeaturePost } from '@components/posts/index'
 
 
 const FeatureCard = ({
