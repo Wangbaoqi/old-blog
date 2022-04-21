@@ -13,7 +13,7 @@ const SplitPane = ({
 
   return (
     <div className=" max-w-full overflow-hidden ">
-      <div className="flex flex-col md:flex-row items-stretch h-full bg-code-bg">
+      <div className="flex flex-col md:flex-row items-stretch h-full bg-playground-bg">
         <div className="flex-1 p-5 pt-0 -mr-2 ">{ leftChild }</div>
         <button
           className="

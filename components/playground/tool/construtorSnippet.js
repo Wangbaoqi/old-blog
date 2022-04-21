@@ -81,7 +81,6 @@ function constructSnippet({
         }
         window.onerror = function(message) {
           if(typeof window !== 'undefined') {
-            console.log(message, 'messagee error')
             window.parent.postMessage({
               source: "frame-${id}",
               message: {

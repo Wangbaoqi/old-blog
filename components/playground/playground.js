@@ -1,11 +1,8 @@
 import { useState, useMemo } from "react";
 
 import { ToolBar, RefreshBtn } from "./toolbar";
-import Editer from "./display/editer";
-import Result from "./display/result";
-
-import SplitPane from "./layout/splitPane";
-import { Pane } from "./layout";
+import { Editer, Result, TabEditer } from "./display";
+import { Pane, SplitPane } from "./layout";
 
 import { usePrettier, usePaneData } from './hooks/index'
 
@@ -14,12 +11,11 @@ const PlayGround = ({
   html,
   js,
   css,
-  mode = "react",
+  mode = "",
   title = "",
-  code = '',
-  language,
   boxSizing = 'border-box'
 }) => {
+
 
   const [htmlCode, setHtmlCode] = useState(html?.trim());
   const [cssCode, setCssCode] = useState(css?.trim());
@@ -47,6 +43,7 @@ const PlayGround = ({
     setJsCode,
   });
 
+
   const codeMap = useMemo(
     () => ({
       markup: htmlCode,
@@ -56,15 +53,35 @@ const PlayGround = ({
     [htmlCode, cssCode, jsCode]
   );
 
+  const layoutMode = paneData.length == 1 ? 'side' : 'tab';
+
   const handleReset = () => {
     setHtmlCode(html?.trim());
     setCssCode(css?.trim());
     setJsCode(js?.trim());
   };
 
+  const resultPane = (
+    <Pane
+      title='Result'
+      actions={
+        <RefreshBtn handleRefresh={() => setRandomId(Math.random().toString()) }/>
+      }
+    >
+      <Result
+        key={randomId}
+        id={id}
+        codeMap={codeMap}
+        mode={mode}
+        boxSizing={boxSizing}
+      />
+    </Pane>
+  )
+
+
+
   const getSideBySide = () => {
     const [data] = paneData;
-    console.log(paneData);
     const { label, ...editData } = data;
     return (
       <>
@@ -76,37 +93,36 @@ const PlayGround = ({
               />
             </Pane>
           }
-          rightChild={
-            <Pane
-              title='Result'
-              actions={
-                <RefreshBtn handleRefresh={() => setRandomId(Math.random().toString()) }/>
-              }
-            >
-              <Result
-                key={randomId}
-                id={id}
-                codeMap={codeMap}
-                mode={mode}
-                // centered={centered}
-                // stretched={stretchResults}
-                // layoutMode={layoutMode}
-                // isFullscreened={isFullscreened}
-                boxSizing={boxSizing}
-              />
-            </Pane>
-          }
+          rightChild={resultPane}
         />
       </>
     );
   };
 
-  const content = (mode = "side-by-side") => {
-    switch (mode) {
-      case "side-by-side":
+  const getTabPane = () => {
+    return (
+      <>
+        <SplitPane
+          leftChild={
+            <TabEditer
+              paneData={paneData}
+              handleFormat={handleFormat}
+            />
+          }
+          rightChild={resultPane}
+        />
+      </>
+    )
+  }
+
+  const content = (layoutMode = 'side') => {
+    switch (layoutMode) {
+      case "side":
         return getSideBySide();
+      case "tab":
+        return getTabPane();
       default:
-        return <p>pp</p>
+        return getSideBySide();
     }
   };
 
@@ -118,7 +134,7 @@ const PlayGround = ({
           handleReset={handleReset}
           handleFormat={handleFormat}
         />
-        {content()}
+        {content(layoutMode)}
       </div>
     </div>
   );

@@ -17,18 +17,31 @@
     --fg-border: hsl(210deg,15%,20%);
     --fg-border-5: hsl(210deg,15%,20%, 0.5);
    
+    --fg-hover: hsl(195, 82%, 44%);
+
+    --fg-code: hsl(195, 82%, 44%);
+    --bg-code: hsl(210deg, 30%, 24%);
+
+    --bg-playground: hsl(210deg, 30%, 12%) !important;
+
+    --bg-blockquote: hsl(210deg, 38%, 15%);
+    --bg-blockquote-l: hsl(230deg, 100%, 67%);
+
+    
 
 
     --fg-active: #fff !important;
     --fg-default: #999 !important;
     --fg-inactive: #343434 !important;
     --bg-active: #343434 !important;
-    --bg-default: hsl(210deg, 30%, 12%) !important;
     --bg-default-overlay: #16181d !important;
     --bg-input: #242424 !important;
     --accent: #6caedd !important;
     --bg-error: #ffcdca !important;
     --fg-error: #811e18 !important;
+
+
+
     --theme-plain: #fff;
     --theme-comment: #757575;
     --theme-keyword: #77b7d7;
@@ -57,12 +70,22 @@
   --fg-border: hsl(217, 72%, 92%);
   --fg-border-5: hsl(217, 72%, 92%, 50%);
 
+  --fg-hover: hsl(195, 91%, 34%);
+
+  --fg-code: hsl(195, 91%, 34%);
+  --bg-code: hsl(200, 100%, 95%);
+
+  --bg-playground: #fff !important;
+
+  --bg-blockquote: hsla(210deg, 55%, 92%, 0.85);
+  --bg-blockquote-l: hsl(230deg, 100%, 67%);
+
+
 
   --fg-active: #24292e !important;
   --fg-default: #959da5 !important;
   --fg-inactive: #e4e7eb !important;
   --bg-active: #e4e7eb !important;
-  --bg-default: #fff !important;
   --bg-default-overlay: #fff !important;
   --bg-input: #fff !important;
   --accent: #c8c8fa !important;

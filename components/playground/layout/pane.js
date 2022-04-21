@@ -7,7 +7,7 @@ const Pane = ({
 
   return (
     <>
-      <div className="flex justify-between items-center  my-2">
+      <div className="flex justify-between items-center my-2">
         <p className="text-base uppercase">{title}</p>
         { actions }
       </div>

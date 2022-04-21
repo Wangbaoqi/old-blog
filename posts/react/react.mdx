@@ -1,0 +1,96 @@
+---
+title: 'React 架构'
+excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus.'
+coverImage: '/assets/blog/react/cover.jpeg'
+date: '2020-03-16T05:35:07.322Z'
+author:
+  name: Nate Wang
+  picture: '/assets/authors/logo.png'
+
+drafts: true
+ogImage:
+  url: '/assets/blog/react/jsx/cover.png'
+tags:
+  - React
+categories:
+  - React
+---
+
+## React 15架构
+
+- 架构层级
+- 渲染方式
+
+**React 15**主要两个层级：
+
+- Reconciler协调器
+- Render 渲染器
+
+### Reconciler协调器
+
+主要通过`Diff`算法得到需要更新的组件
+
+### Render 渲染器
+
+获取要更新的组件 **同步** 进行渲染。
+
+React 中的渲染器主要有：
+
+- React DOM
+- React Native
+- React Test
+
+### 渲染方式
+
+**react15** 是**同步递归**更新组件的，协调器得到差异更新，同步给到渲染器进行**DOM更新**。
+
+由于递归更新，一旦开始，就无法停止，当组件层级很深时，递归的时间会超过`16.6ms`，此时交互就会卡顿。
+
+如果在递归更新中加入**可中断的异步更新**，可想而知，当更新一部分UI之后，突然中断更新，那么后面的UI更新则不会更新。
+
+因此，这种**同步递归**的更新方式显然不适合**可中断的异步更新**，从而**FIber架构**由此而生了。
+
+## React 16 架构
+
+- 架构层级
+- 渲染方式
+
+### 架构层级
+
+新的架构分为三层
+
+- Scheduler 调度器 **react16版本新增**
+- Reconciler 协调器 
+- Render 渲染器
+
+#### Scheduler 调度器
+
+调度任务的优先级，优先级较高的任务首先进入协调器。
+
+调度器主要包含两个功能：
+
+- 时间切片
+- 任务优先级
+
+**时间切片**主要模拟的`requestIdleCallback`，询问每一帧是否还有空余的时间来被调度的。后面详细阐述。
+
+**任务优先级**就是当有更新触发时，调度器会给每一个更新打上`更新的tag`，优先级比较高的任务先进入协调器。后面详细阐述。
+
+#### Reconciler协调器
+
+`React 15`的协调器是**递归同步**处理虚拟DOM的，而新的架构则使用循环的方式处理虚拟DOM，通过`shouldYield()`来判断是否需要**中断更新**，也就是当前帧是否有剩余的时间需要被调度。
+
+如果**中断更新**，那页面是如何解决更新不完全的问题呢？
+
+新架构中**Scheduler**和**Reconciler**是在内存中运行的，而当所有的组件**协调**完成之后，就会把所有有副作用的组件一次性交给**Render**进而同步渲染。
+
+在这种前提之下，就会把**调度**和**协调**的处理分为一段一段的执行，也就**时间切片**，当所有的时间切片完成之后，渲染器会一次性渲染页面。
+
+#### Render 渲染器
+
+当获取到所有的带有更新标记的组件之后，渲染器就会依次执行这次副作用，同步更新UI界面。
+
+## 渲染方式
+
+在理念中说到，`Fiber`架构是**异步可中断的更新**，下一章**Fiber架构**详解
+

@@ -5,6 +5,7 @@ import { MDXRenderer, TableContent } from "@components/mdx";
 import { formatSlug } from "@lib/mdx";
 
 const Post = ({ post }) => {
+
   const { toc = [], ...rest } = post
   return (
     <>

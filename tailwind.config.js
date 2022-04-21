@@ -24,6 +24,7 @@ module.exports = {
         'sans': ['Titillium Web', ...defaultTheme.fontFamily.sans],
         'advent': ['Advent Pro', ...defaultTheme.fontFamily.sans],
         'source': ['Source Code Pro', 'monospace', ...defaultTheme.fontFamily.sans],
+        'Sriracha': ['Sriracha', 'Sriracha', ...defaultTheme.fontFamily.sans],
       },
       height: {
         'f-card': '300px'
@@ -48,18 +49,25 @@ module.exports = {
       colors: {
         'primary-color': 'var(--fg-primary)',
         'primary-bg': 'var(--bg-primary)',
-        'code-bg': 'var(--bg-default)',
         'second-color': '',
         'second-bg': 'var(--bg-secondary)',
         'third-color': 'var(--fg-third)',
         'third-bg': 'var(--bg-third)',
+
+        'code-bg': 'var(--bg-code)',
+        'code-color': 'var(--fg-code)',
+        'playground-bg': 'var(--bg-playground)',
+        'hover-color': 'var(--fg-hover)',
+        'blockquote-bg': 'var(--bg-blockquote)',
+        'blockquote-l': 'var(--bg-blockquote-l)',
+        
         'black-2': '#222222',
         'code': '#087ea4',
         'border-color': 'var(--fg-border)',
         'border-color-5': 'var(--fg-border-5)',
-        'accent-1': '#FAFAFA',
-        'accent-2': '#EAEAEA',
-        'accent-7': '#333',
+        'accent': 'var(--accent)',
+        // 'accent-2': '#EAEAEA',
+        // 'accent-7': '#333',
         'nav-color': '#3d5b7d',
         'icon-color': '#00c2ff',
         's-color': "#3D5B7D",

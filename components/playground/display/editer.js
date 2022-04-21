@@ -15,13 +15,10 @@ const calculateLinesToHighlight = (raw) => {
   }
 };
 
-const Editer = ({ code, handleUpdate, handleFormat, language, light = "" }) => {
+const Editer = ({ code, handleUpdate, handleFormat, language, light = "", themeSyntax = null }) => {
   const textareaRef = useRef(null);
-
   function handleKeyDown(ev) {
     if (ev.metaKey && ev.key === "s") {
-    console.log(ev);
-
       const input = textareaRef.current._input;
       const cursorAt = input.selectionStart;
       ev.preventDefault();

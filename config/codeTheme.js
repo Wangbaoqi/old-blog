@@ -1,6 +1,6 @@
 var theme = {
   plain: {
-    background: "var(--sp-colors-bg-default)",
+    background: "var(--bg-default)",
     color: "var(--theme-plain)",
   },
 

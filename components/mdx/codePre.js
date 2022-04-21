@@ -4,7 +4,9 @@ import rangeParser from "parse-numeric-range"
 import theme from '@config/codeTheme';
 import CodeSnippet from "@components/codeLive/codeSnippet";
 
-import PlayGround from "@components/playground/playground";
+import { Copy } from 'react-feather';
+
+import ReactPlayground from "@components/playground/ReactPlayground";
 
 const calculateLinesToHighlight = raw => {
   const lineNumbers = rangeParser(raw)
@@ -39,24 +41,17 @@ const CodePre = (props) => {
   const language = className.replace(/language-/, "");
   const highlights = calculateLinesToHighlight(light || "");
 
-  console.log(childProps.props, 'llll');
-
-  if (live) {
+  if (live && language == 'jsx') {
     return (
-      // <CodeSnippet noInline={true} code={code} language={language} file={file} theme={theme} />
-      <PlayGround code={ code } js={code} language={language}/>
-      
+      <ReactPlayground js={code} language={language}/>
     );
   }
 
   return (
     <div
-      className="rounded-lg mt-4 pl-3 pb-4 shadow-3xl"
-      style={{
-        background: "var(--bg-default)",
-      }}
+      className="rounded-lg mt-4 pl-3 pb-4 shadow-3xl bg-playground-bg"
     >
-      <div className="flex relative pb-2">
+      <div className="flex relative pb-4">
         <div
           className=" mx-1 px-2 uppercase rounded-bl-md rounded-br-md font-bold text-center flex justify-center items-center"
           style={{
@@ -79,12 +74,8 @@ const CodePre = (props) => {
             setIsCopied(true)
             setTimeout(() => setIsCopied(false), 1000)
           }}
-          style={{
-            background: "var(--fg-inactive)",
-            color: "var(--fg-active)",
-          }}
         >
-          {isCopied ? "🎉 Copied!" : "Copy"}
+          {isCopied ? "🎉 Copied!" :  <Copy size={20} />}
         </button>
       </div>
       <div
