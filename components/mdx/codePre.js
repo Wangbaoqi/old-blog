@@ -6,7 +6,7 @@ import CodeSnippet from "@components/codeLive/codeSnippet";
 
 import { Copy } from 'react-feather';
 
-import ReactPlayground from "@components/playground/ReactPlayground";
+import ReactPlayground from "@components/playground/reactPlayground";
 
 const calculateLinesToHighlight = raw => {
   const lineNumbers = rangeParser(raw)
