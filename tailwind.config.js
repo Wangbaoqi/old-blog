@@ -29,15 +29,19 @@ module.exports = {
         
       },
       height: {
-        'f-card': '300px'
+        'f-card': '280px',
+        'p-card': '350px',
+        '70': '70px',
       },
       width: {
+        '70': '70px',
+        '80': '80px',
       },
       maxHeight: {
         'screen-50': '50vh',
       },
       minHeight: {
-        'f-card': '300px'
+        'f-card': '280px'
       },
       maxWidth: {
         'f-card': '420px',

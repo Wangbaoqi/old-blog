@@ -14,11 +14,11 @@ export default function FeaturePost({
   slug,
 }) {
   return (
-    <div className='shadow-3xl rounded-2xl mb-8 md:min-h-f-card bg-second-bg overflow-hidden'>
+    <div className='shadow-3xl rounded-2xl mb-8 last:mb-0 md:min-h-f-card bg-second-bg overflow-hidden'>
       <div className='md:flex'>
         <div className="md:shrink-0">
           <img
-            className='h-48 object-cover md:h-f-card  w-full md:max-w-f-card'
+            className='h-48 object-cover md:h-full w-full md:max-w-f-card'
             slug={slug}
             title={title}
             src={coverImage}
