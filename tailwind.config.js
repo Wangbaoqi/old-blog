@@ -25,6 +25,8 @@ module.exports = {
         'advent': ['Advent Pro', ...defaultTheme.fontFamily.sans],
         'source': ['Source Code Pro', 'monospace', ...defaultTheme.fontFamily.sans],
         'Sriracha': ['Sriracha', 'Sriracha', ...defaultTheme.fontFamily.sans],
+        'Pacifico': ['Pacifico', 'cursive', ...defaultTheme.fontFamily.sans],
+        
       },
       height: {
         'f-card': '300px'
@@ -50,7 +52,7 @@ module.exports = {
         'primary-color': 'var(--fg-primary)',
         'primary-bg': 'var(--bg-primary)',
         'second-color': '',
-        'second-bg': 'var(--bg-secondary)',
+        'second-bg': 'var(--bg-secondary)', // post bg
         'third-color': 'var(--fg-third)',
         'third-bg': 'var(--bg-third)',
 
@@ -60,7 +62,7 @@ module.exports = {
         'hover-color': 'var(--fg-hover)',
         'blockquote-bg': 'var(--bg-blockquote)',
         'blockquote-l': 'var(--bg-blockquote-l)',
-        
+
         'black-2': '#222222',
         'code': '#087ea4',
         'border-color': 'var(--fg-border)',

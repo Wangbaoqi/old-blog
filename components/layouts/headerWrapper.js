@@ -2,9 +2,15 @@
 import { Header } from '@components/layouts'
 
 
-export default function HeaderWrapper() {
+export default function HeaderWrapper({
+  type = ''
+}) {
 
-
+  if (type == 'post') {
+    return <div className='sticky top-0 bg-primary-bg z-1000'>
+      <Header />
+    </div>
+  }
 
   return (
     <div className='relative md:h-96 h-52 bg-header-cover'>

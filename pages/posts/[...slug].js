@@ -5,11 +5,11 @@ import { MDXRenderer, TableContent } from "@components/mdx";
 import { formatSlug } from "@lib/mdx";
 
 const Post = ({ post }) => {
-
-  const { toc = [], ...rest } = post
+  const { toc = [], ...rest } = post;
+  
   return (
     <>
-      <Layout>
+      <Layout type='post'>
         <section className="flex flex-col md:flex-row mt-10 px-3 md:px-0">
           <div className="w-full md:w-9/12 md:px-12">
             <MDXRenderer {...rest} />
