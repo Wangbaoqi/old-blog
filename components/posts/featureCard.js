@@ -6,7 +6,8 @@ import { FeaturePost } from '@components/posts';
 
 
 const FeatureCard = ({
-  posts = []
+  posts = [],
+  mode = 'row'
 }) => {
 
   return (
@@ -15,6 +16,7 @@ const FeatureCard = ({
         posts.map((post) => (
           <FeaturePost
             key={post.slug}
+            mode={mode}
             title={post.title}
             coverImage={post.coverImage}
             date={post.date}

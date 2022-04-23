@@ -2,10 +2,15 @@
 import Link from 'next/link';
 
 const SplitLayout = ({
+  mode='left',
   leftTitle,
   leftChild,
   rightChild,
 }) => {
+
+  const leftCls = `w-full ${mode === 'left' ? 'md:w-9/12' : 'md:w-3/12'}`
+  const rightCls = `w-full ${mode === 'left' ? 'md:w-3/12' : 'md:w-9/12'}`
+
 
   return (
     <section className="container py-10">
@@ -17,11 +22,11 @@ const SplitLayout = ({
           </a>
         </Link>
       </div>
-      <section className="flex flex-col md:flex-row flex-wrap mt-10 px-3 md:px-0">
-        <div className='w-full md:w-9/12 md:pr-5' >
+      <section className="flex flex-col md:flex-row gap-10 mt-10 px-3 md:px-0">
+        <div className={leftCls}>
           {leftChild}
         </div>
-        <div className='w-full md:w-3/12 gap-5'>
+        <div className={rightCls}>
           {rightChild}            
         </div>
       </section>
