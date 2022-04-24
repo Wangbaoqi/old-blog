@@ -5,8 +5,12 @@ const personData = {
 
   logo: Logo,
   social: [
-    'github',
-    'leetCode',
+    {
+      icon: 'Github',
+      link: 'https://github.com/Wangbaoqi'
+    }, {
+      icon: 'leetCode',
+    }
   ]
 }
 

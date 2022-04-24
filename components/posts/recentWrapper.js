@@ -6,19 +6,19 @@ const RecentWrapper = ({
   recentPosts = []
 }) => {
 
-  console.log(recentPosts);
 
-  const leftPosts = recentPosts.slice(0,2)
-  const rightPosts = recentPosts.slice(2,6)
+  const leftPosts = recentPosts.slice(0,3)
+  const rightPosts = recentPosts.slice(3,7)
+
 
   const leftChild = (
-    <div className=''>
+    <div className='w-full'>
       <RecentCard posts={leftPosts} />
     </div>
   )
 
   const rightChild = (
-    <div className='md:grid md:grid-cols-2 md:gap-10'>
+    <div className='grid grid-cols-1 md:grid-cols-2 gap-10'>
       <FeatureCard posts={rightPosts} mode='col'/>
     </div>
   )

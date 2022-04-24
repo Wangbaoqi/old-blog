@@ -19,6 +19,7 @@ const FeatureCard = ({
             mode={mode}
             title={post.title}
             coverImage={post.coverImage}
+            category={post.category}
             date={post.date}
             author={post.author}
             slug={post.slug}

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { getFeaturePost, getRecentPost, getGroupByCategory } from "@lib/mdx";
 import { Layout } from '@components/layouts';
-import { FeatureWrapper, RecentWrapper } from '@components/posts';
+import { FeatureWrapper, RecentWrapper, RecomendWrapper } from '@components/posts';
 
 
 export default function BlogList({ featurePosts, categoryGroup, recentPost }) {
@@ -12,6 +12,9 @@ export default function BlogList({ featurePosts, categoryGroup, recentPost }) {
         <FeatureWrapper
           featurePosts={featurePosts}
           categoryGroup={categoryGroup}
+        />
+        <RecomendWrapper
+          recomendPosts={recentPost}
         />
         <RecentWrapper
           recentPosts={recentPost}

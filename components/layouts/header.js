@@ -5,13 +5,13 @@ import headNav from "@data/headNav";
 import ThemeSwitch from "./themeSwitch";
 import MobileNav from './mobileNav';
 
-import { Logo } from '@components/ui';
+import { Logo, GithubIcon } from '@components/ui';
 
 
 export default function Header() {
   return (
     <div className="sticky top-0 ">
-      <section className="max-w-screen-xl mx-auto flex justify-between items-center md:py-4 md:px-0 px-4">
+      <section className="max-w-screen-xl mx-auto flex justify-between items-center md:py-8 md:px-6 lg:py-7 lg:px-0 px-4 py-5">
         <div className="flex items-center">
           <MobileNav />
           <Link href="/">
@@ -20,7 +20,7 @@ export default function Header() {
             </div>
           </Link>
 
-          <ul className="hidden md:flex uppercase text-sm ml-10 ">
+          <ul className="hidden lg:flex uppercase text-sm ml-10 ">
             {headNav.map((el, idx) => {
               return (
                 <li key={idx} className='mr-10 text-nav-color dark:text-primary-color'>
@@ -33,7 +33,8 @@ export default function Header() {
 
         <nav className="flex justify-between items-center ">
           <div className="flex items-center">
-            <ThemeSwitch/>
+            <ThemeSwitch />
+            <GithubIcon />
             {/* <SearchIcon /> */}
           </div>
         </nav>

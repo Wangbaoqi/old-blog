@@ -4,18 +4,18 @@ import headList from '@data/headNav';
 import cn from 'classnames';
 
 
-import { AlignCenter, X} from 'react-feather';
+import { AlignJustify, X} from 'react-feather';
 
 const MobileNav = () => {
   const [status, setToogle] = useState(false)
   const hanldeToogle = () => {
     setToogle(!status)
   }
-  const navCls = cn('fixed top-0  bottom-0 w-80 bg-black-2 dark:bg-white text-white dark:text-black text-xl p-6 z-1000 transition-all scroll-smooth', {
+  const navCls = cn('fixed top-0 bottom-0 w-3/4 bg-second-bg text-second-color text-xl p-6 z-1000 transition-all scroll-smooth', {
     'left-0': status,
     '-left-80': !status
   })
-  const overlayCls = cn('fixed left-0 w-full top-0 h-full bg-black dark:bg-white transition-all ', {
+  const overlayCls = cn('fixed left-0 w-full top-0 h-full bg-second-bg  transition-all ', {
     'opacity-30': status,
     'invisible': !status,
     'opacity-0': !status,
@@ -24,17 +24,17 @@ const MobileNav = () => {
 
   return (
     <div className="sm:hidden">
-      <div className='' onClick={() => setToogle(!status)}>
-        <AlignCenter className='text-xl'/>
+      <div className='-mt-1' onClick={() => setToogle(!status)}>
+        <AlignJustify size={20} className='mr-2'/>
       </div>
       <div className={navCls}>
         <X onClick={() => setToogle(!status)}/>
-        <nav className=' visible'>
+        <nav className='visible p-4'>
           <ul>
             {
               headList.map((head, idx) => {
                 return (
-                  <li key={idx}>
+                  <li key={idx} className='py-3 text-pre'>
                     <Link href={head.href}>{ head.title }</Link>
                   </li>
                 )

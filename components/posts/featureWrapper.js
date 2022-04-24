@@ -10,14 +10,13 @@ const FeatureWrapper = ({
 }) => {
 
   const leftChild = (
-    <div className='md:grid md:grid-cols-1 gap-10'>
+    <div className='grid grid-cols-1 gap-10'>
       <FeatureCard posts={ featurePosts }/>
     </div>
   )
 
   const rightChild = (
     <>
-      <PersonCard />
       <Category groupList={categoryGroup}/>
     </>
   )

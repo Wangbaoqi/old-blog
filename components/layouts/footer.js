@@ -6,9 +6,9 @@ export default function Footer() {
 
   const date = dayjs().format('YYYY')
   return (
-    <footer className="bg-blockquote-bg">
+    <footer className=" bg-header-cover">
       <div className="max-w-screen-xl mx-auto py-8 flex flex-col md:flex-row items-center ">
-        <div className='flex flex-col justify-between min-h-f-card'>
+        <div className='flex flex-col justify-between min-h-48'>
           <div className='flex flex-col'>
             <Logo />
             <span className='mt-1 text-sm '>Thanks for reading!</span>

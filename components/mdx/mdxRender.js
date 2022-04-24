@@ -12,13 +12,13 @@ const MDXRenderer = ({ code, frontmatter, prev, next, toc }) => {
   const components = {
     h2: (props) => (
       <h2
-        className="relative cursor-pointer my-6 text-3xl font-bold leading-10 group"
+        className="relative pt-36 -mt-28 cursor-pointer my-6 text-3xl font-bold leading-10 group"
         {...props}
       />
     ),
     h3: (props) => (
       <h3
-        className="relative cursor-pointer my-6 text-2xl font-bold leading-10 group"
+        className="relative pt-36 -mt-28 cursor-pointer my-6 text-2xl font-bold leading-10 group"
         {...props}
       />
     ),
@@ -49,7 +49,7 @@ const MDXRenderer = ({ code, frontmatter, prev, next, toc }) => {
         <p>Loading…</p>
       ) : (
         <>
-          <article className="mb-32 max-w-4xl mx-auto">
+          <article className="relative mb-32 max-w-4xl mx-auto">
             <PostHeader {...frontmatter} />
             <MDXLayout components={components} />
             <NextPost prev={prev} next={next} />

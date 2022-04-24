@@ -49,7 +49,7 @@ const CodePre = (props) => {
 
   return (
     <div
-      className="rounded-lg mt-4 pl-3 pb-4 shadow-3xl bg-playground-bg"
+      className="rounded-lg my-10 pl-3 pb-4 shadow-3xl bg-playground-bg"
     >
       <div className="flex relative pb-4">
         <div

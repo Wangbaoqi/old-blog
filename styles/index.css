@@ -15,4 +15,8 @@
 @layer utilities {
 
   
+
+  .r-card:focus-within~.r-card, .r-card:hover~.r-card {
+    @apply translate-x-36
+  }
 }

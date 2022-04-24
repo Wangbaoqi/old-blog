@@ -12,7 +12,7 @@ const PostLink = ({
 
   if (anchor) {
     return (
-      <a className="absolute -left-8 top-2 opacity-0 transition-opacity group-hover:opacity-100" href={href} {...rest}>
+      <a className="absolute -left-8 top-38 opacity-0 transition-opacity group-hover:opacity-100" href={href} {...rest}>
         <LinkIcon size={20}/>
       </a>
     )

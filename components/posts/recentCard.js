@@ -1,15 +1,28 @@
 
 
-import { Layout, Container, SplitLayout } from '@components/layouts';
+import { RecentPost } from '@components/posts';
 
-const RecentCard = () => {
+const RecentCard = ({
+  posts = []
+}) => {
 
 
  
   return (
-    <section>
-
-    </section>
+    <>
+      {
+        posts.map(post => (
+          <RecentPost
+            key={post.slug}
+            title={post.title}
+            coverImage={post.coverImage}
+            date={post.date}
+            category={post.category}
+            slug={post.slug}
+          />
+        ))
+      }
+    </>
   )
 }
 

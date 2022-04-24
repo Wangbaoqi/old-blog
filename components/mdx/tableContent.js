@@ -13,7 +13,7 @@ const useActiveId = idList => {
           }
         })
       },
-      { rootMargin: '0% 0% -80% 0%' }
+      { rootMargin: '0px 0% -90% 0%' }
     )
     idList.forEach((id) => {
       observer.observe(document.getElementById(id));
@@ -37,7 +37,7 @@ export default function TableContent({
   const activeId = useActiveId(tocIds)
   return (
     <>
-      <nav className=" sticky top-20 md:w-64">
+      <nav className="sticky top-28 md:w-64">
         <h2 className="text-lg mb-6">TABLE OF CONTENT</h2>
         <ul>
           {

@@ -81,7 +81,9 @@ module.exports = {
         cyan: '#79FFE1',
       },
       backgroundImage: {
-        'header-cover': 'linear-gradient(0deg, var(--bg-primary-dark), var(--bg-primary-light) )'
+        'header-cover': 'linear-gradient(45deg, var(--bg-primary-dark), var(--bg-primary-light))',
+        'card-cover': 'linear-gradient(180deg, var(--bg-primary-dark), var(--bg-primary-light))',
+        'footer-cover': 'linear-gradient(180deg, var(--bg-primary-dark), var(--bg-primary-light))',
       },
       spacing: {
         28: '7rem',
@@ -102,6 +104,8 @@ module.exports = {
         sm: '0 5px 10px rgba(0, 0, 0, 0.12)',
         md: '0 8px 30px rgba(0, 0, 0, 0.12)',
         '3xl': '0px 0.8px 2px rgba(0,0,0,0.032),0px 2.7px 6.7px rgba(0,0,0,0.048),0px 12px 30px rgba(0,0,0,0.08)',
+        '4xl': '-1rem 0 3rem -2rem #000',
+        '5xl': '-2rem 0 3rem -2rem #000'
 
       },
     },

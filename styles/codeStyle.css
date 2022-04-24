@@ -6,7 +6,7 @@
     --bg-primary: hsl(210deg, 30%, 8%);
     --fg-primary: hsl(210, 17%, 82%);
 
-    --bg-primary-light: hsla(200deg, 100%, 85%, 0);
+    --bg-primary-light: rgba(208, 179, 255, 0);
     --bg-primary-dark: hsla(200deg, 100%, 85%, 0.1);
 
     --bg-secondary: hsl(215, 21%, 11%);
@@ -58,8 +58,9 @@
 :root {
   --bg-primary: hsl(0, 0%, 100%); /* #FFFFFF */
   --fg-primary: hsl(222deg, 22%, 5%);
-  --bg-primary-light: hsl(204deg, 67%, 85%);
-  --bg-primary-dark: hsl(202deg, 71%, 90%);
+
+  --bg-primary-light: hsl(195, 91%, 34%);
+  --bg-primary-dark: hsl(200, 100%, 95%);
 
   --bg-secondary: hsl(0, 0%, 100%); 
 
