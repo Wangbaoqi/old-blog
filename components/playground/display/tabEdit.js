@@ -2,7 +2,7 @@ import { useState } from "react";
 import Editer from "./editer";
 import cn from "classnames";
 
-import syntaxTheme from '@config/syntaxTheme'
+import theme from '@config/codeTheme'
 
 const TabEditer = ({
   paneData,
@@ -41,7 +41,7 @@ const TabEditer = ({
         handleFormat={handleFormat}
         handleUpdate={activePane.handleUpdate}
         language={activePane.language}
-        themeSyntax={syntaxTheme}
+        themeSyntax={theme}
       />
     </div>
   )
