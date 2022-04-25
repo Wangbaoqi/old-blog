@@ -20,8 +20,6 @@ const Category = ({ title, cateGoryList, groupCategory }) => {
 
 export const getStaticProps = async ({ params }) => {
 
-  console.log(params, 'params');
-  
   const cslug = params.cslug;
   const groupCategory = await getGroupByCategory();
   const cateGoryList = groupCategory[cslug];

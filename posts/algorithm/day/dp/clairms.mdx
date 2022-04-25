@@ -1,0 +1,139 @@
+---
+id: 70
+title: 62.爬楼梯
+date: '2020-03-16'
+level: easy
+hot: 5
+author:
+  name: Nate Wang
+  picture: '/assets/authors/logo.png'
+postShow: true
+tags:
+  - dp
+category: algorithm
+subCategory: everyDay
+---
+
+
+[爬楼梯](https://leetcode-cn.com/problems/climbing-stairs/description/)
+
+> 假设你正在爬楼梯。需要 `n` 阶你才能到达楼顶。
+
+每次你可以爬 `1` 或 `2` 个台阶。你有多少种不同的方法可以爬到楼顶呢？
+
+**示例 1：**
+
+```
+输入：n = 2
+输出：2
+解释：有两种方法可以爬到楼顶。
+1. 1 阶 + 1 阶
+2. 2 阶
+```
+
+**示例 2：**
+
+```
+输入：n = 3
+输出：3
+解释：有三种方法可以爬到楼顶。
+1. 1 阶 + 1 阶 + 1 阶
+2. 1 阶 + 2 阶
+3. 2 阶 + 1 阶 
+```
+
+**提示：**
+
+- `1 <= n <= 45`
+
+------
+
+[Discussion](https://leetcode-cn.com/problems/climbing-stairs/comments/) | [Solution](https://leetcode-cn.com/problems/climbing-stairs/solution/)
+
+## 题解
+
+### 动态规划 + DP数组
+
+动态规划五部曲：
+
+- 确定DP数组
+
+  `dp = [] dp[i]` 为第几层有多少种方法
+
+   例如： `dp[1] = 1, dp[2] = 2, dp[3] = 3, dp[4] = 5`
+
+- 确认递推公式
+
+  `dp[i] = dp[i - 2] + dp[i - 1]`
+
+  这个问题用范式表示为
+
+  $$
+  f(n) = f(n-1) + f(n-2)
+  $$
+
+- dp数组初始化
+
+  `dp = [0, 1, 2]`
+
+- 遍历顺序
+
+  从`i = 3`遍历
+
+- 举例推导
+
+  接下来论证一下`f(0)`和`f(1)`
+
+  $$
+  f(0) = 1;
+  f(1) = 1
+  $$
+
+  再多论证几个数
+
+  $$
+  f(2) = f(1) + f(0)
+  $$
+
+  $$
+  f(3) = f(2) + f(1) = f(1) + f(0) + f(1)
+  $$
+
+
+```js
+const climbStairs = n => {
+  const dp = [0, 1, 2];
+  for (let i = 3; i <= n; i++) {
+    dp[i] = dp[i - 1] + dp[i - 2];
+  }
+  return dp[n]
+}
+```
+
+时间复杂度：`O(n)`
+
+空间复杂度：`O(n)`
+
+### 动态规划 + 优化
+
+使用额外的两个变量来记录`[n-1]`和`[n-2]`的值。
+
+```js
+const climbStairs_1 = n => {
+  if (n <= 2) return n;
+  let p = 1;
+  let q = 2;
+  let r = 0; 
+  for (let i = 3; i <= n; i++) {
+    r = p + q;
+    p = q;
+    q = r;
+  }
+  return r;
+}
+```
+
+时间复杂度：`O(n)`
+
+空间复杂度：`O(1)`
+

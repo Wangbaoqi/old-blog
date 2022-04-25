@@ -9,8 +9,6 @@ const CategoryWrapper = ({
   groupCategory
 }) => {
 
-  console.log();
-
   const leftChild = (
     <div className="grid md:grid-cols-2 gap-10">
       <FeatureCard

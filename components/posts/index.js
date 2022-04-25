@@ -10,4 +10,7 @@ export { default as RecomendPost } from './recomendPost';
 export { default as NextPost } from './nextPost';
 export { default as CategoryWrapper } from './categoryWrapper';
 
+export { default as AlgorithmWrapper } from './algorithmWrapper';
+
+
 

@@ -1,21 +1,14 @@
 
-
-
 import { RecomendPost } from '@components/posts';
 
-
-
 const RecomendWrapper = ({
-  recomendPosts = []
+  recomendPosts = [],
+  title = 'Popular Posts'
 }) => {
-
-
-
 
   return (
     <div className='mt-8'>
-      <h2 className="font-advent text-4xl md:text-6xl ">Popular Posts</h2>
-
+      <h2 className="font-advent text-4xl md:text-6xl ">{ title }</h2>
       <div className='overflow-x-scroll w-full py-8 -ml-6 px-4 lg:pl-6 lg:pr-0 hidden lg:flex'>
         {
           recomendPosts.map(post => (

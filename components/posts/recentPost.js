@@ -8,8 +8,6 @@ const RecentPost = ({
   category,
   slug
 }) => {
-  console.log(title, 'pp');
-
 
   return (
     <section className="">

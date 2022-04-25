@@ -1,0 +1,144 @@
+---
+id: 746
+title: 746. 使用最小花费爬楼梯
+date: '2020-03-16'
+level: easy
+hot: 4
+author:
+  name: Nate Wang
+  picture: '/assets/authors/logo.png'
+postShow: true
+tags:
+  - dp
+category: algorithm
+subCategory: everyDay
+---
+
+
+
+
+
+
+# [使用最小花费爬楼梯](https://leetcode-cn.com/problems/min-cost-climbing-stairs/description/)
+
+>给你一个整数数组 `cost` ，其中 `cost[i]` 是从楼梯第 `i` 个台阶向上爬需要支付的费用。一旦你支付此费用，即可选择向上爬一个或者两个台阶。
+
+你可以选择从下标为 `0` 或下标为 `1` 的台阶开始爬楼梯。
+
+请你计算并返回达到楼梯顶部的最低花费。
+
+**示例 1：**
+
+```
+输入：cost = [10,15,20]
+输出：15
+解释：你将从下标为 1 的台阶开始。
+- 支付 15 ，向上爬两个台阶，到达楼梯顶部。
+总花费为 15 。
+```
+
+**示例 2：**
+
+```
+输入：cost = [1,100,1,1,1,100,1,1,100,1]
+输出：6
+解释：你将从下标为 0 的台阶开始。
+- 支付 1 ，向上爬两个台阶，到达下标为 2 的台阶。
+- 支付 1 ，向上爬两个台阶，到达下标为 4 的台阶。
+- 支付 1 ，向上爬两个台阶，到达下标为 6 的台阶。
+- 支付 1 ，向上爬一个台阶，到达下标为 7 的台阶。
+- 支付 1 ，向上爬两个台阶，到达下标为 9 的台阶。
+- 支付 1 ，向上爬一个台阶，到达楼梯顶部。
+总花费为 6 。
+```
+
+**提示：**
+
+- `2 <= cost.length <= 1000`
+- `0 <= cost[i] <= 999`
+
+------
+
+[Discussion](https://leetcode-cn.com/problems/min-cost-climbing-stairs/comments/) | [Solution](https://leetcode-cn.com/problems/min-cost-climbing-stairs/solution/)
+
+## 题解
+
+### 动态规划 + DP数组
+
+动态规划五部曲：
+
+- 确定DP数组
+
+  `dp[i]` 记录走到当前台阶最少花费的价格
+
+- 确定递推公式
+
+  `dp[i] = min(dp[i - 1], dp[i - 2]]) + cost[i]`
+
+- 确定初始化DP数组
+
+  `dp[0]= cost[0];dp[1]=cost[1]`
+
+- 确定遍历顺序
+
+  `i=2`开始遍历
+
+- 举例推导
+
+  ```markdown
+  // [1,100, 1,1,1,100,1,1,100,1]
+  
+  // dp = [1, 100]
+  
+  // i = 2, dp[2] = min(1, 100) + 1 = 2;     dp = [1, 100, 2]
+  // i = 3, dp[3] = min(2, 100) + 1 = 3;     dp = [1, 100, 2, 3]
+  // i = 4. dp[4] = min(2, 3) + 1 = 3;       dp = [1, 100, 2, 3, 3]
+  // i = 5. dp[5] = min(3, 3) + 100 = 103;   dp = [1, 100, 2, 3, 3, 103]
+  // i = 6. dp[6] = min(3, 103) + 1 = 4;     dp = [1, 100, 2, 3, 3, 103, 4]
+  // i = 7. dp[7] = min(4, 103) + 1 = 5;     dp = [1, 100, 2, 3, 3, 103, 4, 5]
+  // i = 8. dp[8] = min(4, 5) + 100 = 104;   dp = [1, 100, 2, 3, 3, 103, 4, 5, 104]
+  // i = 9. dp[9] = min(104, 5) + 1 = 6;     dp = [1, 100, 2, 3, 3, 103, 4, 5, 104, 6]
+  ```
+
+
+
+```js
+const minCostClimbingStairs = cost => {
+  const dp = [];
+  const len = cost.length;
+  dp[0] = cost[0];
+  dp[1] = cost[1];
+  for (let i = 2; i < cost.length; i++) {
+    dp[i] = Math.min(dp[i - 1], dp[i - 2]) + cost[i];
+  }
+  // 爬到楼顶需要判断n-1和n-2，拿到其中最小值
+  return Math.min(dp[len-1], dp[len-2])
+}
+```
+
+时间复杂度：`O(n)`
+
+空间复杂度：`O(n)`
+
+### 动态规划 + 优化
+
+可以使用两个变量`pre和next`来记录`i-1`和`i-1`楼层中最小的花费
+
+```js
+const minCostClimbingStairs_a = cost => {
+
+  let pre = cost[0];
+  let next = cost[1];
+
+  for (let i = 2; i < cost.length; i++) {
+    const min = Math.min(pre, next) + cost[i];
+    pre = next;
+    next = min
+  }
+  return pre > next ? next : pre
+}
+```
+
+时间复杂度：`O(n)`
+
+空间复杂度：`O(1)`

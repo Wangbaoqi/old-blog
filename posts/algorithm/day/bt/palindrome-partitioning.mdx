@@ -1,0 +1,92 @@
+---
+id: 131
+title: 131. 分割回文串
+date: '2020-03-16'
+level: medium
+hot: 4
+author:
+  name: Nate Wang
+  picture: '/assets/authors/logo.png'
+postShow: true
+tags:
+  - backTrack
+category: algorithm
+subCategory: everyDay
+---
+
+
+
+> 给你一个字符串 `s`，请你将 `s` 分割成一些子串，使每个子串都是 **回文串** 。返回 `s` 所有可能的分割方案。
+
+**回文串** 是正着读和反着读都一样的字符串。
+
+**示例 1：**
+
+```
+输入：s = "aab"
+输出：[["a","a","b"],["aa","b"]]
+```
+
+**示例 2：**
+
+```
+输入：s = "a"
+输出：[["a"]]
+```
+
+**提示：**
+
+- `1 <= s.length <= 16`
+- `s` 仅由小写英文字母组成
+
+## 题解
+
+此题还是使用**回溯法**
+
+![](/Users/wangbaoqi/个人资源/图片素材搜集/博客/algorithm/backTracking/分割回文串.svg)
+
+如上图，把`aab`也可以当做一颗树结构，这里跟组合比较类似。
+
+回溯三部曲：
+
+- 递归函数的参数（从上到下），这里只需传递`s`和`截取的索引`
+- 单层函数调用（从左到右）
+- 递归结束条件，当`|`的位置跟要截取的字符串的长度相等时，递归结束
+
+```js
+const partition = s => {
+  const ret = [], ans = [];
+  const len = s.length;
+  const isPalindrome = (s, i, j) => {
+    let l = i, r = j;
+    while (l < r) {
+      if (s[l] != s[r]) return false;
+      l++;
+      r--;
+    }
+    return true;
+  }
+
+  const backTracking = (s, i) => {
+    // 结束条件 判断是否是回文串
+    if (i >= len) {
+      ret.push([...ans]);
+      return;
+    }
+		// 单层函数
+    for (let j = i; j < s.length; j++) {
+      // 判断是否是回文串
+      if (isPalindrome(s, i, j)) {
+        ans.push(s.slice(i, j + 1));
+        backTracking(s, j + 1);
+        ans.pop();
+      } else {
+        continue;
+      }
+    }
+  }
+  backTracking(s, 0)
+  return ret;
+}
+```
+

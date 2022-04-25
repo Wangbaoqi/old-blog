@@ -1,0 +1,72 @@
+---
+id: 22
+title: 22.括号生成
+date: '2020-03-16'
+level: medium
+hot: 4
+author:
+  name: Nate Wang
+  picture: '/assets/authors/logo.png'
+postShow: true
+tags:
+  - backTrack
+category: algorithm
+subCategory: everyDay
+---
+
+
+# [括号生成](https://leetcode-cn.com/problems/generate-parentheses/description/)
+
+
+
+> 数字 `n` 代表生成括号的对数，请你设计一个函数，用于能够生成所有可能的并且 **有效的** 括号组合。
+
+**示例 1：**
+
+```
+输入：n = 3
+输出：["((()))","(()())","(())()","()(())","()()()"]
+```
+
+**示例 2：**
+
+```
+输入：n = 1
+输出：["()"]
+```
+
+**提示：**
+
+- `1 <= n <= 8`
+
+------
+
+[Discussion](https://leetcode-cn.com/problems/generate-parentheses/comments/) | [Solution](https://leetcode-cn.com/problems/generate-parentheses/solution/)
+
+## 题解 回溯
+
+
+```js
+const generateParenthesis_a = n => {
+  const ret = [], ans = [];
+  const backTracking = (max, l, r) => {
+    if (ans.length == 2 * n) {
+      ret.push(ans.join(''))
+      return
+    }
+    if (l < max) {
+      ans.push('(');
+      backTracking(max, l + 1, r);
+      ans.pop();
+    }
+    if (r < l) {
+      ans.push(')');
+      backTracking(max, l, r + 1);
+      ans.pop();
+    }
+  }
+  backTracking(n, 0, 0)
+  return ret
+}
+```
+

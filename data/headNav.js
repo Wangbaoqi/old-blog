@@ -9,6 +9,9 @@ const headNav = [
   }, {
     href: '/archive',
     title: 'Archive'
+  }, {
+    href: '/algorithm',
+    title: 'Algorithm'
   }
 ]
 

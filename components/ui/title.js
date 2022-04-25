@@ -1,0 +1,27 @@
+
+import Link from 'next/link';
+
+const Title = ({
+  title = '',
+  showAll = false,
+  allHref = ''
+}) => {
+
+  return (
+    <div className="flex justify-between items-center px-3 md:px-0">
+      <h2 className="font-advent text-4xl md:text-6xl ">{ title }</h2>
+      {
+        showAll ? (
+          <Link href='/'>
+            <a className='flex items-center text-sm'>
+              <span className='mr-3'>VIEW ALL</span>
+            </a>
+          </Link>
+        ) : ''
+      }
+  </div>
+  )
+}
+
+
+export default Title

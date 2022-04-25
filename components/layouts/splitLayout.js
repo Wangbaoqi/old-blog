@@ -1,5 +1,5 @@
 
-import Link from 'next/link';
+import { Title } from '@components/ui';
 
 const SplitLayout = ({
   mode='left',
@@ -14,15 +14,8 @@ const SplitLayout = ({
 
   return (
     <section className="container py-10">
-      <div className="flex justify-between items-center px-3 md:px-0">
-        <h2 className="font-advent text-4xl md:text-6xl ">{ leftTitle }</h2>
-        <Link href='/'>
-          <a className='flex items-center text-sm'>
-            <span className='mr-3'>VIEW ALL</span>
-          </a>
-        </Link>
-      </div>
-      <section className="flex flex-col lg:flex-row gap-10 mt-10 px-3 md:px-0">
+      <Title title={leftTitle} showAll={ true }/>
+      <section className="flex flex-col lg:flex-row gap-16 mt-10 px-3 md:px-0">
         <div className={leftCls}>
           {leftChild}
         </div>
