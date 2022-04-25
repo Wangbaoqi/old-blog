@@ -12,7 +12,7 @@ export default function FeaturePost({
   category,
   date,
   excerpt,
-  author,
+  author = {},
   slug,
 }) {
   const postCls = mode == 'col' ? 'md:flex-col' : '';

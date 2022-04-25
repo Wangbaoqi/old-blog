@@ -6,6 +6,7 @@ const RecomendWrapper = ({
   title = 'Popular Posts'
 }) => {
 
+  console.log(recomendPosts, 'recomendPosts');
   return (
     <div className='mt-8'>
       <h2 className="font-advent text-4xl md:text-6xl ">{ title }</h2>

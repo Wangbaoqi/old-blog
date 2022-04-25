@@ -10,7 +10,7 @@ const RecomendPost = ({
   category = '',
   coverImage = '',
   date = '',
-  author,
+  author = {},
 }) => {
 
 
@@ -33,7 +33,7 @@ const RecomendPost = ({
       <Link href={`/posts/${slug}`}>
         <h1 className='cursor-pointer mb-6 text-2xl hover:text-primary-focus'>{ title }</h1>
       </Link>
-      <Avatar name={author.name} picture={author.picture} />
+      {/* {author ? <Avatar name={author.name} picture={author.picture} /> : ''} */}
     </div>
   )
 }
