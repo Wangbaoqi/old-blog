@@ -59,8 +59,8 @@
   --bg-primary: hsl(0, 0%, 100%); /* #FFFFFF */
   --fg-primary: hsl(222deg, 22%, 5%);
 
-  --bg-primary-light: hsl(195, 91%, 34%);
-  --bg-primary-dark: hsl(200, 100%, 95%);
+  --bg-primary-light: hsl(200, 100%, 95%);
+  --bg-primary-dark: hsl(195, 91%, 30%);
 
   --bg-secondary: hsl(0, 0%, 100%); 
 
@@ -80,8 +80,6 @@
 
   --bg-blockquote: hsla(210deg, 55%, 92%, 0.85);
   --bg-blockquote-l: hsl(230deg, 100%, 67%);
-
-
 
   --fg-active: #24292e !important;
   --fg-default: #959da5 !important;

@@ -19,6 +19,9 @@ export default function FeaturePost({
   const imgHCls = mode == 'col' ? 'md:h-60' : 'md:min-h-f-card';
   const imgWCls = mode == 'col' ? '' : 'md:max-w-f-card';
 
+  // const bgCls = mode == 'col' ? 'bg-post-t-cover' : 'bg-post-cover';
+  const bgCls = 'dark:bg-post-cover';
+
   const rightContent = (
     <div className='px-8 py-4 relative'>
       <h3 className="text-3xl mb-8 leading-snug">
@@ -58,7 +61,7 @@ export default function FeaturePost({
     </div>
   )
   return (
-    <div className='shadow-3xl rounded-2xl  md:min-h-f-card bg-second-bg overflow-hidden'>
+    <div className={`shadow-3xl rounded-2xl  md:min-h-f-card overflow-hidden ${bgCls}`}>
       <div className={`md:flex ${postCls}`}>
         <div className="md:shrink-0">
           <img

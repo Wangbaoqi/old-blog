@@ -59,21 +59,17 @@ module.exports = {
         'second-bg': 'var(--bg-secondary)', // post bg
         'third-color': 'var(--fg-third)',
         'third-bg': 'var(--bg-third)',
-
         'code-bg': 'var(--bg-code)',
         'code-color': 'var(--fg-code)',
         'playground-bg': 'var(--bg-playground)',
         'hover-color': 'var(--fg-hover)',
         'blockquote-bg': 'var(--bg-blockquote)',
         'blockquote-l': 'var(--bg-blockquote-l)',
-
         'black-2': '#222222',
         'code': '#087ea4',
         'border-color': 'var(--fg-border)',
         'border-color-5': 'var(--fg-border-5)',
         'accent': 'var(--accent)',
-        // 'accent-2': '#EAEAEA',
-        // 'accent-7': '#333',
         'nav-color': '#3d5b7d',
         'icon-color': '#00c2ff',
         's-color': "#3D5B7D",
@@ -81,9 +77,9 @@ module.exports = {
         cyan: '#79FFE1',
       },
       backgroundImage: {
-        'header-cover': 'linear-gradient(45deg, var(--bg-primary-dark), var(--bg-primary-light))',
+        'header-cover': 'linear-gradient(-165deg, var(--bg-primary-dark), var(--bg-primary-light))',
         'card-cover': 'linear-gradient(180deg, var(--bg-primary-dark), var(--bg-primary-light))',
-        'footer-cover': 'linear-gradient(180deg, var(--bg-primary-dark), var(--bg-primary-light))',
+        'post-cover': 'linear-gradient(90deg, var(--bg-primary-dark), var(--bg-primary-light))',
       },
       spacing: {
         28: '7rem',
