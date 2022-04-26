@@ -24,7 +24,7 @@ export default function FeaturePost({
 
   const rightContent = (
     <div className='px-8 py-4 relative'>
-      <h3 className="text-3xl mb-8 leading-snug">
+      <h3 className="md:text-2xl text-xl  mb-8 leading-snug">
         <Link href={`/posts/${slug}`}>
           <a className="hover:underline">{title}</a>
         </Link>
@@ -52,7 +52,7 @@ export default function FeaturePost({
         <Avatar name={author.name} picture={author.picture} />
         <span className='text-xs font-Sriracha h-5 flex items-center'>{date}</span>
       </div>
-      <h3 className="text-3xl my-6 leading-snug">
+      <h3 className="md:text-2xl text-xl my-6 leading-snug">
         <Link href={`/posts/${slug}`}>
           <a className="hover:underline">{title}</a>
         </Link>

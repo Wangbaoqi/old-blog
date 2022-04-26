@@ -1,0 +1,94 @@
+---
+id: 242
+title: 242.有效的字母异位词
+date: '2020-03-16'
+level: easy
+hot: 4
+author:
+  name: Nate Wang
+  picture: '/assets/authors/logo.png'
+postShow: true
+tags:
+  - string
+category: algorithm
+subCategory: everyDay
+---
+
+
+
+
+[有效的字母异位词](https://leetcode-cn.com/problems/valid-anagram/description/)
+
+
+
+>  给定两个字符串 `s` 和 `t` ，编写一个函数来判断 `t` 是否是 `s` 的字母异位词。
+
+**注意：**若 `s` 和 `t` 中每个字符出现的次数都相同，则称 `s` 和 `t` 互为字母异位词。
+
+**示例 1:**
+
+```
+输入: s = "anagram", t = "nagaram"
+输出: true
+```
+
+**示例 2:**
+
+```
+输入: s = "rat", t = "car"
+输出: false
+```
+
+**提示:**
+
+- `1 <= s.length, t.length <= 5 * 104`
+- `s` 和 `t` 仅包含小写字母
+
+**进阶:** 如果输入字符串包含 unicode 字符怎么办？你能否调整你的解法来应对这种情况？
+
+------
+
+[Discussion](https://leetcode-cn.com/problems/valid-anagram/comments/) | [Solution](https://leetcode-cn.com/problems/valid-anagram/solution/)
+
+
+
+### 排序
+
+在两个字符相同长度的前提下，转化为字符串进行直接比较
+
+```js
+const isAnagram_s = (s, t) => {
+  if (s.length != t.length) return false;
+  return [...s].sort().join('') === [...t].sort().join('')
+}
+```
+
+### 哈希表
+
+首先记录一个长度为`26`位的哈希表，初始化每一项为`0` ，代表当前对应的字母出现次数为`0`。因为字母总共有`26`位。
+
+第一次遍历通过每一个字母的 *码点* 和初始字母 `a` 的 *码点*相减，在哈希表中对应位置`+1`，最终得到了第一个字符的所有字母在哈希表中对应的个数。
+
+第二次遍历同理，遍历第二个字符，每个字母在哈希表中出现的次数`-1`，同时判断次数是否`< 0`，如果小于`0`，则代表第二字母不是第一个字符串的字母异位词
+
+```js
+const isAnagram_m = (s, t) => {
+  if (s.length != t.length) return false;
+  
+  const map = new Array(26).fill(0);
+  const initPoint = 'a'.codePointAt(); // 97
+
+  for (let i = 0; i < s.length; i++) {
+    map[s.codePointAt(i) - initPoint]++
+  }
+
+  for (let j = 0; j < t.length; j++) {
+    map[t.codePointAt(j) - initPoint]--
+    if (map[t.codePointAt(j) - initPoint]  < 0) {
+      return false;
+    }
+  }
+  return true;
+}
+```
+

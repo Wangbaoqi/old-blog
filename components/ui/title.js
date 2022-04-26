@@ -8,7 +8,7 @@ const Title = ({
 }) => {
 
   return (
-    <div className="flex justify-between items-center px-3 md:px-0">
+    <div className="flex justify-between items-center px-3 py-10 md:px-0">
       <h2 className="font-advent text-4xl md:text-6xl ">{ title }</h2>
       {
         showAll ? (

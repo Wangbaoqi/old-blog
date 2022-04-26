@@ -10,6 +10,7 @@
     --bg-primary-dark: hsla(200deg, 100%, 85%, 0.1);
 
     --bg-secondary: hsl(215, 21%, 11%);
+    --fg-secondary: hsl(195, 82%, 44%);
 
     --bg-third: hsl(210deg,15%,20%);
     --fg-third: hsl(210deg,14%,66%);
@@ -63,6 +64,7 @@
   --bg-primary-dark: hsl(195, 91%, 30%);
 
   --bg-secondary: hsl(0, 0%, 100%); 
+  --fg-secondary: hsl(195, 91%, 34%);
 
   --bg-third: hsl(210deg, 14%, 80%);
   --fg-third: hsl(225deg, 25%, 20%);

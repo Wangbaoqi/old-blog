@@ -13,7 +13,7 @@ export default function Header() {
     <div className="sticky top-0 ">
       <section className="max-w-screen-xl mx-auto flex justify-between items-center md:py-8 md:px-6 lg:py-7 lg:px-0 px-4 py-5">
         <div className="flex items-center">
-          <MobileNav />
+          {/* <MobileNav /> */}
           <Link href="/">
             <div className="flex flex-col justify-start relative z-10 font-medium ob-drop-shadow cursor-pointer">
               <Logo/>

@@ -1,0 +1,83 @@
+---
+id: 5
+title: 5.最长回文子串
+date: '2020-03-16'
+level: easy
+hot: 4
+author:
+  name: Nate Wang
+  picture: '/assets/authors/logo.png'
+postShow: true
+tags:
+  - string
+category: algorithm
+subCategory: everyDay
+---
+
+[最长回文子串](https://leetcode-cn.com/problems/longest-palindromic-substring/description/)
+
+
+
+> 给你一个字符串 `s`，找到 `s` 中最长的回文子串
+
+**示例 1：**
+
+```
+输入：s = "babad"
+输出："bab"
+解释："aba" 同样是符合题意的答案。
+```
+
+**示例 2：**
+
+```
+输入：s = "cbbd"
+输出："bb"
+```
+
+**提示：**
+
+- `1 <= s.length <= 1000`
+- `s` 仅由数字和英文字母组成
+
+------
+
+[Discussion](https://leetcode-cn.com/problems/longest-palindromic-substring/comments/) | [Solution](https://leetcode-cn.com/problems/longest-palindromic-substring/solution/)
+
+## 题解
+
+
+
+###  中心扩展 + 双指针
+
+
+
+```js
+const longestPalindrome_a = s => {
+  if (s.length == 1) return s;
+  let slow = 0;
+  let max = ''
+
+  const palindarome = (str, s, e) => {
+    let l = s, r = e;
+    while (l >= 0 && r < str.length && str[l] == str[r]) {
+      l--;
+      r++;
+    }
+    return str.slice(l + 1, r);
+  }
+  while (slow < s.length) {    
+    const lStr = palindarome(s, slow, slow);
+    const rStr = palindarome(s, slow, slow + 1);
+    if (lStr.length > max.length) {
+      max = lStr
+    }
+    if (rStr.length > max.length) {
+      max = rStr
+    }
+    slow++
+  }
+  return max;
+}
+```
+

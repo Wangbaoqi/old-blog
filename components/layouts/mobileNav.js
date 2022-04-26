@@ -11,11 +11,11 @@ const MobileNav = () => {
   const hanldeToogle = () => {
     setToogle(!status)
   }
-  const navCls = cn('fixed top-0 bottom-0 w-3/4 bg-second-bg text-second-color text-xl p-6 z-1000 transition-all scroll-smooth', {
+  const navCls = cn('fixed top-0 bottom-0 w-3/4 bg-second-bg text-second-color text-xl p-6  z-50 transition-all scroll-smooth', {
     'left-0': status,
     '-left-80': !status
   })
-  const overlayCls = cn('fixed left-0 w-full top-0 h-full bg-second-bg  transition-all ', {
+  const overlayCls = cn('fixed left-0 w-full top-0 h-full bg-second-bg z-40  transition-all ', {
     'opacity-30': status,
     'invisible': !status,
     'opacity-0': !status,
@@ -23,7 +23,7 @@ const MobileNav = () => {
   })
 
   return (
-    <div className="sm:hidden">
+    <div className="">
       <div className='-mt-1' onClick={() => setToogle(!status)}>
         <AlignJustify size={20} className='mr-2'/>
       </div>

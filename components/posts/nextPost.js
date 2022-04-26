@@ -14,7 +14,7 @@ const NextPost = ({
           <ArrowLeft size={20}  />
           <span className='text-sm ml-3'>PREV POST</span>
         </div>
-        <h3 className='text-2xl cursor-pointer'>{prev.title}</h3>
+        <h3 className='md:text-xl text-base cursor-pointer hover:text-hover-color'>{prev.title}</h3>
         <p className='text-sm font-advent'>{prev.date}</p>
       </div>
     </Link>: null;
@@ -25,7 +25,7 @@ const NextPost = ({
         <span className='text-sm mr-3'>NEXT POST</span>
         <ArrowRight size={20}  />
       </div>
-      <h3 className='text-2xl cursor-pointer'>{next.title}</h3>
+      <h3 className='md:text-xl text-base cursor-pointer hover:text-hover-color'>{next.title}</h3>
       <p className='text-sm text-right font-advent'>{next.date}</p>
     </div>
   </Link>: null;

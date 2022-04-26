@@ -47,7 +47,8 @@ module.exports = {
         'f-card': '420px',
       },
       minWidth: {
-        'f-card': '420px'
+        'f-card': '420px',
+        't-topic': '160px'
       },
       zIndex: {
         '1000': 1000,
@@ -55,7 +56,7 @@ module.exports = {
       colors: {
         'primary-color': 'var(--fg-primary)',
         'primary-bg': 'var(--bg-primary)',
-        'second-color': '',
+        'second-color': 'var(--fg-secondary)',
         'second-bg': 'var(--bg-secondary)', // post bg
         'third-color': 'var(--fg-third)',
         'third-bg': 'var(--bg-third)',
