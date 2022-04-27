@@ -1,7 +1,7 @@
-const defaultTheme = require('tailwindcss/defaultTheme')
+const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
-  content: ['./components/**/*.js', './pages/**/*.js'],
+  content: ['./components/**/*.js', './pages/**/*.js', './config/**/*.js'],
   darkMode: 'class',
   theme: {
     fontSize: {
@@ -70,6 +70,16 @@ module.exports = {
         'code': '#087ea4',
         'border-color': 'var(--fg-border)',
         'border-color-5': 'var(--fg-border-5)',
+
+        
+
+        'backTrack': 'var(--theme-keyword)',
+        'dp': 'var(--theme-tag)',
+        'math': 'var(--theme-definition)',
+        'string': 'var(--theme-property)',
+
+
+
         'accent': 'var(--accent)',
         'nav-color': '#3d5b7d',
         'icon-color': '#00c2ff',

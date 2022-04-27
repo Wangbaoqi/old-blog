@@ -30,7 +30,6 @@
 
     
 
-
     --fg-active: #fff !important;
     --fg-default: #999 !important;
     --fg-inactive: #343434 !important;
@@ -61,7 +60,7 @@
   --fg-primary: hsl(222deg, 22%, 5%);
 
   --bg-primary-light: hsl(200, 100%, 95%);
-  --bg-primary-dark: hsl(195, 91%, 30%);
+  --bg-primary-dark: hsla(195, 91%, 40%, .7);
 
   --bg-secondary: hsl(0, 0%, 100%); 
   --fg-secondary: hsl(195, 91%, 34%);

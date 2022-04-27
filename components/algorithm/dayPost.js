@@ -12,7 +12,7 @@ const DayTablePost = ({
 }) => {
   return (
     <section className="">
-      { showTitle ? <Title title="Every Day" className='my-20'/> : '' }
+      { showTitle ? <Title title="Every Day" className='my-20' showAll={true} allHref={`/algorithm/page/1`} /> : '' }
 
       <div className="container inline-block min-w-full shadow-3xl  lg:overflow-hidden pt-4 px-3 md:px-0">
         <div className="overflow-x-auto rounded-lg">

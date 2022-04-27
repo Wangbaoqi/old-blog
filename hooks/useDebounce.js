@@ -13,7 +13,7 @@ const useDebounceValue = (time, props) => {
     return () => {
       window.clearTimeout(timeId)
     }
-  }, [time, ...Object.values(props)])
+  }, [time, props])
   
   return propInState
 

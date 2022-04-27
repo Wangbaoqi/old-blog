@@ -6,3 +6,5 @@ export { default as Category } from './category'
 export { default as GithubIcon } from './githubIcon'
 
 
+export { default as Input } from './input'
+

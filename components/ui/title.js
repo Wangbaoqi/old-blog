@@ -12,7 +12,7 @@ const Title = ({
       <h2 className="font-advent text-4xl md:text-6xl ">{ title }</h2>
       {
         showAll ? (
-          <Link href='/'>
+          <Link href={allHref}>
             <a className='flex items-center text-sm'>
               <span className='mr-3'>VIEW ALL</span>
             </a>
