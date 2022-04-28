@@ -1,6 +1,6 @@
 import { Avatar } from "@components/ui";
 import Link from "next/link";
-import { colorMap } from "@config/tagTheme";
+// import { colorMap } from "@config/tagTheme";
 import { Title } from "@components/ui";
 
 import { Star } from "react-feather";
@@ -51,7 +51,7 @@ const DayTablePost = ({
                   <td className="px-5 py-4 ">
                     {item.tags.map((tag, idx) => (
                       <strong key={idx} className=" text-xs">
-                        {colorMap[tag]}
+                        {tag}
                       </strong>
                     ))}
                   </td>

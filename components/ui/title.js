@@ -4,7 +4,7 @@ import Link from 'next/link';
 const Title = ({
   title = '',
   showAll = false,
-  allHref = ''
+  allHref = '/'
 }) => {
 
   return (
