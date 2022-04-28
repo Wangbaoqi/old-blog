@@ -7,5 +7,7 @@ export { default as GithubIcon } from './githubIcon'
 
 
 export { default as Input } from './input'
+export { default as Select } from './select'
+
 export { default as PerPage } from './perPage'
 

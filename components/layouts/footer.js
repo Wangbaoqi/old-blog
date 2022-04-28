@@ -7,7 +7,7 @@ export default function Footer() {
   const date = dayjs().format('YYYY')
   return (
     <footer className="bg-header-cover">
-      <div className="max-w-screen-xl mx-auto py-8 flex mt-20 flex-col md:flex-row items-center ">
+      <div className="max-w-screen-xl mx-auto py-8 flex mt-20 flex-col md:flex-row lg:px-10 items-center ">
         <div className='flex flex-col justify-between min-h-48'>
           <div className='flex flex-col'>
             <Logo />

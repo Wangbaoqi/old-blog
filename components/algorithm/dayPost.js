@@ -1,8 +1,6 @@
 import { Avatar } from "@components/ui";
 import Link from "next/link";
-import { colorMap } from '@config/tagTheme'
-
-import { RecomendWrapper, FeatureCard } from "@components/posts";
+import { colorMap } from "@config/tagTheme";
 import { Title } from "@components/ui";
 
 import { Star } from "react-feather";

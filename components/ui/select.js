@@ -1,0 +1,63 @@
+
+import { Check, ChevronDown } from 'react-feather';
+import { memo, useState, useEffect } from 'react';
+
+
+const Select = ({
+  initVal,
+  optionList,
+  setSelect
+}) => {
+  const [showPage, setShowPage] = useState(false);
+  const [value, setValue] = useState(initVal);
+  const pageCls = !showPage ? 'hidden' : 'block';
+
+  useEffect(() => {
+    setSelect(value)
+  }, [value])
+
+  return (
+    <div className="w-36 md:mb-0 mb-10">
+      <div className="mt-1 relative cursor-pointer bg-second-bg" onClick={() => setShowPage(!showPage)}>
+        <button type="button" className="relative w-32 bg-post-cover rounded-md shadow-lg pl-3 pr-10 py-2 text-left cursor-default focus:outline-none  sm:text-sm">
+          <span className="flex items-center">
+            <span className="ml-3 block truncate">
+              {value}
+            </span>
+          </span>
+          <span className="ml-3 absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none " >
+            <ChevronDown size={18}/>
+          </span>
+        </button>
+        <div className={`absolute mt-1 w-full z-10 rounded-md bg-second-bg shadow-lg ${pageCls}`}>
+          <ul className="max-h-56 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm">
+            {
+              optionList.map(page => {
+                const cheIconCls = page !== value ? 'hidden' : ''
+                return (
+                  <li
+                    key={page}
+                    onClick={() => setValue(page)}
+                    className=" hover:bg-post-cover hover:text-primary select-none relative py-2 pl-3 pr-9"
+                  >
+                      <div className="flex items-center">
+                        <span className="ml-3 block font-normal truncate">
+                          {page}
+                        </span>
+                      </div>
+                      <span className={`absolute inset-y-0 right-0 flex items-center pr-4 ${cheIconCls}`}>
+                        <Check size={16} color='var(--fg-secondary)' className='text-second-color'/>
+                      </span>
+                  </li>
+                )
+              })
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+
+export default memo(Select)

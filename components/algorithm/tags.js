@@ -18,22 +18,25 @@ const Tags = ({
   }, [tags])
 
   return (
-    <div className="py-4 flex items-center">
-      <h3 className=' text-second-color text-base mr-4'>Tags: </h3>
-      {
-        tags.map((tag, idx) => {
-          const tagCls = tag.check ? 'bg-post-cover text-code' : 'bg-second-bg';
-          return (
-            <span
-              className={`rounded-lg hover:bg-post-cover text-sm cursor-pointer px-4 py-1 mr-4 ${tagCls}`}
-              key={tag.key}
-              onClick={() => checkTags(idx)}
-            >
-              {tag.key} {tag.value}
-            </span>
-          )
-        })
-      }
+    <div className="py-4 flex items-start ">
+      <h3 className='text-second-color text-base mr-2 md:mr-4'>Tags: </h3>
+      <div className='flex flex-wrap gap-2 flex-1'>
+        {
+          tags.map((tag, idx) => {
+            const tagCls = tag.check ? 'bg-post-cover text-code' : 'bg-second-bg';
+            return (
+              <span
+                className={`rounded-lg hover:bg-post-cover text-sm cursor-pointer px-4 py-1 ${tagCls}`}
+                key={tag.key}
+                onClick={() => checkTags(idx)}
+              >
+                {tag.key} {tag.value}
+              </span>
+            )
+          })
+        }
+      </div>
+      
     </div>
   )
 }

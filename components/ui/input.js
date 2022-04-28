@@ -21,7 +21,7 @@ const Input = ({
   }
   return (
     <>
-      <fieldset className="w-full my-5 ">
+      <fieldset className="w-full">
         <div className="relative">
           <span className="absolute inset-y-0 left-0 flex items-center pl-2">
             <button type="button" title="search" className="p-1">

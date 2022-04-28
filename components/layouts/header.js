@@ -11,7 +11,7 @@ import { Logo, GithubIcon } from '@components/ui';
 export default function Header() {
   return (
     <div className="sticky top-0 ">
-      <section className="max-w-screen-xl mx-auto flex justify-between items-center md:py-8 md:px-6 lg:py-7 lg:px-0 px-4 py-5">
+      <section className="max-w-screen-xl mx-auto flex justify-between items-center md:py-8 md:px-6 lg:py-7 lg:px-10 px-4 py-5">
         <div className="flex items-center">
           {/* <MobileNav /> */}
           <Link href="/">
