@@ -3,47 +3,41 @@ import { useRouter } from "next/router";
 
 import { DayTablePost, Tags, PageNation } from '@components/algorithm';
 import { Layout } from '@components/layouts';
-import { Input } from '@components/ui';
+import { Input, PerPage } from '@components/ui';
 
 import { useState, useEffect, useCallback, useMemo } from "react";
 import { useLocalStorage, useDebounceValue } from "@hooks/index";
 
-import { POSTS_PAGE_LIST } from '@config/pageList'
 
 const POSTS_PER_PAGE = 10;
 
-let per = 20
 
 const AlgorithmWrapper = ({
+  allCount,
   posts = [],
   pagination,
   initPosts = [],
   tagGroup
 }) => {
   const router = useRouter();
+  const { query: { perPage = '', searchVal = '',  } } = router;
+  console.log('router');
 
 
-  const [searchVal, setSearchVal] = useState('');
-  const [perPage, setPerPage] = useLocalStorage('perpage', POSTS_PAGE_LIST[0]);
+  const displayList =  initPosts;
 
 
-  console.log(searchVal, 'router');
-
-  const inputVal = useDebounceValue(200, searchVal);
-
-
-  // const [perPage, setPerPage] = useState(POSTS_PAGE_LIST[0]);
-
-  const filterPosts = useMemo(() => {
-    return posts.filter(e => inputVal.includes(e.title))
-  }, [inputVal]);
-
-  const displayList = searchVal ? filterPosts : initPosts;
-
-
-
-  const handlePerPage = (page) => {
-    console.log(page);
+  const handlePerPage = (perPage) => {
+    
+    console.log(perPage);
+    const routerObj = {
+      pathname: router.pathname,
+      query: {
+        ...router.query,
+        perPage: perPage
+      }
+    }
+    router.push(routerObj)
   }
 
   const handleTags = (tags) => {
@@ -68,28 +62,41 @@ const AlgorithmWrapper = ({
     }
     router.push(routerObj)
   }
+
+  const handlePagenation = (page) => {
+    const routerObj = {
+      pathname: router.pathname,
+      query: {
+        ...router.query,
+        page: page
+      }
+    }
+    router.push(routerObj)
+  }
     
   return (
     <Layout type='page'>
       <section className="py-20">
+        <div className="flex items-center">
+          <h3 className="text-second-color text-base mr-4">All: </h3>
+          <span>{`${allCount} 道题目`}</span>
+        </div>
         <Tags tagsList={tagGroup} setTagChange={handleTags} />
         <div>
-        <button onClick={() => {
-            router.push({
-              pathname: router.pathname,
-              query: {
-                ...router.query,
-                name: '23'
-              }
-            })
-        }}>
-          click
-        </button>
-
-          <Input val={searchVal} setInputChange={ handleInput }/>
+          <Input initVal={searchVal} setInputChange={handleInput}/>
         </div>
         <DayTablePost dayList={displayList} showTitle={false} />
-        <PageNation pagination={pagination} perPage={perPage} setPerPage={setPerPage}/>
+
+        <div className='flex flex-col md:flex-row justify-between items-center py-10'>
+          <PerPage
+            initPer={perPage}
+            setPerPageChange={handlePerPage}
+          />
+          {/* <PageNation
+            pagination={pagination}
+            setPagenationChange={handlePagenation}
+          /> */}
+        </div>
       </section>
     </Layout>
   )
@@ -99,44 +106,44 @@ const AlgorithmWrapper = ({
 export default AlgorithmWrapper
 
 
-
-// export const getStaticPaths = async (ctx) => {
-//   const { everyDay } = await getAlgorithmPost();
-//   const totalPages = Math.ceil(everyDay.length / POSTS_PER_PAGE);
-//   const paths = Array.from({ length: totalPages }, (_, i) => ({
-//     params: { page: (i + 1).toString() },
-//   }))
-
-//   return {
-//     paths,
-//     fallback: false,
-//   }
-// }
-
 export async function getServerSideProps(ctx) {
-  const { params = {}, query = {} } = ctx;
-  console.log(query, 'query context');
+  const { query = {} } = ctx;
 
   const {
     page,
     searchVal,
-    tags,
-    pagePer
+    tags='',
+    perPage
   } = query
   const { everyDay, tagGroup } = await getAlgorithmPost();
-  const pageNumber = parseInt(page)
-  const initPosts = everyDay.slice(
-    POSTS_PER_PAGE * (pageNumber - 1),
-    POSTS_PER_PAGE * pageNumber
+  const pageNumber = parseInt(page);
+  // const afterTopicList = everyDay || filterEveryList(everyDay, { searchVal, tags });
+  const afterTopicList = everyDay;
+
+  console.log(afterTopicList.length, 'afterTopicList');
+  const initPosts = afterTopicList.slice(
+    perPage * (pageNumber - 1),
+    perPage * pageNumber
   )
+
+  // for (const tag of tagGroup) {
+  //   for (const ctag of tags.split(',')) {
+  //     if (tag.key == ctag) {
+  //       tag.check = true;
+  //     }
+      
+  //   }
+  // }
+
   const pagination = {
     currentPage: pageNumber,
-    totalPages: Math.ceil(everyDay.length / POSTS_PER_PAGE),
+    totalPages: Math.ceil(afterTopicList.length / perPage),
   }
 
   return {
     props: {
-      posts: everyDay,
+      allCount: afterTopicList.length,
+      posts: afterTopicList,
       initPosts,
       pagination,
       tagGroup

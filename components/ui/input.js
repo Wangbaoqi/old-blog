@@ -5,12 +5,12 @@ import { Search } from 'react-feather';
 import { useDebounceValue } from "@hooks/index";
 
 const Input = ({
-  val,
+  initVal,
   setInputChange
 }) => {
 
-  const [searchVal, setSearchVal] = useState('');
-  const inputVal = useDebounceValue(1000, searchVal);
+  const [searchVal, setSearchVal] = useState(initVal);
+  const inputVal = useDebounceValue(300, searchVal);
 
   useEffect(() => {
     setInputChange(inputVal)

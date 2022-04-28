@@ -1,5 +1,6 @@
 import { Avatar } from "@components/ui";
 import Link from "next/link";
+import { colorMap } from '@config/tagTheme'
 
 import { RecomendWrapper, FeatureCard } from "@components/posts";
 import { Title } from "@components/ui";
@@ -40,27 +41,27 @@ const DayTablePost = ({
             </thead>
             <tbody>
               {dayList.map((item) => (
-                <tr key={item.id} className=''>
-                  <td className="px-5 py-5 ">{item.id}</td>
-                  <td className="px-5 py-5 min-w-t-topic">
+                <tr key={item.id} className=' text-sm'>
+                  <td className="px-5 py-4 ">{item.id}</td>
+                  <td className="px-5 py-4 min-w-t-topic">
                     <Link href={`/posts/${item.slug}`}>
-                      <span className=" cursor-pointer hover:text-hover-color">
+                      <span className="cursor-pointer hover:text-hover-color">
                         {item.title}
                       </span>
                     </Link>
                   </td>
-                  <td className="px-5 py-5 ">
+                  <td className="px-5 py-4 ">
                     {item.tags.map((tag, idx) => (
-                      <em key={idx} className="">
-                        {tag}
-                      </em>
+                      <strong key={idx} className=" text-xs">
+                        {colorMap[tag]}
+                      </strong>
                     ))}
                   </td>
-                  <td className="px-5 py-5 ">{item.level}</td>
-                  <td className="px-5 py-5 ">
-                    <span>{item.date}</span>
+                  <td className="px-5 py-4 font-Sriracha">{item.level}</td>
+                  <td className="px-5 py-4 ">
+                    <span className="">{item.date}</span>
                   </td>
-                  <td className="px-5 py-5 ">
+                  <td className="px-5 py-4 ">
                     <div className="flex items-center">
                       {Array(item.hot)
                         .fill("")
@@ -69,7 +70,7 @@ const DayTablePost = ({
                         ))}
                     </div>
                   </td>
-                  <td className="px-5 py-5">
+                  <td className="px-5 py-4">
                     <div>
                       <Avatar {...item.author} />
                     </div>

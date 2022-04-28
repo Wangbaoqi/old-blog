@@ -13,19 +13,15 @@ const Tags = ({
     setTags([...tags])
   }
   useEffect(() => {
-  
     const checkList = tags.filter(e => e.check).map(e => e.key)
     setTagChange(checkList)
-    
   }, [tags])
-  
 
   return (
-    <div className="py-8">
+    <div className="py-4 flex items-center">
+      <h3 className=' text-second-color text-base mr-4'>Tags: </h3>
       {
         tags.map((tag, idx) => {
-          // const tagStr = colorMap[tag.key];
-          // const tagCls = tagColor[tagStr] || '';
           const tagCls = tag.check ? 'bg-post-cover text-code' : 'bg-second-bg';
           return (
             <span

@@ -3,7 +3,7 @@
 export const pagenationInit = (curPage, totalPage) => {
 
   if (totalPage < 5) {
-    return [1, 2, 3, 4]
+    return [1, 2, 3, 4, 5].slice(0, totalPage)
   } else {
     if (curPage < 4) {
       return [1, 2, 3, 4, '...', totalPage]
