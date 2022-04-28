@@ -1,4 +1,4 @@
-import { colorMap, tagColor } from '@config/tagTheme'
+// import { colorMap, tagColor } from '@config/tagTheme'
 import { memo, useState, useEffect } from 'react';
 
 const Tags = ({
