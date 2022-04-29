@@ -14,7 +14,7 @@ const Title = ({
         showAll ? (
           <Link href={allHref}>
             <a className='flex items-center text-sm'>
-              <span className='mr-3'>VIEW ALL</span>
+              <span className='mr-3'>View All</span>
             </a>
           </Link>
         ) : ''

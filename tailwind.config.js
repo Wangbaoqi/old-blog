@@ -41,7 +41,8 @@ module.exports = {
         'screen-50': '50vh',
       },
       minHeight: {
-        'f-card': '280px'
+        'f-card': '280px',
+        'screen-40': '40vh'
       },
       maxWidth: {
         'f-card': '420px',

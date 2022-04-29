@@ -13,9 +13,9 @@ const SplitLayout = ({
 
 
   return (
-    <section className="container py-10">
+    <section className="container md:py-5">
       <Title title={leftTitle} showAll={ true }/>
-      <section className="flex flex-col lg:flex-row gap-16 mt-10 px-3 md:px-0">
+      <section className="flex flex-col lg:flex-row gap-8 md:gap-16 px-3 md:px-0">
         <div className={leftCls}>
           {leftChild}
         </div>

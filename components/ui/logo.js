@@ -2,7 +2,7 @@
 
 const Logo = () => {
   return (
-    <div className="flex text-2xl text-code-color font-Sriracha">
+    <div className="flex text-2xl text-code-color font-advent">
       <span className="">Nate</span>
       <span className="flex flex-col justify-between text-sm w-4 font-Pacifico">
         <i className="-rotate-45">F</i>

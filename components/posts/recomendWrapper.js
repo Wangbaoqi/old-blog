@@ -1,5 +1,7 @@
 
 import { RecomendPost } from '@components/posts';
+import { Title } from '@components/ui';
+
 
 const RecomendWrapper = ({
   recomendPosts = [],
@@ -7,9 +9,9 @@ const RecomendWrapper = ({
 }) => {
 
   return (
-    <div className='mt-8'>
-      <h2 className="font-advent text-4xl md:text-6xl ">{ title }</h2>
-      <div className='overflow-x-scroll w-full py-8 -ml-6 px-4 lg:pl-6 lg:pr-0 hidden lg:flex'>
+    <div className='hidden lg:block'>
+      <Title title={title} />
+      <div className='overflow-x-scroll w-full pt-7 pb-4 px-3 lg:flex scroll-b'>
         {
           recomendPosts.map(post => (
             <RecomendPost
