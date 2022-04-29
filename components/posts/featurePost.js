@@ -19,7 +19,7 @@ export default function FeaturePost({
 
   const rightContent = (
     <div className='px-4 md:px-8 py-4 relative'>
-      <h3 className="md:text-2xl text-xl mb-8 leading-snug">
+      <h3 className="md:text-2xl text-xl font-Sriracha mb-8 leading-snug">
         <Link href={`/posts/${slug}`}>
           <a className="hover:text-hover-color">{title}</a>
         </Link>

@@ -14,7 +14,7 @@ const Post = ({ post }) => {
           <div className="w-full md:w-9/12 md:px-12">
             <MDXRenderer {...rest} />
           </div>
-          <div className="w-full md:w-3/12 hidden md:block md:pl-20">
+          <div className="w-full md:w-3/12 hidden md:block md:pl-20 pt-10">
             {
               // <Category />
               <TableContent toc={toc} />

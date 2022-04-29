@@ -26,7 +26,8 @@ module.exports = {
         'source': ['Source Code Pro', 'monospace', ...defaultTheme.fontFamily.sans],
         'Sriracha': ['Sriracha', 'Sriracha', ...defaultTheme.fontFamily.sans],
         'Pacifico': ['Pacifico', 'cursive', ...defaultTheme.fontFamily.sans],
-        
+        'maShan': ['Ma Shan Zheng', 'cursive', ...defaultTheme.fontFamily.sans],
+
       },
       height: {
         'f-card': '280px',
@@ -92,6 +93,7 @@ module.exports = {
         'header-cover': 'linear-gradient(-165deg, var(--bg-primary-dark), var(--bg-primary-light))',
         'card-cover': 'linear-gradient(180deg, var(--bg-primary-dark), var(--bg-primary-light))',
         'post-cover': 'linear-gradient(90deg, var(--bg-primary-dark), var(--bg-primary-light))',
+        'header-color': 'var(--rainbow-gradient, #fff)'
       },
       spacing: {
         28: '7rem',

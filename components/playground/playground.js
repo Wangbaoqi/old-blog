@@ -53,6 +53,8 @@ const PlayGround = ({
     [htmlCode, cssCode, jsCode]
   );
 
+  console.log(codeMap, 'codeMap');
+
   const layoutMode = paneData.length == 1 ? 'side' : 'tab';
 
   const handleReset = () => {

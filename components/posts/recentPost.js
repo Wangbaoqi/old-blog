@@ -20,7 +20,7 @@ const RecentPost = ({
           <span className="text-xs font-Sriracha">{date}</span>
         </p>
         <Link href={`/posts/${slug}`}>
-          <h3 className="font-advent md:text-lg hover:text-hover-color text-base cursor-pointer">{ title }</h3>
+          <h3 className="font-Sriracha md:text-lg hover:text-hover-color text-base cursor-pointer">{ title }</h3>
         </Link>
       </div>
     </section>

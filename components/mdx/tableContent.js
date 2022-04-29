@@ -38,7 +38,7 @@ export default function TableContent({
   return (
     <>
       <nav className="sticky top-28 md:w-64">
-        <h2 className="text-lg mb-6">TABLE OF CONTENT</h2>
+        <h2 className="text-base mb-6">TABLE OF CONTENT</h2>
         <ul>
           {
             toc.map(head => {
