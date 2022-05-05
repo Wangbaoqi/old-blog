@@ -132,4 +132,3 @@ export const usePaneData = ({
 
   return panes;
 }
-

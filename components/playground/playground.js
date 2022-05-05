@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react";
 
 import { ToolBar, RefreshBtn } from "./toolbar";
-import { Editer, Result, TabEditer } from "./display";
+import { Editer, Result, TabEditer, Console } from "./display";
 import { Pane, SplitPane } from "./layout";
 
 import { usePrettier, usePaneData } from './hooks/index'
@@ -13,6 +13,7 @@ const PlayGround = ({
   css,
   mode = "",
   title = "",
+  options,
   boxSizing = 'border-box'
 }) => {
 
@@ -53,9 +54,8 @@ const PlayGround = ({
     [htmlCode, cssCode, jsCode]
   );
 
-  console.log(codeMap, 'codeMap');
 
-  const layoutMode = paneData.length == 1 ? 'side' : 'tab';
+  const layoutMode = paneData.length == 1 ? mode == 'algo' ? 'algo' : 'side'  : 'tab';
 
   const handleReset = () => {
     setHtmlCode(html?.trim());
@@ -80,10 +80,20 @@ const PlayGround = ({
     </Pane>
   )
 
+  const ConsolePane = (
+    <Pane>
+      <Console
+        codeMap={codeMap}
+        options={options}
+        mode={mode}
+      />
+    </Pane>
+  )
+
 
 
   const getSideBySide = () => {
-    const [data] = paneData;
+    const [ data ] = paneData;
     const { label, ...editData } = data;
     return (
       <>
@@ -117,12 +127,31 @@ const PlayGround = ({
     )
   }
 
+  const getTerminalPanel = () => {
+    return (
+      <>
+        <SplitPane
+          leftChild={
+            <TabEditer
+              paneData={paneData}
+              handleFormat={handleFormat}
+            />
+          }
+          rightChild={ConsolePane}
+        />
+      </>
+    )
+
+  }
+
   const content = (layoutMode = 'side') => {
     switch (layoutMode) {
       case "side":
         return getSideBySide();
       case "tab":
         return getTabPane();
+      case "algo":
+        return getTerminalPanel();
       default:
         return getSideBySide();
     }

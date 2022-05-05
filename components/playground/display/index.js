@@ -1,4 +1,7 @@
 export { default as Editer} from './editer';
 export { default as Error} from './error';
 export { default as Result} from './result';
-export { default as TabEditer} from './tabEdit';
+export { default as Console} from './console';
+export { default as TabEditer } from './tabEdit';
+
+

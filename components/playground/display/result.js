@@ -5,6 +5,7 @@ import constructSnippet from "../tool/construtorSnippet";
 
 import ErrorDisplay from "./error";
 
+
 import {useDebounceValue} from "@hooks/index";
 
 // console.log(useDebounceValue, 'useDebounceValue');
@@ -93,7 +94,8 @@ const Result = ({
 }
 
 const ResultView = (props) => {
-  const debounceProps = useDebounceValue(250, props)
+  const debounceProps = useDebounceValue(250, props);
+
   return <Result {...debounceProps}/>
 }
 
