@@ -3,7 +3,7 @@ import { getGroupByCategory } from "@lib/mdx";
 import { Layout } from '@components/layouts';
 import { RecentCard } from '@components/posts';
 import Link from 'next/link';
-import { categoryTheme } from "@config/tagtheme";
+import { categoryTheme } from "@utils/tagtheme";
 
 
 

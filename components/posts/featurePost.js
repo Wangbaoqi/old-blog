@@ -1,7 +1,7 @@
 import { Avatar } from '@components/ui';
 import Link from 'next/link';
 import { ChevronRight } from 'react-feather';
-import { categoryTheme } from "@config/tagtheme";
+import { categoryTheme } from "@utils/tagtheme";
 
 export default function FeaturePost({
   mode,

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { categoryTheme } from "@config/tagtheme";
+import { categoryTheme } from "@utils/tagtheme";
 
 
 const RecentPost = ({

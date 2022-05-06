@@ -1,6 +1,6 @@
 import { Avatar } from "@components/ui";
 import Link from "next/link";
-import { algoTheme } from "@config/tagTheme";
+import { algoTheme } from "@utils/tagtheme";
 import { Title } from "@components/ui";
 import { Star } from "react-feather";
 

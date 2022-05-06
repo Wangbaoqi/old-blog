@@ -1,7 +1,7 @@
 
 import Link from 'next/link';
 import { Avatar } from '@components/ui';
-import { categoryTheme } from "@config/tagtheme";
+import { categoryTheme } from "@utils/tagtheme";
 
 
 const RecomendPost = ({
