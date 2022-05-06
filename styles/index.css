@@ -18,13 +18,11 @@
 
   
   .scrollbar::-webkit-scrollbar {
-    /* width: 10px; */
-    height: 6px;
+    height: 0;
   }
 
   .scrollbar::-webkit-scrollbar-track {
     border-radius: 50vh;
-    /* background: #f7f4ed; */
   }
 
   .scrollbar::-webkit-scrollbar-thumb {

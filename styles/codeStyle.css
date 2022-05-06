@@ -29,7 +29,6 @@
     --bg-blockquote-l: hsl(230deg, 100%, 67%);
 
     
-
     --fg-active: #fff !important;
     --fg-default: #999 !important;
     --fg-inactive: #343434 !important;
@@ -40,8 +39,8 @@
     --bg-error: #ffcdca !important;
     --fg-error: #811e18 !important;
 
-    
     --rainbow-gradient: linear-gradient(-90deg,#adfbda 0,#35c3ff 30%,#fda399 50%,#76d880 70%,#ebf38b 90%,#adfbda 100%);
+
 
     --theme-plain: #fff;
     --theme-comment: #757575;
@@ -51,7 +50,8 @@
     --theme-definition: #86d9ca;
     --theme-property: #77b7d7;
     --theme-static: #c64640;
-    --theme-string: #977cdc
+    --theme-string: #977cdc;
+    
   }
 }
 
@@ -101,6 +101,5 @@
   --theme-property: #005cc5;
   --theme-static: #032f62;
   --theme-string: #032f62;
-
 
 }

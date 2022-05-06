@@ -1,6 +1,7 @@
 import { Avatar } from '@components/ui';
 import Link from 'next/link';
 import { ChevronRight } from 'react-feather';
+import { categoryTheme } from "@config/tagtheme";
 
 export default function FeaturePost({
   mode,
@@ -15,7 +16,7 @@ export default function FeaturePost({
   const postCls = mode == 'col' ? 'md:flex-col' : '';
   const imgHCls = mode == 'col' ? 'md:h-60' : 'md:min-h-f-card';
   const imgWCls = mode == 'col' ? '' : 'md:max-w-f-card';
-  const bgCls = 'dark:bg-post-cover';
+  const bgCls = mode == 'col' ? 'bg-second-bg' : 'dark:bg-post-cover';
 
   const rightContent = (
     <div className='px-4 md:px-8 py-4 relative'>
@@ -42,29 +43,32 @@ export default function FeaturePost({
 
 
   const bottomContent = (
-    <div className='px-8 relative'>
+    <div className='px-6 relative'>
       <div className='py-4 mt-2 border-b border-b-border-color flex items-center '>
         <Avatar name={author.name} picture={author.picture} />
         <span className='text-xs font-Sriracha h-5 flex items-center'>{date}</span>
       </div>
-      <h3 className="md:text-2xl text-xl my-6 leading-snug">
+      <h3 className="md:text-xl text-base my-6 leading-snug">
         <Link href={`/posts/${slug}`}>
-          <a className="hover:underline">{title}</a>
+          <a className="hover:text-second-color ">{title}</a>
         </Link>
       </h3>
-      <p className='my-4'>{ category }</p>
+      <p >
+        <img src="/assets/svg/arrow-icon.svg" className=' w-8 h-2 text-primary-color' alt="" srcSet="" />
+      </p>
     </div>
   )
   return (
     <div className={`shadow-3xl rounded-2xl  md:min-h-f-card overflow-hidden ${bgCls}`}>
       <div className={`md:flex ${postCls}`}>
-        <div className="md:shrink-0">
+        <div className="relative md:shrink-0">
           <img
             className={`h-48 object-cover w-full ${imgHCls} ${imgWCls}`}
             slug={slug}
             title={title}
             src={coverImage}
           />
+          <span className={` text-pre font-Sriracha rounded absolute top-4 left-4 px-2 py-1 cursor-pointer ${categoryTheme[category]}`}>{ category }</span>
         </div>
         { mode == 'col' ? bottomContent : rightContent }
       </div>

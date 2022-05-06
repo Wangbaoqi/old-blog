@@ -4,8 +4,8 @@ const headNav = [
     href: '/',
     title: 'Home'
   }, {
-    href: '/tags',
-    title: 'Tags'
+    href: '/category',
+    title: 'Category'
   }, {
     href: '/archive',
     title: 'Archive'

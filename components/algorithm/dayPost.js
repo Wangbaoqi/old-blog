@@ -1,14 +1,14 @@
 import { Avatar } from "@components/ui";
 import Link from "next/link";
-// import { colorMap } from "@config/tagTheme";
+import { algoTheme } from "@config/tagTheme";
 import { Title } from "@components/ui";
-
 import { Star } from "react-feather";
 
 const DayTablePost = ({
   dayList = [],
   showTitle = true
 }) => {
+
   return (
     <section className="">
       { showTitle ? <Title title="Every Day" className='my-20' showAll={true} allHref={`/algorithm/page/1`} /> : '' }
@@ -38,43 +38,51 @@ const DayTablePost = ({
               </tr>
             </thead>
             <tbody>
-              {dayList.map((item) => (
-                <tr key={item.id} className=' text-sm'>
-                  <td className="px-5 py-4 ">{item.id}</td>
-                  <td className="px-5 py-4 min-w-t-topic">
-                    <Link href={`/posts/${item.slug}`}>
-                      <span className="cursor-pointer hover:text-hover-color">
-                        {item.title}
-                      </span>
-                    </Link>
-                  </td>
-                  <td className="px-5 py-4 ">
-                    {item.tags.map((tag, idx) => (
-                      <strong key={idx} className=" text-xs">
-                        {tag}
-                      </strong>
-                    ))}
-                  </td>
-                  <td className="px-5 py-4 font-Sriracha">{item.level}</td>
-                  <td className="px-5 py-4 ">
-                    <span className="">{item.date}</span>
-                  </td>
-                  <td className="px-5 py-4 ">
-                    <div className="flex items-center">
-                      {Array(item.hot)
-                        .fill("")
-                        .map((s, idx) => (
-                          <Star key={idx} size={16} />
-                        ))}
-                    </div>
-                  </td>
-                  <td className="px-5 py-4">
-                    <div>
-                      <Avatar {...item.author} />
-                    </div>
-                  </td>
-                </tr>
-              ))}
+              {dayList.map((item) => {
+
+                const levelCls = algoTheme[item.level]
+
+                return (
+                  <tr key={item.id} className=' text-sm'>
+                    <td className="px-5 py-4 ">{item.id}</td>
+                    <td className="px-5 py-4 min-w-t-topic">
+                      <Link href={`/posts/${item.slug}`}>
+                        <span className="cursor-pointer hover:text-hover-color">
+                          {item.title}
+                        </span>
+                      </Link>
+                    </td>
+                    <td className="px-5 py-4 ">
+                      {item.tags.map((tag, idx) => { 
+                        const tagCls = algoTheme[tag]
+                        return (
+                          <strong key={idx} className={`rounded px-1 text-xs mr-1 ${tagCls}`}>
+                            {tag}
+                          </strong>
+                        )
+                      })}
+                    </td>
+                    <td className={`px-5 py-4 font-Sriracha ${levelCls}`}>{item.level}</td>
+                    <td className="px-5 py-4 ">
+                      <span className="">{item.date}</span>
+                    </td>
+                    <td className="px-5 py-4 ">
+                      <div className="flex items-center">
+                        {Array(item.hot)
+                          .fill("")
+                          .map((s, idx) => (
+                            <Star key={idx} size={16} />
+                          ))}
+                      </div>
+                    </td>
+                    <td className="px-5 py-4">
+                      <div>
+                        <Avatar {...item.author} />
+                      </div>
+                    </td>
+                  </tr>
+                )
+              })}
             </tbody>
           </table>
         </div>

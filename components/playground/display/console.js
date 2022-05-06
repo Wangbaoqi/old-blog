@@ -12,7 +12,7 @@ const Console = ({ codeMap, options }) => {
 
   // const fn = new Function(jsStr);
   const [test, setTest] = useState(param);
-  const [result, setResult] = useState('')
+  const [result, setResult] = useState(rightResult)
   const [error, setError] = useState(null)
  
   const addStringJs = (stringOfJs) => {
@@ -45,16 +45,16 @@ const Console = ({ codeMap, options }) => {
         <section className="min-h-60 flex gap-5">
           <div className="">
             <p>test case</p>
-            <textarea className="outline-none rounded-lg p-2 min-h-40 bg-code-bg bg-header-cover" value={test} onChange={(e) => setTest(e.target.value)} id="" cols="25" rows="4"></textarea>
+            <textarea className="outline-none rounded-lg p-2 min-h-40 bg-black text-white" value={test} onChange={(e) => setTest(e.target.value)} id="" cols="25" rows="4"></textarea>
           </div>
           <div className=" ">
             <p>right result</p>
-            <div className="flex items-center min-h-12 text-second-color">{ rightResult || result }</div>
+            <div className="flex items-center min-h-12 text-second-color">{ result }</div>
           </div>
           
         </section>
 
-        <section className="bg-black rounded-lg flex-1 p-3 h-12">
+        <section className="bg-black text-white rounded-lg flex-1 p-3 h-12">
           {
             !error ? 
               <>

@@ -3,7 +3,6 @@ import { ThemeProvider } from 'next-themes'
 
 import '@styles/index.css';
 import '@styles/global.css';
-
 import '@styles/codeStyle.css';
 
 

@@ -1,6 +1,7 @@
 
 import Link from 'next/link';
 import { Avatar } from '@components/ui';
+import { categoryTheme } from "@config/tagtheme";
 
 
 const RecomendPost = ({
@@ -15,12 +16,18 @@ const RecomendPost = ({
 
 
   return (
-    <div className="relative overflow-hidden flex flex-col justify-between z-10 basis-64 shrink-0 h-64 p-8 transition rounded-2xl 
+    <div className="relative overflow-hidden flex flex-col justify-between z-10 basis-64 shrink-0 h-64 p-5 transition rounded-2xl 
       focus-within:rotate-6 hover:-translate-y-4 hover:rotate-6 focus-within:-translate-y-4 shadow-5xl
       -ml-32 first:-ml-0 r-card bg-card-cover first:shadow-4xl bg-second-bg
       "
     >
-      <p className='font-Pacifico'>{date}</p>
+      <p className='font-Pacifico'>
+        <span className={`rounded px-1 py-0 font-Sriracha text-xs mr-2 ${categoryTheme[category]}`}>{ category}</span>
+        <span>{date}</span>
+      </p>
+      <Link href={`/posts/${slug}`}>
+        <h1 className='cursor-pointer mb-6 md:text-lg text-tiny hover:text-primary-focus'>{ title }</h1>
+      </Link>
       <section className='mb-6'>
         <ul className="flex mb-4 lg:mb-0">
           {tags.map((tag, idx) => (
@@ -30,10 +37,8 @@ const RecomendPost = ({
           ))}
         </ul>
       </section>
-      <Link href={`/posts/${slug}`}>
-        <h1 className='cursor-pointer mb-6 md:text-lg text-tiny hover:text-primary-focus'>{ title }</h1>
-      </Link>
-      {/* {author ? <Avatar name={author.name} picture={author.picture} /> : ''} */}
+      
+      <Avatar name={author.name} picture={author.picture} />
     </div>
   )
 }
