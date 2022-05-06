@@ -39,7 +39,7 @@ export const getStaticPaths = async () => {
     paths: posts.map((post) => {
       return {
         params: {
-          cslug: post.category,
+          cslug: post.category || '',
         },
       };
     }),
