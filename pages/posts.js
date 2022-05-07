@@ -10,10 +10,8 @@ import { categoryTheme } from "@utils/tagtheme";
 const Category = ({
   groupCategory
 }) => {
-  console.log(Object.entries(groupCategory), 'groupCategory');
+  // console.log(Object.entries(groupCategory), 'groupCategory');
   const allCategory = Object.entries(groupCategory);
-
-
 
   return (
     <>

@@ -1,5 +1,5 @@
 import React from "react";
-import { getAllPosts, getGroupByCategory } from "@lib/mdx";
+import { getGroupByCategory } from "@lib/mdx";
 import { Layout } from "@components/layouts";
 import { CategoryWrapper } from "@components/posts";
 
@@ -34,12 +34,13 @@ export const getStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths = async () => {
-  const posts = await getAllPosts();
+  const categoryGroup = await getGroupByCategory();
+  const category = Object.keys(categoryGroup)
   return {
-    paths: posts.map((post) => {
+    paths: category.map((post) => {
       return {
         params: {
-          cslug: post.category || '',
+          cslug: post || '',
         },
       };
     }),

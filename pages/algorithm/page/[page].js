@@ -134,15 +134,6 @@ export async function getServerSideProps(ctx) {
     perPage * pageNumber
   )
 
-  // for (const tag of tagGroup) {
-  //   for (const ctag of tags.split(',')) {
-  //     if (tag.key == ctag) {
-  //       tag.check = true;
-  //     }
-      
-  //   }
-  // }
-
   const pagination = {
     currentPage: pageNumber,
     totalPages: Math.ceil(afterTopicList.length / perPage),
