@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { useMemo } from "react";
 import Head from "next/head";
 import { getMDXComponent } from "mdx-bundler/client";
-import { CodePre, PostLink, BlockQuote, PostHeader } from "@components/mdx";
+import { CodePre, PostLink, BlockQuote, Table, PostHeader } from "@components/mdx";
 import { NextPost } from "@components/posts";
 import PlayGround from "@components/playground/playground";
 
@@ -12,17 +12,16 @@ const MDXRenderer = ({ code, frontmatter, prev, next, toc }) => {
   const components = {
     h2: (props) => (
       <h2
-        className="relative pt-36 -mt-28 cursor-pointer my-6 text-2xl font-bold leading-10 group"
+        className="relative pt-32 -mt-28 cursor-pointer my-6 text-2xl font-bold leading-10 group"
         {...props}
       />
     ),
     h3: (props) => (
       <h3
-        className="relative pt-36 -mt-28 cursor-pointer my-6 text-xl font-bold leading-10 group"
+        className="relative pt-32 -mt-28 cursor-pointer my-6 text-xl font-bold leading-10 group"
         {...props}
       />
     ),
-
     a: (props) => <PostLink {...props} />,
     em: (props) => <i {...props} />,
     pre: (props) => <CodePre {...props} />,
@@ -31,16 +30,18 @@ const MDXRenderer = ({ code, frontmatter, prev, next, toc }) => {
     ),
     code: (props) => (
       <code
-        className="p-1 mx-1 rounded-sm text-code-color bg-code-bg font-bold text-sm"
+        className="p-1 mx-1 rounded-sm text-code-color bg-code-bg font-medium text-sm"
         {...props}
       />
     ),
+    img: props => <img className=" w-full" {...props}/>,
     p: (props) => <p className="my-4 leading-8" {...props} />,
     ul: (props) => <ul className="ml-6 my-3 list-disc" {...props} />,
     ol: (props) => <ol className="ml-6 my-3 list-decimal" {...props} />,
-    li: (props) => <li className="mb-1 leading-relaxed" {...props} />,
+    li: (props) => <li className="mb-2 leading-relaxed" {...props} />,
     blockquote: (props) => <BlockQuote {...props} />,
     PlayGround,
+    Table,
   };
   const MDXLayout = useMemo(() => getMDXComponent(code), [code]);
   return (

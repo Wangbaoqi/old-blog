@@ -18,21 +18,21 @@ const DayTablePost = ({
           <table className="table-auto min-w-full leading-normal bg-card-cover ">
             <thead>
               <tr>
-                <th className="px-5 py-5 font-advent text-lg text-left">num</th>
-                <th className="px-5 py-5 font-advent text-lg text-left min-w-t-topic">
+                <th className="px-5 py-5 font-source text-lg text-left">num</th>
+                <th className="px-5 py-5 font-source text-lg text-left min-w-t-topic">
                   topic
                 </th>
-                <th className="px-5 py-5 font-advent text-lg text-left">
+                <th className="px-5 py-5 font-source text-lg text-left">
                   tags
                 </th>
-                <th className="px-5 py-5 font-advent text-lg text-left">
+                <th className="px-5 py-5 font-source text-lg text-left">
                   level
                 </th>
-                <th className="px-5 py-5 font-advent text-lg text-left">
+                <th className="px-5 py-5 font-source text-lg text-left">
                   date
                 </th>
-                <th className="px-5 py-5 font-advent text-lg text-left">hot</th>
-                <th className="px-5 py-5 font-advent text-lg text-left">
+                <th className="px-5 py-5 font-source text-lg text-left">hot</th>
+                <th className="px-5 py-5 font-source text-lg text-left">
                   author
                 </th>
               </tr>

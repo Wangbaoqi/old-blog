@@ -21,12 +21,8 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        'sans': ['Titillium Web', ...defaultTheme.fontFamily.sans],
-        'advent': ['Advent Pro', ...defaultTheme.fontFamily.sans],
         'source': ['Source Code Pro', 'monospace', ...defaultTheme.fontFamily.sans],
         'Sriracha': ['Sriracha', 'Sriracha', ...defaultTheme.fontFamily.sans],
-        'Pacifico': ['Pacifico', 'cursive', ...defaultTheme.fontFamily.sans],
-        'maShan': ['Ma Shan Zheng', 'cursive', ...defaultTheme.fontFamily.sans],
 
       },
       height: {
@@ -46,7 +42,8 @@ module.exports = {
         '40': '80px',
         '60': '100px',
         'f-card': '280px',
-        'screen-40': '40vh'
+        'screen-40': '40vh',
+        'screen-35': '35vh'
       },
       maxWidth: {
         'f-card': '420px',

@@ -35,7 +35,7 @@ export default function Footer() {
             </ul>
           </div>
           <div className="space-y-3">
-            <h3 className="uppercase dark:text-coolGray-50">Developers</h3>
+            <h3 className="uppercase dark:text-coolGray-50">Category</h3>
             <ul className="space-y-1">
               <li>
                 <a rel="noopener noreferrer" href="#">

@@ -17,14 +17,14 @@ const Category = ({
 
   return (
     <section className="">
-      <h3 className="text-2xl ">Categories</h3>
+      <h3 className="text-2xl font-Sriracha">Categories</h3>
       {
         cateList.map((cate) => {
           return (
             <Link key={cate.key} href={`/category/${cate.key}`}>
               <div className="relative overflow-hidden rounded-xl bg-second-bg border border-border-color dark:border-0 dark:shadow-3xl mt-5 flex dark:bg-post-cover items-center cursor-pointer">
                 <img className="h-70 w-80" src={cate.cover} alt=""/>
-                <h5 className="text-base font-advent font-medium ml-6">{cate.key}{`(${cate.count})`}</h5>
+                <h5 className="text-base font-source font-medium ml-6">{cate.key}{`(${cate.count})`}</h5>
                 <ChevronRight className=' absolute top-1/2 -translate-y-1/2 right-5' size={20}/>
               </div>
             </Link>

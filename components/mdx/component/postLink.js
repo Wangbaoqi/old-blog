@@ -12,13 +12,11 @@ const PostLink = ({
 
   if (anchor) {
     return (
-      <a className="absolute bottom-3 -left-8 top-38 opacity-0 transition-opacity group-hover:opacity-100" href={href} {...rest}>
-        <LinkIcon size={20}/>
+      <a className="absolute bottom-3 -left-8 top-32 opacity-0 transition-opacity group-hover:text-hover-color group-hover:opacity-100" href={href} {...rest}>
+        <LinkIcon size={20} className='text-hover-color opacity-100'/>
       </a>
     )
   }
-
-
 
   if (inter) {
     return (

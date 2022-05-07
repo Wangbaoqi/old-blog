@@ -1,6 +1,8 @@
 import {Avatar} from '@components/ui';
-
-import { Clock, Type } from 'react-feather'
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { Clock, Type, ChevronRight } from 'react-feather';
+import { categoryTheme } from '@utils/tagtheme';
 
 const PostHeader = ({
   title = '',
@@ -12,24 +14,28 @@ const PostHeader = ({
   readTime = {}
 }) => {
 
+
   return (
     <header className="">
-      <div className="flex justify-between items-center py-4">
-        <h3 className="">{ category }</h3>
-      </div>
-      <div className="mt-5 mb-3 rounded-md overflow-hidden">
-        <img className="" src={ coverImage } alt="" srcSet="" />
-      </div>
-      <div className="flex items-center justify-start py-8 ">
-        {/* <Avatar {...author} /> */}
+      <section className='-mt-44 mb-20 z-20'>
+        <div className='flex items-center font-Sriracha'>
+          <Link href='/' >
+            <span className='cursor-pointer hover:text-hover-color'>Home</span>
+          </Link>
+          <ChevronRight size={16} className='mx-3'/>
+          <Link href='/category' className='hover:text-hover-color'>
+            <span className='cursor-pointer hover:text-hover-color'>Category</span>
+          </Link>
+          <ChevronRight size={16} className='mx-3'/>
+          <Link href={ `/category/${category}`} className='hover:text-hover-color'>
+            <span className='cursor-pointer hover:text-hover-color'>{category}</span>
+          </Link>
+        </div>
+        <h1 className='my-6 text-xl md:text-3xl font-bold bg-header-color font-Sriracha bg-clip-text title'>{ title }</h1>
+      </section>
+      <div className="flex items-center justify-start mb-12 font-Sriracha">
         <div className='flex items-center'>
-          <span className="flex items-center mr-3">
-            {
-              tags.map((t, id) => (
-                <strong key={id}>{t}</strong>
-              ))
-            }
-          </span>
+          <span className={`mr-4 rounded px-2 py-1 ${categoryTheme[category]}`}>{ category }</span>
           <span className='mr-3'>{date}</span>
           <span className='flex items-center mr-3'>
             <Clock size={18} />
@@ -39,9 +45,19 @@ const PostHeader = ({
             <Type size={18} />
             <strong  className='ml-1'>{readTime.words}</strong>
           </span>
+          <Avatar {...author} />
         </div>
       </div>
-      <h1 className='my-6 text-xl md:text-3xl font-bold bg-header-color font-Sriracha bg-clip-text title'>{ title }</h1>
+      <div className="mt-5 mb-3 rounded-md overflow-hidden">
+        <img className="w-full" src={coverImage} alt="" srcSet={title} />
+      </div>
+      <span className="flex items-center mr-3">
+        {
+          tags.map((t, id) => (
+            <strong key={id}>{t}</strong>
+          ))
+        }
+      </span>
     </header>
   )
 }

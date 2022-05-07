@@ -31,7 +31,7 @@ const RecomendPost = ({
       <section className='mb-6'>
         <ul className="flex mb-4 lg:mb-0">
           {tags.map((tag, idx) => (
-            <li key={idx} className='text-sm'>
+            <li key={idx} className='text-xs'>
               <em>{`#${tag}`}</em>
             </li>
           ))}

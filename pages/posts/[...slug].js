@@ -11,12 +11,11 @@ const Post = ({ post }) => {
     <>
       <Layout type='post'>
         <section className="flex flex-col md:flex-row mt-10 px-3 md:px-0">
-          <div className="w-full md:w-9/12 md:px-12">
+          <div className="w-full md:w-9/12 md:px-6">
             <MDXRenderer {...rest} />
           </div>
           <div className="w-full md:w-3/12 hidden md:block md:pl-20 pt-10">
             {
-              // <Category />
               <TableContent toc={toc} />
             }
           </div>
