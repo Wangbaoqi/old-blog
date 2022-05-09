@@ -21,18 +21,22 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        'source': ['Source Code Pro', 'monospace', ...defaultTheme.fontFamily.sans],
         'Sriracha': ['Sriracha', 'Sriracha', ...defaultTheme.fontFamily.sans],
-
+        'Fira': ['Fira Sans', 'sans-serif' , ...defaultTheme.fontFamily.sans],
+        'Gloria': ['Gloria Hallelujah', 'cursive', ...defaultTheme.fontFamily.sans],
+        'SourceCode': ['Source Code Pro', 'monospace', ...defaultTheme.fontFamily.sans],
       },
       height: {
         'f-card': '280px',
+        'f-card-c': '200px',
         'p-card': '350px',
         '70': '70px',
       },
       width: {
         '70': '70px',
         '80': '80px',
+        'f-card': '400px',
+
       },
       maxHeight: {
         'screen-50': '50vh',

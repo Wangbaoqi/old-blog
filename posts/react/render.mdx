@@ -2,9 +2,9 @@
 title: 'React Render'
 excerpt: Render 阶段主要创建`Fiber`节点，生成`Fiber`树，在更新阶段进行`diff`操作，产生具有副作用的`effectList
 coverImage: '/assets/blog/react/cover/render.webp'
-date: '2020-03-16T05:35:07.322Z'
+date: '2021-07-20'
 author:
-  name: Nate Wang
+  name: NateWang
   picture: '/assets/authors/logo.png'
 ogImage:
   url: '/assets/blog/react/jsx/cover.png'
@@ -25,7 +25,7 @@ feature: true
 
 在详细阐述render阶段之前，先看下整个**render阶段**的流程图；
 
-![](/img/react/react-render.svg)
+![](/assets/blog/react/render/react-render.svg)
 
 **render阶段**主要分为`beginWork`和`completeWork`两个阶段，也可以称之为**递阶段**和**归阶段**。
 
@@ -129,7 +129,7 @@ function workLoopConcurrent() {
 
 除了构建`workInProgress Fiber`树之外，在`completeWork`中会为有更新的`Fiber`节点打上**更新**的`flag`，然后根据`flag`生成`effectList`（副作用链表），这个链表的起始会传递到`rootFiber.firstEffect`，如下图：
 
-![](/img/react/render-effectList.svg)
+![](/assets/blog/react/render/render-effectList.svg)
 
 *蓝色背景的节点*为**有更新的节点**，右侧生成的就是这次**render阶段**完成的`effectList`。
 

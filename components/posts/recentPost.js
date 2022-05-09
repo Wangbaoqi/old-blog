@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { categoryTheme } from "@utils/tagtheme";
 
 
@@ -12,8 +13,16 @@ const RecentPost = ({
 
   return (
     <section className="mb-3">
-      <div className=" relative overflow-hidden rounded-lg">
-        <img className="h-52 w-full object-cover " src={coverImage} alt="" />
+      <div className="relative overflow-hidden rounded-lg">
+        <div className='relative h-52 w-full'>
+          <Image
+            className=' object-cover'
+            src={coverImage}
+            layout='fill'
+            priority
+          />
+        </div>
+        
         <span className={`text-pre font-Sriracha absolute top-4 left-4 rounded px-2 py-1 ${categoryTheme[category]}`}>{category}</span>
       </div>
       <div className="py-3">

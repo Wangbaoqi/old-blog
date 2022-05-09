@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { useMemo } from "react";
 import Head from "next/head";
 import { getMDXComponent } from "mdx-bundler/client";
-import { CodePre, PostLink, BlockQuote, Table, PostHeader } from "@components/mdx";
+import { CodePre, PostLink, BlockQuote, Table, PostHeader, Img } from "@components/mdx";
 import { NextPost } from "@components/posts";
 import PlayGround from "@components/playground/playground";
 
@@ -26,7 +26,7 @@ const MDXRenderer = ({ code, frontmatter, prev, next, toc }) => {
     em: (props) => <i {...props} />,
     pre: (props) => <CodePre {...props} />,
     strong: (props) => (
-      <strong className="mx-2 font-extrabold font-Sriracha" {...props} />
+      <strong className="mx-1 font-extrabold font-Sriracha" {...props} />
     ),
     code: (props) => (
       <code
@@ -34,7 +34,7 @@ const MDXRenderer = ({ code, frontmatter, prev, next, toc }) => {
         {...props}
       />
     ),
-    img: props => <img className=" w-full" {...props}/>,
+    img: props => <Img {...props}/>,
     p: (props) => <p className="my-4 leading-8" {...props} />,
     ul: (props) => <ul className="ml-6 my-3 list-disc" {...props} />,
     ol: (props) => <ol className="ml-6 my-3 list-decimal" {...props} />,

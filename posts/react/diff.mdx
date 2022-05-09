@@ -1,10 +1,10 @@
 ---
 title: 'React Diff'
-excerpt: 在react中，更新`UI`必须生成新的`JSX`对象（称之为`visual DOM`），而`新的JSX`对象和`老的visual DOM`之间对比以最小的操作次数来获取`差异节点`（也称之为副作用），从而高效的更新`UI`。
+excerpt: 在react中，更新UI必须生成新的JSX对象（称之为visual DOM），而新的JSX对象和老的visual DOM之间对比以最小的操作次数来获取差异节点（也称之为副作用），从而高效的更新UI。
 coverImage: '/assets/blog/react/cover/diff.webp'
-date: '2020-03-16T05:35:07.322Z'
+date: '2021-07-16'
 author:
-  name: Nate Wang
+  name: NateWang
   picture: '/assets/authors/logo.png'
 ogImage:
   url: '/assets/blog/react/jsx/cover.png'
@@ -15,18 +15,18 @@ feature: true
 ---
 
 
-在react中，更新`UI`必须生成新的`JSX`对象（称之为`visual DOM`），而`新的JSX`对象和`老的visual DOM`之间对比以最小的操作次数来获取`差异节点`（也称之为副作用），从而高效的更新`UI`。
+在**react**中，更新`UI`必须生成新的`JSX`对象（称之为`visual DOM`），而`新的JSX`对象和`老的visual DOM`之间对比以最小的操作次数来获取`差异节点`（也称之为副作用），从而高效的更新`UI`。
 
 用现在[最优的算法](https://grfia.dlsi.ua.es/ml/algorithms/references/editsurvey_bille.pdf)解决也需要时间复杂度为`O(n^3)`来解决，这对于web页面这么多的节点而言，采用这种算法代价太高了，可以说是灾难。
 
-不过，react在两个假设的基础上提出了一套时间复杂度为`O(n)`的算法，而这种算法在操作DOM的场景下都成立。
+不过，**react**在两个假设的基础上提出了一套时间复杂度为`O(n)`的算法，而这种算法在操作DOM的场景下都成立。
 
 1. **不同类型的元素会产生不同的树**，比如之前节点类型是`p`，之后又变成了`div`，那么这两个节点是不同的两棵树。
 2. **节点的属性key值可以限制节点能否复用**，如果前后前两个节点的`key`值不同，则两个节点也是不同的两个树。
 
 最重要的一点，执行这两个限制条件的前提是**必须是同级对比**，如果节点跨层级了，那么也不会去复用，而是去新建一个节点。这样才能保证该算法的时间复杂度为`O(n)`,`n`为节点的个数。
 
-react中，有两种类型的`diff`算法，**单节点diff**和**多节点diff**。
+**react**中，有两种类型的`diff`算法，**单节点diff**和**多节点diff**。
 
 > 从源码看，`diff`算法是在`render阶段`的[beginWork](https://github.com/Wangbaoqi/react/blob/17.0.2/packages/react-reconciler/src/ReactFiberBeginWork.old.js#L3083)中。
 

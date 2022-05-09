@@ -31,7 +31,7 @@ const PostHeader = ({
             <span className='cursor-pointer hover:text-hover-color'>{category}</span>
           </Link>
         </div>
-        <h1 className='my-6 text-xl md:text-3xl font-bold bg-header-color font-Sriracha bg-clip-text title'>{ title }</h1>
+        <h1 className='my-6 text-xl md:text-3xl font-bold bg-header-color font-Sriracha dark:bg-clip-text dark:text-transparent'>{ title }</h1>
       </section>
       <div className="flex items-center justify-start mb-12 font-Sriracha">
         <div className='flex items-center'>
@@ -49,7 +49,7 @@ const PostHeader = ({
         </div>
       </div>
       <div className="mt-5 mb-3 rounded-md overflow-hidden">
-        <img className="w-full" src={coverImage} alt="" srcSet={title} />
+        <img className="w-full" src={coverImage} alt=""  />
       </div>
       <span className="flex items-center mr-3">
         {

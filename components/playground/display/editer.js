@@ -32,7 +32,7 @@ const Editer = ({ code, handleUpdate, handleFormat, language, light = "", themeS
   const highlights = calculateLinesToHighlight(light || "");
 
   return (
-    <div className="max-h-screen-50 flex-1 overflow-auto font-source text-pre">
+    <div className="max-h-screen-50 flex-1 overflow-auto font-SourceCode text-pre">
       <div className="">
         <SimpleEditor
           ref={textareaRef}

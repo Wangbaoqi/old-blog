@@ -29,7 +29,7 @@ export default function Header() {
             </div>
           </Link>
 
-          <ul className="hidden lg:flex text-sm ml-10 ">
+          <ul className="hidden lg:flex text-sm ml-10 font-Gloria text-black dark:text-white">
             {headNav.map((el, idx) => {
               return (
                 <li key={idx} className='mr-10 relative'>

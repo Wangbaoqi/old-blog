@@ -68,7 +68,7 @@ const CodePre = (props) => {
         </div>
         <div style={{ flexGrow: "1" }}></div>
         <button
-          className="mr-5 mt-2 py-2 px-3 border-none rounded-lg cursor-pointer text-sm font-source leading-4"
+          className="mr-5 mt-2 py-2 px-3 border-none rounded-lg cursor-pointer text-sm font-SourceCode leading-4"
           onClick={() => {
             copyToClipboard(code)
             setIsCopied(true)

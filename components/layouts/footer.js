@@ -13,7 +13,7 @@ export default function Footer() {
             <span className="mt-1 text-sm ">Thanks for reading!</span>
           </div>
           <div className="text-xs hidden md:block">
-            © {date}-present Nate Wang. All Rights Reserved.
+            © {date}-present NateWang. All Rights Reserved.
           </div>
         </div>
         <div className="grid grid-cols-2 text-sm justify-end gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-3">
@@ -37,6 +37,7 @@ export default function Footer() {
           <div className="space-y-3">
             <h3 className="uppercase dark:text-coolGray-50">Category</h3>
             <ul className="space-y-1">
+
               <li>
                 <a rel="noopener noreferrer" href="#">
                   Public API
@@ -120,9 +121,12 @@ export default function Footer() {
           </div>
         </div>
         <div className="text-xs block md:hidden">
-          © {date}-present Nate Wang. All Rights Reserved.
+          © {date}-present NateWang. All Rights Reserved.
         </div>
       </div>
     </footer>
   );
 }
+
+
+

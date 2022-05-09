@@ -23,10 +23,10 @@ const RecomendPost = ({
     >
       <p className='font-Pacifico'>
         <span className={`rounded px-1 py-0 font-Sriracha text-xs mr-2 ${categoryTheme[category]}`}>{ category}</span>
-        <span>{date}</span>
+        <span className='text-pre font-Sriracha'>{date}</span>
       </p>
       <Link href={`/posts/${slug}`}>
-        <h1 className='cursor-pointer mb-6 md:text-lg text-tiny hover:text-primary-focus'>{ title }</h1>
+        <h1 className='cursor-pointer my-3 md:text-lg text-tiny font-Sriracha bg-header-color dark:text-transparent bg-clip-text font-semibold'>{ title }</h1>
       </Link>
       <section className='mb-6'>
         <ul className="flex mb-4 lg:mb-0">
