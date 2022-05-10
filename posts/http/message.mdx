@@ -24,11 +24,11 @@ category: Http
 
 报文是数据传输的载体，互联网上所有展示的信息以及服务器流通的数据都是报文。
 
-### 报文组成
+**报文组成**
 
 Client发送一个HTTP请求向服务端，这个请求以一个请求行（request-line）开始，包含了Method、Path、Protocol Version；接下来是请求修饰符（request modifiers），包含了客户端信息以及表示元数据的头字段；最后就是包含有效负载的消息正文。
 
-### 报文语法
+**报文语法**
 
 ```shell
 HTTP-message = start-line
@@ -37,13 +37,13 @@ HTTP-message = start-line
                [ message-body ]
 ```
 
-## 起始行以及头部
+**起始行以及头部**
 
 起始行（start-line）包含了请求行（request-line）和响应行（status-line）。
 
 起始行包含了客户端请求的一些方法
 
-### 请求方法
+**请求方法**
 
 | Method  | description              | 是否包含主体 |
 | ------- | ------------------------ | ------ |
@@ -89,7 +89,7 @@ OWS = Optional whiteSpace
 | Upgrade           | 要求服务器升级到一个高版本协议                                                |
 | Via               | 告诉服务器，这个请求是哪些代理发出去的                                            |
 
-#### Connection
+**Connection**
 
 Connection header 决定当前事务（请求/响应）结束后，是否关闭网络连接。如果其值是**Keep-alive**，网络连接就是持久性的。这样同一个服务器上的请求都可以在这个连接上完成。
 
@@ -98,7 +98,7 @@ Connection: keep-alive // 持久连接 http/1.1 的默认值
 Connection: close // 关闭网络连接 http/1.0 的默认值
 ```
 
-#### Date
+**Date**
 
 Date 包含了报文创建的时间和日期
 
@@ -108,7 +108,7 @@ Date: <day-name>, <day> <month> <year> <hour>:<minute>:<second> GMT
 // Date: Wed, 21 Oct 2020 08:29:33
 ```
 
-#### Cache-Control
+**Cache-Control**
 
 Cache-Control 被用于请求和响应中，通过指定来实现缓存机制。缓存是单向的，请求中设置了，只在请求中有效。
 
@@ -129,7 +129,7 @@ Cache-Control: private // 响应只能被单个用户缓存
 
 有关Cache-Control的其他指令，可以查询[\[RFC7234\]](https://tools.ietf.org/html/rfc7234#section-5.2) 或者[ \[MDN Cache-Control\]](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Cache-Control)
 
-#### Transfer-Encoding
+**Transfer-Encoding**
 
 Transfer-Encoding 指明将消息实体传递给用户所采用的的编码方式。一般出现在响应头部。仅用于两个节点之间消息传输，如果是端到端之间的传输，采用**Content-Encoding**
 
@@ -150,7 +150,7 @@ Transfer-Encoding: gzip, chunked
 
 请求首部根据不同功能也分为以下类型
 
-#### 信息型首部
+**信息型首部**
 
 信息型首部主要是提供的当前请求报文的载体（客户端）的信息
 
@@ -162,7 +162,7 @@ Transfer-Encoding: gzip, chunked
 | Referer    | 包含了当前请求URL的来源页面的地址                         |
 | User-Agent | 将发起请求的客户端的名称告知服务器 用户代理                     |
 
-#### Referer 首部
+**Referer 首部**
 
 此请求头表示了该页面是从来源页面的链接进入的，因此，使用`Referer`头可以记录到用户浏览信息，可以用来统计分析、日志分析以及缓存优化等。
 
@@ -171,7 +171,7 @@ Transfer-Encoding: gzip, chunked
 * 来源页面采用的协议表示本地的 `“file”` 或者 `“data"` URL
 * 当前请求页面采用的是HTTP，来源页面采用的是安全协议
 
-#### Accept 类型首部
+**Accept 类型首部**
 
 Accept header 主要是告知服务器 客户端可以处理什么类型的内容。内容类型用[**MIME类型（媒体类型）**](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Basics\_of\_HTTP/MIME\_types)表示。服务器在响应头 **Content-type** 应答客户端。
 
@@ -193,7 +193,7 @@ Accept header 主要是告知服务器 客户端可以处理什么类型的内�
 | If-Unmodified-Since | 某个资源在指定日期之后没有修改过，则返回对应资源 |
 | If-Range            | 允许对文档的某个范围内进行请求          |
 
-#### 安全型首部
+**安全型首部**
 
 在客户端获取特定的响应资源时，会先对自身进行验证。这个也叫HTTP一种安全机制 **质询/响应认证**
 
@@ -202,9 +202,9 @@ Accept header 主要是告知服务器 客户端可以处理什么类型的内�
 | Authorization | 客户端提供给服务端的自身数据进行验证 |
 | Cookie        | 客户端向服务器提供一个令牌      |
 
-#### Cookie Header
+**Cookie Header**
 
-#### 代理型首部
+**代理型首部**
 
 代理型的首部目前有 `Proxy-Authenticate`、`Proxy-Authentication-Info`、`Proxy-Authorization`、`Proxy-Features`、`Proxy-Connection`。
 
@@ -212,14 +212,14 @@ Accept header 主要是告知服务器 客户端可以处理什么类型的内�
 
 响应首部也有其对应的功能，比如谁在发送请求，发送给客户端的信息应该如何处理。
 
-#### 信息型首部
+**信息型首部**
 
 | Header | Description      |
 | ------ | ---------------- |
 | Age    | 最初创建开始 响应持续的时间   |
 | Server | 服务器应用程序的软件的名称和版本 |
 
-#### 协商首部
+**协商首部**
 
 对资源有多种的表示方法。
 
@@ -231,7 +231,7 @@ Accept header 主要是告知服务器 客户端可以处理什么类型的内�
 | Vary | 代理服务器缓存的管理信息 |
 | ETag | 资源的匹配信息 |
 
-#### 安全首部
+**安全首部**
 
 安全首部跟请求首部类似 
 
@@ -239,14 +239,14 @@ Accept header 主要是告知服务器 客户端可以处理什么类型的内�
 
 实体首部提供了大量跟消息和其内容有关的信息。告知报文的接收者对消息进行什么操作。
 
-#### 信息首部
+**信息首部**
 
 | Header   | Description                   |
 | -------- | ----------------------------- |
 | Allow    | 可以对实体执行的请求方法                  |
 | Location | 告知客户端实体实际的位置，将接收端定位到定向到资源的URL |
 
-#### 内容首部
+**内容首部**
 
 该首部提供了与实体内容有关的信息
 
@@ -260,7 +260,7 @@ Accept header 主要是告知服务器 客户端可以处理什么类型的内�
 | Content-Range    | 整个资源中该主体内容的表示的字节范围 |
 | Content-Type     | 主体的媒体类型            |
 
-#### 缓存首部
+**缓存首部**
 
 通用的缓存首部说明如何、什么时候缓存。实体首部缓存提供了与被缓存实体有关的信息。
 
@@ -269,8 +269,6 @@ Accept header 主要是告知服务器 客户端可以处理什么类型的内�
 | ETag          | 与当前实体有关的标记    |
 | Expires       | 实体不再有效        |
 | Last-Modified | 当前实体最后一次修改的时间 |
-
-
 
 
 ## 状态码
@@ -324,7 +322,6 @@ HTTP/1.1 304 Not Modifier
 | 304   | Not Modified     | 告知客户端资源是否被修改过                 |
 | 305   | Use Proxy        | 必须通过一个代理来访问资源，代理位置由Location给出 |
 
->
 
 ### 400 - 499  
 
@@ -368,8 +365,6 @@ HTTP/1.1 304 Not Modifier
 | 505  | HTTP Version Not Supported | 服务器收到的请求使用其无法理解的协议版本             |
 
 更多有关状态码的信息可以查询 [[RFC7231]](https://tools.ietf.org/html/rfc7231#section-6)规范
-
-
 
 ### 参考
 

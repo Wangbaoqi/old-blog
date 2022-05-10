@@ -7,7 +7,7 @@ export default function Layout({ children, type }) {
         <Header />
 
         <HeaderWrapper type={ type }/>
-        <main className='max-w-screen-xl mx-auto lg:px-10'>{children}</main>
+        <main className='max-w-6xl mx-auto lg:px-5'>{children}</main>
       </div>
       <Footer />
     </>

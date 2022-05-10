@@ -27,7 +27,7 @@ module.exports = {
         'SourceCode': ['Source Code Pro', 'monospace', ...defaultTheme.fontFamily.sans],
       },
       height: {
-        'f-card': '280px',
+        'f-card': '250px',
         'f-card-c': '200px',
         'p-card': '350px',
         '70': '70px',
@@ -35,7 +35,7 @@ module.exports = {
       width: {
         '70': '70px',
         '80': '80px',
-        'f-card': '400px',
+        'f-card': '350px',
 
       },
       maxHeight: {
@@ -45,8 +45,8 @@ module.exports = {
         '12': '40px',
         '40': '80px',
         '60': '100px',
-        'f-card': '280px',
-        'screen-40': '40vh',
+        'f-card': '250px',
+        'screen-40': '380px',
         'screen-35': '35vh'
       },
       maxWidth: {
@@ -97,7 +97,7 @@ module.exports = {
         'header-cover': 'linear-gradient(-165deg, var(--bg-primary-dark), var(--bg-primary-light))',
         'card-cover': 'linear-gradient(180deg, var(--bg-primary-dark), var(--bg-primary-light))',
         'post-cover': 'linear-gradient(90deg, var(--bg-primary-dark), var(--bg-primary-light))',
-        'header-color': 'var(--rainbow-gradient, #fff)'
+        'header-color': 'var(--rainbow-gradient, --fg-primary)'
       },
       spacing: {
         28: '7rem',

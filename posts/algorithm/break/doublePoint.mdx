@@ -2,7 +2,7 @@
 title: 双指针模式
 excerpt: 常见的双指针模式有 左右指针 和 快慢指针, 这种方式查找比线性查找耗时要更低一点。
 coverImage: '/assets/blog/algorithm/cover/double-point.webp'
-date: '2020-03-16T05:35:07.322Z'
+date: '2021-03-16'
 author:
   name: NateWang
   picture: '/assets/authors/logo.png'
@@ -19,9 +19,8 @@ subCategory: breakThrough
 
 ## 双指针 - 左右指针
 
-左右指针最典型的应用就是[**二分查找**](二分查找.md)了，初次之外，[滑动窗口](滑动窗口模式.md)是左右指针的进阶版
+左右指针最典型的应用就是[**二分查找**](algorithm/break/search)了，初次之外，[滑动窗口](algorithm/break/slideWindow)是左右指针的进阶版。
 
-![leetCode ](https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/algorithm/doublepoint/doublepoint-left.gif)
 
 左右指针主要是在数组（字符串）的两端进行移动的，这样做的目的旨在节省时间，更高效的进行查找或者处理元素。
 
@@ -148,8 +147,6 @@ const reverseVowels = function(s) {
 ```
 
 ### 盛最多水的容器
-
-![](https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/algorithm/array//maxArea1.jpeg)
 
 ```javascript
 输入：[1,8,6,2,5,4,8,3,7]

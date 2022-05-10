@@ -92,7 +92,7 @@ const CodePre = (props) => {
         >
           {({ className, style, tokens, getLineProps, getTokenProps }) => (
             <pre
-              className='bg-transparent min-w-full text-pre'
+              className='bg-transparent min-w-full text-pre font-SourceCode'
             >
               {tokens.map((line, i) => (
                 <div

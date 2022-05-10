@@ -21,16 +21,12 @@ subCategory: dataStructure
 
 数组的操作大概有`查找`、`插入`、`删除`和`访问`。
 
-export const arrTableHead = ['array type', 'big O'];
-export const arrTablebody = [
-    ['access', 'O(1)'],
-    ['insert', 'O(n) or O(1)'],
-    ['remove', 'O(n) or O(1)'],
-    ['search', 'O(n)'],
-  ];
-
-
-<Table head={arrTableHead} body={arrTablebody}/>
+| array type |   big O  |
+| --- | --- |
+|  access   |  O(1)   |
+|  insert   |  O(n) or O(1)  |
+|  remove   |  O(n) or O(1)  |
+|  search   |  O(n)   |
 
 查找元素：需要遍历整个数组，此时整个过程执行了`n（数组的长度）`次，此时时间复杂度为`O(n)`。
 

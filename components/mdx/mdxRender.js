@@ -34,6 +34,7 @@ const MDXRenderer = ({ code, frontmatter, prev, next, toc }) => {
         {...props}
       />
     ),
+    table: props => <table className="table" {...props}/>,
     img: props => <Img {...props}/>,
     p: (props) => <p className="my-4 leading-8" {...props} />,
     ul: (props) => <ul className="ml-6 my-3 list-disc" {...props} />,
@@ -41,7 +42,7 @@ const MDXRenderer = ({ code, frontmatter, prev, next, toc }) => {
     li: (props) => <li className="mb-2 leading-relaxed" {...props} />,
     blockquote: (props) => <BlockQuote {...props} />,
     PlayGround,
-    Table,
+    // Table,
   };
   const MDXLayout = useMemo(() => getMDXComponent(code), [code]);
   return (

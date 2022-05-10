@@ -8,7 +8,7 @@ export default function Avatar({ name = '', picture = '' }) {
         className="w-5 h-5 rounded-full mr-1"
         alt={name}
       />
-      <div className="text-pre mx-2">{name}</div>
+      <div className="text-pre mx-1 font-Sriracha">{name}</div>
     </div>
   )
 }

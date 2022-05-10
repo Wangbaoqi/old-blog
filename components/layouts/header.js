@@ -20,7 +20,7 @@ export default function Header() {
   )
   return (
     <div className="fixed left-0 right-0 top-0 backdrop-blur md:py-3 z-1000">
-      <section className="flex justify-between items-center max-w-screen-xl mx-auto md:py-8 md:px-6 lg:py-2 lg:px-10 px-4 py-5">
+      <section className="flex justify-between items-center max-w-6xl mx-auto md:py-8 md:px-6 lg:py-2 lg:px-5 px-4 py-5">
         <div className="flex items-center">
           {/* <MobileNav /> */}
           <Link href="/">

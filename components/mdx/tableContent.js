@@ -37,8 +37,8 @@ export default function TableContent({
   const activeId = useActiveId(tocIds)
   return (
     <>
-      <nav className="sticky top-24">
-        <h2 className="text-base mb-6">TABLE OF CONTENT</h2>
+      <nav className="sticky top-20">
+        <h2 className="text-base mb-6 font-medium">TABLE OF CONTENT</h2>
         <ul>
           {
             toc.map(head => {
