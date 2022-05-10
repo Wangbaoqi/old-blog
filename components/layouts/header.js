@@ -2,8 +2,7 @@ import Link from "next/link";
 import headNav from "@data/headNav";
 import ThemeSwitch from "./themeSwitch";
 import { useRouter } from "next/router";
-import { Logo, GithubIcon } from '@components/ui';
-
+import { Logo, GithubIcon, SearchBtn } from '@components/ui';
 
 export default function Header() {
   const { pathname = '/' } = useRouter()
@@ -47,7 +46,7 @@ export default function Header() {
           <div className="flex items-center">
             <ThemeSwitch />
             <GithubIcon />
-            {/* <SearchIcon /> */}
+            <SearchBtn />
           </div>
         </nav>
       </section>
