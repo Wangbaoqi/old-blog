@@ -1,4 +1,5 @@
 import { Footer, HeaderWrapper, Header  } from '@components/layouts';
+import Search from "@components/search/search";
 
 export default function Layout({ children, type }) {
   return (
@@ -8,6 +9,7 @@ export default function Layout({ children, type }) {
 
         <HeaderWrapper type={ type }/>
         <main className='max-w-6xl mx-auto lg:px-5'>{children}</main>
+        <Search />
       </div>
       <Footer />
     </>

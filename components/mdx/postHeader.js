@@ -34,14 +34,14 @@ const PostHeader = ({
         <h1 className='my-6 text-xl md:text-3xl font-bold bg-header-color font-Sriracha dark:bg-clip-text dark:text-transparent'>{ title }</h1>
       </section>
       <div className="flex items-center justify-start mb-12 font-Sriracha">
-        <div className='flex items-center'>
-          <span className={`mr-4 rounded px-2 py-1 ${categoryTheme[category]}`}>{ category }</span>
-          <span className='mr-3'>{date}</span>
-          <span className='flex items-center mr-3'>
+        <div className='flex items-center flex-wrap gap-4'>
+          <span className={` rounded px-2 py-1 ${categoryTheme[category]}`}>{ category }</span>
+          <span className=''>{date}</span>
+          <span className='flex items-center'>
             <Clock size={18} />
             <strong className='ml-1'>{readTime.text}</strong>
           </span>
-          <span className='flex items-center mr-3 h-5'>
+          <span className='flex items-center h-5'>
             <Type size={18} />
             <strong  className='ml-1'>{readTime.words}</strong>
           </span>

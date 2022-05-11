@@ -5,6 +5,9 @@ import SearchBox from "./searchbox";
 import Hits from "./hits";
 import SearchFooter from "./footer";
 import { useRef, useEffect } from "react";
+import { useRouter } from 'next/router';
+import { useDispatch, useSelector } from 'react-redux'
+import { toggleSearch, selectSearch } from "@reducer/searchSlice";
 
 const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_ALGOLIA_APP_ID,
@@ -13,15 +16,45 @@ const searchClient = algoliasearch(
 
 
 const Search = ({
-  onCloseSearch,
-  goToPost
+ 
 }) => {
   const ref = useRef(null);
+  const showSearch = useSelector(selectSearch);
+  const dispatch = useDispatch();
+  const router = useRouter();
+
+  console.log(showSearch, 'showSearch');
+
+  useEffect(() => {
+  
+    if (showSearch) {
+      window.document.body.classList.add('overflow-hidden')
+    } else {
+      window.document.body.classList.remove('overflow-hidden')
+    }
+    
+  }, [showSearch])
+  
+
+  const handlePostPage = (slug) => {
+    router.push({
+      pathname: '/posts/[...slug]',
+      query: {
+        ...router.query,
+        slug: slug.split('/')
+      }
+    })
+    dispatch(toggleSearch())
+  }
 
   const handleCloseMask = e => {
     if (e.target === ref.current) {
-      onCloseSearch()
+      dispatch(toggleSearch())
     }
+  }
+
+  if (!showSearch) {
+    return ''
   }
 
   return (
@@ -32,7 +65,7 @@ const Search = ({
       >        
         <div className="overflow-hidden m-5 md:mx-auto md:max-w-47 md:my-32 bg-primary-bg shadow-lg rounded-xl z-50">
           <SearchBox />
-          <Hits goToPost={goToPost}/>
+          <Hits goToPost={handlePostPage}/>
           <SearchFooter />
         </div>
       </InstantSearch>

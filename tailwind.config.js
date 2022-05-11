@@ -31,6 +31,7 @@ module.exports = {
         'f-card-c': '200px',
         'p-card': '350px',
         '70': '70px',
+        '9/10': '90%'
       },
       width: {
         '70': '70px',
