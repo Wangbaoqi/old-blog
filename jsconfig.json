@@ -10,6 +10,8 @@
       "@styles/*": ["styles/*"],
       "@utils/*": ["utils/*"],
       "@config/*": ["config/*"],
+      "@store/*": ["store/*"],
+      "@reducer/*": ["reducer/*"],
       "@hooks/*": ["hooks/*"],
     }
   }

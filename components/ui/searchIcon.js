@@ -1,27 +1,57 @@
-
-import { Search as  SearchIcon} from "react-feather"
-
-import { useState,  } from "react";
-
+import { useDispatch, useSelector } from 'react-redux'
+import { toggleSearch, selectSearch } from "@reducer/searchSlice";
 import Search from "@components/search/search";
+import { Search as SearchIcon } from "react-feather";
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 
-const SearchBtn = () => {
 
-  const [showSearch, setShowSearch] = useState(false);
+
+
+const SearchBtn = ({
+  showText = false
+}) => {
+  const dispatch = useDispatch();
+  const showSearch = useSelector(selectSearch);
+  const router = useRouter();
+
+  console.log(router);
+  const handleShowSearch = () => {
+    dispatch(toggleSearch())
+    if (!showSearch) {
+      window.document.body.classList.add('overflow-hidden')
+    } else {
+      window.document.body.classList.remove('overflow-hidden')
+    }
+  }
+
+  const handlePostPage = (slug) => {
+    router.push({
+      pathname: '/posts/[...slug]',
+      query: {
+        ...router.query,
+        slug: slug.split('/')
+      }
+    })
+    handleShowSearch()
+  }
+
+  const defaultCls = 'hidden mb-4 sm:flex items-center w-full text-pre text-left text-slate-400 dark:text-slate-300 space-x-3 px-4 h-12 bg-second-bg dark:bg-header-cover focus:outline-none rounded-lg  border border-border-color dark:border-none hover:shadow '
+  const iconCls = 'px-1'
 
   return (
-
     <>
       <button
-        onClick={() => setShowSearch(true)}
-        className="hidden sm:flex items-center w-52 text-left space-x-3 px-4 h-10 bg-white ring-1 ring-slate-900/10 hover:ring-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-500 shadow-sm rounded-lg text-slate-400 dark:bg-slate-800 dark:ring-0 dark:text-slate-300 dark:highlight-white/5 dark:hover:bg-slate-700"
+        onClick={() => handleShowSearch()}
+        className={ showText ? defaultCls : iconCls }
       >
-        <SearchIcon size={16} />
-        <span className="flex-auto">search</span>
+        <SearchIcon size={20} />
+        {
+          showText ? <span className="flex-auto  ">quick search</span> : ""
+        }
       </button>
-
       {
-        showSearch ? <Search onCloseSearch={() => setShowSearch(false)}/> : ''
+        showSearch ? <Search onCloseSearch={() => handleShowSearch()} goToPost={handlePostPage}/> : ''
       }
     </>
   )

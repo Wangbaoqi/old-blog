@@ -82,6 +82,7 @@
   --bg-blockquote: hsla(210deg, 55%, 92%, 0.85);
   --bg-blockquote-l: hsl(230deg, 100%, 67%);
 
+  --bg-mask: rgba(52,58,70,0.2);
 
 
   --fg-active: #24292e !important;

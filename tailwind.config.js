@@ -40,6 +40,7 @@ module.exports = {
       },
       maxHeight: {
         'screen-50': '50vh',
+        'screen-60': '60vh',
       },
       minHeight: {
         '12': '40px',
@@ -51,6 +52,7 @@ module.exports = {
       },
       maxWidth: {
         'f-card': '420px',
+        '47': '47rem'
       },
       minWidth: {
         'f-card': '420px',
@@ -72,17 +74,13 @@ module.exports = {
         'hover-color': 'var(--fg-hover)',
         'blockquote-bg': 'var(--bg-blockquote)',
         'blockquote-l': 'var(--bg-blockquote-l)',
+
+        'mask-bg': 'var(--bg-mask)',
+
         'black-2': '#222222',
         'code': '#087ea4',
         'border-color': 'var(--fg-border)',
         'border-color-5': 'var(--fg-border-5)',
-
-        
-
-        'backTrack': 'var(--theme-keyword)',
-        'dp': 'var(--theme-tag)',
-        'math': 'var(--theme-definition)',
-        'string': 'var(--theme-property)',
 
 
 

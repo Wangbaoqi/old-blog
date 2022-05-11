@@ -1,6 +1,6 @@
 
 import { Container, SplitLayout } from '@components/layouts';
-import { PersonCard, Category } from '@components/ui'
+import { SearchBtn, Category } from '@components/ui'
 import { FeatureCard } from '@components/posts';
 
 
@@ -17,6 +17,7 @@ const FeatureWrapper = ({
 
   const rightChild = (
     <>
+      <SearchBtn showText={true}/>
       <Category groupList={categoryGroup}/>
     </>
   )

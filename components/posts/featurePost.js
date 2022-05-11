@@ -14,7 +14,7 @@ export default function FeaturePost({
   slug,
 }) {
   const postCls = mode == 'col' ? 'md:flex-col' : '';
-  const imgHBox = mode == 'col' ? 'h-f-card-c' : 'h-f-card';
+  const imgHBox = mode == 'col' ? 'h-f-card-c' : 'h-f-card ';
   const imgWBox = mode == 'col' ? 'w-full' : 'md:w-f-card';
   const bgCls = mode == 'col' ? 'bg-second-bg' : 'dark:bg-post-cover';
 
@@ -25,9 +25,9 @@ export default function FeaturePost({
           <a className="hover:text-hover-color">{title}</a>
         </Link>
       </h3>
-      <p className="text-sm md:text-tiny leading-loose pr-5 line-clamp-3 -mt-10">{excerpt}</p>
+      <p className="mt-4 mb-8 md:my-0 text-sm md:text-tiny leading-loose pr-5 line-clamp-3 md:-mt-10">{excerpt}</p>
       <div className="relative text-sm flex items-center">
-        <p className='absolute -top-8 left-0 w-2/3 h-px bg-border-color'></p>
+        <p className='absolute -top-6 md:-top-8 left-0 w-2/3 h-px bg-border-color'></p>
         <Avatar name={author.name} picture={author.picture} />
         <span className='text-xs font-Sriracha'>{date}</span>
       </div>

@@ -44,9 +44,9 @@ export default function Header() {
 
         <nav className="flex justify-between items-center ">
           <div className="flex items-center">
+            <SearchBtn />
             <ThemeSwitch />
             <GithubIcon />
-            <SearchBtn />
           </div>
         </nav>
       </section>
