@@ -1,11 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { getAllPosts, getSinglePost } from "@lib/mdx";
 import { Layout, Container } from "@components/layouts";
 import { MDXRenderer, TableContent } from "@components/mdx";
 import { formatSlug } from "@lib/mdx";
+import fetcher from "@lib/fetcher";
+import useSWR from 'swr'
 
 const Post = ({ post }) => {
-  const { toc = [], ...rest } = post;
+  const { slug, toc = [], ...rest } = post;
+  const { data } = useSWR(`/api/visitor/${slug}`, fetcher);
+
+
+  useEffect(() => {
+    const registerView = () =>
+      fetcher(`/api/visitor/${slug}`, {
+        method: 'POST'
+      });
+
+    registerView();
+  }, [slug]);
   
   return (
     <>
@@ -42,6 +55,7 @@ export const getStaticProps = async ({ params }) => {
         ...post,
         prev,
         next,
+        slug
       },
     },
   };

@@ -1,9 +1,19 @@
 import Container from "./container";
 import dayjs from "dayjs";
 import { Logo } from "@components/ui";
+import useSWR from 'swr';
+
+const fetcher = (url) => fetch(url).then((res) => res.json())
+
 
 export default function Footer() {
   const date = dayjs().format("YYYY");
+
+  // const { data, error } = useSWR('/api/index', fetcher)
+  
+
+
+
   return (
     <footer className="px-4 bg-header-cover">
       <div className="max-w-6xl mx-auto py-8 flex mt-20 flex-col md:flex-row lg:px-5  container  justify-between space-y-8 lg:flex-row lg:space-y-0">

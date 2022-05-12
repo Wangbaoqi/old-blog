@@ -1,7 +1,7 @@
 export default function HeaderWrapper({ type = "" }) {
   const waveBox = (
     <svg
-      className="absolute left-0 right-0 bottom-0 w-full max-w-full   "
+      className="absolute left-0 right-0 bottom-0 w-full h-20 max-w-full"
       preserveAspectRatio="none"
       width="1440"
       height="74"
@@ -21,9 +21,9 @@ export default function HeaderWrapper({ type = "" }) {
       >
         {type == "page" ? waveBox : ""}
 
-        <div className="max-w-6xl mx-auto h-9/10 h- w-full relative overflow-hidden">
+        <div className="max-w-6xl mx-auto person-logo  h- w-full relative overflow-hidden">
           <img
-            className=" hidden md:block absolute right-11 -bottom-3 h-52 px-2 "
+            className=" hidden md:block absolute right-11 -bottom-5 h-52 px-2 "
             src={`/assets/svg/me.webp`}
           />
         </div>

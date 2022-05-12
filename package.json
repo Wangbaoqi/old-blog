@@ -7,9 +7,12 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "search": "node ./script/build-algolia.js"
+    "search": "node ./script/build-algolia.js",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
+    "@panelbear/panelbear-nextjs": "^1.0.3",
+    "@prisma/client": "^3.14.0",
     "@reduxjs/toolkit": "^1.8.1",
     "algoliasearch": "^4.13.0",
     "classnames": "^2.3.1",
@@ -38,6 +41,7 @@
     "rehype-code-titles": "^1.0.3",
     "rehype-slug": "^5.0.1",
     "remark-gfm": "^3.0.1",
+    "swr": "^1.3.0",
     "tailwindcss": "^3.0.24",
     "unist-util-visit": "^4.1.0"
   },
@@ -46,6 +50,7 @@
     "autoprefixer": "^10.4.4",
     "eslint": "8.13.0",
     "eslint-config-next": "12.1.5",
-    "postcss": "^8.4.12"
+    "postcss": "^8.4.12",
+    "prisma": "^3.14.0"
   }
 }

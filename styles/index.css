@@ -21,6 +21,10 @@
     @apply px-5 py-2 text-sm text-center font-SourceCode
   }
 
+  .person-logo {
+    height: calc(35vh - 50px)
+  }
+
   
   .scrollbar::-webkit-scrollbar {
     height: 0;
