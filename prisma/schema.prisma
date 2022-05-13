@@ -12,5 +12,5 @@ datasource db {
 
 model views {
   slug  String @id @db.VarChar(128)
-  count BigInt @default(1)
+  count Int @default(1)
 }
