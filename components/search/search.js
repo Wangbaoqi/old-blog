@@ -23,8 +23,6 @@ const Search = ({
   const dispatch = useDispatch();
   const router = useRouter();
 
-  console.log(showSearch, 'showSearch');
-
   useEffect(() => {
   
     if (showSearch) {
