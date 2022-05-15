@@ -1,5 +1,5 @@
 import Link from "next/link";
-import headNav from "@data/headNav";
+import { headNav } from "@data/headNav";
 import ThemeSwitch from "./themeSwitch";
 import { useRouter } from "next/router";
 import { Logo, GithubIcon, SearchBtn } from '@components/ui';

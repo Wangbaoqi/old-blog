@@ -10,8 +10,8 @@ export default function Layout({ children, type }) {
         <HeaderWrapper type={ type }/>
         <main className='max-w-6xl mx-auto lg:px-5'>{children}</main>
         <Search />
+        <Footer />
       </div>
-      <Footer />
     </>
   )
 }

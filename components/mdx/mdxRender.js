@@ -6,7 +6,7 @@ import { CodePre, PostLink, BlockQuote, Table, PostHeader, Img } from "@componen
 import { NextPost } from "@components/posts";
 import PlayGround from "@components/playground/playground";
 
-const MDXRenderer = ({ code, frontmatter, prev, next, toc }) => {
+const MDXRenderer = ({ code, frontmatter, prev, next, views }) => {
   const router = useRouter();
 
   const components = {
@@ -52,7 +52,7 @@ const MDXRenderer = ({ code, frontmatter, prev, next, toc }) => {
       ) : (
         <>
           <article className="relative mb-32 max-w-4xl mx-auto">
-            <PostHeader {...frontmatter} />
+            <PostHeader {...frontmatter} views={views}/>
             <MDXLayout components={components} />
             <NextPost prev={prev} next={next} />
           </article>

@@ -1,20 +1,11 @@
-import Link from "next/link";
 import { getFeaturePost, getRecentPost, getGroupByCategory } from "@lib/mdx";
 import { Layout } from '@components/layouts';
 import { FeatureWrapper, RecentWrapper, RecomendWrapper } from '@components/posts';
-import useSWR from 'swr';
-import fetcher from '@lib/fetcher'
-import { useEffect } from "react";
 
 export default function BlogList({ featurePosts, categoryGroup, recentPost }) {
-
-  const { data, error } = useSWR('/api/visitor', fetcher)
-
-  
-
   return (
     <>
-      <Layout type='page'>
+      <Layout type='page' >
         <FeatureWrapper
           featurePosts={featurePosts}
           categoryGroup={categoryGroup}

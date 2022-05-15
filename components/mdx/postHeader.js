@@ -1,7 +1,7 @@
 import {Avatar} from '@components/ui';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { Clock, Type, ChevronRight } from 'react-feather';
+import { Clock, Type, ChevronRight, Eye } from 'react-feather';
 import { categoryTheme } from '@utils/tagtheme';
 
 const PostHeader = ({
@@ -11,6 +11,7 @@ const PostHeader = ({
   category = '',
   tags = [],
   coverImage = '',
+  views,
   readTime = {}
 }) => {
 
@@ -45,6 +46,11 @@ const PostHeader = ({
             <Type size={18} />
             <strong  className='ml-1'>{readTime.words}</strong>
           </span>
+          <span className='flex items-center h-5'>
+            <Eye size={18} />
+            <strong  className='ml-1'>{views}</strong>
+          </span>
+          
           <Avatar {...author} />
         </div>
       </div>

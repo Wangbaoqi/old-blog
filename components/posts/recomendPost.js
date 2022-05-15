@@ -16,9 +16,9 @@ const RecomendPost = ({
 
 
   return (
-    <div className="relative overflow-hidden flex flex-col justify-between z-10 basis-64 shrink-0 h-64 p-5 transition rounded-2xl 
+    <div className="relative overflow-hidden flex flex-col justify-between z-10 basis-60 shrink-0 lg:h-60  p-5 transition rounded-2xl 
       focus-within:rotate-6 hover:-translate-y-4 hover:rotate-6 focus-within:-translate-y-4 shadow-5xl
-      -ml-32 first:-ml-0 r-card bg-card-cover first:shadow-4xl bg-second-bg
+      -ml-28 first:-ml-0 r-card bg-card-cover first:shadow-4xl bg-second-bg
       "
     >
       <p className='font-Pacifico'>
