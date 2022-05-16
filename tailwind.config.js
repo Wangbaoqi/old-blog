@@ -76,21 +76,28 @@ module.exports = {
         'hover-bg': 'var(--bg-hover)',
         'blockquote-bg': 'var(--bg-blockquote)',
         'blockquote-l': 'var(--bg-blockquote-l)',
-
         'mask-bg': 'var(--bg-mask)',
-
-        'black-2': '#222222',
-        'code': '#087ea4',
+        'success-bg': 'var(--bg-success)',
+        'success-color': 'var(--fg-success)',
+        'info-bg': 'var(--bg-info)',
+        'info-color': 'var(--fg-info)',
+        'warning-bg': 'var(--bg-warning)',
+        'warning-color': 'var(--fg-warning)',
+        
         'border-color': 'var(--fg-border)',
         'border-color-5': 'var(--fg-border-5)',
 
 
 
+
+        'black-2': '#222222',
+        'code': '#087ea4',
         'accent': 'var(--accent)',
         'nav-color': '#3d5b7d',
         'icon-color': '#00c2ff',
         's-color': "#3D5B7D",
-        success: '#0070f3',
+
+       
         cyan: '#79FFE1',
       },
       backgroundImage: {

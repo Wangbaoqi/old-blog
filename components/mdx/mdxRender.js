@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { useMemo } from "react";
 import Head from "next/head";
 import { getMDXComponent } from "mdx-bundler/client";
-import { CodePre, PostLink, BlockQuote, Table, PostHeader, Img } from "@components/mdx";
+import { CodePre, PostLink, BlockQuote, SideNote, PostHeader, Img, Strong } from "@components/mdx";
 import { NextPost } from "@components/posts";
 import PlayGround from "@components/playground/playground";
 
@@ -48,6 +48,8 @@ const MDXRenderer = ({ code, frontmatter, prev, next, views }) => {
     li: (props) => <li className="mb-2 leading-relaxed" {...props} />,
     blockquote: (props) => <BlockQuote {...props} />,
     PlayGround,
+    Strong,
+    SideNote
   };
   const MDXLayout = useMemo(() => getMDXComponent(code), [code]);
   return (

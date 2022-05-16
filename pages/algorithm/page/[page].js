@@ -1,4 +1,4 @@
-import { getAlgorithmPost } from "@lib/mdx";
+import { getAlgorithmPost, filterEveryList } from "@lib/mdx";
 import { useRouter } from "next/router";
 
 import { DayTablePost, Tags, PageNation } from '@components/algorithm';
@@ -117,7 +117,7 @@ export async function getServerSideProps(ctx) {
   } = query
   const { everyDay, tagGroup } = await getAlgorithmPost();
   const pageNumber = parseInt(page);
-  const afterTopicList = everyDay;
+  const afterTopicList = filterEveryList(everyDay, { searchVal });
 
   const initPosts = afterTopicList.slice(
     perPage * (pageNumber - 1),
