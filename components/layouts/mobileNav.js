@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Link from "next/link";
-import { headList } from '@data/headNav';
+import { headNav } from '@data/headNav';
 import cn from 'classnames';
 
 
@@ -32,7 +32,7 @@ const MobileNav = () => {
         <nav className='visible p-4'>
           <ul>
             {
-              headList.map((head, idx) => {
+              headNav.map((head, idx) => {
                 return (
                   <li key={idx} className='py-3 text-pre'>
                     <Link href={head.href}>{ head.title }</Link>

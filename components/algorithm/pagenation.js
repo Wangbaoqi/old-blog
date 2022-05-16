@@ -14,12 +14,12 @@ const PageNation = ({
 
   return (
     <div className="flex justify-center space-x-1">
-      <button title="previous" type="button" className="inline-flex items-center justify-center hover:bg-post-cover w-10 h-10 py-0 bg-second-bg rounded-md shadow-md">
+      <button title="previous" type="button" className="inline-flex items-center justify-center hover:bg-hover-bg w-10 h-10 py-0 bg-second-bg rounded-md shadow">
         <ChevronLeft size={16} />
       </button>
       {
         pageList.map((page, idx) => {
-          const aCls = page === currentPage ? 'bg-post-cover' : '';
+          const aCls = page === currentPage ? 'bg-hover-bg' : '';
           const isDisable = typeof page !== 'number';
           return (
             <button
@@ -27,14 +27,14 @@ const PageNation = ({
               onClick={() => setPagenationChange(page)}
               key={idx}
               type="button"
-              className={`inline-flex items-center justify-center w-10 h-10 text-sm hover:bg-post-cover  font-semibold rounded shadow-md bg-second-bg ${aCls}`}
+              className={`inline-flex items-center justify-center w-10 h-10 text-sm hover:√  font-semibold rounded shadow bg-second-bg ${aCls}`}
               >
                 {page}
             </button>
           )
         })
       }
-      <button title="next" type="button" className="inline-flex items-center justify-center hover:bg-post-cover w-10 h-10 py-0 bg-second-bg rounded-md shadow-md">
+      <button title="next" type="button" className="inline-flex items-center justify-center hover:bg-hover-bg w-10 h-10 py-0 bg-second-bg rounded-md shadow">
         <ChevronRight size={16} />
       </button>
     </div>

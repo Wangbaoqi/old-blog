@@ -20,23 +20,19 @@ const Input = ({
     setSearchVal(val)
   }
   return (
-    <>
-      <fieldset className="w-full">
-        <div className="relative">
-          <span className="absolute inset-y-0 left-0 flex items-center pl-2">
-            <button type="button" title="search" className="p-1">
-              <Search size={16}/>
-            </button>
-          </span>
-          <input
-            value={searchVal}
-            onChange={e => handlePerPage(e.target.value)}
-            type='text'
-            placeholder="搜索编号或者标题"
-            className="w-auto md:w-52 py-2 pl-10 pr-2 text-sm rounded-md placeholder:text-primary-color  focus:outline-none bg-second-bg bg-post-cover" />
-        </div>
-      </fieldset>
-    </>
+    <fieldset className=' w-40'>
+      <div className="relative ">
+        <span className="absolute inset-y-0 left-0 flex items-center pl-2">
+          <Search size={16}/>
+        </span>
+        <input
+          value={searchVal}
+          onChange={e => handlePerPage(e.target.value)}
+          type='text'
+          placeholder="搜索编号或者标题"
+          className="w-auto md:w-52 py-2 pl-10 pr-2 text-sm rounded-md placeholder:text-primary-color  focus:outline-none bg-second-bg hover:bg-hover-bg border border-border-color-5" />
+      </div>
+    </fieldset>
    
   )
 }

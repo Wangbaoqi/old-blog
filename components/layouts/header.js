@@ -7,6 +7,8 @@ import { Logo, GithubIcon, SearchBtn } from '@components/ui';
 export default function Header() {
   const { pathname = '/' } = useRouter()
 
+  console.log(useRouter());
+
   const activeSvg = (
     <svg width="30" height="8" viewBox="0 0 37 8" fill="none"
       className=" absolute -bottom-2 left-0 right-0 m-auto">
@@ -28,13 +30,13 @@ export default function Header() {
             </div>
           </Link>
 
-          <ul className="hidden lg:flex text-sm ml-10 font-Gloria text-black dark:text-white">
+          <ul className="hidden lg:flex text-sm ml-10 font-Gloria ">
             {headNav.map((el, idx) => {
               return (
                 <li key={idx} className='mr-10 relative'>
                   <Link href={el.href}>{el.title}</Link>
                   {
-                    el.href == pathname ? activeSvg : ''
+                    pathname.includes(el.href) ? activeSvg : ''
                   }
                 </li>
               );

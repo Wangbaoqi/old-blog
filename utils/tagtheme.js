@@ -9,9 +9,6 @@ export const algoTheme = {
 }
 
 
-
-
-
 export const categoryTheme = {
   'React': 'tag-react',
   'Algorithm': 'tag-algorithm',

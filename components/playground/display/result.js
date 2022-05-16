@@ -1,14 +1,9 @@
 
 import { useMemo, useState, useEffect } from "react";
-
 import constructSnippet from "../tool/construtorSnippet";
-
 import ErrorDisplay from "./error";
-
-
 import {useDebounceValue} from "@hooks/index";
 
-// console.log(useDebounceValue, 'useDebounceValue');
 const Result = ({
   id,
   codeMap,
@@ -56,7 +51,6 @@ const Result = ({
           }
 
           if (data.data.message.type === 'error') {
-            console.log(data.data.message, 'errrrr');
             setError(data.data.message.data);
           }
 

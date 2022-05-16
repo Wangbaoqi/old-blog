@@ -13,37 +13,35 @@ const DayTablePost = ({
     <section className="">
       { showTitle ? <Title title="Every Day" className='my-20' showAll={true} allHref={`/algorithm/page/1`} /> : '' }
 
-      <div className="container inline-block min-w-full shadow-3xl  lg:overflow-hidden pt-4 px-3 md:px-0">
-        <div className="overflow-x-auto rounded-lg">
-          <table className="table-auto min-w-full leading-normal bg-card-cover ">
-            <thead>
+      <div className="container inline-block min-w-full shadow-3xl dark:bg-card-cover  lg:overflow-hidden px-3 md:px-0 rounded-3xl">
+        <div className="overflow-x-auto ">
+          <table className="table-auto min-w-full leading-normal ">
+            <thead className=" ">
               <tr>
-                <th className="px-5 py-5 font-Fira text-lg text-left">num</th>
-                <th className="px-5 py-5 font-Fira text-lg text-left min-w-t-topic">
+                <th className="px-5 py-5 font-Sriracha text-lg text-left">num</th>
+                <th className="px-5 py-5 font-Sriracha text-lg text-left min-w-t-topic">
                   topic
                 </th>
-                <th className="px-5 py-5 font-Fira text-lg text-left">
+                <th className="px-5 py-5 font-Sriracha text-lg text-left">
                   tags
                 </th>
-                <th className="px-5 py-5 font-Fira text-lg text-left">
+                <th className="px-5 py-5 font-Sriracha text-lg text-left">
                   level
                 </th>
-                <th className="px-5 py-5 font-Fira text-lg text-left">
+                <th className="px-5 py-5 font-Sriracha text-lg text-left">
                   date
                 </th>
-                <th className="px-5 py-5 font-Fira text-lg text-left">hot</th>
-                <th className="px-5 py-5 font-Fira text-lg text-left">
+                <th className="px-5 py-5 font-Sriracha text-lg text-left">hot</th>
+                <th className="px-5 py-5 font-Sriracha text-lg text-left">
                   author
                 </th>
               </tr>
             </thead>
             <tbody>
               {dayList.map((item) => {
-
                 const levelCls = algoTheme[item.level]
-
                 return (
-                  <tr key={item.id} className=' text-sm'>
+                  <tr key={item.id} className=' text-sm hover:bg-hover-bg cursor-pointer'>
                     <td className="px-5 py-4 ">{item.id}</td>
                     <td className="px-5 py-4 min-w-t-topic">
                       <Link href={`/posts/${item.slug}`}>
@@ -56,7 +54,7 @@ const DayTablePost = ({
                       {item.tags.map((tag, idx) => { 
                         const tagCls = algoTheme[tag]
                         return (
-                          <strong key={idx} className={`rounded px-1 text-xs mr-1 ${tagCls}`}>
+                          <strong key={idx} className={`rounded px-1 py-0.5 text-xs mr-1 ${tagCls}`}>
                             {tag}
                           </strong>
                         )
@@ -64,7 +62,7 @@ const DayTablePost = ({
                     </td>
                     <td className={`px-5 py-4 font-Sriracha ${levelCls}`}>{item.level}</td>
                     <td className="px-5 py-4 ">
-                      <span className="">{item.date}</span>
+                      <span className=" font-Sriracha">{item.date}</span>
                     </td>
                     <td className="px-5 py-4 ">
                       <div className="flex items-center">

@@ -1,58 +1,56 @@
 
+:root.dark {
+  --bg-primary: hsl(210deg, 30%, 8%);
+  --fg-primary: hsl(210, 17%, 82%);
 
+  --bg-primary-light: rgba(208, 179, 255, 0);
+  --bg-primary-dark: hsla(200deg, 100%, 85%, 0.1);
 
-@media (prefers-color-scheme: dark) {
-  :root.dark {
-    --bg-primary: hsl(210deg, 30%, 8%);
-    --fg-primary: hsl(210, 17%, 82%);
+  --bg-secondary: hsl(215, 21%, 11%);
+  --fg-secondary: hsl(195, 82%, 44%);
 
-    --bg-primary-light: rgba(208, 179, 255, 0);
-    --bg-primary-dark: hsla(200deg, 100%, 85%, 0.1);
+  --bg-third: hsl(210deg,15%,20%);
+  --fg-third: hsl(210deg,14%,66%);
 
-    --bg-secondary: hsl(215, 21%, 11%);
-    --fg-secondary: hsl(195, 82%, 44%);
+  --fg-border: hsl(210deg,15%,20%);
+  --fg-border-5: hsl(210deg,15%,20%, 0.5);
+ 
+  --fg-hover: hsl(195, 82%, 44%);
+  --bg-hover: rgb(55,65,81);
 
-    --bg-third: hsl(210deg,15%,20%);
-    --fg-third: hsl(210deg,14%,66%);
+  --fg-code: hsl(195, 82%, 44%);
+  --bg-code: hsl(210deg, 30%, 24%);
 
-    --fg-border: hsl(210deg,15%,20%);
-    --fg-border-5: hsl(210deg,15%,20%, 0.5);
-   
-    --fg-hover: hsl(195, 82%, 44%);
+  --bg-playground: hsl(210deg, 30%, 12%) !important;
 
-    --fg-code: hsl(195, 82%, 44%);
-    --bg-code: hsl(210deg, 30%, 24%);
+  --bg-blockquote: hsl(210deg, 38%, 15%);
+  --bg-blockquote-l: hsl(230deg, 100%, 67%);
 
-    --bg-playground: hsl(210deg, 30%, 12%) !important;
+  
+  --fg-active: #fff !important;
+  --fg-default: #999 !important;
+  --fg-inactive: #343434 !important;
+  --bg-active: #343434 !important;
+  --bg-default-overlay: #16181d !important;
+  --bg-input: #242424 !important;
+  --accent: #6caedd !important;
+  --bg-error: #ffcdca !important;
+  --fg-error: #811e18 !important;
 
-    --bg-blockquote: hsl(210deg, 38%, 15%);
-    --bg-blockquote-l: hsl(230deg, 100%, 67%);
+  --rainbow-gradient: linear-gradient(-90deg,#adfbda 0,#35c3ff 30%,#fda399 50%,#76d880 70%,#ebf38b 90%,#adfbda 100%);
 
-    
-    --fg-active: #fff !important;
-    --fg-default: #999 !important;
-    --fg-inactive: #343434 !important;
-    --bg-active: #343434 !important;
-    --bg-default-overlay: #16181d !important;
-    --bg-input: #242424 !important;
-    --accent: #6caedd !important;
-    --bg-error: #ffcdca !important;
-    --fg-error: #811e18 !important;
-
-    --rainbow-gradient: linear-gradient(-90deg,#adfbda 0,#35c3ff 30%,#fda399 50%,#76d880 70%,#ebf38b 90%,#adfbda 100%);
-
-    --theme-plain: #fff;
-    --theme-comment: #757575;
-    --theme-keyword: #77b7d7;
-    --theme-tag: #dfab5c;
-    --theme-punctuation: #fff;
-    --theme-definition: #86d9ca;
-    --theme-property: #77b7d7;
-    --theme-static: #c64640;
-    --theme-string: #977cdc;
-    
-  }
+  --theme-plain: #fff;
+  --theme-comment: #757575;
+  --theme-keyword: #77b7d7;
+  --theme-tag: #dfab5c;
+  --theme-punctuation: #fff;
+  --theme-definition: #86d9ca;
+  --theme-property: #77b7d7;
+  --theme-static: #c64640;
+  --theme-string: #977cdc;
+  
 }
+
 
 
 :root {
@@ -61,6 +59,7 @@
 
   --bg-primary-light: hsl(200, 100%, 95%);
   --bg-primary-dark: hsla(195, 91%, 40%, .7);
+  
 
   --bg-secondary: hsl(0, 0%, 100%); 
   --fg-secondary: hsl(195, 91%, 34%);
@@ -73,6 +72,7 @@
   --fg-border-5: hsl(217, 72%, 92%, 50%);
 
   --fg-hover: hsl(195, 91%, 34%);
+  --bg-hover: rgb(243,244,246);
 
   --fg-code: hsl(195, 91%, 34%);
   --bg-code: hsl(200, 100%, 95%);

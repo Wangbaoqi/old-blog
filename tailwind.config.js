@@ -73,6 +73,7 @@ module.exports = {
         'code-color': 'var(--fg-code)',
         'playground-bg': 'var(--bg-playground)',
         'hover-color': 'var(--fg-hover)',
+        'hover-bg': 'var(--bg-hover)',
         'blockquote-bg': 'var(--bg-blockquote)',
         'blockquote-l': 'var(--bg-blockquote-l)',
 

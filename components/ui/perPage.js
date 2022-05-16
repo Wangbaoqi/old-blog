@@ -17,12 +17,10 @@ const PerPage = ({
     setPerPageChange(perPage)
   }, [perPage])
 
-  console.log('perPage render');
-
   return (
     <div className="w-36 md:mb-0 mb-10">
       <div className="mt-1 relative cursor-pointer" onClick={() => setShowPage(!showPage)}>
-        <button type="button" className="relative w-32 bg-second-bg hover:bg-post-cover rounded-md shadow-lg pl-3 pr-10 py-2 text-left cursor-default focus:outline-none  sm:text-sm">
+        <button type="button" className="relative w-32 bg-second-bg hover:bg-hover-bg rounded-md shadow pl-3 pr-10 py-2 text-left cursor-pointer focus:outline-none  sm:text-sm">
           <span className="flex items-center">
             <span className="ml-3 block truncate">
               {`${perPage}条/页`}
@@ -41,7 +39,7 @@ const PerPage = ({
                   <li
                     key={page}
                     onClick={() => setPerPage(page)}
-                    className=" hover:bg-post-cover hover:text-primary select-none relative py-2 pl-3 pr-9"
+                    className=" hover:bg-hover-bg hover:text-primary select-none relative py-2 pl-3 pr-9"
                   >
                       <div className="flex items-center">
                         <span className="ml-3 block font-normal truncate">

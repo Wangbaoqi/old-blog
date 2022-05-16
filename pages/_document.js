@@ -4,8 +4,7 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en" className='scroll-smooth'>
         <Head />
-          
-        <body className='dark:bg-primary-bg dark:text-primary-color font-Fira text-bs text-bs text-tiny '>
+        <body className='bg-primary-bg text-primary-color font-Fira text-bs text-bs text-tiny '>
           <Main />
           <NextScript />
         </body>

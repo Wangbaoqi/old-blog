@@ -21,10 +21,6 @@ const SplitPane = ({
     dividerRef,
     dividerWidth: 16,
   });
-
-  console.log(leftWidth, 'leftWidth');
-  console.log(rightWidth, 'rightWidth');
-
   return (
     <>
       <div ref={rulerRef}></div>

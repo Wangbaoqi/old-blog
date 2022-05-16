@@ -1,8 +1,6 @@
-
 import { getAlgorithmPost } from "@lib/mdx";
 import { Layout } from '@components/layouts';
 import { AlgorithmWrapper } from '@components/posts';
-
 
 const AlgorithmPost = ({
   structureList = [],

@@ -1,6 +1,6 @@
 
 import { Check, ChevronDown } from 'react-feather';
-import { memo, useState, useEffect } from 'react';
+import { memo, useState, useEffect, useRef } from 'react';
 
 
 const Select = ({
@@ -11,21 +11,22 @@ const Select = ({
   const [showPage, setShowPage] = useState(false);
   const [value, setValue] = useState(initVal);
   const pageCls = !showPage ? 'hidden' : 'block';
+  const sRef = useRef(null)
 
   useEffect(() => {
     setSelect(value)
   }, [value])
 
   return (
-    <div className="w-36 md:mb-0 mb-10">
-      <div className="mt-1 relative cursor-pointer bg-second-bg" onClick={() => setShowPage(!showPage)}>
-        <button type="button" className="relative w-32 bg-post-cover rounded-md shadow-lg pl-3 pr-10 py-2 text-left cursor-default focus:outline-none  sm:text-sm">
+    <div className="w-24 md:mb-0 mb-10 bg-second-bg rounded-md border  hover:bg-hover-bg border-border-color-5" ref={sRef}>
+      <div className="relative  " onClick={() => setShowPage(!showPage)}>
+        <button type="button" className="relative pl-3 pr-10 py-2 text-left cursor-pointer focus:outline-none sm:text-sm">
           <span className="flex items-center">
             <span className="ml-3 block truncate">
               {value}
             </span>
           </span>
-          <span className="ml-3 absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none " >
+          <span className="ml-3 absolute inset-y-0 right-0 flex items-center pr-2 cursor-pointer " >
             <ChevronDown size={18}/>
           </span>
         </button>
@@ -38,7 +39,7 @@ const Select = ({
                   <li
                     key={page}
                     onClick={() => setValue(page)}
-                    className=" hover:bg-post-cover hover:text-primary select-none relative py-2 pl-3 pr-9"
+                    className="hover:bg-hover-bg hover:text-hover-color hover:text-primary select-none relative py-2 pl-3 pr-9"
                   >
                       <div className="flex items-center">
                         <span className="ml-3 block font-normal truncate">

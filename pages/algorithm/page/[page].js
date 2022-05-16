@@ -21,15 +21,9 @@ const AlgorithmWrapper = ({
 }) => {
   const router = useRouter();
   const { query: { perPage = '', searchVal = '',  } } = router;
-  console.log('router');
-
 
   const displayList =  initPosts;
-
-
   const handlePerPage = (perPage) => {
-    
-    console.log(perPage);
     const routerObj = {
       pathname: router.pathname,
       query: {
@@ -41,7 +35,6 @@ const AlgorithmWrapper = ({
   }
 
   const handleTags = (tags) => {
-    console.log(tags, 'tags');
     const routerObj = {
       pathname: router.pathname,
       query: {
@@ -81,20 +74,19 @@ const AlgorithmWrapper = ({
   return (
     <Layout type='page'>
       <section className="py-20 px-3 md:px-0">
-        <div className="flex items-center ">
+        <div className="flex items-center font-Sriracha">
           <h3 className="text-second-color text-base mr-4">All: </h3>
           <span>{`${allCount} 道题目`}</span>
         </div>
         <Tags tagsList={tagGroup} setTagChange={handleTags} />
-        <div className="py-5 flex items-center gap-5">
+        <div className="py-5 flex items-center gap-3">
+          <Input initVal={searchVal} setInputChange={handleInput}/>
           <Select initVal='简单' optionList={['简单', '中等', '困难']} setSelect={handleLevel}/>
           <Select initVal='4星' optionList={['3星', '4星', '5星']} setSelect={handleLevel}/>
-          <Input initVal={searchVal} setInputChange={handleInput}/>
         </div>
         <div className="-mx-3 md:mx-0">
           <DayTablePost dayList={displayList} showTitle={false} />
         </div>
-
         <div className='flex flex-col md:flex-row justify-between items-center py-10'>
           <PerPage
             initPer={perPage}
@@ -125,10 +117,8 @@ export async function getServerSideProps(ctx) {
   } = query
   const { everyDay, tagGroup } = await getAlgorithmPost();
   const pageNumber = parseInt(page);
-  // const afterTopicList = everyDay || filterEveryList(everyDay, { searchVal, tags });
   const afterTopicList = everyDay;
 
-  console.log(perPage, 'afterTopicList');
   const initPosts = afterTopicList.slice(
     perPage * (pageNumber - 1),
     perPage * pageNumber

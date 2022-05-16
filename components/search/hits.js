@@ -10,8 +10,6 @@ const Hits = (props) => {
 
   const groupCategory = groupBy(hits, 'category')
   const groupList = Object.entries(groupCategory)
-  console.log(groupList, 'goroupList');
-
 
   return (
     <section className="p-4 border-t border-border-color-5 overflow-y-auto min-h-60 max-h-screen-60">
