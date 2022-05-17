@@ -158,7 +158,7 @@ const PlayGround = ({
   };
 
   return (
-    <div className="overflow-hidden shadow-3xl rounded-lg md:-mx-12 md:my-10">
+    <div className="overflow-hidden shadow-3xl rounded-lg md:-mx-10 md:my-10">
       <div className="">
         <ToolBar
           title={title}

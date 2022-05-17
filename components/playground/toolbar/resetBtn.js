@@ -1,6 +1,6 @@
 
 
-import { SkipBack } from 'react-feather';
+import { ZapOff } from 'react-feather';
 
 const ResetBtn = ({
   handleReset
@@ -9,10 +9,10 @@ const ResetBtn = ({
 
   return (
     <button
-      className="text-xs text-third-color  h-8 flex justify-center items-center"
+      className="text-sm text-third-color  h-8 flex justify-center items-center"
       onClick={handleReset}
     >
-      <SkipBack size={13} color={'var(--fg-third)'} className='mr-1'/> Reset
+      <ZapOff size={14} color={'var(--fg-third)'} className='mr-1'/> Reset
     </button>
   )
 }

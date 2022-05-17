@@ -1,6 +1,6 @@
 
 
-import { Terminal } from 'react-feather';
+import { SkipBack } from 'react-feather';
 
 const ExcuterBtn = ({
   handleExcuter
@@ -9,10 +9,10 @@ const ExcuterBtn = ({
 
   return (
     <button
-      className="text-xs text-third-color  h-8 flex justify-center items-center hover:text-second-color"
+      className="text-sm text-third-color  h-8 flex justify-center items-center hover:text-second-color"
       onClick={handleExcuter}
     >
-      <Terminal size={13} color={'var(--fg-third)'} className='mr-1'/> Excuter
+      <SkipBack size={14} color={'var(--fg-third)'} className='mr-1'/> Excuter
     </button>
   )
 }

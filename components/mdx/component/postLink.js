@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { Link as LinkIcon } from 'react-feather';
+import { Link as LinkIcon, ExternalLink } from 'react-feather';
 
 const PostLink = ({
   href = '',
@@ -18,9 +18,13 @@ const PostLink = ({
     )
   }
 
+  console.log(rest);
+
   if (inter) {
     return (
-      <a className={acls} target='_blank' href={href} {...rest} />
+      <a className={acls} target='_blank' href={href} {...rest} >
+        {rest.children}
+      </a>
     )
   }
 

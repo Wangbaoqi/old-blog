@@ -9,7 +9,6 @@ const PostHeader = ({
   date = '',
   author = {},
   category = '',
-  tags = [],
   coverImage = '',
   views,
   readTime = {}
@@ -32,8 +31,10 @@ const PostHeader = ({
             <span className='cursor-pointer hover:text-hover-color'>{category}</span>
           </Link>
         </div>
-        <h1 className='my-6 text-xl md:text-3xl font-bold bg-header-color font-Sriracha dark:bg-clip-text dark:text-transparent'>{ title }</h1>
+        <h1 className='my-6 text-xl md:text-3xl font-bold bg-header-color font-Sriracha dark:bg-clip-text dark:text-transparent'>{title}</h1>
+        
       </section>
+      
       <div className="flex items-center justify-start mb-12 font-Sriracha">
         <div className='flex items-center flex-wrap gap-4'>
           <span className={` rounded px-2 py-1 ${categoryTheme[category]}`}>{ category }</span>
@@ -54,16 +55,15 @@ const PostHeader = ({
           <Avatar {...author} />
         </div>
       </div>
-      <div className="mt-5 mb-3 rounded-md overflow-hidden">
-        <img className="w-full" src={coverImage} alt=""  />
-      </div>
-      <span className="flex items-center mr-3">
-        {
-          tags.map((t, id) => (
-            <strong key={id}>{t}</strong>
-          ))
-        }
-      </span>
+      
+      {
+        coverImage ? 
+          <div className="mt-5 mb-3 rounded-md overflow-hidden">
+            <img className="w-full" src={coverImage} alt=""  />
+          </div> : ''
+      }
+      
+      
     </header>
   )
 }

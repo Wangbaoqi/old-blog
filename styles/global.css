@@ -81,3 +81,63 @@
   background-color: #026e00;
   color: #fff;
 }
+
+.tag-sort {
+  background-color: #00a591;
+  color: #fff;
+}
+
+.tag-array {
+  background-color: #95dee3;
+  color: #000;
+}
+
+.tag-doublePoint {
+  background-color: #5b5ea6;
+  color: #fff;
+}
+
+.tag-tree {
+  background-color: #bfd641;
+  color: #fff;
+}
+
+.tag-hash {
+  background-color: #dd4132;
+  color: #fff;
+}
+
+
+.tag-linkList {
+  background-color: #fff;
+  color: #E10098;
+}
+
+
+.tag-stack {
+  background-color: #6b5b95;
+  color: #fff;
+}
+
+
+.tag-dfs {
+  background-color: #026e00;
+  color: #fff;
+}
+
+.tag-bfs {
+  background-color: #3776ab;
+  color: #fff;
+}
+
+
+.tag-binary {
+  background-color: #5b5ea6;
+  color: #fff;
+}
+
+
+.tag-greedy {
+  background-color: #ecdb54;
+  color: #fff;
+}

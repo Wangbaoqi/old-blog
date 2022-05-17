@@ -36,7 +36,7 @@ export default function Header() {
                 <li key={idx} className='mr-10 relative'>
                   <Link href={el.href}>{el.title}</Link>
                   {
-                    pathname.includes(el.href) ? activeSvg : ''
+                    pathname == el.href ? activeSvg : ''
                   }
                 </li>
               );

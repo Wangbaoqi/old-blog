@@ -15,17 +15,27 @@ subCategory: everyDay
 ---
 
 
+<Strong>LeetCode</Strong> [组合总和](https://leetcode-cn.com/problems/combination-sum/description/)
 
+import Strong from './mdx/component/strong.js'
+import InlineCode from './mdx/component/inlineCode.js'
+import Para from './mdx/component/para.js'
 
-# [组合总和](https://leetcode-cn.com/problems/combination-sum/description/)
+export const cBox = (
+  <Para>
+    给你一个<Strong>无重复元素</Strong>
+    的整数数组 <InlineCode>candidates</InlineCode> 和一个目标整数 <InlineCode>target</InlineCode>，
+    找出 <InlineCode>candidates</InlineCode> 中可以使数字和为目标数 <InlineCode>target</InlineCode> 的所有不同组合，并以列表形式返回。
+    你可以按 <Strong>任意顺序</Strong>返回这些组合。
+  </Para>
+)
 
-
-
-> 给你一个 **无重复元素** 的整数数组 `candidates` 和一个目标整数 `target` ，找出 `candidates` 中可以使数字和为目标数 `target` 的 *所有* **不同组合** ，并以列表形式返回。你可以按 **任意顺序** 返回这些组合。
+<SideNote type='info' title='题目描述' children={cBox}/>
 
 `candidates` 中的 **同一个** 数字可以 **无限制重复被选取** 。如果至少一个数字的被选数量不同，则两种组合是不同的。 
 
 对于给定的输入，保证和为 `target` 的不同组合数少于 `150` 个。
+
 
 **示例 1：**
 
@@ -59,11 +69,10 @@ subCategory: everyDay
 - `candidate` 中的每个元素都 **互不相同**
 - `1 <= target <= 500`
 
-[Discussion](https://leetcode-cn.com/problems/combination-sum/comments/) | [Solution](https://leetcode-cn.com/problems/combination-sum/solution/)
 
-### 题解 
+## 题解
 
-#### 回溯 + 剪枝
+### 回溯 + 剪枝
 
 ```js
 const combinationSum = (candidates, target) => {
@@ -94,3 +103,39 @@ const combinationSum = (candidates, target) => {
   return ret;
 }
 ```
+
+
+### 执行代码
+
+export const js = `
+const combinationSum = (candidates, target) => {
+  const ret = [], ans = [];
+  const len = candidates.length;
+  /**
+   * 递归函数
+   * @param {*} s 计算和
+   * @param {*} target 
+   * @param {*} i 
+   * @returns 
+   */
+  const backTracking = (s, target, i) => {
+    // stop condition
+    if (s === target || s > target) {
+      (s === target) && ret.push([...ans]);
+      return
+    }
+    // 单层搜索
+    for (let j = i; j < len; j++) {
+      ans.push(candidates[j]);
+      backTracking(s + candidates[j], target, j);
+      ans.pop(); // 回溯
+    }
+  }
+  backTracking(0, target, 0);
+  return ret;
+}`
+export const options = {
+  mainEntry: 'combinationSum'
+}
+
+<PlayGround js={js} mode='algo' options={options}/> 

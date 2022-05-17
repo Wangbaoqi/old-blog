@@ -33,6 +33,7 @@ export default function TableContent({
   toc,
   indexDepth = 2
 }) {
+  console.log(toc);
   const tocIds = toc.map(e => e.url.replace(/#/g, ''))
   const activeId = useActiveId(tocIds)
   return (
