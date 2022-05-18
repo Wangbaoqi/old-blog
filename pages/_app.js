@@ -16,7 +16,7 @@ export default function MyApp({ Component, pageProps }) {
   })
   return (
     <Provider store={store} >
-      <ThemeProvider attribute="class" enableSystem={true} enableColorScheme >
+      <ThemeProvider attribute="class" defaultTheme='dark' enableSystem={true} enableColorScheme >
         <Component {...pageProps} />
       </ThemeProvider>
     </Provider>

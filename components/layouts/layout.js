@@ -1,9 +1,11 @@
 import { Footer, HeaderWrapper, Header  } from '@components/layouts';
 import Search from "@components/search/search";
+import SEO from '@components/seo/index';
 
-export default function Layout({ children, type }) {
+export default function Layout({ children, type, title, description }) {
   return (
     <>
+      <SEO title={title} description={description}/>
       <div className="min-h-screen">
         <Header />
 

@@ -10,6 +10,7 @@ const Post = ({ post }) => {
   const { slug, toc = [], ...rest } = post;
   const { data = {} } = useSWR(`/api/visitor/${slug}`, fetcher);
 
+  console.log(post.frontmatter.excerpt);
 
   useEffect(() => {
     const registerView = () =>
@@ -21,7 +22,7 @@ const Post = ({ post }) => {
   
   return (
     <>
-      <Layout type='post'>
+      <Layout type='post' title={post.frontmatter.title} description={post.frontmatter.excerpt}>
         <section className="flex flex-col md:flex-row mt-10 px-3 md:px-0">
           <div className="w-full md:w-9/12 md:px-6">
             <MDXRenderer {...rest} views={data.total}/>
