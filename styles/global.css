@@ -32,6 +32,12 @@
   color: #000;
 }
 
+
+.tag-browser {
+  background-color: #95dee3;
+  color: #000;
+}
+
 .tag-html-css {
   background-image: linear-gradient(45deg, #f2552c 0%, #A15190 45%, #bc70a4 100%);
   color: #fff;
@@ -45,6 +51,11 @@
 .tag-react {
   background-color: #282c34;
   color: #61dafb;
+}
+
+.tag-http-browser {
+  background-image: linear-gradient(45deg, #95dee3 0%, #A15190 45%, #5b5ea6 100%);
+  color: #fff;
 }
 
 

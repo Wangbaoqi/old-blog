@@ -18,5 +18,5 @@ export const categoryTheme = {
   'Algorithm': 'tag-algorithm',
   'Html&Css': 'tag-html-css',
   'Js&Ts': 'tag-js-ts',
-  'Http': 'tag-http',
+  'Http&Browser': 'tag-http-browser',
 }

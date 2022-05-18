@@ -5,7 +5,7 @@ import { ExcuterBtn } from "../toolbar";
 
 const Console = ({ codeMap, options }) => {
 
-  const { param = '', rightResult, mainEntry } = options;
+  const { param = '', rightResult, mainEntry, outEntry } = options;
   const jsStr = `${codeMap.javascript}; return ${mainEntry}`;
 
   const [test, setTest] = useState(param);
@@ -19,15 +19,22 @@ const Console = ({ codeMap, options }) => {
   const handleTestCase = useCallback(
     () => {
       try {
-
+        let outputResult = ''
         if (!test) {
           setError('please input params');
           return;
         }
         const mainFn = addStringJs(jsStr);
-        const params = test.split('\n').map(p => JSON.parse(p));
+        const params = test.split('\n').map(p => p && JSON.parse(p));
         const result = mainFn.apply(null, params);
-        setResult(JSON.stringify(result))
+
+        if (result) {
+          outputResult = result
+        } else {
+          outputResult = params[outEntry]
+        }
+        console.log(outputResult);
+        setResult(JSON.stringify(outputResult))
         setError(null)
       } catch (error) {
         console.log(error);

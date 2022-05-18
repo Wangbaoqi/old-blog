@@ -4,9 +4,9 @@ import Link from "next/link";
 const NextPost = ({ prev, next }) => {
   const leftPost = prev ? (
     <Link href={prev.slug}>
-      <div className="flex justify-between gap-4 items-center cursor-pointer text-sm hover:bg-hover-bg px-4 py-4 rounded-md -ml-4">
+      <div className="flex justify-between gap-4 items-center cursor-pointer text-sm hover:bg-hover-bg px-4 py-4 rounded-md -ml-6">
         <ChevronLeft size={20} />
-        <div className="flex flex-col items-center mb-1 justify-start cursor-pointer">
+        <div className="flex flex-col items-start mb-1 justify-between cursor-pointer">
           <span className="uppercase">previous</span>
           <h3 className="text-hover-color font-SourceCode">
           {prev.title}

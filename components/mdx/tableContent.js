@@ -33,14 +33,13 @@ export default function TableContent({
   toc,
   indexDepth = 2
 }) {
-  console.log(toc);
   const tocIds = toc.map(e => e.url.replace(/#/g, ''))
   const activeId = useActiveId(tocIds)
   return (
     <>
       <nav className="sticky top-20">
         <h2 className="text-base mb-6 font-medium">TABLE OF CONTENT</h2>
-        <ul>
+        <ul className="max-h-screen-60 overflow-y-auto">
           {
             toc.map(head => {
               const headCls = cn(
@@ -61,5 +60,4 @@ export default function TableContent({
       </nav>
     </>
   )
-
 }

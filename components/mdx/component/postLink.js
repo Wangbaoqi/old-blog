@@ -18,8 +18,6 @@ const PostLink = ({
     )
   }
 
-  console.log(rest);
-
   if (inter) {
     return (
       <a className={acls} target='_blank' href={href} {...rest} >
