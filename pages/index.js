@@ -5,7 +5,7 @@ import { FeatureWrapper, RecentWrapper, RecomendWrapper } from '@components/post
 export default function BlogList({ featurePosts, categoryGroup, recentPost }) {
   return (
     <>
-      <Layout type='page' >
+      <Layout type='page' title='Nate Wang blog Home'>
         <FeatureWrapper
           featurePosts={featurePosts}
           categoryGroup={categoryGroup}

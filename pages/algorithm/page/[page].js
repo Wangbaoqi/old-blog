@@ -72,8 +72,9 @@ const AlgorithmWrapper = ({
   }
     
   return (
-    <Layout type='page'>
+    <Layout type='page' title={'all algorithm posts'}>
       <section className="py-20 px-3 md:px-0">
+        <h1 className=" text-xl mb-10 font-Sriracha bg-header-color dark:bg-clip-text dark:text-transparent">Solved Topics</h1>
         <div className="flex items-center font-Sriracha">
           <h3 className="text-second-color text-base mr-4">All: </h3>
           <span>{`${allCount} 道题目`}</span>

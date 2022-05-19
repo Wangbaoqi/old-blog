@@ -3,11 +3,7 @@ import PropTypes from 'prop-types';
 import Head from 'next/head';
 import { useRouter } from 'next/router'
 
-const GENERIC_DESCRIPTION =
-  'Focus on JavaScript, React, CSS, FrontEnd, Algorithm and more!';
-
 const PROD_URL = 'https://www.wangbaoqi.tech';
-
 const faviconSrc = '/favicon.webp';
   
 function SEO({
@@ -20,8 +16,10 @@ function SEO({
   let metaTagTitle = title || 'Nate Wang blog';
   let pageTitle = seoTitle || metaTagTitle;
 
+  const GENERIC_DESCRIPTION = `${title} Focus on JavaScript, React, CSS, FrontEnd, Algorithm and more!`;
   const metaDescription = description || GENERIC_DESCRIPTION;
   const router = useRouter()
+
 
 
   const ogImageAlt = ogImage

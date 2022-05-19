@@ -6,6 +6,9 @@ const PostLink = ({
   href = '',
   ...rest
 }) => {
+
+  if(!href) return <span className="" {...rest}></span>
+
   const inter = href.startsWith('http');
   const anchor = href.startsWith('#');
   const acls = 'text-code-color hover:underline hover:underline-offset-4 px-1 font-medium font-mono'
