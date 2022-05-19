@@ -33,7 +33,7 @@ const PostLink = ({
     href ? 
     <Link href={href}>
       <a className={acls} {...rest}/>
-      </Link> : <a {...rest} className={acls} />
+    </Link> : <a {...rest} className={acls} />
   )
 }
 

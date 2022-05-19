@@ -3,7 +3,7 @@ import { getGroupByCategory } from "@lib/mdx";
 import { Layout } from '@components/layouts';
 import { RecentCard } from '@components/posts';
 import Link from 'next/link';
-import { categoryTheme } from "@utils/tagtheme";
+import { tagTheme } from "@utils/tagtheme";
 
 
 
@@ -18,7 +18,7 @@ const Category = ({
           {
             allCategory.map((cate, idx) => {
 
-              const tagCls = categoryTheme[cate[0]]
+              const tagCls = tagTheme[cate[0]]
               return (
                 <Link href={`/category/${cate[0]}`} key={idx}>
                   <div className={`font-Sriracha cursor-pointer rounded py-1 px-3 ${tagCls}`}>

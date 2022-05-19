@@ -6,5 +6,6 @@ export { default as MobileNav } from './mobileNav';
 export { default as ThemeSwitch } from './themeSwitch';
 export { default as HeaderWrapper } from './headerWrapper';
 export { default as SplitLayout } from './splitLayout';
+export { default as InPortal } from './inPortal';
 
 

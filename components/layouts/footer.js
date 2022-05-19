@@ -14,7 +14,7 @@ export default function Footer() {
   return (
     <footer className="bg-header-cover">
       <Container>
-        <div className="max-w-6xl mx-auto py-8 flex mt-20 lg:px-5  flex-col md:flex-row justify-between space-y-8 lg:flex-row lg:space-y-0">
+        <div className="max-w-6xl mx-auto py-8 flex mt-40 lg:px-5 px-3 flex-col md:flex-row justify-between space-y-8 lg:flex-row lg:space-y-0">
           <div className=" flex flex-col justify-between">
             <div className="h-full flex flex-col">
               <Logo />
@@ -39,7 +39,7 @@ export default function Footer() {
                 }
               </ul>
             </div>
-            <div className="space-y-3  ml-24">
+            <div className="space-y-3 ml-14 md:ml-24">
               <div className="capitalize font-SourceCode text-primary-color opacity-80 text-sm">
                 Social media
               </div>

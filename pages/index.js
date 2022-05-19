@@ -22,7 +22,6 @@ export default function BlogList({ featurePosts, categoryGroup, recentPost }) {
 }
 
 export const getStaticProps = async () => {
-  // const posts = await getAllPosts();
   const featurePosts = await getFeaturePost();
   const categoryGroup = await getGroupByCategory('category');
   const recentPost = await getRecentPost();

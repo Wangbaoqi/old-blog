@@ -1,4 +1,4 @@
-export const algoTheme = {
+export const tagTheme = {
   '回溯': 'tag-backTrack',
   '动态规划': 'tag-dp',
   '数学': 'tag-math',
@@ -10,13 +10,11 @@ export const algoTheme = {
   'easy': 'tag-easy',
   'medium': 'tag-medium',
   'hard': 'tag-hard',
-}
 
-
-export const categoryTheme = {
   'React': 'tag-react',
   'Algorithm': 'tag-algorithm',
   'Html&Css': 'tag-html-css',
   'Js&Ts': 'tag-js-ts',
   'Http&Browser': 'tag-http-browser',
 }
+

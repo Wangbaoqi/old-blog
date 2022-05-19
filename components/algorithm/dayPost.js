@@ -1,6 +1,6 @@
 import { Avatar } from "@components/ui";
 import Link from "next/link";
-import { algoTheme } from "@utils/tagtheme";
+import { tagTheme } from "@utils/tagtheme";
 import { Title } from "@components/ui";
 import { Star } from "react-feather";
 
@@ -39,7 +39,7 @@ const DayTablePost = ({
             </thead>
             <tbody>
               {dayList.map((item) => {
-                const levelCls = algoTheme[item.level]
+                const levelCls = tagTheme[item.level]
                 return (
                   <tr key={item.id} className=' text-sm hover:bg-hover-bg cursor-pointer'>
                     <td className="px-5 py-4 ">{item.id}</td>
@@ -52,7 +52,7 @@ const DayTablePost = ({
                     </td>
                     <td className="px-5 py-4 ">
                       {item.tags.map((tag, idx) => { 
-                        const tagCls = algoTheme[tag]
+                        const tagCls = tagTheme[tag]
                         return (
                           <strong key={idx} className={`rounded px-1 py-0.5 text-xs mr-1 ${tagCls}`}>
                             {tag}

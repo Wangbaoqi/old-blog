@@ -1,7 +1,7 @@
 
 import Link from 'next/link';
 import { Avatar } from '@components/ui';
-import { categoryTheme } from "@utils/tagtheme";
+import { tagTheme } from "@utils/tagtheme";
 
 
 const RecomendPost = ({
@@ -22,7 +22,7 @@ const RecomendPost = ({
       "
     >
       <p className='font-Pacifico'>
-        <span className={`rounded px-1 py-0 font-Sriracha text-xs mr-2 ${categoryTheme[category]}`}>{ category}</span>
+        <span className={`rounded px-1 py-0 font-Sriracha text-xs mr-2 ${tagTheme[category]}`}>{ category}</span>
         <span className='text-pre font-Sriracha'>{date}</span>
       </p>
       <Link href={`/posts/${slug}`}>

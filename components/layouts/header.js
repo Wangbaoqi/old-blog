@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Container, MobileNav } from "@components/layouts";
 import { headNav } from "@data/headNav";
 import ThemeSwitch from "./themeSwitch";
 import { useRouter } from "next/router";
@@ -20,38 +21,39 @@ export default function Header() {
     </svg>
   )
   return (
-    <div className="fixed left-0 right-0 top-0 backdrop-blur md:py-3 z-1000">
-      <section className="flex justify-between items-center max-w-6xl mx-auto md:py-8 md:px-6 lg:py-2 lg:px-5 px-4 py-5">
-        <div className="flex items-center">
-          {/* <MobileNav /> */}
-          <Link href="/">
-            <div className="flex flex-col justify-start relative z-10 font-medium ob-drop-shadow cursor-pointer">
-              <Logo/>
-            </div>
-          </Link>
-
-          <ul className="hidden lg:flex text-sm ml-10 font-Gloria ">
-            {headNav.map((el, idx) => {
-              return (
-                <li key={idx} className='mr-10 relative'>
-                  <Link href={el.href}>{el.title}</Link>
-                  {
-                    pathname == el.href ? activeSvg : ''
-                  }
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-
-        <nav className="flex justify-between items-center ">
+    <div className="fixed left-0 right-0 top-0 backdrop-blur md:py-3 z-30">
+      <Container>
+        <section className="flex justify-between items-center max-w-6xl mx-auto container md:py-8 lg:py-2 px-3 lg:px-5 py-5">
           <div className="flex items-center">
-            <SearchBtn />
-            <ThemeSwitch />
-            <GithubIcon />
+            <Link href="/">
+              <div className="flex flex-col justify-start relative z-10 ob-drop-shadow cursor-pointer">
+                <Logo/>
+              </div>
+            </Link>
+            <ul className="hidden lg:flex text-sm ml-10 font-wotfard font-medium dark:text-white ">
+              {headNav.map((el, idx) => {
+                return (
+                  <li key={idx} className='mr-10 relative'>
+                    <Link href={el.href}>{el.title}</Link>
+                    {
+                      pathname == el.href ? activeSvg : ''
+                    }
+                  </li>
+                );
+              })}
+            </ul>
           </div>
-        </nav>
-      </section>
+
+          <nav className="flex justify-between items-center ">
+            <div className="hidden md:flex items-center">
+              <SearchBtn />
+              <ThemeSwitch />
+              <GithubIcon />
+            </div>
+            <MobileNav />
+          </nav>
+        </section>
+      </Container>
     </div>
   );
 }

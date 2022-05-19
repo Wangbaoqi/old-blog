@@ -2,7 +2,7 @@ import {Avatar} from '@components/ui';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Clock, Type, ChevronRight, Eye } from 'react-feather';
-import { categoryTheme } from '@utils/tagtheme';
+import { tagTheme } from '@utils/tagtheme';
 
 const PostHeader = ({
   title = '',
@@ -37,7 +37,7 @@ const PostHeader = ({
       
       <div className="flex items-center justify-start mb-12 font-Sriracha">
         <div className='flex items-center flex-wrap gap-4'>
-          <span className={` rounded px-2 py-1 ${categoryTheme[category]}`}>{ category }</span>
+          <span className={` rounded px-2 py-1 ${tagTheme[category]}`}>{ category }</span>
           <span className=''>{date}</span>
           <span className='flex items-center'>
             <Clock size={18} />
@@ -59,7 +59,7 @@ const PostHeader = ({
       {
         coverImage ? 
           <div className="mt-5 mb-3 rounded-md overflow-hidden">
-            <img className="w-full" src={coverImage} alt=""  />
+            <img className="w-full" src={coverImage} alt={title} />
           </div> : ''
       }
       

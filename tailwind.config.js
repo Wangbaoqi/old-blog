@@ -22,12 +22,12 @@ module.exports = {
     extend: {
       fontFamily: {
         'Sriracha': ['Sriracha', 'Sriracha', ...defaultTheme.fontFamily.sans],
-        'Fira': ['Fira Sans', 'sans-serif' , ...defaultTheme.fontFamily.sans],
         'Gloria': ['Gloria Hallelujah', 'cursive', ...defaultTheme.fontFamily.sans],
         'SourceCode': ['Source Code Pro', 'monospace', ...defaultTheme.fontFamily.sans],
+        'wotfard': ["Wotfard", 'Futura', '-apple-system', 'sans-serif' ]
       },
       height: {
-        'f-card': '250px',
+        'f-card': '220px',
         'f-card-c': '200px',
         'p-card': '350px',
         '70': '70px',
@@ -47,7 +47,7 @@ module.exports = {
         '12': '40px',
         '40': '80px',
         '60': '100px',
-        'f-card': '250px',
+        'f-card': '220px',
         'screen-40': '380px',
         'screen-35': '35vh'
       },
@@ -104,7 +104,8 @@ module.exports = {
         'header-cover': 'linear-gradient(-165deg, var(--bg-primary-dark), var(--bg-primary-light))',
         'card-cover': 'linear-gradient(180deg, var(--bg-primary-dark), var(--bg-primary-light))',
         'post-cover': 'linear-gradient(90deg, var(--bg-primary-dark), var(--bg-primary-light))',
-        'header-color': 'var(--rainbow-gradient, --fg-primary)'
+        'header-color': 'var(--rainbow-gradient, --fg-primary)',
+        'ver-color': 'linear-gradient(130deg, #ff7a18, #af002d 41.07%, #319197 76.05%)'
       },
       spacing: {
         28: '7rem',

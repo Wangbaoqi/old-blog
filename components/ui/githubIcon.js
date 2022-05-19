@@ -9,7 +9,7 @@ const GithubIcon = () => {
   return (
     <>
       <PostLink href='https://github.com/Wangbaoqi'>
-        <GitHub className=" text-primary-color" size={20}/>
+        <GitHub className="dark:hover:text-white text-primary-color" size={20}/>
       </PostLink>
     </>
   )

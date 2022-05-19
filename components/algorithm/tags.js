@@ -1,5 +1,5 @@
 import { memo, useState, useEffect } from 'react';
-import { algoTheme } from "@utils/tagtheme";
+import { tagTheme } from "@utils/tagtheme";
 import { Check } from 'react-feather';
 
 const Tags = ({
@@ -25,7 +25,7 @@ const Tags = ({
       <div className='flex flex-wrap gap-2 flex-1'>
         {
           tags.map((tag, idx) => {
-            const typeCls = algoTheme[tag.key]
+            const typeCls = tagTheme[tag.key]
             const tagCls = tag.check ? ' text-code' : 'bg-second-bg';
             return (
               <span
