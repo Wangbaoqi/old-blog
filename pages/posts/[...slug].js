@@ -10,8 +10,6 @@ const Post = ({ post }) => {
   const { slug, toc = [], ...rest } = post;
   const { data = {} } = useSWR(`/api/visitor/${slug}`, fetcher);
 
-  console.log(post.frontmatter.excerpt);
-
   useEffect(() => {
     const registerView = () =>
       fetcher(`/api/visitor/${slug}`, {

@@ -8,8 +8,6 @@ const Tags = ({
 }) => {
 
   const [tags, setTags] = useState(tagsList);
-
-  console.log(tags);
   const checkTags = (idx) => {
     tags[idx].check = !tags[idx].check;
     setTags([...tags])

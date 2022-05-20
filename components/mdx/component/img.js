@@ -7,7 +7,7 @@ const Img = (props) => {
   return (
 
     <span className="flex justify-center">
-      <img className=" object-fill" {...props}/>
+      <img className=" object-fill" {...props} />
     </span>
 
   )

@@ -33,7 +33,6 @@ const Console = ({ codeMap, options }) => {
         } else {
           outputResult = params[outEntry]
         }
-        console.log(outputResult);
         setResult(JSON.stringify(outputResult))
         setError(null)
       } catch (error) {
