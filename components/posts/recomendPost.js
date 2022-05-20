@@ -26,7 +26,7 @@ const RecomendPost = ({
         <span className='text-pre font-Sriracha'>{date}</span>
       </p>
       <Link href={`/posts/${slug}`}>
-        <h1 className='cursor-pointer my-3 md:text-lg text-tiny font-Sriracha bg-header-color dark:text-transparent bg-clip-text font-semibold'>{ title }</h1>
+        <h2 className='cursor-pointer my-3 md:text-lg text-tiny font-Sriracha bg-header-color dark:text-transparent bg-clip-text font-semibold'>{ title }</h2>
       </Link>
       <section className='mb-6'>
         <ul className="flex mb-4 lg:mb-0">

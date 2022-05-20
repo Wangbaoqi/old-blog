@@ -33,7 +33,7 @@ const MobileNav = () => {
 
   return (
     <InPortal id=''>
-      <div className='fixed  top-5 right-5 z-50' onClick={() => setToogle(!status)}>
+      <div className='fixed top-5 right-5 z-50 md:hidden' onClick={() => setToogle(!status)}>
         {
           status ? <X size={28}/> : <AlignJustify size={26} className='mr-2'/>
         }

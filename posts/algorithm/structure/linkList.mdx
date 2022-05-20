@@ -17,7 +17,7 @@ subCategory: dataStructure
 
 链表是一种线性存储结构，元素未存储的在连续的内存块中，而是通过类似指针的方式连接每一个节点
 
-![](https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/algorithm/linklists/linkedlist.png)
+![singleList](/assets/blog/algorithm/linklist/linkedlist.webp)
 
 ## 单链表
 
@@ -27,7 +27,7 @@ subCategory: dataStructure
 
 单链表添加节点分为头部添加、中间添加以及尾部添加。
 
-![](https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/algorithm/linklists/linklist-add.png)
+![singleaddList](/assets/blog/algorithm/linklist/linklist-add.webp)
 
 ```javascript
 // 添加节点 头部以及尾部
@@ -203,7 +203,7 @@ LLinkList.diaplay()
 
 双链表相比单链表多了一个节点prev，指向其前一个节点
 
-![](https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/algorithm/linklists/linklist-d.png)
+![doubleaddList](/assets/blog/algorithm/linklist/linklist-d.webp)
 
 ### 双链表实现
 
@@ -274,7 +274,8 @@ class DoubleLinkList {
 
 环形链表可以判断一个单链表是否有环，见下图
 
-![](<../.gitbook/assets/linkNode-circle (1).png>)
+![cycleList](/assets/blog/algorithm/linklist/linklist-circle.webp)
+
 
 在考虑到空间复杂度，可以在当前内存中使用快慢指针技巧快速判断。
 
@@ -303,7 +304,8 @@ const hasCycle = function(head) {
 
 环形链表II 在之前的基础上要**返回入环的第一个节点，也就是下面的`节点2` **
 
-![](https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/algorithm/linklists/linknode-circle.png)
+![cycleList](/assets/blog/algorithm/linklist/linklist-circle.webp)
+
 
 在确认链表有环的前提下，新增一个指针，从链表头部开始移动，同时与快慢指针相遇的节点移动，最终两者都会相遇，相遇节点就是入环的第一个节点。
 
@@ -336,7 +338,8 @@ const detectCycle1 = (head) => {
 
 如下图，两个单链表相交，返回相交的起始节点
 
-![](https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/algorithm/linklists/intersect-linknode.png)
+![intersect](/assets/blog/algorithm/linklist/intersect-linknode.webp)
+
 
 比较简单的方式可以用哈希表，不过这种方式额外增加了空间复杂度，最优的解法是在原地进行操作，也就是使用双指针模式。
 
@@ -364,7 +367,7 @@ const getIntersectionNode = (headA, headB) => {
 
 如下图，需要删除`4`这个节点
 
-![](https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/algorithm/linklists/deleteorder-linknode.png)
+![deleteorder](/assets/blog/algorithm/linklist/deleteorder-linknode.webp)
 
 一种简单的思路是**计算链表的长度**，得到需要删除节点的顺序位置，然后再遍历链表，删除节点
 
@@ -398,7 +401,8 @@ const removeNthFromEnd = function(head, n) {
 
 另一种方式就是**双指针模式，**定义快慢指针，以及哨兵节点（方便处理链表）
 
-![](https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/algorithm/linklists/deletenode1.png)
+![deletenode1](/assets/blog/algorithm/linklist/deletenode1.webp)
+
 
 先让快指针移动 `n`个步骤，这样之后快慢指针同时移动，直到快指针指向`null` ，此时慢指针指向的就是待删除的节点。如下图，为了方便删除节点，给链表头部新增了`dummy` 节点。
 
@@ -440,7 +444,7 @@ const removeNthFromEnd1 = function(head, n) {
 
 ### 反转链表 
 
-![](https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/algorithm/linklists/linklist-r.png)
+![rnode1](/assets/blog/algorithm/linklist/linklist-r.webp)
 
 如上图流程所示
 
@@ -469,7 +473,7 @@ const reverseList = function(head) {
 
 如下图，删除链表中给定值的节点`  4  `
 
-![](https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/algorithm/linklists/deletelinknode.png)
+![deletelinknode](/assets/blog/algorithm/linklist/deletelinknode.webp)
 
 可以看到，`dummy` 节点是自定义的头节点，这里定义了一个哨兵节点（为了删除节点）`preNode` 。然后遍历链表，如果有需要删除的节点，哨兵节点指向了删除节点的 next ，反之，哨兵节点跟着当前节点`curNode`移动，直到链表遍历结束。
 
@@ -499,7 +503,7 @@ const removeElements = function(head, val) {
 
 给定一个单链表，把所有的奇数节点和偶数节点分别排在一起。请注意，这里的奇数节点和偶数节点指的是节点编号的奇偶性，而不是节点的值的奇偶性。  -- _from LeetCode_
 
-![](https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/algorithm/linklists/oddevenlinknode.png)
+![deletelinknode](/assets/blog/algorithm/linklist/oddevenlinknode.webp)
 
 上图所示，根据题意，链表的第一个节点肯定是奇节点，下一个是偶节点，以此类推。定义两个移动指针`odd` （奇节点） 和 `even` （偶节点），初次之外，定义一个偶节点 evenNode，指向偶节点链头，目的是将奇链表的尾节点指向该偶链表的头部。
 
@@ -530,7 +534,7 @@ const oddEvenList = function(head) {
 
 如下图，使用快慢指针来解决回文链表的图解
 
-![](https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/algorithm/linklists/palindromelinknode.png)
+![deletelinknode](/assets/blog/algorithm/linklist/palindromelinknode.webp)
 
 首先，将链表分为两部分，将后半部分进行反转，然后将前半部分跟后半部分进行对比，得出是否是回文链表
 
@@ -588,11 +592,11 @@ const isPalindrome = (head) => {
 
 ### **链表进行插入排序**
 
-关于插入排序，可以到[「常用算法系列 - 排序算法」](../常用算法系列/排序算法.md#cha-ru-pai-xu)
+关于插入排序，可以到[排序算法](/posts/algorithm/break/sort#插入排序)
 
 下图展示了链表插入排序的图示
 
-![](https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/algorithm/linklists/insertsortlink.png)
+![deletelinknode](/assets/blog/algorithm/linklist/insertsortlink.webp)
 
 首先，需要一个哨兵节点来记录整个链表的变化。
 
@@ -632,11 +636,11 @@ const insertionSortList = (head) => {
 
 ### 合并两个有序链表
 
-![](https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/algorithm/linklists/linklist-m.png)
+![linklist-m](/assets/blog/algorithm/linklist/linklist-m.webp)
 
 #### 合并 + 排序
 
-![](https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/algorithm/linklists/linklist-ms.png)
+![linklist-ms](/assets/blog/algorithm/linklist/linklist-ms.webp)
 
 最容易想到的解法，就是先合并成一个链表，然后进行排序
 
@@ -686,7 +690,7 @@ var mergeTwoLists1 = function(l1, l2) {
 
 #### 递归方式
 
-![](https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/algorithm/linklists/linklist-dg.png)
+![linklist-ms](/assets/blog/algorithm/linklist/linklist-dg.webp)
 
 ```javascript
 const mergerTwoList = (head1, head2) => {
@@ -729,7 +733,7 @@ const mergerTwoList = (head1, head2) => {
 
 ### 复制带随机数的链表
 
-![](https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/algorithm/linklists/linklist-cp.png)
+![linklist-ms](/assets/blog/algorithm/linklist/linklist-cp.webp)
 
 ```javascript
 function Node(val, next, random) {
@@ -766,7 +770,7 @@ const copyListRandom = (head) => {
 
 ### 两数相加
 
-![](https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/algorithm/linklists/linklist-ta.png)
+![linklist-ta](/assets/blog/algorithm/linklist/linklist-ta.webp)
 
 可以想到的方式是同时遍历两个链表，然后根据是否有进位，如果有进位，则跟下两位节点进行计算，直到链表遍历结束，如果还有进位，则添加进链表中。
 
@@ -805,7 +809,7 @@ const addTwoNumbers = (l1, l2) => {
 
 ### 旋转链表
 
-![](https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/algorithm/linklists/linklist-rotate.png)
+![linklist-rotate](/assets/blog/algorithm/linklist/linklist-rotate.webp)
 
 看题意，如果不用构造环来解决的话，最能想到的就是是暴力法，找到尾结点，然后将其插入到头结点上。这里将头结点加入到哨兵节点之后，方便头节点的操作。
 
@@ -878,7 +882,7 @@ const rotateRight_right = (head) => {
 
 ### LRU缓存机制
 
-![](https://cdn.jsdelivr.net/gh/Wangbaoqi/blogImgs@master/nateImgs/algorithm/linklists/linklist-lru.png)
+![linklist-lru](/assets/blog/algorithm/linklist/linklist-lru.webp)
 
 此题也是经典面试题，除了题意，要求`get` 和 `put`操作的时间复杂度都是`O(1)`  ，这样的数据结构可以联想到链表，因为在添加数据的时候可能存在删除数据，要保证put操作的时间复杂度为 O(1)，插入操作和删除操作都要保持`O(1)`的时间复杂度，这样一来，可以暂时定为双链表，不过前提条件是先查找到该节点，这个可以用哈希表。
 
@@ -1004,10 +1008,6 @@ LRUCache.prototype.put = function(key, value) {
 ```
 
 
-
-### 链表在线测试
-
-链表算法测试可以到 `src/algo/linkNode`  
 
 
 
