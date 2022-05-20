@@ -61,7 +61,7 @@ function SEO({
       <link rel="icon" type="image/png" href={`${faviconSrc}`} />
       <link
         rel="canonical"
-        href={canonicalPath ? canonicalPath : `${PROD_URL}${router.asPath}`}
+        href={canonicalPath ? canonicalPath : `${PROD_URL}${router.asPath == '/' ? '' : router.asPath}`}
       />
     </Head>
   );

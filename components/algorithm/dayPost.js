@@ -13,7 +13,7 @@ const DayTablePost = ({
     <section className="">
       { showTitle ? <Title title="Every Day" className='my-20' showAll={true} allHref={`/algorithm/page/1`} /> : '' }
 
-      <div className="container inline-block min-w-full shadow-3xl dark:bg-card-cover  lg:overflow-hidden px-3 md:px-0 rounded-3xl">
+      <div className="container inline-block min-w-full shadow-lg  dark:bg-card-cover lg:overflow-hidden px-3 md:px-0 rounded-xl">
         <div className="overflow-x-auto ">
           <table className="table-auto min-w-full leading-normal ">
             <thead className=" ">

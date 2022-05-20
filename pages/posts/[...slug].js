@@ -20,7 +20,7 @@ const Post = ({ post }) => {
   
   return (
     <>
-      <Layout type='post' title={`nate wang blog - ${post.frontmatter.title}`} description={post.frontmatter.excerpt}>
+      <Layout type='post' title={`${post.frontmatter.title} | Nate Wang Blog `} description={post.frontmatter.excerpt}>
         <section className="flex flex-col md:flex-row mt-10 px-3 md:px-0">
           <div className="w-full md:w-9/12 md:px-6">
             <MDXRenderer {...rest} views={data.total}/>

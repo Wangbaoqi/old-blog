@@ -32,7 +32,7 @@ const Category = ({
                   priority
                   alt={cate.key}
                 />
-                <h5 className=" text-tiny font-Gloria font-medium ml-4">{cate.key}{`(${cate.count})`}</h5>
+                <h3 className=" text-tiny font-Gloria font-medium ml-4">{cate.key}{`(${cate.count})`}</h3>
                 <ChevronRight className=' absolute top-1/2 -translate-y-1/2 right-4' size={20}/>
               </div>
             </Link>

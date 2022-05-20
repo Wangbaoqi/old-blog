@@ -8,12 +8,12 @@ const Title = ({
 }) => {
 
   return (
-    <div className="flex justify-between items-center px-3 py-8 md:px-0">
-      <h2 className="font-Sriracha text-2xl md:text-3xl text-second-color">{ title }</h2>
+    <div className="flex justify-between items-center px-3 py-8 md:px-0 text-second-color cursor-pointer">
+      <h2 className="font-Sriracha text-2xl md:text-3xl ">{ title }</h2>
       {
         showAll ? (
           <Link href={allHref}>
-            <a className='flex items-center text-sm'>
+            <a className='flex items-center text-tiny font-Gloria'>
               <span className='mr-3'>View All</span>
             </a>
           </Link>

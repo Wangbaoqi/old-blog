@@ -23,6 +23,7 @@ export default function HeaderWrapper({ type = "" }) {
 
         <div className="max-w-6xl mx-auto person-logo  w-full relative overflow-hidden">
           <img
+            title="nate icon"
             className=" md:block absolute right-2 md:right-11 -bottom-3 md:-bottom-6 h-32 md:h-44 px-2 "
             src={`/assets/svg/me.webp`}
             alt='me icon'
