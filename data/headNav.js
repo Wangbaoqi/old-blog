@@ -7,9 +7,6 @@ export const headNav = [
     href: '/category',
     title: 'Category'
   }, {
-    href: '/archive',
-    title: 'Archive'
-  }, {
     href: '/algorithm',
     title: 'Algorithm'
   }

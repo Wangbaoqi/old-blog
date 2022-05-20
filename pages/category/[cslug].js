@@ -7,7 +7,7 @@ const Category = ({ title, cateGoryList, groupCategory }) => {
   
   return (
     <>
-      <Layout type='page' title={title}>
+      <Layout type='page' title={`nate wang blog category for ${title} subCategory`}>
         <CategoryWrapper
           title={title}
           categoryPost={cateGoryList}

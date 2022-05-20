@@ -23,7 +23,7 @@ subCategory: breakThrough
 
 下图为动图演示
 
-![](/assets/blog/algorithm/sort/bubble-sort.gif)
+![bubble-sort](/assets/blog/algorithm/sort/bubble-sort.gif)
 
 
 排序冒泡会有两层循环，分为外循环和内循环。外循环负责整个数组的循环，内循环的区间随着外循环的区间变化而变化，内循环判断相邻元素大小，从而进行元素互换。
@@ -130,7 +130,7 @@ function bubbleSort(arr) {
 
 下图为动图展示
 
-![](/assets/blog/algorithm/sort/select-sort.gif)
+![select-sort](/assets/blog/algorithm/sort/select-sort.gif)
 
 可以看到，选择排序也是两重循环，外循环的第一个元素和内循环剩下的元素进行比较，将最小的元素放到第一个位置上，以此类推。
 
@@ -156,7 +156,7 @@ function selectSort(arr) {
 
 下图为动图展示
 
-![](/assets/blog/algorithm/sort/insert-sort.gif)
+![insert-sort](/assets/blog/algorithm/sort/insert-sort.gif)
 
 插入排序也有两层循环，外层循环遍历每一个元素，内层循环对外层循环选中的选中的元素跟前一个元素 进行比较，如果选中的元素小于前一个元素，则将前一个元素后移，以此类推。
 
@@ -255,7 +255,7 @@ const quickSort = (arr) => {
 
 #### 双边循环法
 
-双边循环法是在[对撞指针](双指针模式.md)的基础上，根据基准点（一般第一个元素），将小于基准点的元素移动到其左侧，大于基准点的元素移动到其右侧。
+双边循环法是在[对撞指针](/posts/algorithm/break/doublePoint)的基础上，根据基准点（一般第一个元素），将小于基准点的元素移动到其左侧，大于基准点的元素移动到其右侧。
 
 ```javascript
 const quickSortMain = (arr) => {
@@ -278,7 +278,7 @@ const quickSort = (arr, start, end) => {
 
 如下图 计算下一轮递归的基准值
 
-![](/assets/blog/algorithm/sort/quickSort_double.webp)
+![quickSort_double](/assets/blog/algorithm/sort/quickSort_double.webp)
 
 
 首先从`right` 右指针开始，对比基准点 pivot ，大于基准点 `right` 指针向左侧移动，否则移动左指针 `left` 。
@@ -323,7 +323,7 @@ const partition = (arr, start, end) => {
 
 单边循环法是使用一个单指针来遍历，同时`pivot`基准元素也是取的第一位，增加了 `mark` 指针，来标记基准元素左右的边界。如下图，计算第一次获取边界值的循环
 
-![](/assets/blog/algorithm/sort/quickSort_single.webp)
+![quickSort_single](/assets/blog/algorithm/sort/quickSort_single.webp)
 
 首先记录`pivot`和`mark`指针为首位，循环指针`p`为`pivot`的下一位，判断 `p` 和 `pivot`的大小。
 
@@ -361,7 +361,7 @@ const partition_single = (arr, start, end) => {
 
 给定原问题`[4,2,6,3,8,5,9]`，将其对半拆分成多个子问题，直到不能拆分位置，然后从子问题出发，排序子问题。
 
-![](/assets/blog/algorithm/sort/gb-sort.webp)
+![gb-sort](/assets/blog/algorithm/sort/gb-sort.webp)
 
 因为使用递归思想，那么必须满足三个条件：
 

@@ -229,7 +229,7 @@ refs 提供了一种方式，可以访问DOM节点或者React元素。
 
 ### refs的执行时机
 
-在组件挂载时，给`current`属性传入DOM元素或者react元素（若是回调refs，会调用ref的callback函数并传入DOM元素，当卸载时传入`null`），当卸载时，给`current`传入null ，详细的请看 「[React源码 -  React API」](<../../../source code/react17 source code/reactdom/react-api.md#react-createref>)
+在组件挂载时，给`current`属性传入DOM元素或者react元素（若是回调refs，会调用ref的callback函数并传入DOM元素，当卸载时传入`null`），当卸载时，给`current`传入null ，详细的请看 [深入理解 React API 以及其使用](/posts/react/api#reactcreateref)
 
 ### 创建Refs
 
@@ -334,7 +334,7 @@ class App extends React.Component {
 
 ## React.forwardRef
 
-Ref 的转发也是一种将ref传递到子组件的技巧。这在可重用的组件库中是很有用的。关于源码请到「[React 源码 - React API 」](<../../../source code/react17 source code/reactdom/react-api.md#react-forwardref>)
+Ref 的转发也是一种将ref传递到子组件的技巧。这在可重用的组件库中是很有用的。关于源码请到[深入理解 React API 以及其使用](/posts/react/api#reactforwardref)
 
 ```typescript
 const FancyButton = () => {

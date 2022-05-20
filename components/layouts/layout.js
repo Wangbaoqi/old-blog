@@ -6,7 +6,7 @@ export default function Layout({ children, type, title, description }) {
   return (
     <>
       <SEO title={title} description={description}/>
-      <div className="min-h-screen">
+      <div className="relative min-h-screen">
         <Header />
 
         <HeaderWrapper type={ type }/>

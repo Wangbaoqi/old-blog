@@ -18,7 +18,7 @@ const Category = ({
 
   return (
     <section className="">
-      <h3 className="text-2xl font-Sriracha">Categories</h3>
+      <h2 className="text-2xl text-second-color font-Sriracha">Categories</h2>
       {
         cateList.map((cate) => {
           return (

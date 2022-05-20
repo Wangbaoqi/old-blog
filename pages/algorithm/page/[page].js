@@ -72,7 +72,7 @@ const AlgorithmWrapper = ({
   }
     
   return (
-    <Layout type='page' title={'all algorithm posts'} >
+    <Layout type='page' title={'all algorithm posts and leetCode Solved topics'} >
       <section className="py-20 px-3 md:px-0">
         <h1 className=" text-xl mb-10 font-Sriracha bg-header-color dark:bg-clip-text dark:text-transparent">Solved Topics</h1>
         <div className="flex items-center font-Sriracha">

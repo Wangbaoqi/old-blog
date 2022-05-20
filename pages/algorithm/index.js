@@ -10,7 +10,7 @@ const AlgorithmPost = ({
 
   return (
     <>
-      <Layout type='page'>
+      <Layout type='page' title={'Nate Wang blog data structure algorithm and leetCode topics'}>
         <AlgorithmWrapper
           structureList={structureList}
           breakList={breakList}
