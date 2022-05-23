@@ -1,5 +1,4 @@
 import { getServerSideSitemap } from 'next-sitemap';
-import fs from 'fs';
 
 
 export const getServerSideProps = async (ctx) => {

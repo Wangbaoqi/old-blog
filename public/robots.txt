@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://wangbaoqi.tech
+
+# Sitemaps
+Sitemap: https://wangbaoqi.tech/sitemap.xml
