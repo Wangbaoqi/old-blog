@@ -57,7 +57,7 @@ module.exports = {
       },
       minWidth: {
         'f-card': '420px',
-        't-topic': '160px'
+        't-topic': '180px'
       },
       zIndex: {
         '1000': 1000,

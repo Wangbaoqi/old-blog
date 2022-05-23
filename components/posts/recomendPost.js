@@ -16,7 +16,7 @@ const RecomendPost = ({
 
 
   return (
-    <div className="relative overflow-hidden flex flex-col justify-between z-10 basis-60 shrink-0 lg:h-60  p-5 transition rounded-2xl 
+    <article className="relative overflow-hidden flex flex-col justify-between z-10 basis-60 shrink-0 lg:h-60  p-5 transition rounded-2xl 
       focus-within:rotate-6 hover:-translate-y-4 hover:rotate-6 focus-within:-translate-y-4 shadow-5xl
       -ml-28 first:-ml-0 r-card bg-card-cover first:shadow-4xl bg-second-bg
       "
@@ -39,7 +39,7 @@ const RecomendPost = ({
       </section>
       
       <Avatar name={author.name} picture={author.picture} />
-    </div>
+    </article>
   )
 }
 

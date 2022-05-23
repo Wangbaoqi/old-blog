@@ -8,7 +8,7 @@ const Category = ({ title, cateGoryList, groupCategory }) => {
   return (
     <>
       <Layout type='page' title={`${title} SubCategory on ategory  | Nate Wang blog`}>
-        <h1 className="absolute overflow-hidden w-px h-px -m-px">Nate Wang blog Category { title }</h1>
+        <h1 className="absolute overflow-hidden w-px h-px -m-px">Nate Wang Category { title }</h1>
         <CategoryWrapper
           title={title}
           categoryPost={cateGoryList}

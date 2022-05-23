@@ -61,7 +61,7 @@ export default function FeaturePost({
     </div>
   )
   return (
-    <div className={`cursor-pointer md:min-h-f-card group overflow-hidden ${bgCls}`}>
+    <article className={`cursor-pointer md:min-h-f-card group overflow-hidden ${bgCls}`}>
       <div className={`md:flex ${postCls}`}>
         <div className="relative md:shrink-0">
           <div className={`relative w-full ${imgHBox} ${imgWBox}`}>
@@ -77,6 +77,6 @@ export default function FeaturePost({
         </div>
         { mode == 'col' ? bottomContent : rightContent }
       </div>
-    </div>
+    </article>
   )
 }

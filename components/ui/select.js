@@ -18,7 +18,7 @@ const Select = ({
   }, [value])
 
   return (
-    <div className="w-24 md:mb-0 mb-10 bg-second-bg rounded-md border  hover:bg-hover-bg border-border-color-5" ref={sRef}>
+    <div className="w-24 bg-second-bg rounded-md border  hover:bg-hover-bg border-border-color-5" ref={sRef}>
       <div className="relative  " onClick={() => setShowPage(!showPage)}>
         <button type="button" className="relative pl-3 pr-10 py-2 text-left cursor-pointer focus:outline-none sm:text-sm">
           <span className="flex items-center">

@@ -12,7 +12,7 @@ const RecentPost = ({
 }) => {
 
   return (
-    <section className="mb-3">
+    <article className="mb-3">
       <div className="relative overflow-hidden rounded-lg">
         <div className='relative h-44 w-full'>
           <Image
@@ -34,7 +34,7 @@ const RecentPost = ({
           <h3 className="font-Sriracha md:text-tiny hover:text-hover-color text-base cursor-pointer">{ title }</h3>
         </Link>
       </div>
-    </section>
+    </article>
   )
 }
 

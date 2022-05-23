@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://www.wangbaoqi.tech/</loc>
+  <lastmod>2022-05-23T02:42:51+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://www.wangbaoqi.tech/category</loc>
+  <lastmod>2022-05-23T02:42:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.wangbaoqi.tech/algorithm</loc>
+  <lastmod>2022-05-23T02:42:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.wangbaoqi.tech/posts/react/render</loc>
+  <lastmod>2022-05-23T02:42:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.wangbaoqi.tech/posts/react/diff</loc>
+  <lastmod>2022-05-23T02:42:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.wangbaoqi.tech/posts/react/fiber</loc>
+  <lastmod>2022-05-23T02:42:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.wangbaoqi.tech/posts/react/api</loc>
+  <lastmod>2022-05-23T02:42:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.wangbaoqi.tech/posts/react/mind</loc>
+  <lastmod>2022-05-23T02:42:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.wangbaoqi.tech/posts/browser/cycle</loc>
+  <lastmod>2022-05-23T02:42:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.wangbaoqi.tech/algorithm/page/1</loc>
+  <lastmod>2022-05-23T02:42:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.wangbaoqi.tech/category/React</loc>
+  <lastmod>2022-05-23T02:42:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.wangbaoqi.tech/category/Algorithm</loc>
+  <lastmod>2022-05-23T02:42:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.wangbaoqi.tech/category/Html&amp;Css</loc>
+  <lastmod>2022-05-23T02:42:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.wangbaoqi.tech/category/Http&amp;Browser</loc>
+  <lastmod>2022-05-23T02:42:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.wangbaoqi.tech/category/Js&amp;Ts</loc>
+  <lastmod>2022-05-23T02:42:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.wangbaoqi.tech/posts/algorithm/structure/array</loc>
+  <lastmod>2022-05-23T02:42:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.wangbaoqi.tech/posts/algorithm/structure/linkList</loc>
+  <lastmod>2022-05-23T02:42:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.wangbaoqi.tech/posts/algorithm/structure/stackQueue</loc>
+  <lastmod>2022-05-23T02:42:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.wangbaoqi.tech/posts/algorithm/structure/tree</loc>
+  <lastmod>2022-05-23T02:42:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.wangbaoqi.tech/posts/react/jsx</loc>
+  <lastmod>2022-05-23T02:42:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.wangbaoqi.tech/posts/demo</loc>
+  <lastmod>2022-05-23T02:42:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.wangbaoqi.tech/posts/algorithm/break/doublePoint</loc>
+  <lastmod>2022-05-23T02:42:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.wangbaoqi.tech/posts/algorithm/break/slideWindow</loc>
+  <lastmod>2022-05-23T02:42:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.wangbaoqi.tech/posts/algorithm/break/sort</loc>
+  <lastmod>2022-05-23T02:42:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.wangbaoqi.tech/posts/algorithm/break/search</loc>
+  <lastmod>2022-05-23T02:42:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.wangbaoqi.tech/posts/html/mind</loc>
+  <lastmod>2022-05-23T02:42:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.wangbaoqi.tech/posts/css/mind</loc>
+  <lastmod>2022-05-23T02:42:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.wangbaoqi.tech/posts/browser/render</loc>
+  <lastmod>2022-05-23T02:42:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.wangbaoqi.tech/posts/browser/event</loc>
+  <lastmod>2022-05-23T02:42:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.wangbaoqi.tech/posts/browser/frame</loc>
+  <lastmod>2022-05-23T02:42:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.wangbaoqi.tech/posts/http/message</loc>
+  <lastmod>2022-05-23T02:42:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.wangbaoqi.tech/posts/javaScript/array</loc>
+  <lastmod>2022-05-23T02:42:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.wangbaoqi.tech/posts/javaScript/this</loc>
+  <lastmod>2022-05-23T02:42:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.wangbaoqi.tech/posts/typeScript/basic</loc>
+  <lastmod>2022-05-23T02:42:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>

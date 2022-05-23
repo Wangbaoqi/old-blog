@@ -74,13 +74,13 @@ const AlgorithmWrapper = ({
   return (
     <Layout type='page' title={'all algorithm posts and leetCode Solved topics'} >
       <section className="py-20 px-3 md:px-0">
-        <h1 className=" text-xl mb-10 font-Sriracha bg-header-color dark:bg-clip-text dark:text-transparent">Solved Topics</h1>
+        <h1 className=" text-xl mb-10 font-Sriracha bg-header-color dark:bg-clip-text dark:text-transparent">Solved leetCode question</h1>
         <div className="flex items-center font-Sriracha">
           <h3 className="text-second-color text-base mr-4">All: </h3>
           <span>{`${allCount} 道题目`}</span>
         </div>
         <Tags tagsList={tagGroup} setTagChange={handleTags} />
-        <div className="py-5 flex items-center gap-3">
+        <div className="py-5 flex items-center flex-wrap gap-3">
           <Input initVal={searchVal} setInputChange={handleInput}/>
           <Select initVal='简单' optionList={['简单', '中等', '困难']} setSelect={handleLevel}/>
           <Select initVal='4星' optionList={['3星', '4星', '5星']} setSelect={handleLevel}/>

@@ -20,7 +20,7 @@ const Tags = ({
   return (
     <div className="py-4 flex items-center ">
       <h3 className='text-second-color font-Sriracha text-base mr-2 md:mr-4'>Tags: </h3>
-      <div className='flex flex-wrap gap-2 flex-1'>
+      <div className='flex flex-wrap gap-3 flex-1'>
         {
           tags.map((tag, idx) => {
             const typeCls = tagTheme[tag.key]
