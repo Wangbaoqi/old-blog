@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "search": "node ./script/build-algolia.js",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate",
+    "postbuild": "next-sitemap"
   },
   "dependencies": {
     "@panelbear/panelbear-nextjs": "^1.0.3",
@@ -50,6 +51,7 @@
     "autoprefixer": "^10.4.4",
     "eslint": "8.13.0",
     "eslint-config-next": "12.1.5",
+    "next-sitemap": "^2.5.21",
     "postcss": "^8.4.12",
     "prisma": "^3.14.0"
   }
