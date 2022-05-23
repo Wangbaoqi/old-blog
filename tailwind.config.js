@@ -83,7 +83,7 @@ module.exports = {
         'info-color': 'var(--fg-info)',
         'warning-bg': 'var(--bg-warning)',
         'warning-color': 'var(--fg-warning)',
-        
+        'anchor-color': 'var(--fg-anchor)',
         'border-color': 'var(--fg-border)',
         'border-color-5': 'var(--fg-border-5)',
 

@@ -12,13 +12,13 @@ const MDXRenderer = ({ code, frontmatter, prev, next, views }) => {
   const components = {
     h2: (props) => (
       <h2
-        className="relative pt-20 -mt-4 cursor-pointer my-6 text-2xl font-bold leading-10 group"
+        className="relative pt-20 -mt-4 cursor-pointer my-6 text-anchor-color text-2xl font-bold leading-10 group"
         {...props}
       />
     ),
     h3: (props) => (
       <h3
-        className="relative pt-20 -mt-4 cursor-pointer my-6 text-xl font-bold leading-10 group"
+        className="relative pt-20 -mt-4 cursor-pointer my-6 text-anchor-color text-xl font-bold leading-10 group"
         {...props}
       />
     ),

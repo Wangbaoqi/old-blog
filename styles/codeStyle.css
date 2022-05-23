@@ -26,6 +26,7 @@
   --bg-blockquote: hsl(210deg, 38%, 15%);
   --bg-blockquote-l: hsl(230deg, 100%, 67%);
 
+  --fg-anchor: hsl(53deg, 100%, 50%);
   
   --fg-active: #fff !important;
   --fg-default: #999 !important;
@@ -74,6 +75,8 @@
 
   --bg-third: hsl(210deg, 14%, 80%);
   --fg-third: hsl(225deg, 25%, 20%);
+
+  --fg-anchor: hsl(255deg, 85%, 30%);
 
 
   --fg-border: hsl(217, 72%, 92%);

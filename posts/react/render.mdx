@@ -16,7 +16,17 @@ feature: true
 ---
 
 
-> Render 阶段主要创建`Fiber`节点，生成`Fiber`树，在更新阶段进行`diff`操作，产生具有副作用的`effectList`
+import Strong from './mdx/component/strong.js'
+import InlineCode from './mdx/component/inlineCode.js'
+import Para from './mdx/component/para.js'
+
+export const cBox = (
+  <Para>
+    Render 阶段主要创建 <InlineCode>Fiber</InlineCode> 节点，生成 <Strong>Fiber</Strong>树，在更新阶段进行<InlineCode>diff</InlineCode>操作，产生具有副作用的<Strong>effectList</Strong>
+  </Para>
+)
+
+<SideNote type='info' title='react Render 阶段' children={cBox}/>
 
 主要有以下重要的步骤：
 
@@ -98,11 +108,11 @@ function workLoopConcurrent() {
 - 首次渲染
 - 更新渲染
 
-### 首次渲染 - begin
+**首次渲染 - begin**
 
 首次渲染主要是首次构建  `Fiber` 节点以及 `Fiber树`，构建结束`fiberRoot.current`会指向当前构建完成的`Fiber`树，也就是当前页面上展示的`DOM`结构。
 
-### 更新渲染 - begin
+**更新渲染 - begin**
 
 当发生页面局部更新后，就会重新构建`workInProgress Fiber`树，此时`workInProgress Fiber `树会复用`rootFiber`节点，然后遍历其子`Fiber`节点，这里会通过`workInProgress.alternate `获取其`oldFiber`节点，然后与`JSX`对象（虚拟对象）进行`diff`算法，如果能够复用，则复用其`Fiber`节点，不能复用，则创建对应类型的新`Fiber`节点。直到`workInProgress Fiber`树构建完成。
 
@@ -115,13 +125,13 @@ function workLoopConcurrent() {
 - 首次渲染
 - 更新渲染
 
-### 首次渲染 - complete
+**首次渲染 - complete**
 
 在`completeWork`中，首次渲染会在之前创建`Fiber`节点的基础上创建当前**类型**的真实`DOM`，然后挂载到`fiber.statenode`上。最后为会`rootFiber`节点打上`snapshot= 256`的`flag`。
 
 在处理下一个`Fiber`节点之前，会判断当前节点有没有**兄弟节点**，如果有**兄弟节点**，则重新走`beginWork`流程，走完之后从**新开始的**最后一个节点开始走`completeWork`流程。
 
-### 更新渲染 - complete
+**更新渲染 - complete**
 
 更新之后，`beginWork`阶段主要进行`协调过程（diff）`，然后创建新的`Fiber`节点；
 
