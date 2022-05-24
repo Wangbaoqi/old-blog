@@ -1,6 +1,7 @@
 import { Footer, HeaderWrapper, Header  } from '@components/layouts';
 import Search from "@components/search/search";
 import SEO from '@components/seo/index';
+import { GoogleAnalytics } from "nextjs-google-analytics";
 
 export default function Layout({ children, type, title, description }) {
   return (
@@ -14,6 +15,7 @@ export default function Layout({ children, type, title, description }) {
         <Search />
         <Footer />
       </div>
+      <GoogleAnalytics strategy="lazyOnload"/>
     </>
   )
 }

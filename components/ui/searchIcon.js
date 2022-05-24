@@ -2,7 +2,6 @@ import { useDispatch } from 'react-redux'
 import { toggleSearch } from "@reducer/searchSlice";
 import { Search as SearchIcon } from "react-feather";
 
-import * as Panelbear from '@panelbear/panelbear-js';
 
 const SearchBtn = ({
   showText = false
@@ -13,7 +12,6 @@ const SearchBtn = ({
 
   const handleSearchClick = () => {
     dispatch(toggleSearch())
-    Panelbear.track('searchPane event')
   }
 
   return (
