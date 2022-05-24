@@ -1,4 +1,4 @@
-import { getAlgorithmPost, filterEveryList } from "@lib/mdx";
+import { getAlgorithmPost } from "@lib/mdx";
 import { useRouter } from "next/router";
 
 import { DayTablePost, Tags, PageNation } from '@components/algorithm';
@@ -9,7 +9,7 @@ import { useState, useEffect, useCallback, useMemo } from "react";
 import { useLocalStorage, useDebounceValue } from "@hooks/index";
 
 
-const POSTS_PER_PAGE = 10;
+const POSTS_PER_PAGE = 50;
 
 
 const AlgorithmWrapper = ({
@@ -20,51 +20,24 @@ const AlgorithmWrapper = ({
   tagGroup
 }) => {
   const router = useRouter();
+
   const { query: { perPage = '', searchVal = '',  } } = router;
 
   const displayList =  initPosts;
   const handlePerPage = (perPage) => {
-    const routerObj = {
-      pathname: router.pathname,
-      query: {
-        ...router.query,
-        perPage: perPage
-      }
-    }
-    router.push(routerObj)
+    
   }
 
   const handleTags = (tags) => {
-    const routerObj = {
-      pathname: router.pathname,
-      query: {
-        ...router.query,
-        tags: tags.join(',')
-      }
-    }
-    router.push(routerObj)
+    
   }
 
   const handleInput = (val) => {
-    const routerObj = {
-      pathname: router.pathname,
-      query: {
-        ...router.query,
-        searchVal: val
-      }
-    }
-    router.push(routerObj)
+    
   }
 
   const handlePagenation = (page) => {
-    const routerObj = {
-      pathname: router.pathname,
-      query: {
-        ...router.query,
-        page: page
-      }
-    }
-    router.push(routerObj)
+    
   }
 
   const handleLevel = () => {
@@ -76,8 +49,7 @@ const AlgorithmWrapper = ({
       <section className="py-20 px-3 md:px-0">
         <h1 className=" text-xl mb-10 font-Sriracha bg-header-color dark:bg-clip-text dark:text-transparent">Solved leetCode question</h1>
         <div className="flex items-center font-Sriracha">
-          <h3 className="text-second-color text-base mr-4">All: </h3>
-          <span>{`${allCount} 道题目`}</span>
+          <span>{`${allCount} 道题目`}</span>∏
         </div>
         <Tags tagsList={tagGroup} setTagChange={handleTags} />
         <div className="py-5 flex items-center flex-wrap gap-3">
@@ -107,20 +79,32 @@ const AlgorithmWrapper = ({
 export default AlgorithmWrapper
 
 
-export async function getServerSideProps(ctx) {
-  const { query = {} } = ctx;
+export async function getStaticPaths(ctx) {
 
+  const { everyDay } = await getAlgorithmPost();
+  const totalPages = Math.ceil(everyDay.length / POSTS_PER_PAGE);
+  const paths = Array.from({ length: totalPages }, (_, i) => ({
+    params: { page: (i + 1).toString() },
+  }))
+  return {
+    paths,
+    fallback: false,
+  }
+
+}
+
+
+export const getStaticProps = async (ctx) => {
   const {
-    page,
-    searchVal,
-    tags='',
-    perPage = 20
-  } = query
+    params: { page }
+  } = ctx;
+  const perPage = POSTS_PER_PAGE;
   const { everyDay, tagGroup } = await getAlgorithmPost();
+  
   const pageNumber = parseInt(page);
-  const afterTopicList = filterEveryList(everyDay, { searchVal });
+  const afterTopicList = everyDay.sort((a, b) => a.id - b.id);
 
-  const initPosts = afterTopicList.slice(
+  const initPosts = everyDay.slice(
     perPage * (pageNumber - 1),
     perPage * pageNumber
   )
@@ -140,4 +124,3 @@ export async function getServerSideProps(ctx) {
     },
   }
 }
-

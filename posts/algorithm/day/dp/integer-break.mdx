@@ -1,7 +1,7 @@
 ---
 id: 343
 title: 343. 整数拆分
-date: '2020-03-16'
+date: '2022-04-02'
 level: medium
 hot: 4
 author:
@@ -14,16 +14,14 @@ category: Algorithm
 subCategory: everyDay
 ---
 
-
-# [整数拆分](https://leetcode-cn.com/problems/integer-break/description/)
+**LeetCode** [整数拆分](https://leetcode-cn.com/problems/integer-break/description/)
 
 > 给定一个正整数 `n` ，将其拆分为 `k` 个 **正整数** 的和（ `k >= 2` ），并使这些整数的乘积最大化。
-
-返回 *你可以获得的最大乘积* 。
+> 返回 *你可以获得的最大乘积* 。
 
 **示例 1:**
 
-```
+```md
 输入: n = 2
 输出: 1
 解释: 2 = 1 + 1, 1 × 1 = 1。
@@ -31,7 +29,7 @@ subCategory: everyDay
 
 **示例 2:**
 
-```
+```md
 输入: n = 10
 输出: 36
 解释: 10 = 3 + 3 + 4, 3 × 3 × 4 = 36。
@@ -41,15 +39,7 @@ subCategory: everyDay
 
 - `2 <= n <= 58`
 
-------
-
-[Discussion](https://leetcode-cn.com/problems/integer-break/comments/) | [Solution](https://leetcode-cn.com/problems/integer-break/solution/)
-
-## 题解
-
-### 动态规划
-
-
+## 动态规划
 
 ```js
 const integerBreak = n => {
@@ -66,3 +56,23 @@ const integerBreak = n => {
 }
 ```
 
+## 执行代码
+
+export const js = `
+const integerBreak = n => {
+  const dp = new Array(n + 1).fill(0);
+  dp[2] = 1;
+  for (let i = 3; i <= n; i++) {
+    for (let j = 1; j < i - 1; j++) {
+      const curv = (i - j) * j;
+      const prev = dp[i - j] * j;
+      dp[i] = Math.max(dp[i], Math.max(curv, prev))
+    }
+  }
+  return dp[n]
+}`
+export const options = {
+  mainEntry: 'integerBreak'
+}
+
+<PlayGround js={js} mode='algo' options={options}/> 

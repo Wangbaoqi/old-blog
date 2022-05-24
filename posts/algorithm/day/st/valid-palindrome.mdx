@@ -1,7 +1,7 @@
 ---
 id: 125
 title: 125.验证回文串
-date: '2020-03-16'
+date: '2022-02-28'
 level: easy
 hot: 4
 author:
@@ -14,8 +14,9 @@ category: Algorithm
 subCategory: everyDay
 ---
 
+**LeetCode** [验证回文串](https://leetcode.cn/problems/valid-palindrome/)
 
-给定一个字符串，验证它是否是回文串，只考虑字母和数字字符，可以忽略字母的大小写。
+> 给定一个字符串，验证它是否是回文串，只考虑字母和数字字符，可以忽略字母的大小写。
 
 **说明：**本题中，我们将空字符串定义为有效的回文串。
 
@@ -40,9 +41,8 @@ subCategory: everyDay
 - `1 <= s.length <= 2 * 105`
 - 字符串 `s` 由 ASCII 字符组成
 
-### 题解
 
-#### 典型解法双指针
+## 典型解法双指针
 
 首先，将含有特殊字符的字符串解析成`ASCII`组成的字符
 
@@ -62,7 +62,7 @@ const isPalindrome = s => {
 }
 ```
 
-#### 不使用正则的双指针
+## 不使用正则的双指针
 
 如果不使用正则，则需要计算每个字符的`codepoint`码点。
 
@@ -101,4 +101,39 @@ const isLetterOrDigit = (s) => {
   return false;
 }
 ```
+
+
+## 执行代码
+
+export const js = `
+const isPalindrome_double = s => {
+  let l = 0, r = s.length - 1;
+  while(l < r) {
+    while(l < r && !isLetterOrDigit(s[l])) {
+      l++
+    }
+    while(l < r && !isLetterOrDigit(s[r])) {
+      r--
+    }
+    if(l < r) {
+      if(s[l].toLowerCase() != s[r].toLowerCase()) return false;
+      l++;
+      r--;
+    }
+  }
+  return true;
+}
+// 判断字符的码点
+const isLetterOrDigit = (s) => {
+  const isLowerLetter = s.codePointAt() > 96 && s.codePointAt() < 123;
+  const isUpperLetter = s.codePointAt() > 64 && s.codePointAt() < 91;
+  const isDigit = s.codePointAt() > 47 && s.codePointAt() < 58;
+  if(isLowerLetter || isUpperLetter || isDigit) return true;
+  return false;
+}`
+export const options = {
+  mainEntry: 'isPalindrome_double'
+}
+
+<PlayGround js={js} mode='algo' options={options}/> 
 

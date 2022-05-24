@@ -1,7 +1,7 @@
 ---
 id: 345
 title: 345.反转字符串中元音字母
-date: '2020-03-16'
+date: '2021-11-02'
 level: easy
 hot: 4
 author:
@@ -14,21 +14,22 @@ category: Algorithm
 subCategory: everyDay
 ---
 
+**LeetCode** [反转字符串中元音字母](https://leetcode.cn/problems/reverse-vowels-of-a-string/)
+
 
 > 给你一个字符串 `s` ，仅反转字符串中的所有元音字母，并返回结果字符串。
-
-元音字母包括 `'a'`、`'e'`、`'i'`、`'o'`、`'u'`，且可能以大小写两种形式出现。
+> 元音字母包括 `'a'`、`'e'`、`'i'`、`'o'`、`'u'`，且可能以大小写两种形式出现。
 
 **示例 1：**
 
-```
+```md
 输入：s = "hello"
 输出："holle"
 ```
 
 **示例 2：**
 
-```
+```md
 输入：s = "leetcode"
 输出："leotcede"
 ```
@@ -38,11 +39,9 @@ subCategory: everyDay
 - `1 <= s.length <= 3 * 105`
 - `s` 由 **可打印的 ASCII** 字符组成
 
-------
 
-[Discussion](https://leetcode-cn.com/problems/reverse-vowels-of-a-string/comments/) | [Solution](https://leetcode-cn.com/problems/reverse-vowels-of-a-string/solution/)
 
-### 题解
+## 双指针
 
 双指针，左右两次一次循环找到元音字母，然后反转。
 
@@ -50,7 +49,6 @@ subCategory: everyDay
 const reverseVowels_d = s => {
   const va = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
   let a = s.split('');
-
   let l = 0, r = a.length - 1;
   while (l < r) {
     while (l < r && !va.includes(a[r])) {
@@ -68,3 +66,31 @@ const reverseVowels_d = s => {
   return a.join('')
 }
 ```
+
+## 执行代码
+
+export const js = `
+const reverseVowels = s => {
+  const va = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
+  let a = s.split('');
+  let l = 0, r = a.length - 1;
+  while (l < r) {
+    while (l < r && !va.includes(a[r])) {
+      r--
+    }
+    while (l < r && !va.includes(a[l])) {
+      l++
+    }
+    let tmp = a[l];
+    a[l] = a[r];
+    a[r] = tmp;
+    l++;
+    r--;
+  }
+  return a.join('')
+}`
+export const options = {
+  mainEntry: 'reverseVowels'
+}
+
+<PlayGround js={js} mode='algo' options={options}/> 

@@ -1,7 +1,7 @@
 ---
 id: 3
 title: 3.无重复字符的最长子串
-date: '2020-03-16'
+date: '2022-03-06'
 level: easy
 hot: 4
 author:
@@ -14,11 +14,7 @@ category: Algorithm
 subCategory: everyDay
 ---
 
-
-
-[无重复字符的最长子串](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/description/)
-
-
+**LeetCode** [无重复字符的最长子串](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/description/)
 
 > 给定一个字符串 `s` ，请你找出其中不含有重复字符的 **最长子串** 的长度。
 
@@ -46,21 +42,13 @@ subCategory: everyDay
 解释: 因为无重复字符的最长子串是 "wke"，所以其长度为 3。
      请注意，你的答案必须是 子串 的长度，"pwke" 是一个子序列，不是子串。
 ```
-
  
-
 **提示：**
 
 - `0 <= s.length <= 5 * 104`
 - `s` 由英文字母、数字、符号和空格组成
 
-------
-
-[Discussion](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/comments/) | [Solution](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/solution/)
-
-## 题解
-
-### 滑动窗口
+## 滑动窗口
 
 ```js
 const lengthOfLongestSubstring_a = s => {
@@ -83,6 +71,31 @@ const lengthOfLongestSubstring_a = s => {
 ```
 
 
+## 执行代码
+
+export const js = `
+const lengthOfLongestSubstring = s => {
+  let slow = 0, fast = 0;
+  let map = {};
+  let max = 0;
+  while (fast < s.length) {
+    const fItem = s[fast++];
+    map[fItem] ? map[fItem]++ : (map[fItem] = 1);
+    while (map[fItem] > 1) {
+      const sItem = s[slow];
+      map[sItem]--;
+      slow++
+    }
+    max = Math.max(max, fast - slow)
+  }
+  return max;
+}`
+
+export const options = {
+  mainEntry: 'lengthOfLongestSubstring'
+}
+
+<PlayGround js={js} mode='algo' options={options}/> 
 
 
 

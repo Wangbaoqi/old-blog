@@ -1,7 +1,7 @@
 ---
 id: 387
 title: 387.字符串中的第一个唯一字符
-date: '2020-03-16'
+date: '2022-03-10'
 level: easy
 hot: 4
 author:
@@ -14,7 +14,7 @@ category: Algorithm
 subCategory: everyDay
 ---
 
-[字符串中的第一个唯一字符](https://leetcode-cn.com/problems/first-unique-character-in-a-string/description/)
+**LeetCode** [字符串中的第一个唯一字符](https://leetcode-cn.com/problems/first-unique-character-in-a-string/description/)
 
 > 给定一个字符串 `s` ，找到 *它的第一个不重复的字符，并返回它的索引* 。如果不存在，则返回 `-1` 。
 
@@ -44,15 +44,7 @@ subCategory: everyDay
 - `1 <= s.length <= 105`
 - `s` 只包含小写字母
 
-------
-
-[Discussion](https://leetcode-cn.com/problems/first-unique-character-in-a-string/comments/) | [Solution](https://leetcode-cn.com/problems/first-unique-character-in-a-string/solution/)
-
-## 题解
-
-
-
-### 暴力法
+## 暴力法
 
 这种方法通过`lastIndexOf`和`indexOf`来判断当前字符的索引是否一致
 
@@ -67,7 +59,7 @@ const firstUniqChar_d = s => {
 }
 ```
 
-### 哈希表
+## 哈希表
 
 哈希表通过记录每个字符出现的次数，第二次遍历就可以知道哪个是第一个唯一的字符
 
@@ -89,3 +81,27 @@ const firstUniqChar_m = s => {
 }
 ```
 
+
+## 执行代码
+
+export const js = `
+const firstUniqChar_m = s => {
+  const map = new Map();
+  for (let i = 0; i < s.length; i++) {
+    if (map.has(s[i])) {
+      map.set(s[i], map.get(s[i]) + 1)
+    } else {
+      map.set(s[i], 1);
+    }
+  }
+  for (let i = 0; i < s.length; i++) {
+    const sLen = map.get(s[i])
+    if (sLen === 1) return i;   
+  }
+  return -1;
+}`
+export const options = {
+  mainEntry: 'firstUniqChar_m'
+}
+
+<PlayGround js={js} mode='algo' options={options}/> 

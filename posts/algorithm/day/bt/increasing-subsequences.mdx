@@ -1,7 +1,7 @@
 ---
 id: 491
 title: 491.递增子序列
-date: '2020-03-16'
+date: '2022-03-19'
 level: medium
 hot: 4
 author:
@@ -15,24 +15,35 @@ subCategory: everyDay
 ---
 
 
-# [递增子序列](https://leetcode-cn.com/problems/increasing-subsequences/description/)
+
+<Strong>LeetCode</Strong> [递增子序列](https://leetcode-cn.com/problems/increasing-subsequences/description/)
+
+import Strong from './mdx/component/strong.js'
+import InlineCode from './mdx/component/inlineCode.js'
+import Para from './mdx/component/para.js'
+
+export const cBox = (
+  <Para>
+    给你一个整数数组<Strong>nums</Strong>
+    ，找出并返回所有该数组中不同的递增子序列，递增子序列中 <Strong>至少有两个元素</Strong>你可以按 <Strong>任意顺序</Strong> 返回答案。
+    数组中可能含有重复元素，如出现两个整数相等，也可以视作递增序列的一种特殊情况。
+  </Para>
+)
+
+<SideNote type='info' title='题目描述' children={cBox}/>
 
 
-
-> 给你一个整数数组 `nums` ，找出并返回所有该数组中不同的递增子序列，递增子序列中 **至少有两个元素** 。你可以按 **任意顺序** 返回答案。
-
-数组中可能含有重复元素，如出现两个整数相等，也可以视作递增序列的一种特殊情况。
 
 **示例 1：**
 
-```
+```md
 输入：nums = [4,6,7,7]
 输出：[[4,6],[4,6,7],[4,6,7,7],[4,7],[4,7,7],[6,7],[6,7,7],[7,7]]
 ```
 
 **示例 2：**
 
-```
+```md
 输入：nums = [4,4,3,2,1]
 输出：[[4,4]]
 ```
@@ -42,16 +53,8 @@ subCategory: everyDay
 - `1 <= nums.length <= 15`
 - `-100 <= nums[i] <= 100`
 
-------
 
-[Discussion](https://leetcode-cn.com/problems/increasing-subsequences/comments/) | [Solution](https://leetcode-cn.com/problems/increasing-subsequences/solution/)
-
-## 题解 - 回溯
-
-
-
-
-
+## 回溯
 
 ```js
 const findSubsequences_a = nums => {
@@ -81,3 +84,37 @@ const findSubsequences_a = nums => {
 }
 ```
 
+
+## 执行代码
+
+export const js = `
+const findSubsequences = nums => {
+  const ret = [], ans = [];
+  // 递归函数
+  const backTracking = (nums, i) => {
+    // 收集结果
+    if (ans.length > 1) {
+      ret.push([...ans])
+    }
+    // 在横向遍历的时候 遇到重复的则直接 continue 
+    const set = new Set();
+    for (let j = i; j < nums.length; j++) {
+			// 同层遇到ans最后元素大于 下一个 元素 则跳过
+      // 同层去重 遇到相同的元素 则跳过
+      if (ans[ans.length - 1] > nums[j] || set.has(nums[j])) {
+        continue;
+      }
+      set.add(nums[j]);
+      ans.push(nums[j])
+      backTracking(nums, j + 1);
+      ans.pop()
+    }
+  }
+  backTracking(nums, 0)
+  return ret;
+}`
+export const options = {
+  mainEntry: 'findSubsequences'
+}
+
+<PlayGround js={js} mode='algo' options={options}/> 

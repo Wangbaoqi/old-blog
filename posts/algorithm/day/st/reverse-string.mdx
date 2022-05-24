@@ -1,7 +1,7 @@
 ---
 id: 344
 title: 344.反转字符串
-date: '2020-03-16'
+date: '2022-03-04'
 level: easy
 hot: 4
 author:
@@ -14,9 +14,8 @@ category: Algorithm
 subCategory: everyDay
 ---
 
+**LeetCode** [反转字符串]https://leetcode.cn/problems/reverse-string/)
 
-
-## 反转字符串
 
 > 编写一个函数，其作用是将输入的字符串反转过来。输入字符串以字符数组 `s` 的形式给出。
 
@@ -41,9 +40,8 @@ subCategory: everyDay
 - `1 <= s.length <= 105`
 - `s[i]` 都是 [ASCII](https://baike.baidu.com/item/ASCII) 码表中的可打印字符
 
-### 题解
 
-#### 双指针 - 对撞指针
+## 双指针 - 对撞指针
 
 ```js
 const reverseString_d = s => {
@@ -57,3 +55,22 @@ const reverseString_d = s => {
   }
 }
 ```
+
+## 执行代码
+
+export const js = `
+const reverseString_d = s => {
+  let l = 0, r = s.length - 1;
+  while (l < r) {
+    let t = s[l];
+    s[l] = s[r];
+    s[r] = t;
+    l++;
+    r--;
+  }
+}`
+export const options = {
+  mainEntry: 'reverseString_d'
+}
+
+<PlayGround js={js} mode='algo' options={options}/> 

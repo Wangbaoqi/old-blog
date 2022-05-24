@@ -16,8 +16,7 @@ subCategory: everyDay
 
 
 
-[有效的括号](https://leetcode-cn.com/problems/valid-parentheses/description/)
-
+**leetcode** [有效的括号](https://leetcode-cn.com/problems/valid-parentheses/description/)
 
 
 > 给定一个只包括 `'('`，`')'`，`'{'`，`'}'`，`'['`，`']'` 的字符串 `s` ，判断字符串是否有效。
@@ -62,20 +61,12 @@ subCategory: everyDay
 输出：true
 ```
 
- 
-
 **提示：**
 
 - `1 <= s.length <= 104`
 - `s` 仅由括号 `'()[]{}'` 组成
 
-------
-
-[Discussion](https://leetcode-cn.com/problems/valid-parentheses/comments/) | [Solution](https://leetcode-cn.com/problems/valid-parentheses/solution/)
-
-## 题解
-
-### 借用栈实现
+## 借用栈实现
 
 首先定义一个哈希表，记录括号的匹配，注意这个键值是相反的，原因是顺序遍历字符串，从括号的第二位来查找匹配值。
 
@@ -107,3 +98,26 @@ const isValid = s => {
 }
 ```
 
+## 执行代码
+
+export const js = `
+const isValid = s => {
+  const map = { ')': '(', ']': '[', '}': '{' }
+  const len = s.length;
+  const stack = [];
+  for (let i = 0; i < len; i++){
+    const el = s[i];
+    if (map[el]) {
+      if (stack[stack.length - 1] != map[el]) return false;
+      stack.pop()
+    } else {
+      stack.push(el)
+    }
+  }
+  return !stack.length
+}`
+export const options = {
+  mainEntry: 'isValid'
+}
+
+<PlayGround js={js} mode='algo' options={options}/> 

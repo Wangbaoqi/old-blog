@@ -1,7 +1,7 @@
 ---
 id: 50
 title: 50.Pow(x, n)
-date: '2020-03-16'
+date: '2021-12-16'
 level: medium
 hot: 4
 author:
@@ -14,15 +14,12 @@ category: Algorithm
 subCategory: everyDay
 ---
 
-# Pow(x, n)
 
-*LeetCode*地址，[50. Pow(x, n)](https://leetcode-cn.com/problems/powx-n/)
+**LeetCode** [Pow(x, n)](https://leetcode-cn.com/problems/powx-n/)
 
-```md
-实现 pow(x, n) ，即计算 x 的 n 次幂函数（即，xn）。
-```
 
-这是一道典型的使用递归思想的题目，接下来一步步的剖析其解法。
+> 实现 pow(x, n) ，即计算 x 的 n 次幂函数（即，xn）。
+> 这是一道典型的使用递归思想的题目，接下来一步步的剖析其解法。
 
 ## 递归
 
@@ -64,7 +61,6 @@ const myPow = (x, n) => {
   }
   return n >= 0 ? pow(x, n) : 1 / pow(x, -n)
 }
-
 ```
 
 虽然结果在`递`的过程已经计算得到，但是子问题的个数问题还是没有得到解决，仍然是`n`，所以时间复杂度仍然是`O(n)`。空间复杂度也是`o(n)`。
@@ -151,3 +147,27 @@ const myPow = (x, n) => {
 ```
 
 循环的方式降低空间复杂度，为常量级`O(1)`，同时保持了最优的时间复杂度的解法，算是较优的解法了。
+
+
+## 执行代码
+
+export const js = `
+const myPow = (x, n) => {
+  const pow = (x, n) => {
+    let ans = 1;
+    let prev = x;
+    while(n > 0) {
+      if(n % 2 == 1) {
+        ans *= prev
+      }
+      prev *= prev
+      n = ~~(n / 2)
+    }
+    return ans
+  }
+}`
+export const options = {
+  mainEntry: 'myPow'
+}
+
+<PlayGround js={js} mode='algo' options={options}/> 

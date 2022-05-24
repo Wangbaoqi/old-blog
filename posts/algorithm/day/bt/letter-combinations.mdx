@@ -1,7 +1,7 @@
 ---
 id: 17
 title: 17.电话号码的字母组合
-date: '2020-03-16'
+date: '2022-03-20'
 level: medium
 hot: 4
 author:
@@ -15,33 +15,43 @@ subCategory: everyDay
 ---
 
 
-# [电话号码的字母组合](https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/description/)
+<Strong>LeetCode</Strong> [电话号码的字母组合](https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/description/)
 
-> 给定一个仅包含数字 `2-9` 的字符串，返回所有它能表示的字母组合。答案可以按 **任意顺序** 返回。
+import Strong from './mdx/component/strong.js'
+import InlineCode from './mdx/component/inlineCode.js'
+import Para from './mdx/component/para.js'
 
-给出数字到字母的映射如下（与电话按键相同）。注意 1 不对应任何字母。
+export const cBox = (
+  <Para>
+    给定一个仅包含数字<Strong>2 - 9</Strong>
+    的字符串，返回所有它能表示的字母组合。答案可以按<Strong>任意顺序</Strong>返回这些组合。
+    给出数字到字母的映射如下（与电话按键相同）。注意 1 不对应任何字母。
+  </Para>
+)
+
+<SideNote type='info' title='题目描述' children={cBox}/>
+
 
 ![img](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/11/09/200px-telephone-keypad2svg.png)
-
  
 
 **示例 1：**
 
-```
+```md
 输入：digits = "23"
 输出：["ad","ae","af","bd","be","bf","cd","ce","cf"]
 ```
 
 **示例 2：**
 
-```
+```md
 输入：digits = ""
 输出：[]
 ```
 
 **示例 3：**
 
-```
+```md
 输入：digits = "2"
 输出：["a","b","c"]
 ```
@@ -51,16 +61,10 @@ subCategory: everyDay
 - `0 <= digits.length <= 4`
 - `digits[i]` 是范围 `['2', '9']` 的一个数字。
 
-------
 
-[Discussion](https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/comments/) | [Solution](https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/solution/)
-
-## 题解 回溯
-
-
+## 回溯
 
 ```js
-
 const letterCombinations_a = digits => {
   const ret = [], ans = [];
   const map = [
@@ -94,3 +98,40 @@ const letterCombinations_a = digits => {
 }
 ```
 
+## 执行代码
+
+export const js = `
+const letterCombinations_a = digits => {
+  const ret = [], ans = [];
+  const map = [
+    [],
+    [],
+    ['a', 'b', 'c'],
+    ['d', 'e', 'f'],
+    ['g', 'h', 'i'],
+    ['j', 'k', 'l'],
+    ['m', 'n', 'o'],
+    ['p', 'q', 'r', 's'],
+    ['t', 'u', 'v'],
+    ['w', 'x', 'y', 'z'],
+  ];
+  const backTracking = (digits, i) => {
+    if (i == digits.length) {
+      (ans.length) && ret.push(ans.join(''))
+      return;
+    }
+    const item = map[digits[i]];
+    for (let j = 0; j < item.length; j++) {
+      ans.push(item[j])
+      backTracking(digits, i + 1);
+      ans.pop()
+    }
+  }
+  backTracking(digits, 0)
+  return ret;
+}`
+export const options = {
+  mainEntry: 'combinationSum'
+}
+
+<PlayGround js={js} mode='algo' options={options}/> 

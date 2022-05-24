@@ -1,7 +1,7 @@
 ---
 id: 1624
 title: 1624.两个相同字符之间的最长子字符串
-date: '2020-03-16'
+date: '2022-03-09'
 level: easy
 hot: 4
 author:
@@ -14,7 +14,7 @@ category: Algorithm
 subCategory: everyDay
 ---
 
-
+**LeetCode** [两个相同字符之间的最长子字符串](https://leetcode.cn/problems/largest-substring-between-two-equal-characters/)
 
 > 给你一个字符串 `s`，请你返回 **两个相同字符之间的最长子字符串的长度** *，*计算长度时不含这两个字符。如果不存在这样的子字符串，返回 `-1` 。
 
@@ -59,7 +59,7 @@ subCategory: everyDay
 
 
 
-### 暴力破解
+## 暴力破解
 
 时间复杂度：最坏的场景会进行完整两层遍历`O(n^2)`，空间复杂度：`O(1)`
 
@@ -82,7 +82,7 @@ const maxLengthBetweenEqualCharacters_b = function (s) {
 };
 ```
 
-### 哈希表
+## 哈希表
 
 利用哈希表存储数组项，如果遇到相同的项，则获取其索引，进行对比，获取最大值。
 
@@ -107,4 +107,29 @@ const maxLengthBetweenEqualCharacters_m = s => {
   return max
 }
 ```
+
+
+## 执行代码
+
+export const js = `
+const maxLengthBetweenEqualCharacters = s => {
+  let map = new Map();
+  let max = -1;
+  for (let i = 0; i < s.length; i++) {
+    const v = s[i]
+    if (map.has(v)) {
+      const d = map.get(v)
+      max = Math.max(i - d - 1, max)
+    } else {
+      map.set(v, i)
+    }
+  }
+  return max
+}`
+export const options = {
+  mainEntry: 'maxLengthBetweenEqualCharacters'
+}
+
+<PlayGround js={js} mode='algo' options={options}/> 
+
 

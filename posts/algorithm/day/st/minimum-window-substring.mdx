@@ -1,7 +1,7 @@
 ---
 id: 76
 title: 76.最小覆盖子串
-date: '2020-03-16'
+date: '2022-03-05'
 level: easy
 hot: 4
 author:
@@ -15,9 +15,7 @@ subCategory: everyDay
 ---
 
 
-[最小覆盖子串](https://leetcode-cn.com/problems/minimum-window-substring/description/)
-
-
+**LeetCode** [最小覆盖子串](https://leetcode-cn.com/problems/minimum-window-substring/description/)
 
 > 给你一个字符串 `s` 、一个字符串 `t` 。返回 `s` 中涵盖 `t` 所有字符的最小子串。如果 `s` 中不存在涵盖 `t` 所有字符的子串，则返回空字符串 `""` 。
 
@@ -49,26 +47,16 @@ subCategory: everyDay
 因此没有符合条件的子字符串，返回空字符串。
 ```
 
- 
 
 **提示：**
 
 - `1 <= s.length, t.length <= 105`
 - `s` 和 `t` 由英文字母组成
 
- 
-
 **进阶：**你能设计一个在 `o(n)` 时间内解决此问题的算法吗？
 
-------
 
-[Discussion](https://leetcode-cn.com/problems/minimum-window-substring/comments/) | [Solution](https://leetcode-cn.com/problems/minimum-window-substring/solution/)
-
-## 题解
-
-### 双指针 + 滑动窗口
-
-
+## 双指针 + 滑动窗口
 
 ```js
 
@@ -129,3 +117,60 @@ const minWindow = (s, t) => {
 }
 ```
 
+## 执行代码
+
+export const js = `
+const minWindow = (s, t) => {
+	// 快慢指针
+  let l = 0;
+  let r = 0;
+  // 匹配的次数
+  let m = 0;
+  // 记录已包含目标字符的最小长度
+  let min = Number.MAX_SAFE_INTEGER;
+  let start = 0;
+  // 哈希表
+  let need = {};
+  let window = {};
+  for (let i = 0; i < t.length; i++) {
+    const el = t[i];
+    need[el] = need[el] ? need[el] + 1 : 1;
+  }
+  while (r < s.length) {
+    const rEl = s[r];
+    if (need[rEl]) {
+      // 进入滑动窗口
+      window[rEl] = (window[rEl] || 0) + 1;
+      if (need[rEl] === window[rEl]) {
+        m++
+      }
+    }
+    r++
+    const keys = Object.keys(need);
+    while (m == keys.length) {
+      const lEl = s[l];
+      // 更新窗口大小
+      if (r - l < min) {
+        min = r - l;
+        start = l;
+      }
+      // 当前字符如果在目标字符中，移除字符
+      if (need[lEl]) {
+        window[lEl]--;
+        // 如果移除的字符 在window中的数量小于need，则两者字符不匹配，则继续扩大窗口
+        if (need[lEl] > window[lEl]) {
+          m--
+        }
+      }
+      l++
+    }
+  }
+  console.log(s.slice(start, start + min), 'str sub');
+  console.log(s.slice(l - 1, l + min), 'str sub l');
+  return min == Number.MAX_SAFE_INTEGER ? '' : s.slice(start, start + min);
+}`
+export const options = {
+  mainEntry: 'reverseVowels'
+}
+
+<PlayGround js={js} mode='algo' layout='col' options={options}/> 

@@ -1,7 +1,7 @@
 ---
 id: 77
 title: 77. 组合
-date: '2020-03-16'
+date: '2022-03-15'
 level: medium
 hot: 4
 author:
@@ -14,18 +14,27 @@ category: Algorithm
 subCategory: everyDay
 ---
 
+<Strong>LeetCode</Strong> [组合](https://leetcode-cn.com/problems/combinations/description/)
+
+import Strong from './mdx/component/strong.js'
+import InlineCode from './mdx/component/inlineCode.js'
+import Para from './mdx/component/para.js'
+
+export const cBox = (
+  <Para>
+    给定两个整数<InlineCode>n</InlineCode>和<InlineCode>k</InlineCode>，返回范围
+    <InlineCode>[1, n]</InlineCode> 中所有可能的 <InlineCode>k</InlineCode>个数的组合。
+    你可以按 <Strong>任意顺序</Strong>返回这些组合。
+  </Para>
+)
+
+<SideNote type='info' title='题目描述' children={cBox}/>
 
 
-
-## [组合](https://leetcode-cn.com/problems/combinations/description/)
-
-> 给定两个整数 `n` 和 `k`，返回范围 `[1, n]` 中所有可能的 `k` 个数的组合。
-
-你可以按 **任何顺序** 返回答案。
 
 **示例 1：**
 
-```
+```md
 输入：n = 4, k = 2
 输出：
 [
@@ -40,7 +49,7 @@ subCategory: everyDay
 
 **示例 2：**
 
-```
+```md
 输入：n = 1, k = 1
 输出：[[1]]
 ```
@@ -51,11 +60,8 @@ subCategory: everyDay
 - `1 <= k <= n`
 
 
-[Discussion](https://leetcode-cn.com/problems/combinations/comments/) | [Solution](https://leetcode-cn.com/problems/combinations/solution/)
 
-
-### 回溯 + 剪枝
-
+## 回溯 + 剪枝
 
 ```js
 const combine_1 = (n, k) => {
@@ -79,3 +85,30 @@ const combine_1 = (n, k) => {
 }
 ```
 
+## 执行代码
+
+export const js = `
+const combine = (n, k) => {
+  const res = [], ans = [];
+  const backTracking = (n, k, i) => {
+    // 终止条件 ans.length == k
+    if (ans.length == k) {
+      res.push([...ans])
+      return;
+    }
+    // 剪枝
+    const p = n - ans.length + 1
+    for (let j = i; j <= p; j++) {
+      ans.push(j); // 处理节点
+      backTracking(n, k, j + 1); // 递归遍历
+      ans.pop() // 回溯操作
+    }
+  }
+  backTracking(n, k, 1)
+  return res;
+}`
+export const options = {
+  mainEntry: 'combine'
+}
+
+<PlayGround js={js} mode='algo' options={options}/> 

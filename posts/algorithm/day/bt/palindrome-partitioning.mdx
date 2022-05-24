@@ -1,7 +1,7 @@
 ---
 id: 131
 title: 131. 分割回文串
-date: '2020-03-16'
+date: '2022-02-17'
 level: medium
 hot: 4
 author:
@@ -15,21 +15,34 @@ subCategory: everyDay
 ---
 
 
+<Strong>LeetCode</Strong> [分割回文串](https://leetcode.cn/problems/palindrome-partitioning/)
 
-> 给你一个字符串 `s`，请你将 `s` 分割成一些子串，使每个子串都是 **回文串** 。返回 `s` 所有可能的分割方案。
+import Strong from './mdx/component/strong.js'
+import InlineCode from './mdx/component/inlineCode.js'
+import Para from './mdx/component/para.js'
+
+export const cBox = (
+  <Para>
+    给你一个字符串<InlineCode>s</InlineCode>
+    ，请你将 <InlineCode>s</InlineCode> 分割成一些子串，使每个子串都是 <Strong>回文串</Strong>，
+    返回 <InlineCode>s</InlineCode> 所有可能的分割方案。
+  </Para>
+)
+
+<SideNote type='info' title='题目描述' children={cBox}/>
 
 **回文串** 是正着读和反着读都一样的字符串。
 
 **示例 1：**
 
-```
+```md
 输入：s = "aab"
 输出：[["a","a","b"],["aa","b"]]
 ```
 
 **示例 2：**
 
-```
+```md
 输入：s = "a"
 输出：[["a"]]
 ```
@@ -39,10 +52,9 @@ subCategory: everyDay
 - `1 <= s.length <= 16`
 - `s` 仅由小写英文字母组成
 
-## 题解
+## 回溯
 
 此题还是使用**回溯法**
-
 
 如上图，把`aab`也可以当做一颗树结构，这里跟组合比较类似。
 
@@ -89,3 +101,44 @@ const partition = s => {
 }
 ```
 
+## 执行代码
+
+export const js = `
+const partition = s => {
+  const ret = [], ans = [];
+  const len = s.length;
+  const isPalindrome = (s, i, j) => {
+    let l = i, r = j;
+    while (l < r) {
+      if (s[l] != s[r]) return false;
+      l++;
+      r--;
+    }
+    return true;
+  }
+  const backTracking = (s, i) => {
+    // 结束条件 判断是否是回文串
+    if (i >= len) {
+      ret.push([...ans]);
+      return;
+    }
+		// 单层函数
+    for (let j = i; j < s.length; j++) {
+      // 判断是否是回文串
+      if (isPalindrome(s, i, j)) {
+        ans.push(s.slice(i, j + 1));
+        backTracking(s, j + 1);
+        ans.pop();
+      } else {
+        continue;
+      }
+    }
+  }
+  backTracking(s, 0)
+  return ret;
+}`
+export const options = {
+  mainEntry: 'partition'
+}
+
+<PlayGround js={js} mode='algo' options={options}/> 

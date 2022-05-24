@@ -14,6 +14,7 @@ const PlayGround = ({
   mode = "",
   title = "",
   options,
+  layout = 'row' ,
   boxSizing = 'border-box'
 }) => {
 
@@ -131,6 +132,7 @@ const PlayGround = ({
     return (
       <>
         <SplitPane
+          layout={layout}
           leftChild={
             <TabEditer
               paneData={paneData}
@@ -158,7 +160,7 @@ const PlayGround = ({
   };
 
   return (
-    <div className="overflow-hidden shadow-3xl rounded-lg md:-mx-10 md:my-10">
+    <div className="overflow-hidden shadow-3xl rounded-lg md:-mx-6 md:my-10">
       <div className="">
         <ToolBar
           title={title}

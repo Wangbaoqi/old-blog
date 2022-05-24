@@ -1,7 +1,7 @@
 ---
 id: 242
 title: 242.有效的字母异位词
-date: '2020-03-16'
+date: '2022-03-01'
 level: easy
 hot: 4
 author:
@@ -15,10 +15,7 @@ subCategory: everyDay
 ---
 
 
-
-
-[有效的字母异位词](https://leetcode-cn.com/problems/valid-anagram/description/)
-
+**LeetCode** [有效的字母异位词](https://leetcode-cn.com/problems/valid-anagram/description/)
 
 
 >  给定两个字符串 `s` 和 `t` ，编写一个函数来判断 `t` 是否是 `s` 的字母异位词。
@@ -46,13 +43,8 @@ subCategory: everyDay
 
 **进阶:** 如果输入字符串包含 unicode 字符怎么办？你能否调整你的解法来应对这种情况？
 
-------
 
-[Discussion](https://leetcode-cn.com/problems/valid-anagram/comments/) | [Solution](https://leetcode-cn.com/problems/valid-anagram/solution/)
-
-
-
-### 排序
+## 排序
 
 在两个字符相同长度的前提下，转化为字符串进行直接比较
 
@@ -63,7 +55,7 @@ const isAnagram_s = (s, t) => {
 }
 ```
 
-### 哈希表
+## 哈希表
 
 首先记录一个长度为`26`位的哈希表，初始化每一项为`0` ，代表当前对应的字母出现次数为`0`。因为字母总共有`26`位。
 
@@ -92,3 +84,26 @@ const isAnagram_m = (s, t) => {
 }
 ```
 
+## 执行代码
+
+export const js = `
+const isAnagram_m = (s, t) => {
+  if (s.length != t.length) return false;
+  const map = new Array(26).fill(0);
+  const initPoint = 'a'.codePointAt(); // 97
+  for (let i = 0; i < s.length; i++) {
+    map[s.codePointAt(i) - initPoint]++
+  }
+  for (let j = 0; j < t.length; j++) {
+    map[t.codePointAt(j) - initPoint]--
+    if (map[t.codePointAt(j) - initPoint]  < 0) {
+      return false;
+    }
+  }
+  return true;
+}`
+export const options = {
+  mainEntry: 'isAnagram_m'
+}
+
+<PlayGround js={js} mode='algo' options={options}/> 

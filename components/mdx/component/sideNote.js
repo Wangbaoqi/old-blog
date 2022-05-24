@@ -22,11 +22,7 @@ const SideNote = ({
     iconCls = 'text-warning-color'
   }
 
-
-
-
   return (
-
     <aside className={`relative px-8 py-6 my-8 rounded-md border-l-4  ${themeCls}`}>
       <span className={`absolute top-0 -left-0.5 p-2 rounded-full  bg-primary-bg -translate-x-1/2 -translate-y-1/2 ${iconCls}`}>
         <Icon size={24} />

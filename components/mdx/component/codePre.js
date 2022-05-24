@@ -52,12 +52,14 @@ const CodePre = (props) => {
       className="rounded-lg my-5 pl-3 pb-4 shadow-3xl bg-playground-bg md:-mx-6"
     >
       <div className="flex relative pb-4">
-        <div
-          className=" mx-1 px-2 uppercase rounded-bl-md rounded-br-md font-bold text-center flex justify-center items-center"
-          style={{
-            background: "var(--fg-inactive)",
-          }}
-        >{`${language}`}</div>
+        {
+          language ? <div
+            className=" mx-1 px-2 uppercase text-tiny text-second-color rounded-bl-md rounded-br-md  font-Sriracha text-center flex justify-center items-center"
+            style={{
+              background: "var(--fg-inactive)",
+            }}
+          >{`${language}`}</div> : ''
+        }
         <div
           className="flex justify-center items-center italic"
           style={{
@@ -66,9 +68,8 @@ const CodePre = (props) => {
         >
           {file && `${file}`}
         </div>
-        <div style={{ flexGrow: "1" }}></div>
         <button
-          className="mr-5 mt-2 py-2 px-3 border-none rounded-lg cursor-pointer text-sm font-SourceCode leading-4"
+          className=" absolute right-5 top-4 hover:text-anchor-color py-2 px-3 border-none rounded-lg cursor-pointer text-sm font-SourceCode leading-4"
           onClick={() => {
             copyToClipboard(code)
             setIsCopied(true)

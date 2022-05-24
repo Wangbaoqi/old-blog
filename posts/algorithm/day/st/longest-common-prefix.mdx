@@ -1,7 +1,7 @@
 ---
 id: 14
 title: 14.最长公共前缀
-date: '2020-03-16'
+date: '2022-03-08'
 level: easy
 hot: 4
 author:
@@ -15,9 +15,7 @@ subCategory: everyDay
 ---
 
 
-# [最长公共前缀](https://leetcode-cn.com/problems/longest-common-prefix/description/)
-
-
+**LeetCode** [最长公共前缀](https://leetcode-cn.com/problems/longest-common-prefix/description/)
 
 > 编写一个函数来查找字符串数组中的最长公共前缀。
 
@@ -44,17 +42,8 @@ subCategory: everyDay
 - `0 <= strs[i].length <= 200`
 - `strs[i]` 仅由小写英文字母组成
 
-------
 
-[Discussion](https://leetcode-cn.com/problems/longest-common-prefix/comments/) | [Solution](https://leetcode-cn.com/problems/longest-common-prefix/solution/)
-
-## 题解
-
-
-
-### 双指针 + 遍历
-
-
+## 双指针 + 遍历
 
 ```js
 const longestCommonPrefix_a = strs => {
@@ -75,10 +64,35 @@ const longestCommonPrefix_a = strs => {
   for (let i = 1; i < strs.length; i++) {
     prefix = getCommonPrefix(prefix, strs[i])
   }
-
   return prefix
 }
 ```
 
+## 执行代码
 
+export const js = `
+const longestCommonPrefix = strs => {
+  let prefix = strs[0];
+  const getCommonPrefix = (pre, cur) => {
+    let i = 0, j = 0;
+    let common = '';
+    while (i < pre.length || j < cur.length) {
+      if (pre[i] != cur[j]) {
+        break;
+      }
+      common += pre[i];
+      i++;
+      j++;
+    }
+    return common;
+  }
+  for (let i = 1; i < strs.length; i++) {
+    prefix = getCommonPrefix(prefix, strs[i])
+  }
+  return prefix
+}`
+export const options = {
+  mainEntry: 'longestCommonPrefix'
+}
 
+<PlayGround js={js} mode='algo' options={options}/> 

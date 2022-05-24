@@ -1,7 +1,7 @@
 ---
 id: 63
 title: 63.不同路径II
-date: '2020-03-16'
+date: '2022-04-01'
 level: medium
 hot: 3
 author:
@@ -55,13 +55,9 @@ subCategory: everyDay
 - `1 <= m, n <= 100`
 - `obstacleGrid[i][j]` 为 `0` 或 `1`
 
-------
 
-[Discussion](https://leetcode-cn.com/problems/unique-paths-ii/comments/) | [Solution](https://leetcode-cn.com/problems/unique-paths-ii/solution/)
 
-## 题解
-
-### 动态规划  + DP数组
+## 动态规划  + DP数组
 
 这里跟**不同路径**不同点是路径上增加了障碍
 
@@ -113,6 +109,37 @@ const uniquePathsWithObstacles = obstacleGrid => {
 **有没有空间复杂度的优化方案呢**
 
 
+## 执行代码
+
+export const js = `
+const uniquePathsWithObstacles = obstacleGrid => {
+  const m = obstacleGrid[0].length;
+  const n = obstacleGrid.length;
+  const dp = new Array(n).fill(0).map(() => {
+    return new Array(m).fill(0)
+  });
+  for (let i = 0; i < m && obstacleGrid[0][i] == 0; i++) {
+    dp[0][i] = 1
+  }
+  for (let i = 0; i < n && obstacleGrid[i][0] == 0; i++) {
+    dp[i][0] = 1
+  }
+  for (let i = 1; i < n; i++) {
+    for (let j = 1; j < m; j++) {
+      if (obstacleGrid[i][j] == 1) {
+        continue;
+      }
+      dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
+    }
+  }
+  return dp[n - 1][m - 1];
+}`
+
+export const options = {
+  mainEntry: 'uniquePathsWithObstacles'
+}
+
+<PlayGround js={js} mode='algo' options={options}/> 
 
 
 

@@ -1,7 +1,7 @@
 ---
 id: 557
 title: 557.反转字符串中的单词III
-date: '2020-03-16'
+date: '2022-03-02'
 level: easy
 hot: 4
 author:
@@ -15,7 +15,7 @@ subCategory: everyDay
 ---
 
 
-
+**LeetCode** [反转字符串中的单词III](https://leetcode.cn/problems/reverse-words-in-a-string-iii/)
 
 > 给定一个字符串 `s` ，你需要反转字符串中每个单词的字符顺序，同时仍保留空格和单词的初始顺序。
 
@@ -41,12 +41,8 @@ subCategory: everyDay
 - `s` 里 **至少** 有一个词。
 - `s` 中的所有单词都用一个空格隔开。
 
-------
 
-[Discussion](https://leetcode-cn.com/problems/reverse-words-in-a-string-iii/comments/) | [Solution](https://leetcode-cn.com/problems/reverse-words-in-a-string-iii/solution/)
-
-
-### 双指针
+## 双指针
 
 ```js
 const reverseWords_d = s => {
@@ -72,3 +68,32 @@ const reverseWords_d = s => {
   return a.join(' ');
 }
 ```
+
+## 执行代码
+
+export const js = `
+const reverseWords_d = s => {
+  const a = s.split(' ');
+  const reverse = (a, word, index) => {
+    const word_a = word.split('');
+    let l = 0, r = word_a.length;
+    while (l < r) {
+      let tmp = word_a[l];
+      word_a[l] = word_a[r];
+      word_a[r] = tmp;
+      l++;
+      r--;
+    }
+    a[index] = word_a.join('');
+  }
+  for (let i = 0; i < a.length; i++) {
+    const word = a[i];
+    reverse(a, word, i);
+  }
+  return a.join(' ');
+}`
+export const options = {
+  mainEntry: 'reverseWords_d'
+}
+
+<PlayGround js={js} mode='algo' options={options}/> 

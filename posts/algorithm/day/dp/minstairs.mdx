@@ -14,18 +14,11 @@ category: Algorithm
 subCategory: everyDay
 ---
 
-
-
-
-
-
-# [使用最小花费爬楼梯](https://leetcode-cn.com/problems/min-cost-climbing-stairs/description/)
+**LeetCode** [使用最小花费爬楼梯](https://leetcode-cn.com/problems/min-cost-climbing-stairs/description/)
 
 >给你一个整数数组 `cost` ，其中 `cost[i]` 是从楼梯第 `i` 个台阶向上爬需要支付的费用。一旦你支付此费用，即可选择向上爬一个或者两个台阶。
-
-你可以选择从下标为 `0` 或下标为 `1` 的台阶开始爬楼梯。
-
-请你计算并返回达到楼梯顶部的最低花费。
+>你可以选择从下标为 `0` 或下标为 `1` 的台阶开始爬楼梯。
+>请你计算并返回达到楼梯顶部的最低花费。
 
 **示例 1：**
 
@@ -57,15 +50,9 @@ subCategory: everyDay
 - `2 <= cost.length <= 1000`
 - `0 <= cost[i] <= 999`
 
-------
 
-[Discussion](https://leetcode-cn.com/problems/min-cost-climbing-stairs/comments/) | [Solution](https://leetcode-cn.com/problems/min-cost-climbing-stairs/solution/)
 
-## 题解
-
-### 动态规划 + DP数组
-
-动态规划五部曲：
+**动态规划五部曲：**
 
 - 确定DP数组
 
@@ -85,7 +72,7 @@ subCategory: everyDay
 
 - 举例推导
 
-  ```markdown
+  ```
   // [1,100, 1,1,1,100,1,1,100,1]
   
   // dp = [1, 100]
@@ -100,7 +87,7 @@ subCategory: everyDay
   // i = 9. dp[9] = min(104, 5) + 1 = 6;     dp = [1, 100, 2, 3, 3, 103, 4, 5, 104, 6]
   ```
 
-
+## 动态规划 + DP数组
 
 ```js
 const minCostClimbingStairs = cost => {
@@ -117,10 +104,9 @@ const minCostClimbingStairs = cost => {
 ```
 
 时间复杂度：`O(n)`
-
 空间复杂度：`O(n)`
 
-### 动态规划 + 优化
+## 动态规划 + 优化
 
 可以使用两个变量`pre和next`来记录`i-1`和`i-1`楼层中最小的花费
 
@@ -140,5 +126,24 @@ const minCostClimbingStairs_a = cost => {
 ```
 
 时间复杂度：`O(n)`
-
 空间复杂度：`O(1)`
+
+
+## 执行代码
+
+export const js = `
+const minCostClimbingStairs = cost => {
+  let pre = cost[0];
+  let next = cost[1];
+  for (let i = 2; i < cost.length; i++) {
+    const min = Math.min(pre, next) + cost[i];
+    pre = next;
+    next = min
+  }
+  return pre > next ? next : pre
+}`
+export const options = {
+  mainEntry: 'minCostClimbingStairs'
+}
+
+<PlayGround js={js} mode='algo' options={options}/> 

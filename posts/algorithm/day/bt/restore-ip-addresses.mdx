@@ -1,7 +1,7 @@
 ---
 id: 93
 title: 93. 复原 IP 地址
-date: '2020-03-16'
+date: '2022-03-12'
 level: medium
 hot: 4
 author:
@@ -14,35 +14,47 @@ category: Algorithm
 subCategory: everyDay
 ---
 
-# [复原 IP 地址](https://leetcode-cn.com/problems/restore-ip-addresses/description/)
+<Strong>LeetCode</Strong> [复原 IP 地址](https://leetcode-cn.com/problems/restore-ip-addresses/description/)
 
+import Strong from './mdx/component/strong.js'
+import InlineCode from './mdx/component/inlineCode.js'
+import Para from './mdx/component/para.js'
 
+export const cBox = (
+  <>
+    <Para>
+      <Strong>有效 IP 地址</Strong>
+      正好由四个整数（每个整数位于 <InlineCode>0</InlineCode> 到 <InlineCode>255</InlineCode> 之间组成，且不能含有前导 <InlineCode>0</InlineCode>）  ），整数之间用 <InlineCode>.</InlineCode>分隔。
+    </Para>
+    <Para>
+      例如：<InlineCode>0.1.2.201</InlineCode>和<InlineCode>192.168.1.1</InlineCode>有效IP<Strong>  地址</Strong>
+      但是 <InlineCode>0.011.255.245</InlineCode>、 <InlineCode>192.168.1.312</InlineCode> 是<Strong>无效 IP 地址</Strong>。
+    </Para>
+  </>
+)
 
-> **有效 IP 地址** 正好由四个整数（每个整数位于 `0` 到 `255` 之间组成，且不能含有前导 `0`），整数之间用 `'.'` 分隔。
-
-- 例如：`"0.1.2.201"` 和` "192.168.1.1"` 是 **有效** IP 地址，但是 `"0.011.255.245"`、`"192.168.1.312"` 和 `"192.168@1.1"` 是 **无效** IP 地址。
+<SideNote type='info' title='题目描述' children={cBox}/>
 
 给定一个只包含数字的字符串 `s` ，用以表示一个 IP 地址，返回所有可能的**有效 IP 地址**，这些地址可以通过在 `s` 中插入 `'.'` 来形成。你 **不能** 重新排序或删除 `s` 中的任何数字。你可以按 **任何** 顺序返回答案。
 
- 
 
 **示例 1：**
 
-```
+```md
 输入：s = "25525511135"
 输出：["255.255.11.135","255.255.111.35"]
 ```
 
 **示例 2：**
 
-```
+```md
 输入：s = "0000"
 输出：["0.0.0.0"]
 ```
 
 **示例 3：**
 
-```
+```md
 输入：s = "101023"
 输出：["1.0.10.23","1.0.102.3","10.1.0.23","10.10.2.3","101.0.2.3"]
 ```
@@ -54,11 +66,8 @@ subCategory: everyDay
 - `1 <= s.length <= 20`
 - `s` 仅由数字组成
 
-------
 
-[Discussion](https://leetcode-cn.com/problems/restore-ip-addresses/comments/) | [Solution](https://leetcode-cn.com/problems/restore-ip-addresses/solution/)
-
-## 题解 回溯
+## 回溯
 
 
 复原**IP地址**也是一种分隔的问题
@@ -81,7 +90,6 @@ const restoreIpAddresses_a = s => {
   s = s.split('');
   const ret = [];
   let pointNum = 0;
-
   const isValid = (str, s, e) => {
     if (s > e) {
       return false
@@ -99,7 +107,6 @@ const restoreIpAddresses_a = s => {
     }
     return true;
   }
-
   const backTracking = (s, i, pointNum) => {
     // 递归结束的条件
     if (pointNum === 3) {
@@ -124,3 +131,54 @@ const restoreIpAddresses_a = s => {
 }
 ```
 
+## 执行代码
+
+export const js = `
+const restoreIpAddresses = s => {
+  s = s.split('');
+  const ret = [];
+  let pointNum = 0;
+  const isValid = (str, s, e) => {
+    if (s > e) {
+      return false
+    }
+    // 不能有前导 0 
+    if (str[s] == 0 && s != e) {
+      return false;      
+    }
+    let num = 0;
+    for (let i = s; i <= e; i++) {
+      num = num * 10 + (str[i] - '0');
+      if (num > 255) {
+        return false
+      }
+    }
+    return true;
+  }
+  const backTracking = (s, i, pointNum) => {
+    // 递归结束的条件
+    if (pointNum === 3) {
+      if (isValid(s, i, s.length - 1)) {
+        ret.push(s.join(''))
+      }
+      return;
+    }
+    // 单层函数搜索的过程
+    for (let j = i; j < s.length; j++) {
+      if (isValid(s, i, j)) {
+        s.splice(j + 1, 0, '.');
+        backTracking(s, j + 2, pointNum + 1);
+        s.splice(j + 1, 1);
+      } else {
+        break;
+      }
+    }
+  }
+  backTracking(s, 0, pointNum);
+  return ret
+}`
+export const options = {
+  mainEntry: 'restoreIpAddresses'
+}
+
+<PlayGround js={js} mode='algo' options={options}/> 
