@@ -5,3 +5,6 @@ Disallow: /accounts
 # Allow all crawlers
 User-agent: *
 Allow: /
+
+
+Sitemap: https://www.wangbaoqi.tech/sitemap.xml
