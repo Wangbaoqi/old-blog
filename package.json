@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "search": "node ./script/build-algolia.js",
+    "sitemap": "node ./script/build-generate-sitemap",
     "postinstall": "prisma generate"
   },
   "dependencies": {
@@ -19,6 +20,8 @@
     "dotenv": "^16.0.0",
     "esbuild": "^0.14.36",
     "github-slugger": "^1.4.0",
+    "globby": "^13.1.1",
+
     "gray-matter": "^4.0.3",
     "mdast-util-to-string": "^3.1.0",
     "mdx-bundler": "^9.0.0",
