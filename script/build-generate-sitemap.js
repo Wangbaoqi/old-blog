@@ -28,6 +28,7 @@ const siteUrl = "https://www.wangbaoqi.tech";
             return `
             <url>
                 <loc>${siteUrl}${path}</loc>
+                <lastmod>${new Date().toISOString()}</lastmod>
             </url>
             `;
           })}

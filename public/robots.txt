@@ -6,5 +6,8 @@ Disallow: /accounts
 User-agent: *
 Allow: /
 
+# Host
+Host: https://www.wangbaoqi.tech
 
+# Sitemap
 Sitemap: https://www.wangbaoqi.tech/sitemap.xml
