@@ -2,7 +2,21 @@ import { useRouter } from "next/router";
 import { useMemo } from "react";
 import Head from "next/head";
 import { getMDXComponent, getMDXExport } from "mdx-bundler/client";
-import { CodePre, PostLink, BlockQuote, SideNote, PostHeader, Img, Strong, InlineCode, Para, Tags, Iframe, Whimsical } from "@components/mdx";
+import {
+  CodePre,
+  PostLink,
+  BlockQuote,
+  SideNote,
+  PostHeader,
+  Img,
+  Strong,
+  InlineCode,
+  Para,
+  Tags,
+  Iframe,
+  Whimsical,
+  CodePen
+} from "@components/mdx";
 import { NextPost } from "@components/posts";
 import PlayGround from "@components/playground/playground";
 
@@ -32,11 +46,14 @@ const MDXRenderer = ({ code, frontmatter, prev, next, views }) => {
     em: (props) => <i {...props} />,
     pre: (props) => <CodePre {...props} />,
     strong: (props) => (
-      <strong className="mx-1 font-extrabold text-anchor-color font-Sriracha" {...props} />
+      <strong
+        className="mx-1 font-extrabold text-anchor-color font-Sriracha"
+        {...props}
+      />
     ),
-    code: props => <InlineCode {...props} />,
-    table: props => <table className="table" {...props}/>,
-    img: props => <Img {...props}/>,
+    code: (props) => <InlineCode {...props} />,
+    table: (props) => <table className="table" {...props} />,
+    img: (props) => <Img {...props} />,
     p: (props) => <Para {...props} />,
     ul: (props) => <ul className="ml-6 my-3 list-disc" {...props} />,
     ol: (props) => <ol className="ml-6 my-3 list-decimal" {...props} />,
@@ -47,9 +64,10 @@ const MDXRenderer = ({ code, frontmatter, prev, next, views }) => {
     SideNote,
     Iframe,
     Whimsical,
+    CodePen
   };
 
-  const mdxExport = getMDXExport(code)
+  const mdxExport = getMDXExport(code);
   const MDXLayout = useMemo(() => mdxExport.default, [code]);
   return (
     <>
@@ -58,11 +76,10 @@ const MDXRenderer = ({ code, frontmatter, prev, next, views }) => {
       ) : (
         <>
           <article className="relative mb-32 max-w-4xl mx-auto">
-              <PostHeader {...frontmatter} views={views} />
-              <MDXLayout components={components} />
-              <NextPost prev={prev} next={next} />
-              <Tags tags={frontmatter.tags} />
-
+            <PostHeader {...frontmatter} views={views} />
+            <MDXLayout components={components} />
+            <NextPost prev={prev} next={next} />
+            <Tags tags={frontmatter.tags} />
           </article>
         </>
       )}
