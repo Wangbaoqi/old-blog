@@ -34,8 +34,6 @@ const siteUrl = "https://www.wangbaoqi.tech";
           })}
         </urlset>
   `;
-
-
   const formatted = prettier.format(sitemap, {
     parser: 'html',
   })

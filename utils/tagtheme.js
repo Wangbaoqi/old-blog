@@ -11,6 +11,9 @@ export const tagTheme = {
   'medium': 'tag-medium',
   'hard': 'tag-hard',
 
+  'Html': 'tag-html',
+  'Css': 'tag-css',
+  'JavaScript': 'tag-js',
   'React': 'tag-react',
   'Algorithm': 'tag-algorithm',
   'Html&Css': 'tag-html-css',

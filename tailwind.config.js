@@ -30,6 +30,7 @@ module.exports = {
         'f-card': '220px',
         'f-card-c': '200px',
         'p-card': '350px',
+        '200': '40rem',
         '70': '70px',
         '9/10': '90%'
       },
@@ -96,8 +97,6 @@ module.exports = {
         'nav-color': '#3d5b7d',
         'icon-color': '#00c2ff',
         's-color': "#3D5B7D",
-
-       
         cyan: '#79FFE1',
       },
       backgroundImage: {

@@ -1,9 +1,7 @@
 
 
 const Para = props => {
-
-
-  return <p className=" leading-8 my-2" {...props}/>
+  return <p className=" leading-8 my-4" {...props}/>
 }
 
 

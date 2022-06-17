@@ -15,8 +15,11 @@
   .table thead th {
     @apply px-4 py-3 font-Sriracha text-base border-b border-border-color text-center
   }
+  .table tbody tr {
+    @apply border-b border-border-color last:border-b-0
+  }
   .table tbody td {
-    @apply px-5 py-2 text-sm text-center font-SourceCode
+    @apply px-5 py-3 text-sm text-center font-SourceCode
   }
 
   .person-logo {

@@ -2,7 +2,7 @@
 import { Container, SplitLayout } from '@components/layouts';
 import { SearchBtn, Category } from '@components/ui'
 import { FeatureCard } from '@components/posts';
-
+import SearchDoc from '@components/search/docsearch';
 
 const FeatureWrapper = ({
   featurePosts,
@@ -17,7 +17,8 @@ const FeatureWrapper = ({
 
   const rightChild = (
     <>
-      <SearchBtn showText={true}/>
+      <SearchBtn showText={true} />
+      {/* <SearchDoc /> */}
       <Category groupList={categoryGroup}/>
     </>
   )

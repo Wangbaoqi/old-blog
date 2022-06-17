@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { useMemo } from "react";
 import Head from "next/head";
 import { getMDXComponent, getMDXExport } from "mdx-bundler/client";
-import { CodePre, PostLink, BlockQuote, SideNote, PostHeader, Img, Strong, InlineCode, Para, Tags } from "@components/mdx";
+import { CodePre, PostLink, BlockQuote, SideNote, PostHeader, Img, Strong, InlineCode, Para, Tags, Iframe, Whimsical } from "@components/mdx";
 import { NextPost } from "@components/posts";
 import PlayGround from "@components/playground/playground";
 
@@ -32,7 +32,7 @@ const MDXRenderer = ({ code, frontmatter, prev, next, views }) => {
     em: (props) => <i {...props} />,
     pre: (props) => <CodePre {...props} />,
     strong: (props) => (
-      <strong className="mx-1 font-extrabold font-Sriracha" {...props} />
+      <strong className="mx-1 font-extrabold text-anchor-color font-Sriracha" {...props} />
     ),
     code: props => <InlineCode {...props} />,
     table: props => <table className="table" {...props}/>,
@@ -44,7 +44,9 @@ const MDXRenderer = ({ code, frontmatter, prev, next, views }) => {
     blockquote: (props) => <BlockQuote {...props} />,
     PlayGround,
     Strong,
-    SideNote
+    SideNote,
+    Iframe,
+    Whimsical,
   };
 
   const mdxExport = getMDXExport(code)
