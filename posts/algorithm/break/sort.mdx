@@ -1,13 +1,13 @@
 ---
 title: 排序算法
 excerpt: 排序算法是日常开发中常用的一种算法。排序算法有很多种，冒泡、选择、插入、快速、归并以及希尔排序等。每种排序算法都有一定的优缺点。首先从最简单的冒泡排序开始。
-coverImage: '/assets/blog/algorithm/cover/sort.webp'
+coverImage: 'https://media.wangbaoqi.tech/assets/blog/algorithm/cover/sort.webp'
 date: '2020-03-16'
 author:
   name: NateWang
   picture: '/assets/authors/logo.png'
 ogImage:
-  url: '/assets/blog/react/jsx/cover.png'
+  url: 'https://media.wangbaoqi.tech/assets/blog/react/jsx/cover.png'
 tags:
   - 排序
 category: Algorithm
@@ -23,7 +23,7 @@ subCategory: breakThrough
 
 下图为动图演示
 
-![bubble-sort](/assets/blog/algorithm/sort/bubble-sort.gif)
+![bubble-sort](https://media.wangbaoqi.tech/assets/blog/algorithm/sort/bubble-sort.gif)
 
 
 排序冒泡会有两层循环，分为外循环和内循环。外循环负责整个数组的循环，内循环的区间随着外循环的区间变化而变化，内循环判断相邻元素大小，从而进行元素互换。
@@ -130,7 +130,7 @@ function bubbleSort(arr) {
 
 下图为动图展示
 
-![select-sort](/assets/blog/algorithm/sort/select-sort.gif)
+![select-sort](https://media.wangbaoqi.tech/assets/blog/algorithm/sort/select-sort.gif)
 
 可以看到，选择排序也是两重循环，外循环的第一个元素和内循环剩下的元素进行比较，将最小的元素放到第一个位置上，以此类推。
 
@@ -156,7 +156,7 @@ function selectSort(arr) {
 
 下图为动图展示
 
-![insert-sort](/assets/blog/algorithm/sort/insert-sort.gif)
+![insert-sort](https://media.wangbaoqi.tech/assets/blog/algorithm/sort/insert-sort.gif)
 
 插入排序也有两层循环，外层循环遍历每一个元素，内层循环对外层循环选中的选中的元素跟前一个元素 进行比较，如果选中的元素小于前一个元素，则将前一个元素后移，以此类推。
 
@@ -220,7 +220,7 @@ insertSort(testArr); // insert start: 0.68994140625 ms
 
 快速排序是处理大量数据最快的一种算法，其核心思想是分而治之，采用递归的方式将数组分为多个单元，每个单元进行排序，最终依次将每个单元合并。
 
-![](/assets/blog/algorithm/sort/quickSort.webp)
+![](https://media.wangbaoqi.tech/assets/blog/algorithm/sort/quickSort.webp)
 
 算法过程：
 
@@ -278,7 +278,7 @@ const quickSort = (arr, start, end) => {
 
 如下图 计算下一轮递归的基准值
 
-![quickSort_double](/assets/blog/algorithm/sort/quickSort_double.webp)
+![quickSort_double](https://media.wangbaoqi.tech/assets/blog/algorithm/sort/quickSort_double.webp)
 
 
 首先从`right` 右指针开始，对比基准点 pivot ，大于基准点 `right` 指针向左侧移动，否则移动左指针 `left` 。
@@ -323,7 +323,7 @@ const partition = (arr, start, end) => {
 
 单边循环法是使用一个单指针来遍历，同时`pivot`基准元素也是取的第一位，增加了 `mark` 指针，来标记基准元素左右的边界。如下图，计算第一次获取边界值的循环
 
-![quickSort_single](/assets/blog/algorithm/sort/quickSort_single.webp)
+![quickSort_single](https://media.wangbaoqi.tech/assets/blog/algorithm/sort/quickSort_single.webp)
 
 首先记录`pivot`和`mark`指针为首位，循环指针`p`为`pivot`的下一位，判断 `p` 和 `pivot`的大小。
 
@@ -361,7 +361,7 @@ const partition_single = (arr, start, end) => {
 
 给定原问题`[4,2,6,3,8,5,9]`，将其对半拆分成多个子问题，直到不能拆分位置，然后从子问题出发，排序子问题。
 
-![gb-sort](/assets/blog/algorithm/sort/gb-sort.webp)
+![gb-sort](https://media.wangbaoqi.tech/assets/blog/algorithm/sort/gb-sort.webp)
 
 因为使用递归思想，那么必须满足三个条件：
 

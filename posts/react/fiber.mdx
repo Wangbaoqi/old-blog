@@ -1,13 +1,13 @@
 ---
 title: 从源码角度了解 React Fiber
 excerpt: 'React Fiber 是一套调度机制，能够暂停工作、恢复工作，并且能够为每一个工作分配优先级，恢复工作之后能够复用之前的状态'
-coverImage: '/assets/blog/react/cover/fiber.webp'
+coverImage: 'https://media.wangbaoqi.tech/assets/blog/react/cover/fiber.webp'
 date: '2021-07-10'
 author:
   name: NateWang
   picture: '/assets/authors/logo.png'
 ogImage:
-  url: '/assets/blog/react/jsx/cover.png'
+  url: 'https://media.wangbaoqi.tech/assets/blog/react/jsx/cover.png'
 feature: true
 category: React
 tags:
@@ -125,7 +125,7 @@ React 中的渲染器主要有：
 
 我们知道，屏幕流畅（浏览器浏览）的刷新率是`60HZ`，也就是每一秒刷新**60次**，而刷新一次需要`16.66ms`，也就是每一帧流畅的执行需要`16.66ms`，在这一帧里执行了什么操作呢？
 
-![all-frame](/assets/blog/browser/all-frame.webp)
+![all-frame](https://media.wangbaoqi.tech/assets/blog/browser/all-frame.webp)
 
 1. 首先，处理用户输入事件，尽快给用户反馈。
 2. 其次，检查定时器，看是否已经到了预定的时间，同时进行相应的回调，然后执行`JS代码`。
@@ -141,7 +141,7 @@ React 中的渲染器主要有：
 
 引入`Fiber`之后，`React`和浏览器渲染线程之间交互如下图
 
-![all-frame](/assets/blog/react/fiber/react-frame.webp)
+![all-frame](https://media.wangbaoqi.tech/assets/blog/react/fiber/react-frame.webp)
 
 首先，`React`会向浏览器发起调度请求，查看**当前帧**是否还有剩余时间，如果有剩余时间，`React`就获得了主线程的控制权，按照子任务的优先级去执行单个子任务，当子任务执行结束之后，`React`会再次发起调度，查看当前帧是否还有剩余时间，如果有，继续执行下个任务，如果没有，则将主线程的控制权交还给浏览器。
 
@@ -224,7 +224,7 @@ this.sibling = null;
 
 上述这三个属性将整个`React`应用构建成了一颗`Fiber树`，如下图：
 
-![react-fiber-tree](/assets/blog/react/fiber/react-fiber-tree.webp)
+![react-fiber-tree](https://media.wangbaoqi.tech/assets/blog/react/fiber/react-fiber-tree.webp)
 
 #### Fiber 的静态结构层面
 
@@ -319,14 +319,14 @@ ReactDOM.render(<App />, document.getElementById('root'))
 
 此时树结构为：
 
-![double-fiber-update](/assets/blog/react/fiber/double-fiber-update.svg)
+![double-fiber-update](https://media.wangbaoqi.tech/assets/blog/react/fiber/double-fiber-update.svg)
 
 
 当发生更新时，又会重新构建`workInProgress Fiber树 `，此时会复用`current Fiber树`中节点的状态（如果没有更新的话）
 
 此时树结构为：
 
-![double-fiber](/assets/blog/react/fiber/double-fiber.svg)
+![double-fiber](https://media.wangbaoqi.tech/assets/blog/react/fiber/double-fiber.svg)
 
 
 上述过程就是**双缓存FIber树**产生以及运行的过程，其中的细节如`Fiber节点`的产生、`diff算法`、`副作用链表`的对比等，会在架构篇中阐述到。

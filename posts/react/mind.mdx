@@ -1,13 +1,13 @@
 ---
 title: 'React 做了什么其如何做的'
 excerpt: '我们认为，React 是用 JavaScript 构建快速响应的大型 Web 应用程序的首选方式。它在 Facebook 和 Instagram 上表现优秀。'
-coverImage: '/assets/blog/react/cover/mind.webp'
+coverImage: 'https://media.wangbaoqi.tech/assets/blog/react/cover/mind.webp'
 date: '2021-06-30'
 author:
   name: NateWang
   picture: '/assets/authors/logo.png'
 ogImage:
-  url: '/assets/blog/react/jsx/cover.png'
+  url: 'https://media.wangbaoqi.tech/assets/blog/react/jsx/cover.png'
 tags:
   - React
 category: React
@@ -50,7 +50,7 @@ React同步渲染也就是现在版本默认用的一种模式
 1ReactDOM.render(<APP/>, el)
 ```
 
-![react-tongbu](/assets/blog/react/render/react-tongbu.webp)
+![react-tongbu](https://media.wangbaoqi.tech/assets/blog/react/render/react-tongbu.webp)
 
 
 上图是React同步模式下的首次加载下一帧所消耗的时间，这里将一帧标记为task。可以看到，这一帧中消耗的时间远超了16ms，JS执行的时间太长了，导致没有时间去执行后面的布局、绘画以及合成操作了，也就是说后面的这些操作不会执行了，因此，就会造成掉帧，页面卡顿的问题。
@@ -60,7 +60,7 @@ React同步渲染也就是现在版本默认用的一种模式
 ```jsx
 1ReactDOM.unstable_createRoot(el).render(<APP/>)
 ```
-![react-concurrent](/assets/blog/react/render/react-concurrent.webp)
+![react-concurrent](https://media.wangbaoqi.tech/assets/blog/react/render/react-concurrent.webp)
 
 可以看到，每一帧的耗时都在16ms之内，页面减少了掉帧，也大概率减少了出现卡顿的情况。
 

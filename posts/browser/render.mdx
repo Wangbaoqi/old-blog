@@ -1,7 +1,7 @@
 ---
 title: 'Browser 的渲染'
 excerpt: '上一章阐述了浏览器的架构，在最新的多进程架构中，最重要的是**渲染进程**，因为浏览器内核（渲染引擎）和JavaScript引擎（blink）都运行在该进程中。'
-coverImage: '/assets/blog/browser/cover/render.webp'
+coverImage: 'https://media.wangbaoqi.tech/assets/blog/browser/cover/render.webp'
 date: '2021-04-19'
 author:
   name: NateWang
@@ -18,7 +18,7 @@ category: Http&Browser
 
 那么以一道经典的问题来开启浏览器的渲染，**浏览器中输入URL到页面展示，到底发生了什么？**
 
-![输入URL到页面展示完整流程图](/assets/blog/browser/url_load.webp)
+![输入URL到页面展示完整流程图](https://media.wangbaoqi.tech/assets/blog/browser/url_load.webp)
 
 浏览器多进程架构中，浏览器进程负责用户交互、处理输入信息，管理子进程等。这里UI线程是浏览器进程中的线程，是处理用户输入的。接下来逐一分析每一个过程。
 
@@ -34,7 +34,7 @@ category: Http&Browser
 
 当在浏览器地址栏输入内容后，点击搜索或者回车，`UI线`程会判断这个内容是不是URL。
 
-![](/assets/blog/browser/input.webp)
+![](https://media.wangbaoqi.tech/assets/blog/browser/input.webp)
 
 
 如果是**搜索词**，则搜索对应的内容，合成新的URL。
@@ -103,7 +103,7 @@ https://www.wangbaoqi.github.com
 
 接下来详细阐述下整个过程
 
-![](/assets/blog/browser/browser-render.webp)
+![](https://media.wangbaoqi.tech/assets/blog/browser/browser-render.webp)
 
 
 当网络进程将URL请求的响应通过消息管道传输到渲染进程之后，渲染进程就会开始解析响应数据（也就是HTML文件)。
@@ -156,7 +156,7 @@ https://www.wangbaoqi.github.com
 
 DOM树是浏览器能够理解的数据结构，因此需要将HTML解析成DOM树。
 
-![](/assets/blog/browser/dom.webp)
+![](https://media.wangbaoqi.tech/assets/blog/browser/dom.webp)
 
 
 DOM树的形式是**JavaScript对象**，因此可以用JS来修改节点的属性。
@@ -182,7 +182,7 @@ DOM树是由**HTML 解析器**将HTML解析完成的。在`「HTML - 解析HTML�
 
 这些纯文本CSS引入方式有**外部引入Link、style 内联**以及**style属性内嵌**
 
-![](/assets/blog/browser/computedstyle.webp)
+![](https://media.wangbaoqi.tech/assets/blog/browser/computedstyle.webp)
 
 
 **其次，转换样式表中的属性值，使其标准化。**
@@ -201,7 +201,7 @@ DOM树是由**HTML 解析器**将HTML解析完成的。在`「HTML - 解析HTML�
 
 这个过程新建一课树，只包含**可见的DOM节点**的DOM树，该树为布局树。
 
-![](/assets/blog/browser/layout.webp)
+![](https://media.wangbaoqi.tech/assets/blog/browser/layout.webp)
 
 
 在创建布局树过程，遍历DOM树，将可见的DOM节点添加到布局树中，不可见的节点会被布局树忽略掉。
@@ -222,7 +222,7 @@ DOM树是由**HTML 解析器**将HTML解析完成的。在`「HTML - 解析HTML�
 
 因此，在绘制之前，首先会将布局树进行分层，**渲染引擎为这样的节点实现了专门的图层，并且生成了图层树**
 
-![](/assets/blog/browser/layer-dom.webp)
+![](https://media.wangbaoqi.tech/assets/blog/browser/layer-dom.webp)
 
 可以看到，当元素具备一定的特性的时候，就会生成单独的图层。当元素具有以下特性时，就会生成单独的图层。
 
@@ -256,7 +256,7 @@ DOM树是由**HTML 解析器**将HTML解析完成的。在`「HTML - 解析HTML�
 
 在构建完图层树之后，就开始绘制每一个图层。渲染引擎会把图层的绘制拆分成很小的**绘制指令**，生成待绘制指令列表，这个可以从浏览器中看到。
 
-![](/assets/blog/browser/paint.webp)
+![](https://media.wangbaoqi.tech/assets/blog/browser/paint.webp)
 
 
 至此，得到了**绘制的指令**和**绘制顺序**。
@@ -284,7 +284,7 @@ DOM树是由**HTML 解析器**将HTML解析完成的。在`「HTML - 解析HTML�
 
 之后，合成线程将合成器帧通过`IPC`消息发送给浏览器进程，浏览器进程将合成器帧发送到GPU内存中，然后显示在屏幕上。如果页面发生了滚动事件，合成线程就会再生成一个合成器帧发送到GPU。
 
-![](/assets/blog/browser/composit.webp)
+![](https://media.wangbaoqi.tech/assets/blog/browser/composit.webp)
 
 #### 显示机制
 
@@ -296,7 +296,7 @@ DOM树是由**HTML 解析器**将HTML解析完成的。在`「HTML - 解析HTML�
 
 显示器以这样流畅的帧率从**显卡的前缓冲区（GPU的内存）**获取**图片或者帧**，然后显示到屏幕上。
 
-![](/assets/blog/browser/composit-show.webp)
+![](https://media.wangbaoqi.tech/assets/blog/browser/composit-show.webp)
 
 ## 渲染管道的代价
 

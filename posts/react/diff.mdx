@@ -1,13 +1,13 @@
 ---
 title: '从源码的角度理解 React Diff'
 excerpt: 在react中，更新UI必须生成新的JSX对象（称之为visual DOM），而新的JSX对象和老的visual DOM之间对比以最小的操作次数来获取差异节点（也称之为副作用），从而高效的更新UI。
-coverImage: '/assets/blog/react/cover/diff.webp'
+coverImage: 'https://media.wangbaoqi.tech/assets/blog/react/cover/diff.webp'
 date: '2021-07-16'
 author:
   name: NateWang
   picture: '/assets/authors/logo.png'
 ogImage:
-  url: '/assets/blog/react/jsx/cover.png'
+  url: 'https://media.wangbaoqi.tech/assets/blog/react/jsx/cover.png'
 tags:
   - React
 category: React
@@ -158,7 +158,7 @@ function reconcileSingleElement(
 
 下面为单节点**diff**的流程图
 
-![diff-single-loop](/assets/blog/react/diff/diff-single-loop.webp)
+![diff-single-loop](https://media.wangbaoqi.tech/assets/blog/react/diff/diff-single-loop.webp)
 
 其中，最核心还是`oldFiber`和`element`的`diff`对比过程，
 
@@ -226,7 +226,7 @@ function reconcileSingleElement(
 
 下图，展示了最终生成的`effectList`链表。**黄色**的线是`effectList`的走向。
 
-![](/assets/blog/react/diff/diif-single-m.webp)
+![](https://media.wangbaoqi.tech/assets/blog/react/diff/diif-single-m.webp)
 
 ## 多节点Diff
 
@@ -283,7 +283,7 @@ function reconcileChildrenArray(
 
 ### 第一轮循环
 
-![first-loop](/assets/blog/react/diff/diff-first-loop.webp)
+![first-loop](https://media.wangbaoqi.tech/assets/blog/react/diff/diff-first-loop.webp)
 
 从*第一轮循环图*可以看到，如果`oldFiber`老节点和`newChildren[newIdx]`新节点的`type`和`key`相同，因此，在生成新的 Fiber 节点的时候，会直接`复用oldFiber`节点，而这种场景节点`数量`、`顺序`都没有变化，所以在第一轮循环中，`newChildren`和`oldFiber`都遍历完了。
 
@@ -361,7 +361,7 @@ if (newIdx === newChildren.length) {
 * 节点减少 - 符合上述场景`2`
 * 节点移动 - 符合上述场景`1`
 
-![](/assets/blog/react/diff/diff-second-loop.webp)
+![](https://media.wangbaoqi.tech/assets/blog/react/diff/diff-second-loop.webp)
 
 从上图中可以看到，当符合场景`3`的时候，会为每一个新增的节点闯将对应的`Fiber`节点，然后打上`Placement`的`effectTag`，然后结束`Diff 算法`。
 
@@ -440,7 +440,7 @@ return resultingFirstChild;
 
 如下图，更新之前和之后，元素的类型`type`和`key`都没有变化。
 
-![](/assets/blog/react/diff/diff-mult-update-v.webp)
+![](https://media.wangbaoqi.tech/assets/blog/react/diff/diff-mult-update-v.webp)
 
 ```html
 <!-- 更新前 -->
@@ -469,7 +469,7 @@ return resultingFirstChild;
 
 如下图，节点类型更新，`key`相同，而`elementType`不同，不用复用`oldFiber`，直接创建`new Fiber`节点
 
-![](/assets/blog/react/diff/diff-mult-update.webp)
+![](https://media.wangbaoqi.tech/assets/blog/react/diff/diff-mult-update.webp)
 
 ```html
 <!-- 更新前 -->
@@ -493,13 +493,13 @@ return resultingFirstChild;
 
 **节点属性更新 - Fiber树**
 
-![](/assets/blog/react/diff/diff-multi-update-Fiber.webp)
+![](https://media.wangbaoqi.tech/assets/blog/react/diff/diff-multi-update-Fiber.webp)
 
 可以看到，当`节点属性`更新之后，`workInProgress Fiber`中更新的节点都复用了`current Fiber`中的节点，因此`workInProgress Fiber`中的每一个节点都会指向(`alternate`)对应的`current Fiber`节点。
 
 当所有的节点都被复用之后（**新老节点的位置、个数一致**），在`Diff 算法`的过程中是不会产生`EffectList`的，如下图：
 
-![](/assets/blog/react/diff/diff-multi-update-effectList.webp)
+![](https://media.wangbaoqi.tech/assets/blog/react/diff/diff-multi-update-effectList.webp)
 
 上图是`render阶段 - completeWork`生成的`effectList`，这里具有`effectTag`的节点就是`div Fiber节点`，在`completeWork阶段`会判断如果`workInProgress Fiber节点`具有`effectTag`的话，就会将其挂载在其`return Fiber 节点`的`firstEffect`和`lastEffect`属性上。
 
@@ -507,7 +507,7 @@ return resultingFirstChild;
 
 **节点类型更新 - Fiber树**
 
-![](/assets/blog/react/diff/diff-multi-updatev-fiber.webp)
+![](https://media.wangbaoqi.tech/assets/blog/react/diff/diff-multi-updatev-fiber.webp)
 
 可以看到，当`节点类型`更新之后，`workInProgress Fiber`是不会复用`oldFiber`的，因此更改的`div Fiber`是不会有`alternate`指向其`current Fiber`的。
 
@@ -515,7 +515,7 @@ return resultingFirstChild;
 
 如下图：
 
-![](/assets/blog/react/diff/diff-multi-updatev-effectlist.webp)
+![](https://media.wangbaoqi.tech/assets/blog/react/diff/diff-multi-updatev-effectlist.webp)
 
 在第一轮遍历中，`div Fiber`不能复用`span Fiber`节点，因此新创建了`Fiber`节点，只有为`span Fiber`节点打上`Deletion`的`EffectTag`，同时在其`return Fiber`节点上产生`EffectList`（上图左侧）。之后在`completeWork`阶段会在其基础上继续生成带有`EffectTag`的`effectList`（上图右侧）。
 
@@ -525,7 +525,7 @@ return resultingFirstChild;
 
 如下图：新增了一个子节点
 
-![](/assets/blog/react/diff/diff-multi-add1.webp)
+![](https://media.wangbaoqi.tech/assets/blog/react/diff/diff-multi-add1.webp)
 
 ```html
 <!-- 更新前 -->
@@ -546,13 +546,13 @@ return resultingFirstChild;
 
 下图为节点增加的**双缓存Fiber树**
 
-![](/assets/blog/react/diff/diff-multi-add-fiber.webp)
+![](https://media.wangbaoqi.tech/assets/blog/react/diff/diff-multi-add-fiber.webp)
 
 同理，不能复用的节点或者新增的节点都会生成Fiber节点，都没有`alternate`指向其`current Fiber`。
 
 下面看下节点增加最后产生的**effectList**
 
-![](/assets/blog/react/diff/diff-multi-add-effectlist.webp)
+![](https://media.wangbaoqi.tech/assets/blog/react/diff/diff-multi-add-effectlist.webp)
 
 新增的`fiber`节点打上了`effectTag`，在`completeWork`中产生了`diff 算法`之后的`effectList`。
 
@@ -560,7 +560,7 @@ return resultingFirstChild;
 
 如下图：新增了一个子节点
 
-![](/assets/blog/react/diff/diff-mult-short.webp)
+![](https://media.wangbaoqi.tech/assets/blog/react/diff/diff-mult-short.webp)
 
 ```html
 <!-- 更新前 -->
@@ -579,17 +579,17 @@ return resultingFirstChild;
 
 下图为节点减少的**双缓存Fiber树**
 
-![](/assets/blog/react/diff/diff-multi-short-fiber.webp)
+![](https://media.wangbaoqi.tech/assets/blog/react/diff/diff-multi-short-fiber.webp)
 
 下面看下节点增加最后产生的**effectList**
 
-![](/assets/blog/react/diff/diiff-multi-short-effectlist.webp)
+![](https://media.wangbaoqi.tech/assets/blog/react/diff/diiff-multi-short-effectlist.webp)
 
 ### 节点移动
 
 如下图：节点的位置发生了变化
 
-![](/assets/blog/react/diff/diff-multi-position.webp)
+![](https://media.wangbaoqi.tech/assets/blog/react/diff/diff-multi-position.webp)
 
 ```html
 <!-- 更新前 -->
@@ -607,7 +607,7 @@ return resultingFirstChild;
 
 这里，只是节点的位置发生了变化，因此节点是可以复用的，如下图**双缓存Fiber树**
 
-![](/assets/blog/react/diff/diff-multi-position-fiber.webp)
+![](https://media.wangbaoqi.tech/assets/blog/react/diff/diff-multi-position-fiber.webp)
 
 这里问题来了，如何对位置变化的`Fiber` 打上`effectTag`呢？
 
@@ -617,7 +617,7 @@ return resultingFirstChild;
 
 如下图：
 
-![](/assets/blog/react/diff/diff-multi-position1.webp)
+![](https://media.wangbaoqi.tech/assets/blog/react/diff/diff-multi-position1.webp)
 
 在遍历`newChildren`的过程中，`lastPlaceIndex`会保存可复用节点的上一次位置索引`index`，初始值为`0`
 

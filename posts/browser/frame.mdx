@@ -1,7 +1,7 @@
 ---
 title: 'Browser 架构'
 excerpt: '想要构建高性能的Web应用程序(网络流程、渲染流程、JavaScript执行以及Web安全),必然离不开浏览器。因此，掌握浏览器是非常重要的。'
-coverImage: '/assets/blog/browser/cover/frame.webp'
+coverImage: 'https://media.wangbaoqi.tech/assets/blog/browser/cover/frame.webp'
 date: '2021-04-16'
 author:
   name: NateWang
@@ -63,7 +63,7 @@ export const cBox = (
 
 当打开了一个浏览器**Tab**标签页面时，可以看到浏览器为该页面创建了多个进程，也为这个页面分配了内存，**内存用来存放代码、运行中的数据以及一个执行的主线程** 这个环境也就是进程。 当关闭掉标签页时，这些进程所占的内存也会被释放。
 
-![](/assets/blog/browser/browser-m.webp)
+![](https://media.wangbaoqi.tech/assets/blog/browser/browser-m.webp)
 
 **进程**是一个应用程序的执行程序，当打开一个应用程序时，操作系统会为该程序分配一个进程，同时分配存储应用程序状态的内存块。
 **线程**是为了辅助进程而存在的。线程是依赖于进程的，进程中是可以存在多个线程的，这样可以并行处理任务，可以提高效率。
@@ -81,7 +81,7 @@ export const cBox = (
 
 浏览器早期（2007之前）使用的是**单进程架构**，该进程包含了浏览器中所有模块，**渲染线程**、**页面线程**（**包含了页面渲染，页面展现、JavaScript运行环境、插件**）、**网络线程**和**其他线程**。
 
-![](/assets/blog/browser/browser-e.webp)
+![](https://media.wangbaoqi.tech/assets/blog/browser/browser-e.webp)
 
 这种单进程架构的浏览器会出现**不稳定**、**不流畅**以及**不安全**的问题**。**
 
@@ -95,7 +95,7 @@ export const cBox = (
 
 现在浏览器采用了**多进程架构（早期的多进程架构）**，已经解决了这些问题。
 
-![](/assets/blog/browser/browser-n.webp)
+![](https://media.wangbaoqi.tech/assets/blog/browser/browser-n.webp)
 
 **多进程**解决了**不稳定**的问题，一个进程奔溃不会影响其他的进程和整个浏览器。
 
@@ -105,7 +105,7 @@ export const cBox = (
 
 ### 最新的多进程架构
 
-![](/assets/blog/browser/browser-p.webp)
+![](https://media.wangbaoqi.tech/assets/blog/browser/browser-p.webp)
 
 目前最新的多进程架构包含了以下进程：
 
@@ -115,7 +115,7 @@ export const cBox = (
 * **多个渲染进程**：主要将HTML、CSS以及JavaScript转换为用户可以交互的页面，渲染引擎blink（内核）和Google V8都运行在该进程中。
 * **多个插件进程**： 主要负责插件的运行，因为插件容易奔溃，因此用进程来隔离
 
-![](/assets/blog/browser/browserui.webp)
+![](https://media.wangbaoqi.tech/assets/blog/browser/browserui.webp)
 
 ### 浏览器主进程
 
@@ -141,7 +141,7 @@ export const cBox = (
 
 随着多进程的架构发展，多进程的数量一增多也凸显了弊端，占用的内存资源就会过多。而且进程之间的耦合度过高。随着这些问题的出现，Chrome 正在经历架构变革，提出了**服务化的架构，**将现在每个模块作为单独的服务进行运行，每个服务可在独立的进程中运行，访问服务必须通过IPC来访问，从而构建一个更内聚、松耦合、易于维护和扩展的系统。
 
-![](/assets/blog/browser/browser-s.webp)
+![](https://media.wangbaoqi.tech/assets/blog/browser/browser-s.webp)
 
 ## 参考
 

@@ -1,7 +1,7 @@
 ---
 title: 'Browser 事件循环'
 excerpt: '事件循环是什么？为什么会有事件循环机制？ JS是单线程的语言，如果在执行过程中遇到异步的代码，不可能一直等待（浪费资源。。。）, 至此，事件循环机制就运用而生了。'
-coverImage: '/assets/blog/browser/cover/event.webp'
+coverImage: 'https://media.wangbaoqi.tech/assets/blog/browser/cover/event.webp'
 date: '2021-04-16'
 author:
   name: NateWang
@@ -24,12 +24,12 @@ import Link from './mdx/component/link.js'
 
 在遇到一段JS代码时，它的执行顺序表面看是按照顺序执行，但是内部其实不然。 **一段JS在执行之前，首先会被编译器进行编译，之后会在JS引擎的控制下执行代码**
 
-![JS执行顺序](/assets/blog/browser/event_1.webp)
+![JS执行顺序](https://media.wangbaoqi.tech/assets/blog/browser/event_1.webp)
 
 
 **执行上下文**
 
-![执行上下文](/assets/blog/browser/event_2.webp)
+![执行上下文](https://media.wangbaoqi.tech/assets/blog/browser/event_2.webp)
 
 ### 编译阶段
 
@@ -141,7 +141,7 @@ function MainThread() {
 
 **要在线程运行的过程中处理新加入的任务，就需要采用事件循环机制了**
 
-![循环机制](/assets/blog/browser/event_3.webp)
+![循环机制](https://media.wangbaoqi.tech/assets/blog/browser/event_3.webp)
 
 ```javascript
 function getInput(val) {
@@ -163,11 +163,11 @@ function MainThread() {
 
 ### 消息队列
 
-![消息队列](/assets/blog/browser/event_4.webp)
+![消息队列](https://media.wangbaoqi.tech/assets/blog/browser/event_4.webp)
 
 消息队列中有很多的任务类型（输入事件-鼠标滚动、点击、移动，微任务，文件读写、websocket、定时器等）, 每当有新的线程的任务来的时候，就会进入到消息队列中，等待主线程中的任务执行完成之后再执行。
 
-![eventLoop](/assets/blog/browser/event_5.webp)
+![eventLoop](https://media.wangbaoqi.tech/assets/blog/browser/event_5.webp)
 
 **页面使用单线程的缺点**
 
@@ -303,7 +303,7 @@ main(foo)
 
 **XMLHttpRequest 运行机制**
 
-![xmlHttpRequest](/assets/blog/browser/event_6.webp)
+![xmlHttpRequest](https://media.wangbaoqi.tech/assets/blog/browser/event_6.webp)
 
 上图是XMLHttpRequest的总执行图, 下面看XMLHttpRequest的详细用法
 
@@ -406,9 +406,9 @@ function fetchData(url) {
 
 直观的看个例子 
 
-![微任务执行时机](/assets/blog/browser/event_7.webp)
+![微任务执行时机](https://media.wangbaoqi.tech/assets/blog/browser/event_7.webp)
 
-![微任务执行时机](/assets/blog/browser/event_8.webp)
+![微任务执行时机](https://media.wangbaoqi.tech/assets/blog/browser/event_8.webp)
 
 从上述可以得到以下结论：
 
@@ -442,7 +442,7 @@ promise已经成为了前端解决异步的主力，接下来具体的学习prom
 
 **异步编程的问题-代码逻辑不连续**
 
-![异步编程模型](/assets/blog/browser/event_9.webp)
+![异步编程模型](https://media.wangbaoqi.tech/assets/blog/browser/event_9.webp)
 
 上述是web异步编程模型 接下来看下传统的异步回调带来的问题
 
@@ -676,6 +676,6 @@ console.log(gen.next().value)
 
 可以看一下协程的执行图
 
-![协程流程图](/assets/blog/browser/event_10.webp) 
+![协程流程图](https://media.wangbaoqi.tech/assets/blog/browser/event_10.webp) 
 
-![协程调用栈](/assets/blog/browser/event_11.webp)
+![协程调用栈](https://media.wangbaoqi.tech/assets/blog/browser/event_11.webp)

@@ -1,13 +1,13 @@
 ---
 title: 数据结构与算法 - 二叉树的理解与使用
 excerpt:   树是一种常用到的数据结构，不是线性存储数据的结构，它的结构比较类似组织的架构图，是一种倒过来的“树”，叶子也就是其节点，树根就是跟节点，没有子节点的节点被称为叶子节点。
-coverImage: '/assets/blog/algorithm/cover/tree.webp'
+coverImage: 'https://media.wangbaoqi.tech/assets/blog/algorithm/cover/tree.webp'
 date: '2020-03-16T05:35:07.322Z'
 author:
   name: NateWang
   picture: '/assets/authors/logo.png'
 ogImage:
-  url: '/assets/blog/react/jsx/cover.png'
+  url: 'https://media.wangbaoqi.tech/assets/blog/react/jsx/cover.png'
 tags:
   - binaryTree
 category: Algorithm
@@ -121,7 +121,7 @@ _insert_ 主要是给BST添加节点，BST特点是左节点分布是较小的�
 
 先序遍历 - 先访问根节点，再访问左子树，最后访问右子树，如下图：
 
-![preOrder](/assets/blog/algorithm/tree/BST_preOrder.webp)
+![preOrder](https://media.wangbaoqi.tech/assets/blog/algorithm/tree/BST_preOrder.webp)
 
 ```javascript
 /**
@@ -155,7 +155,7 @@ bst.preOrder(bst.root); // 23 16 3 22 45 37 99
 
 中序遍历 - BST 节点排序（小-大），按照节点上的键值，以升序访问BST上的所有节点，先访问左子树，在访问根节点，最后访问右子树。
 
-![inOrder](/assets/blog/algorithm/tree/BST_inOrder.webp)
+![inOrder](https://media.wangbaoqi.tech/assets/blog/algorithm/tree/BST_inOrder.webp)
 
 ```javascript
 /**
@@ -188,7 +188,7 @@ bst.inOrder(bst.root); // 3 16 22 23 37 45 99
 
 后序遍历 - 先访问叶子节点，从左子树到右子树，再到根节点
 
-![postOrder](/assets/blog/algorithm/tree/BST_postOrder.webp)
+![postOrder](https://media.wangbaoqi.tech/assets/blog/algorithm/tree/BST_postOrder.webp)
 
 ```javascript
 /**
@@ -221,7 +221,7 @@ bst.postOrder(bst.root); // 3 22 16 37 99 45 23
 
 `BFS`是层序遍历，也就是将二叉树按层次来进行遍历
 
-![BST_levelOrder](/assets/blog/algorithm/tree/BST_levelOrder.webp)
+![BST_levelOrder](https://media.wangbaoqi.tech/assets/blog/algorithm/tree/BST_levelOrder.webp)
 
 广度优先遍历跟深度优先遍历不同，其不是按照节点的顺序来的，因此在这里要借助`队列`数据结构。
 
@@ -366,7 +366,7 @@ function deleteNode(node, data) {
 
 1. 删除叶子节点（没有左右子节点的节点）
 
-![bst_deletion_case\_1](/assets/blog/algorithm/tree/bst_deletion_case\_1.webp)
+![bst_deletion_case\_1](https://media.wangbaoqi.tech/assets/blog/algorithm/tree/bst_deletion_case\_1.webp)
 
 ```javascript
 // 删除没有子节点的节点
@@ -377,7 +377,7 @@ if(node.data === data) {
 
 1. 删除只有一个子节点的节点
 
-![bst_deletion_case2](/assets/blog/algorithm/tree/bst_deletion_case\_2.webp)
+![bst_deletion_case2](https://media.wangbaoqi.tech/assets/blog/algorithm/tree/bst_deletion_case\_2.webp)
 
 
 ```javascript
@@ -390,7 +390,7 @@ if(node.data === data) {
 
 1. 删除左右子节点都存在的节点
 
-![bst_deletion_case3](/assets/blog/algorithm/tree/bst_deletion_case\_3.webp)
+![bst_deletion_case3](https://media.wangbaoqi.tech/assets/blog/algorithm/tree/bst_deletion_case\_3.webp)
 
 ```javascript
 // 删除左右子节点都存在的节点
@@ -620,7 +620,7 @@ function isValidBST(root, min, max) {
 
 二叉树的镜像定义(也是二叉树的交换)：交换节点的左右子节点，如下图：_来自LeetCode_
 
-![BST_mirror](/assets/blog/algorithm/tree/BST_mirror.webp)
+![BST_mirror](https://media.wangbaoqi.tech/assets/blog/algorithm/tree/BST_mirror.webp)
 
 
 [LeetCode - 二叉树交换](https://leetcode-cn.com/problems/invert-binary-tree/), [LeetCode - 剑指 Offer 27. 二叉树的镜像](https://leetcode.cn/problems/er-cha-shu-de-jing-xiang-lcof/)这两道题是一个意思
@@ -658,7 +658,7 @@ function mirrorBST(root) {
 
 如下图
 
-![BST_same](/assets/blog/algorithm/tree/BST_same.gif)
+![BST_same](https://media.wangbaoqi.tech/assets/blog/algorithm/tree/BST_same.gif)
 
 
 判断一个二叉树是是否对称，就要判断相对位置的子节点值是否相等。
@@ -684,7 +684,7 @@ function check(leftNode, rightNode) {
 
 #### 借用队列循环判断
 
-![BST_same1](/assets/blog/algorithm/tree/BST_same\_1.gif)
+![BST_same1](https://media.wangbaoqi.tech/assets/blog/algorithm/tree/BST_same\_1.gif)
 
 
 类似于BFS层序遍历，借用队列来记录节点，这里将根节点的左节点和右节点先入队，判断两者是否相等，接着将当前左节点的左节点和当前右节点的右节点入队，以此类推，直到循环结束。
@@ -723,7 +723,7 @@ function isSymmetric(root) {
 
 要获取二叉搜索树中第K大的节点，可以间接的获取中序遍历后反转的第_k-1_的值
 
-![BST_KNode](/assets/blog/algorithm/tree/BST_KNode.webp)
+![BST_KNode](https://media.wangbaoqi.tech/assets/blog/algorithm/tree/BST_KNode.webp)
 
 下面看代码：
 
@@ -759,7 +759,7 @@ function kthLargest(root, k) {
 
 看下图示（来自LeetCode）
 
-![DFS - depth](/assets/blog/algorithm/tree/BST_depth.webp)
+![DFS - depth](https://media.wangbaoqi.tech/assets/blog/algorithm/tree/BST_depth.webp)
 
 递归方式：
 
@@ -796,19 +796,19 @@ function depthBST(root) {
 
 看下面图示: 来自_LeetCode_
 
-![bfs1](/assets/blog/algorithm/tree/BST_BFS.webp)
+![bfs1](https://media.wangbaoqi.tech/assets/blog/algorithm/tree/BST_BFS.webp)
 
 初始化，将整个树压入栈，初始化深度计数器
 
-![bfs2](/assets/blog/algorithm/tree/BST_BFS1.webp)
+![bfs2](https://media.wangbaoqi.tech/assets/blog/algorithm/tree/BST_BFS1.webp)
 
 遍历栈，此时栈中只有树一个节点，将左右子树压入临时栈中
 
-![bfs3](/assets/blog/algorithm/tree/BST_BFS2.webp)
+![bfs3](https://media.wangbaoqi.tech/assets/blog/algorithm/tree/BST_BFS2.webp)
 
 将临时栈赋值到stack中，计数器自增
 
-![bfs4](/assets/blog/algorithm/tree/BST_BFS3.webp)
+![bfs4](https://media.wangbaoqi.tech/assets/blog/algorithm/tree/BST_BFS3.webp)
 
 此时临时栈中压入子树的子节点，重复图三，知道节点为`null`，遍历结束。
 
@@ -837,7 +837,7 @@ function maxDepth_BFS(root) {
 
 ### 二叉树的直径
 
-![bst_diameter](/assets/blog/algorithm/tree/bst_diameter.webp)
+![bst_diameter](https://media.wangbaoqi.tech/assets/blog/algorithm/tree/bst_diameter.webp)
 
 从**二叉树的深度**可以看到，二叉树的直径等于左子树的深度加上右子树的深度再减去 `1`
 
@@ -870,7 +870,7 @@ const diameterOfBinaryTree = (root) => {
 
 ### 二叉树的右视图
 
-![bst-right](/assets/blog/algorithm/tree/bst-right.webp)
+![bst-right](https://media.wangbaoqi.tech/assets/blog/algorithm/tree/bst-right.webp)
 
 根据题意，可以用层序遍历来解决。
 
