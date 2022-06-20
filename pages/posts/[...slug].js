@@ -17,19 +17,26 @@ const Post = ({ post }) => {
       });
     registerView();
   }, [slug]);
-  
+
+  const showToc = toc.length;
   return (
     <>
       <Layout type='post' title={`${post.frontmatter.title} | Nate Wang Blog `} description={post.frontmatter.excerpt}>
         <section className="flex flex-col md:flex-row mt-10 px-3 md:px-0">
-          <div className="w-full md:w-9/12 md:px-6">
+          <div className={ `w-full ${showToc ? 'md:w-9/12' : ''} md:px-6`}>
             <MDXRenderer {...rest} views={data.total}/>
           </div>
-          <div className="w-full md:w-3/12 hidden md:block md:pl-20 pt-5">
-            {
-              <TableContent toc={toc} />
-            }
-          </div>
+
+          {
+            showToc ? 
+              <div className="w-full md:w-3/12 hidden md:block md:pl-20 pt-5">
+                {
+                  <TableContent toc={toc} />
+                }
+              </div> : null
+            
+          }
+          
         </section>
       </Layout>
     </>

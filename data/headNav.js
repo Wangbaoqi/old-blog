@@ -9,7 +9,11 @@ export const headNav = [
   }, {
     href: '/algorithm',
     title: 'Algorithm'
+  }, {
+    href: '/snippets',
+    title: 'Snippets'
   }
+
 ]
 
 export const cateNav = [

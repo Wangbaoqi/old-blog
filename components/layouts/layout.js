@@ -3,7 +3,7 @@ import Search from "@components/search/search";
 import SEO from '@components/seo/index';
 import { GoogleAnalytics } from "nextjs-google-analytics";
 
-export default function Layout({ children, type, title, description }) {
+export default function Layout({ children, type, title, description, showFooter }) {
   return (
     <>
       <SEO title={title} description={description}/>
@@ -13,7 +13,8 @@ export default function Layout({ children, type, title, description }) {
         <HeaderWrapper type={ type }/>
         <main className='max-w-6xl mx-auto lg:px-5'>{children}</main>
         <Search />
-        <Footer />
+        { showFooter ? <Footer /> : null }
+        
       </div>
       <GoogleAnalytics strategy="lazyOnload"/>
     </>

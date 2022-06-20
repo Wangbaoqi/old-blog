@@ -23,6 +23,11 @@
   src: url(/fonts/wotfard/wotfard-regular-webfont.woff2) format('woff2');
 }
 
+@font-face {
+  font-family: icons;
+  src: url(/fonts/icons/icons.woff2) format("woff2")
+}
+
 .tag-html {
   background-color: #f2552c;
   color: #fff;
@@ -33,7 +38,8 @@
   color: #fff;
 }
 
-.tag-js {
+.tag-js,
+.icon-javascript {
   background-color: #ecdb54;
   color: #000;
 }
@@ -69,7 +75,8 @@
   color: #fff;
 }
 
-.tag-react {
+.tag-react,
+.icon-react {
   background-color: #282c34;
   color: #61dafb;
 }
@@ -78,9 +85,6 @@
   background-image: linear-gradient(45deg, #95dee3 0%, #A15190 45%, #5b5ea6 100%);
   color: #fff;
 }
-
-
-
 
 .tag-easy {
   color: #00a591;
@@ -168,8 +172,86 @@
   color: #fff;
 }
 
-
 .tag-greedy {
   background-color: #ecdb54;
   color: #fff;
+}
+
+
+
+.icon:before {
+  font-family: icons!important;
+  font-style: normal;
+  font-weight: 400!important;
+  -webkit-font-feature-settings: normal;
+  -moz-font-feature-settings: normal;
+  font-feature-settings: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale
+}
+
+.icon-javascript:before {
+  content: "\f10b";
+}
+.icon-blog:before {
+  content: "\f101"
+}
+
+.icon-check:before {
+  content: "\f102"
+}
+
+.icon-chevron-left:before {
+  content: "\f103"
+}
+
+.icon-chevron-right:before {
+  content: "\f104"
+}
+
+.icon-clipboard:before {
+  content: "\f105"
+}
+
+.icon-codepen:before {
+  content: "\f106"
+}
+
+.icon-css:before {
+  content: "\f107"
+}
+
+.icon-git:before {
+  content: "\f108"
+}
+
+.icon-github:before {
+  content: "\f109"
+}
+
+.icon-home:before {
+  content: "\f10a"
+}
+
+.icon-js:before {
+  content: "\f10b"
+}
+
+.icon-node:before {
+  content: "\f10c"
+}
+
+.icon-python:before {
+  content: "\f10d"
+}
+
+.icon-react:before {
+  content: "\f10e"
+}
+
+.icon-search:before {
+  content: "\f10f"
 }

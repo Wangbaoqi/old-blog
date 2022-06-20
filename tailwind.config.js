@@ -66,6 +66,7 @@ module.exports = {
       colors: {
         'primary-color': 'var(--fg-primary)',
         'primary-bg': 'var(--bg-primary)',
+        'primary-bg-float': 'var(--bg-primary-float)',
         'second-color': 'var(--fg-secondary)',
         'second-bg': 'var(--bg-secondary)', // post bg
         'third-color': 'var(--fg-third)',

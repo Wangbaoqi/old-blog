@@ -1,6 +1,7 @@
 
 :root.dark {
   --bg-primary: hsl(210deg, 30%, 8%);
+  --bg-primary-float: hsl(210deg, 22%, 20%);
   --fg-primary: hsl(210, 17%, 82%);
 
   --bg-primary-light: rgba(208, 179, 255, 0);

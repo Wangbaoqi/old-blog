@@ -8,12 +8,21 @@ const PostHeader = ({
   title = '',
   date = '',
   author = {},
-  category = '',
+  category,
+  snippet = '',
   coverImage = '',
   views,
   readTime = {}
 }) => {
 
+  let breadcrumbPath = `/category`;
+  let breadcrumbSecondPath = `/category/${category}`;
+  let breadcrumbTitle = 'Category';
+  let breadcrumbTSecondtitle = category ?? snippet;
+  if (snippet) {
+    breadcrumbSecondPath = `/snippet/${snippet}`;
+    breadcrumbTitle = 'Snippet'
+  }
 
   return (
     <header className="">
@@ -23,12 +32,12 @@ const PostHeader = ({
             <span className='cursor-pointer hover:text-hover-color'>Home</span>
           </Link>
           <ChevronRight size={16} className='mx-3'/>
-          <Link href='/category' className='hover:text-hover-color'>
-            <span className='cursor-pointer hover:text-hover-color'>Category</span>
+          <Link href={breadcrumbPath} className='hover:text-hover-color'>
+            <span className='cursor-pointer hover:text-hover-color'>{breadcrumbTitle}</span>
           </Link>
           <ChevronRight size={16} className='mx-3'/>
-          <Link href={ `/category/${category}`} className='hover:text-hover-color'>
-            <span className='cursor-pointer hover:text-hover-color'>{category}</span>
+          <Link href={breadcrumbSecondPath} className='hover:text-hover-color'>
+            <span className='cursor-pointer hover:text-hover-color'>{breadcrumbTSecondtitle}</span>
           </Link>
         </div>
         <h1 className='my-6 text-xl md:text-3xl font-bold bg-header-color font-Sriracha dark:bg-clip-text dark:text-transparent'>{title}</h1>
@@ -37,7 +46,7 @@ const PostHeader = ({
       
       <div className="flex items-center justify-start mb-12 font-Sriracha">
         <div className='flex items-center flex-wrap gap-4'>
-          <span className={` rounded px-2 py-1 ${tagTheme[category]}`}>{ category }</span>
+          <span className={` rounded px-2 py-1 ${tagTheme[category || snippet]}`}>{ category || snippet }</span>
           <span className=''>{date}</span>
           <span className='flex items-center'>
             <Clock size={18} />

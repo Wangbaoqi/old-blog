@@ -12,5 +12,8 @@ export { default as CategoryWrapper } from './categoryWrapper';
 
 export { default as AlgorithmWrapper } from './algorithmWrapper';
 
+export { default as SnippetCard } from './snippetCard';
+export { default as SnippetWrapper } from './snippetWrapper';
+
 
 
