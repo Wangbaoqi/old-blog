@@ -48,7 +48,6 @@
   --fg-warning: hsl(30deg, 100%, 50%);
   --bg-warning:  hsla(38deg, 100%, 50%, 0.1);
 
-
   --theme-plain: #fff;
   --theme-comment: #757575;
   --theme-keyword: #77b7d7;
@@ -58,7 +57,16 @@
   --theme-property: #77b7d7;
   --theme-static: #c64640;
   --theme-string: #977cdc;
-  
+
+  --docsearch-primary-color: var(--fg-secondary);
+  --docsearch-text-color: var(--fg-primary);
+  --docsearch-logo-color: var(--fg-secondary);
+  --docsearch-modal-background: var(--bg-primary);
+  --docsearch-modal-shadow: inset 1px 1px 0 0 #2c2e40,0 3px 8px 0 #000309;
+  --docsearch-key-gradient: var(--bg-secondary);
+  --docsearch-footer-shadow: 0 -1px 0 0 var(--fg-border),0 -3px 6px 0 var(--bg-primary);
+  --docsearch-key-shadow: 0;
+
 }
 
 
@@ -70,11 +78,10 @@
   --bg-primary-light: hsl(200, 100%, 95%);
   --bg-primary-dark: hsla(195, 91%, 40%, .7);
   
-
   --bg-secondary: hsl(0, 0%, 100%); 
   --fg-secondary: hsl(195, 91%, 34%);
 
-  --bg-third: hsl(210deg, 14%, 80%);
+  --bg-third: hsl(220, 14%, 96%);
   --fg-third: hsl(225deg, 25%, 20%);
 
   --fg-anchor: hsl(255deg, 85%, 30%);
@@ -95,6 +102,7 @@
   --bg-blockquote-l: hsl(230deg, 100%, 67%);
 
   --bg-mask: rgba(52,58,70,0.2);
+  --bg-modal: hsla(210deg, 30%, 8%, .8);
 
 
   --fg-active: #24292e !important;
@@ -126,4 +134,34 @@
   --theme-static: #032f62;
   --theme-string: #032f62;
 
+
+  --docsearch-primary-color: var(--fg-secondary);
+  --docsearch-text-color: var(--fg-primary);
+  --docsearch-spacing: 12px;
+  --docsearch-icon-stroke-width: 1.4;
+  --docsearch-highlight-color: var(--docsearch-primary-color);
+  --docsearch-container-background: var(--bg-modal);
+  --docsearch-logo-color: var(--fg-secondary);
+  --docsearch-muted-color: #969faf;
+  --docsearch-modal-width: 660px; 
+  --docsearch-modal-height: 700px;
+  --docsearch-modal-background: #f5f6f7;
+  --docsearch-modal-shadow: inset 1px 1px 0 0 hsla(0,0%,100%,.5),0 3px 8px 0 #555a64;
+  --docsearch-searchbox-height: 56px;
+  --docsearch-searchbox-background: var(--bg-secondary);
+  --docsearch-searchbox-focus-background: var(--bg-third); 
+  --docsearch-searchbox-shadow: 0;
+  --docsearch-hit-height: 56px;
+  --docsearch-hit-color: var(--fg-secondary);
+  --docsearch-hit-active-color: #fff;
+  --docsearch-hit-background: var(--bg-secondary);
+  --docsearch-hit-shadow: 0 1px 3px 0 var(--bg-secondary);
+  --docsearch-key-gradient: var(--bg-secondary);
+  --docsearch-key-shadow: 0;
+  --docsearch-footer-height: 44px;
+  --docsearch-footer-background: var(--bg-primary);
+  --docsearch-footer-shadow: 0 -1px 0 0 var(--fg-border),0 -3px 6px 0 var(--bg-primary);
+  
+
 }
+

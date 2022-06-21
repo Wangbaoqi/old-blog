@@ -1,6 +1,6 @@
 
 import { Container, SplitLayout } from '@components/layouts';
-import { SearchBtn, Category } from '@components/ui'
+import { Category } from '@components/ui'
 import { FeatureCard } from '@components/posts';
 import SearchDoc from '@components/search/docsearch';
 
@@ -10,15 +10,14 @@ const FeatureWrapper = ({
 }) => {
 
   const leftChild = (
-    <div className='grid grid-cols-1 gap-10'>
+    <div className=' grid grid-cols-1 gap-10'>
       <FeatureCard posts={ featurePosts }/>
     </div>
   )
 
   const rightChild = (
     <>
-      <SearchBtn showText={true} />
-      {/* <SearchDoc /> */}
+      <SearchDoc />
       <Category groupList={categoryGroup}/>
     </>
   )

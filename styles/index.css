@@ -43,4 +43,22 @@
   .r-card:focus-within~.r-card, .r-card:hover~.r-card {
     @apply translate-x-36
   }
+
+  /* searchBox */
+  .docSearch button {
+    @apply w-full m-0 h-12 rounded items-center
+  }
+  .docSearch kbd {
+    @apply h-6 w-6 border border-transparent mr-1 bg-primary-bg  align-middle p-0 inline-flex justify-center items-center text-xs text-center rounded
+  }
+  .docSearch-top button {
+    @apply h-full
+  }
+  .docSearch-top button .DocSearch-Button-Placeholder,
+  .docSearch-top button .DocSearch-Button-Keys {
+    @apply hidden
+  }
+  .docSearch-top button:hover {
+    @apply bg-transparent
+  }
 }

@@ -3,7 +3,7 @@ import Search from "@components/search/search";
 import SEO from '@components/seo/index';
 import { GoogleAnalytics } from "nextjs-google-analytics";
 
-export default function Layout({ children, type, title, description, showFooter }) {
+export default function Layout({ children, type, title, description, showFooter = true }) {
   return (
     <>
       <SEO title={title} description={description}/>

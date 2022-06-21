@@ -1,10 +1,10 @@
-
+import { useState, useEffect } from 'react';
 import { ThemeProvider } from 'next-themes';
 import { Provider } from 'react-redux'
 import store from 'store/store';
 import { event } from "nextjs-google-analytics";
 
-
+import '@docsearch/css';
 import '@styles/index.css';
 import '@styles/global.css';
 import '@styles/codeStyle.css';
@@ -20,12 +20,26 @@ export function reportWebVitals({ id, name, label, value }) {
 }
 
 export default function MyApp({ Component, pageProps }) {
-  return (
-    <Provider store={store} >
-      <ThemeProvider attribute="class" defaultTheme='dark' enableSystem={true} enableColorScheme >
-        <Component {...pageProps} />
-      </ThemeProvider>
-    </Provider>
-   
-  )
+  const [showing, setShowing] = useState(false);
+  useEffect(() => {
+    setShowing(true);
+  }, []);
+
+  if (!showing) {
+    return null;
+  }
+  if (typeof window === 'undefined') {
+    return <></>
+  } else {
+    return (
+      <Provider store={store} >
+        <ThemeProvider attribute="class" defaultTheme='dark' enableSystem={true} enableColorScheme >
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </Provider>
+    )
+  }
+
+
+  
 }
