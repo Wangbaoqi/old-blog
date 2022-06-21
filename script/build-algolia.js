@@ -1,5 +1,5 @@
 const dotenv = require("dotenv");
-const algoliasearch = require("algoliasearch/lite");
+const algoliasearch = require("algoliasearch");
 const path = require('path');
 const fs = require('fs');
 
@@ -96,7 +96,7 @@ function transformPostsToSearchObjects(articles) {
     );
 
     // initialize the index with your index name
-    const index = client.initIndex("text_blog");
+    const index = client.initIndex("wangbaoqi");
 
     // add the data to the index
     const algoliaResponse = await index.saveObjects(transformed);

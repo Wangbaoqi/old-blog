@@ -5,10 +5,9 @@ import '@docsearch/css';
 const SearchDoc = () => {
   return (
     <DocSearch
-      cla
-      appId="R2IYF7ETH7"
-      apiKey="599cec31baffa4868cae4e79f180729b"
-      indexName="docsearch"
+      appId="BOCE4DN1H2"
+      apiKey="24f2841d8aaa5152a4c8ff7597d18c91"
+      indexName="wangbaoqi"
     />
   );
 }

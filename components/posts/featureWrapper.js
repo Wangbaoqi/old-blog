@@ -18,7 +18,7 @@ const FeatureWrapper = ({
   const rightChild = (
     <>
       <SearchBtn showText={true} />
-      {/* <SearchDoc /> */}
+      <SearchDoc />
       <Category groupList={categoryGroup}/>
     </>
   )
