@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Head from 'next/head';
 import { useRouter } from 'next/router'
 
-const PROD_URL = 'https://www.wangbaoqi.tech';
+const PROD_URL = 'https://wangbaoqi.tech';
 const faviconSrc = '/favicon.webp';
   
 function SEO({
