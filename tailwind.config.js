@@ -50,6 +50,7 @@ module.exports = {
         '60': '100px',
         'f-card': '220px',
         'screen-40': '380px',
+        'screen-25': '25vh',
         'screen-35': '35vh'
       },
       maxWidth: {
@@ -88,9 +89,6 @@ module.exports = {
         'anchor-color': 'var(--fg-anchor)',
         'border-color': 'var(--fg-border)',
         'border-color-5': 'var(--fg-border-5)',
-
-
-
 
         'black-2': '#222222',
         'code': '#087ea4',

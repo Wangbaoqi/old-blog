@@ -4,6 +4,7 @@ import { FeatureWrapper, RecentWrapper, RecomendWrapper } from '@components/post
 import { DayTablePost } from "@components/algorithm";
 
 export default function BlogList({ featurePosts, categoryGroup, recentPost, everyList }) {
+  console.log('render');
   return (
     <>
       <Layout type='page' title='Nate Wang blog Home focus on frontEnd and algorithm'>

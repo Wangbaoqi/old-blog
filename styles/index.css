@@ -52,13 +52,15 @@
     @apply h-6 w-6 border border-transparent mr-1 bg-primary-bg  align-middle p-0 inline-flex justify-center items-center text-xs text-center rounded
   }
   .docSearch-top button {
-    @apply h-full
+    @apply h-full bg-transparent
   }
   .docSearch-top button .DocSearch-Button-Placeholder,
   .docSearch-top button .DocSearch-Button-Keys {
     @apply hidden
   }
-  .docSearch-top button:hover {
+  .docSearch-top button:hover,
+  .docSearch-top button:active,
+  .docSearch-top button:focus {
     @apply bg-transparent
   }
 }

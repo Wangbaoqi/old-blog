@@ -20,7 +20,7 @@ export default function Header() {
   return (
     <div className="fixed left-0 right-0 top-0 backdrop-blur md:py-3 z-30">
       <Container>
-        <section className="flex justify-between items-center max-w-6xl mx-auto container md:py-8 lg:py-2 px-3 lg:px-5 py-5">
+        <section className="flex justify-between items-center max-w-6xl mx-auto md:py-2 lg:py-2 px-3 lg:px-5 py-5">
           <div className="flex items-center">
             <Link href="/">
               <div className="flex flex-col justify-start relative z-10 ob-drop-shadow cursor-pointer">
