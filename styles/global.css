@@ -255,3 +255,22 @@
 .icon-search:before {
   content: "\f10f"
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 750px) {
+  .DocSearch-Container {
+    position: fixed;
+  }
+}
