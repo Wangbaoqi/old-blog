@@ -24,14 +24,14 @@ const Category = ({
           return (
             <Link key={cate.key} href={`/category/${cate.key}`}>
               <div className="relative overflow-hidden rounded-xl bg-second-bg border border-border-color dark:border-0 dark:shadow-3xl mt-5  flex  items-center cursor-pointer">
-                <Image
+                {/* <Image
                   className={`object-cover`}
                   src={cate.cover}
                   height='70'
                   width='80'
                   priority
                   alt={cate.key}
-                />
+                /> */}
                 <h3 className=" text-tiny font-Gloria font-medium ml-4">{cate.key}{`(${cate.count})`}</h3>
                 <ChevronRight className=' absolute top-1/2 -translate-y-1/2 right-4' size={20}/>
               </div>

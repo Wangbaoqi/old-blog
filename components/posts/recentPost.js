@@ -15,13 +15,13 @@ const RecentPost = ({
     <article className="mb-3">
       <div className="relative overflow-hidden rounded-lg">
         <div className='relative h-44 w-full'>
-          <Image
+          {/* <Image
             className=' object-cover'
             src={coverImage}
             layout='fill'
             priority
             alt={title}
-          />
+          /> */}
         </div>
         
         <span className={`text-pre font-Sriracha absolute top-4 left-4 rounded px-2 py-1 ${tagTheme[category]}`}>{category}</span>

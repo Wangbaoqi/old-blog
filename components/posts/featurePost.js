@@ -65,13 +65,13 @@ export default function FeaturePost({
       <div className={`md:flex ${postCls}`}>
         <div className="relative md:shrink-0">
           <div className={`relative w-full ${imgHBox} ${imgWBox}`}>
-            <Image
+            {/* <Image
               className={`object-cover rounded-xl`}
               src={coverImage}
               layout='fill'
               priority
               alt={title}
-            />
+            /> */}
           </div>
           <span className={`text-pre font-Sriracha rounded absolute top-4 left-4 px-2 py-1 cursor-pointer ${tagTheme[category]}`}>{ category }</span>
         </div>
