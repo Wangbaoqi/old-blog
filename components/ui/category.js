@@ -18,7 +18,7 @@ const Category = ({
 
   return (
     <section className="">
-      <h2 className="text-2xl text-anchor-color font-Sriracha">Categories</h2>
+      <h2 className="text-2xl text-anchor-color ">Categories</h2>
       {
         cateList.map((cate) => {
           return (
@@ -32,7 +32,7 @@ const Category = ({
                   priority
                   alt={cate.key}
                 /> */}
-                <h3 className=" text-tiny font-Gloria font-medium ml-4">{cate.key}{`(${cate.count})`}</h3>
+                <h3 className=" text-tiny  font-medium ml-4">{cate.key}{`(${cate.count})`}</h3>
                 <ChevronRight className=' absolute top-1/2 -translate-y-1/2 right-4' size={20}/>
               </div>
             </Link>
