@@ -49,15 +49,12 @@ const CodePre = (props) => {
 
   return (
     <div
-      className="rounded-lg my-5 pl-3 pb-4 shadow-3xl bg-playground-bg md:-mx-6"
+      className="rounded-lg my-10 pl-3 pb-4 shadow-3xl bg-playground-bg md:-mx-6"
     >
       <div className="flex relative pb-4">
         {
           language ? <div
-            className=" mx-1 px-2 uppercase text-tiny text-second-color rounded-bl-md rounded-br-md  font-Sriracha text-center flex justify-center items-center"
-            style={{
-              background: "var(--fg-inactive)",
-            }}
+            className="h-7 mx-1 -mt-7 px-2 text-tiny rounded-tl-md rounded-tr-md  bg-playground-bg uppercase  flex justify-center items-center"
           >{`${language}`}</div> : ''
         }
         <div

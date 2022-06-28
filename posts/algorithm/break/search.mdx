@@ -2,12 +2,10 @@
 title: 搜索算法 - 二分查找
 excerpt: 二分查找也是一种查找效率比较高的方法，查找的场景是数据结构已排序好的。这种方式查找比线性查找耗时要更低一点。
 coverImage: 'https://media.wangbaoqi.tech/assets/blog/algorithm/cover/search.webp'
-date: '2020-02-16'
+date: '2022-06-16'
 author:
   name: NateWang
   picture: 'https://media.wangbaoqi.tech/assets/authors/logo.png'
-ogImage:
-  url: 'https://media.wangbaoqi.tech/assets/blog/react/jsx/cover.png'
 tags:
   - 二分查找
 category: Algorithm
@@ -26,12 +24,12 @@ subCategory: breakThrough
 n n/2 n/4 n/8 ... n/2^k 
 ```
 
-因此，二分查找的时间复杂度为 ** ，**随着**n区间**越来越大，查找次数就越少
+因此，二分查找的时间复杂度为`logn`, 随着**n**区间越来越大，查找次数就越少。
 
-二分查找的实现框架 基本有以下几种
+二分查找的实现框架，可以分为两种
 
-* 基本框架
-* 查询边界框架
+* **基本框架**
+* **查询边界框架**
 
 ## 基本框架 
  
@@ -39,7 +37,7 @@ n n/2 n/4 n/8 ... n/2^k
 
 ### 基本模板
 
-```javascript
+```js
 /**
  * 二分查找
  * @param {*} arr 
@@ -67,7 +65,7 @@ function binSearch(arr, target) {
 
 还有另一种解法，是在`前开后闭[low, high)`的区间里进行，循环结束的条件 `low == high` 
 
-```javascript
+```js
 function binSearch1(arr, target) {
   let low = 0, high = arr.length;
   while(low < high) {
@@ -86,7 +84,7 @@ function binSearch1(arr, target) {
 
 递归方式，实现思路跟循环类似
 
-```javascript
+```js
 function binSearch1(arr, target) {
   return bSearch(arr, 0, arr.length - 1, target)
 }
@@ -123,7 +121,7 @@ function bSearch(arr, low, high, target) {
 
 ![](https://media.wangbaoqi.tech/assets/blog/algorithm/binarySearch/search-p.webp)
 
-```javascript
+```js
 function searchPos(arr, target) {
   let low = 0; high = arr.length - 1;
   
@@ -147,7 +145,7 @@ function searchPos(arr, target) {
 
 ### X的平方根
 
-```javascript
+```js
 function mySqrt(x) {
   if(x < 2) return x;
   let left = 1;
@@ -172,7 +170,7 @@ function mySqrt(x) {
 ![guess-num](https://media.wangbaoqi.tech/assets/blog/algorithm/binarySearch/guess-num.webp)
 
 
-```javascript
+```js
 /** 
  * Forward declaration of guess API.
  * @param {number} num   your guess
@@ -208,7 +206,7 @@ var guessNumber = function(n) {
 
 ![search-r](https://media.wangbaoqi.tech/assets/blog/algorithm/binarySearch/search-r.webp)
 
-```javascript
+```js
 const findDuplicate = (nums) => {
   // 抽屉原理
   let low = 0, high = nums.length - 1, ans = -1;
@@ -247,7 +245,7 @@ const findDuplicate = (nums) => {
 
 先来看看模板
 
-```javascript
+```js
 function leftBinSearch(nums, target) {
   // 查找区间为左开右闭 [low, high)
   let low = 0, high = nums.length; // or high = nums.length - 1
@@ -272,7 +270,7 @@ function leftBinSearch(nums, target) {
 
 ### 寻找右侧边界的二分法
 
-```javascript
+```js
 function rightBinSearch(num, target) {
   // 查找区间为左开右闭 [low, high)
   let low = 0, high = num.length
@@ -299,7 +297,7 @@ function rightBinSearch(num, target) {
 
 ![first-error](https://media.wangbaoqi.tech/assets/blog/algorithm/binarySearch/first-error.webp)
 
-```javascript
+```js
 /**
  * Definition for isBadVersion()
  * 
