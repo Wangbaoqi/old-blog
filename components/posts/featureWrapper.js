@@ -18,7 +18,7 @@ const FeatureWrapper = ({
   const rightChild = (
     <>
       <SearchDoc />
-      <Category groupList={categoryGroup}/>
+      {/* <Category groupList={categoryGroup}/> */}
     </>
   )
 

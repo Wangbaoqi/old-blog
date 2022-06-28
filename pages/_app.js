@@ -11,28 +11,28 @@ import '@styles/codeStyle.css';
 
 
 export function reportWebVitals(metric) {
-  console.log(metric, 'metric');
+  // console.log(metric, 'metric');
   const { id, name, label, value } = metric;
-  switch (metric.name) {
-    case 'FCP':
-      // handle FCP results
-      break
-    case 'LCP':
-      // handle LCP results
-      console.log(metric, 'LCP');
-      break
-    case 'CLS':
-      // handle CLS results
-      break
-    case 'FID':
-      // handle FID results
-      break
-    case 'TTFB':
-      // handle TTFB results
-      break
-    default:
-      break
-  }
+  // switch (metric.name) {
+  //   case 'FCP':
+  //     // handle FCP results
+  //     break
+  //   case 'LCP':
+  //     // handle LCP results
+  //     console.log(metric, 'LCP');
+  //     break
+  //   case 'CLS':
+  //     // handle CLS results
+  //     break
+  //   case 'FID':
+  //     // handle FID results
+  //     break
+  //   case 'TTFB':
+  //     // handle TTFB results
+  //     break
+  //   default:
+  //     break
+  // }
   event(name, {
     category: label === "web-vital" ? "Web Vitals" : "Next.js custom metric",
     value: Math.round(name === "CLS" ? value * 1000 : value), // values must be integers
@@ -46,11 +46,32 @@ export default function MyApp({ Component, pageProps }) {
   useEffect(() => {
     setShowing(true);
 
-    new PerformanceObserver((entryList) => {
-      for (const entry of entryList.getEntries()) {
-        console.log('LCP candidate:', entry.startTime, entry);
-      }
-    }).observe({type: 'largest-contentful-paint', buffered: true});
+    // new PerformanceObserver((entryList) => {
+    //   for (const entry of entryList.getEntries()) {
+    //     console.log('LCP candidate:', entry.startTime, entry);
+    //   }
+    // }).observe({ type: 'largest-contentful-paint', buffered: true });
+
+
+    // const computeDOMDepth = dom => {
+    //   let stack = [dom];
+    //   let depth = 0;
+    //   while(stack.length) {
+    //     depth++
+    //     const count = stack.length;
+    //     let s = 0;
+    //     while(s < count) {
+    //       s++
+    //       const nodes = stack.shift();
+    //       for(let item of nodes.childNodes) {
+    //         stack.push(item)
+    //       }
+    //     }
+    //   }
+    //   return depth  
+    // }
+    
+
   }, []);
 
   if (!showing) {

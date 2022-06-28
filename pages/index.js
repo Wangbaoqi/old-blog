@@ -19,7 +19,7 @@ export default function BlogList({ featurePosts, categoryGroup, recentPost, ever
         <RecentWrapper
           recentPosts={recentPost}
         />
-        <DayTablePost dayList={everyList}/>
+        {/* <DayTablePost dayList={everyList}/> */}
       </Layout>
     </>
   );
