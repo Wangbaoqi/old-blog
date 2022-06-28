@@ -15,3 +15,4 @@ export { default as Tags } from './component/tags';
 export { default as Iframe } from './component/iframe';
 export { default as Whimsical } from './component/Whimsical';
 export { default as CodePen } from './component/codePen';
+export { default as Processon } from './component/process';
