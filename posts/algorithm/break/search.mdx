@@ -13,8 +13,6 @@ subCategory: breakThrough
 ---
 
 
-## 二分查找概述
-
 二分查找也是一种查找效率比较高的方法，查找的场景是数据结构已排序好的。这种方式查找比线性查找耗时要更低一点。
 
 二分查找的时间复杂度也要比顺序查找的低
@@ -34,8 +32,6 @@ n n/2 n/4 n/8 ... n/2^k
 ## 基本框架 
  
 > 在一个**有序的集合**中查找**特定**的字符，有则返回其索引，无则返回-1。
-
-### 基本模板
 
 ```js
 /**
@@ -104,13 +100,13 @@ function bSearch(arr, low, high, target) {
 }
 ```
 
-模板一也是最基本的二分法查找方式，这里有几个重点，查找区间**`[low, high] `闭区间 和 循环条件 `while(low <= high)`以及 `mid + 1 `或者 `mid - 1`。**
+模板一也是最基本的二分法查找方式，这里有几个重点，查找区间`[low, high] `闭区间 和 循环条件 `while(low <= high)`以及 `mid + 1 `或者 `mid - 1`。
 
-1.  查找区间为闭区间，也就是**`arr.length - 1`**
+1.  查找区间为闭区间，也就是`arr.length - 1`
 2.  循环条件为 `low <= high`，如果条件为 `low < high`，其结束循环条件为`low = high`，那么如果当`low =   mid + 1 `或者 `high = mid - 1`的值等于 `low == high`，则就找不到正确的结果
 3.  `mid + 1` 或者 `mid - 1`是将整个闭区间分为两个闭区间，也是跟循环条件有关系的
 
-#### LeetCode 基本框架的题目
+### 基本框架的题目
 
 * [35. 搜索插入位置](https://leetcode-cn.com/problems/search-insert-position/)
 * [69. x 的平方根](https://leetcode-cn.com/problems/sqrtx/)
@@ -234,7 +230,7 @@ const findDuplicate = (nums) => {
 
 这种查找方式在找到目标值的时候并不会直接结束查找，而是缩小对应的区间，直到循环结束。要注意的一点是循环结束要进行打补丁，否则查找结果会超出区间范围。
 
-#### LeetCode 有关查找左右侧边界的题目
+### 有关查找左右侧边界的题目
 
 * [278. 第一个错误的版本](https://leetcode-cn.com/problems/first-bad-version/)
 * [153. 寻找旋转排序数组中的最小值](https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/)

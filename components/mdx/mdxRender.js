@@ -58,7 +58,7 @@ const MDXRenderer = ({ code, frontmatter, prev, next, views }) => {
     p: (props) => <Para {...props} />,
     ul: (props) => <ul className="ml-6 my-3 list-disc" {...props} />,
     ol: (props) => <ol className="ml-6 my-3 list-decimal" {...props} />,
-    li: (props) => <li className="mb-2 leading-relaxed" {...props} />,
+    li: (props) => <li className="my-3  leading-loose marker:mr-4 marker:text-hover-color" {...props} />,
     blockquote: (props) => <BlockQuote {...props} />,
     PlayGround,
     Strong,
