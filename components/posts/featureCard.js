@@ -2,7 +2,7 @@ import { FeaturePost } from '@components/posts';
 
 const FeatureCard = ({
   posts = [],
-  mode = 'row'
+  ...rest
 }) => {
   return (
     <>
@@ -10,8 +10,8 @@ const FeatureCard = ({
         posts.map((post) => (
           <FeaturePost
             key={post.slug}
-            mode={mode}
             {...post}
+            {...rest}
           />
         ))
       }

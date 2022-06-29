@@ -10,7 +10,7 @@ const DayTablePost = ({
 }) => {
 
   return (
-    <section className="container mx-auto">
+    <section className="mt-14">
       { showTitle ? <Title title="Every Day" className='my-20' showAll={true} allHref={`/algorithm/page/1`} /> : '' }
 
       <div className="container inline-block min-w-full shadow-lg lg:overflow-hidden px-3 md:px-0 ">
@@ -54,13 +54,13 @@ const DayTablePost = ({
                       {item.tags.map((tag, idx) => { 
                         const tagCls = tagTheme[tag]
                         return (
-                          <strong key={idx} className={`rounded px-1 py-0.5 text-xs mr-1 ${tagCls}`}>
+                          <strong key={idx} className={`rounded px-1 py-0.5 text-xs mr-1 tag-${tagCls}`}>
                             {tag}
                           </strong>
                         )
                       })}
                     </td>
-                    <td className={`px-5 py-4 font-Sriracha ${levelCls}`}>{item.level}</td>
+                    <td className={`px-5 py-4 font-Sriracha tag-${levelCls}`}>{item.level}</td>
                     <td className="px-5 py-4 ">
                       <span className=" font-Sriracha">{item.date}</span>
                     </td>

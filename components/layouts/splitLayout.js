@@ -13,7 +13,7 @@ const SplitLayout = ({
 
 
   return (
-    <section className="container">
+    <section className="mt-14">
       <Title title={leftTitle}/>
       <section className="flex flex-col lg:flex-row gap-8 md:gap-16 px-3 md:px-0">
         <div className={leftCls}>

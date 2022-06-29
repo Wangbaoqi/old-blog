@@ -7,8 +7,8 @@ const RecentWrapper = ({
 }) => {
 
 
-  const leftPosts = recentPosts.slice(0,3)
-  const rightPosts = recentPosts.slice(3,7)
+  const leftPosts = recentPosts.slice(0,10)
+  const rightPosts = recentPosts.slice(0,4)
 
 
   const leftChild = (
@@ -18,20 +18,18 @@ const RecentWrapper = ({
   )
 
   const rightChild = (
-    <div className='grid grid-cols-1 md:grid-cols-2 gap-10'>
-      <FeatureCard posts={rightPosts} mode='col'/>
+    <div className='grid grid-cols-1 md:grid-cols-2 gap-14'>
+      <FeatureCard posts={rightPosts} lineNum={2} />
     </div>
   )
 
   return (
-    <Container>
-      <SplitLayout
-        mode='right'
-        leftTitle='Recented Posts'
-        leftChild={leftChild}
-        rightChild={rightChild}
-      />
-    </Container>
+    <SplitLayout
+      mode='right'
+      leftTitle='Recented Posts'
+      leftChild={leftChild}
+      rightChild={rightChild}
+    />
   )
 }
 

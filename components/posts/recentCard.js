@@ -10,14 +10,15 @@ const RecentCard = ({
     <>
       {
         posts.map(post => (
-          <RecentPost
-            key={post.slug}
-            title={post.title}
-            coverImage={post.coverImage}
-            date={post.date}
-            category={post.category}
-            slug={post.slug}
-          />
+          <ul key={post.slug}>
+            <RecentPost
+              title={post.title}
+              coverImage={post.coverImage}
+              date={post.date}
+              category={post.category}
+              slug={post.slug}
+            />
+          </ul>
         ))
       }
     </>
