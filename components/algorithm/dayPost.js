@@ -8,11 +8,10 @@ const DayTablePost = ({
   dayList = [],
   showTitle = true
 }) => {
-
+  console.log('test');
   return (
     <section className="mt-14">
       { showTitle ? <Title title="Every Day" className='my-20' showAll={true} allHref={`/algorithm/page/1`} /> : '' }
-
       <div className="container inline-block min-w-full shadow-lg lg:overflow-hidden px-3 md:px-0 ">
         <div className="overflow-x-auto  dark:bg-card-cover rounded-xl">
           <table className="table-auto min-w-full leading-normal ">
@@ -76,7 +75,6 @@ const DayTablePost = ({
             </tbody>
           </table>
         </div>
-        
       </div>
     </section>
   );
