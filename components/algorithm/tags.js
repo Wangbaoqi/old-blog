@@ -27,7 +27,7 @@ const Tags = ({
             const tagCls = tag.check ? ' text-code' : 'bg-second-bg';
             return (
               <span
-                className={`rounded flex items-center gap-3 text-sm cursor-pointer px-4 py-1 ${typeCls} ${tagCls}`}
+                className={`rounded flex items-center gap-3 text-sm cursor-pointer px-4 py-1 tag-${typeCls} ${tagCls}`}
                 key={tag.key}
                 onClick={() => checkTags(idx)}
               >

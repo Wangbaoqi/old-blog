@@ -10,7 +10,7 @@ const FeatureWrapper = ({
 }) => {
 
   const leftChild = (
-    <div className=' grid grid-cols-1 gap-10'>
+    <div className=' grid grid-cols-1 gap-14'>
       <FeatureCard posts={ featurePosts }/>
     </div>
   )
@@ -23,14 +23,12 @@ const FeatureWrapper = ({
   )
 
   return (
-    <Container>
-      <SplitLayout
-        mode='left'
-        leftTitle='Featured Topics'
-        leftChild={leftChild}
-        rightChild={rightChild}
-      />
-    </Container>
+    <SplitLayout
+      mode='left'
+      leftTitle='Featured Topics'
+      leftChild={leftChild}
+      rightChild={rightChild}
+    />
   )
 }
 

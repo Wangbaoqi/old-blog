@@ -11,7 +11,7 @@ export default function Layout({ children, type, title, description, showFooter 
         <Header />
 
         <HeaderWrapper type={ type }/>
-        <main className='md:max-w-6xl max-w-5xl mx-auto lg:px-5'>{children}</main>
+        <main className='md:max-w-5xl max-w-4xl mx-auto lg:px-5 md:px-5'>{children}</main>
         <Search />
         { showFooter ? <Footer /> : null }
         

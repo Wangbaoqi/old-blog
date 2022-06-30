@@ -49,28 +49,33 @@
   color: #000;
 }
 
-.tag-algorithm {
+.tag-algorithm,
+.icon-algorithm {
   background-color: #00a591;
   color: #fff;
 }
 
-.tag-http {
+.tag-http,
+.icon-browser {
   background-color: #95dee3;
   color: #000;
 }
 
 
-.tag-browser {
+.tag-browser,
+.icon-browser {
   background-color: #95dee3;
   color: #000;
 }
 
-.tag-html-css {
+.tag-html-css,
+.icon-html-css {
   background-image: linear-gradient(45deg, #f2552c 0%, #A15190 45%, #bc70a4 100%);
   color: #fff;
 }
 
-.tag-js-ts {
+.tag-js-ts,
+.icon-js-ts {
   background-image: linear-gradient(45deg, #ecdb54 0%, #8588C9 45%, #5b5ea6 100%);
   color: #fff;
 }
@@ -81,7 +86,8 @@
   color: #61dafb;
 }
 
-.tag-http-browser {
+.tag-http-browser,
+.icon-http-browser {
   background-image: linear-gradient(45deg, #95dee3 0%, #A15190 45%, #5b5ea6 100%);
   color: #fff;
 }
@@ -196,7 +202,9 @@
 .icon-javascript:before {
   content: "\f10b";
 }
-.icon-blog:before {
+.icon-blog:before,
+.icon-http-browser:before,
+.icon-algorithm:before {
   content: "\f101"
 }
 
@@ -220,7 +228,8 @@
   content: "\f106"
 }
 
-.icon-css:before {
+.icon-css:before,
+.icon-html-css:before {
   content: "\f107"
 }
 
@@ -236,9 +245,11 @@
   content: "\f10a"
 }
 
-.icon-js:before {
+.icon-js:before,
+.icon-js-ts:before {
   content: "\f10b"
-}
+} 
+
 
 .icon-node:before {
   content: "\f10c"

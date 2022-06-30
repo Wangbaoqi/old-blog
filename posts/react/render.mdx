@@ -1,6 +1,6 @@
 ---
 title: '从源码角度理解 React Render'
-excerpt: Render 阶段主要创建Fiber节点，生成Fiber树，在更新阶段进行diff操作，产生具有副作用的effectList
+excerpt: React Render阶段主要分为两个阶段，beginWork和completeWork，而在这两个阶段中，分别有两个子过程(初始化渲染和更新渲染)，在初始化渲染过程会创建Fiber节点，生成Fiber树，在更新渲染阶段进行diff操作，生成更新后的Fiber节点，整个过程结束之后会产生具有副作用的effectList。
 coverImage: 'https://media.wangbaoqi.tech/assets/blog/react/cover/render.webp'
 date: '2021-07-20'
 author:

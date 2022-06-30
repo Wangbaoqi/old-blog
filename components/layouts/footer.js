@@ -14,7 +14,7 @@ export default function Footer() {
   return (
     <footer className="bg-header-cover">
       <Container>
-        <div className="max-w-6xl mx-auto py-8 flex mt-40 lg:px-5 px-3 flex-col md:flex-row justify-between space-y-8 lg:flex-row lg:space-y-0">
+        <div className="max-w-5xl mx-auto py-8 flex mt-40 lg:px-5 px-3 flex-col md:flex-row justify-between space-y-8 lg:flex-row lg:space-y-0">
           <div className=" flex flex-col justify-between">
             <div className="h-full flex flex-col">
               <Logo />

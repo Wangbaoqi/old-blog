@@ -46,7 +46,7 @@ const PostHeader = ({
       
       <div className="flex items-center justify-start mb-12 font-Sriracha">
         <div className='flex items-center flex-wrap gap-4'>
-          <span className={` rounded px-2 py-1 ${tagTheme[category || snippet]}`}>{ category || snippet }</span>
+          <span className={` rounded px-2 py-1 tag-${tagTheme[category || snippet]}`}>{ category || snippet }</span>
           <span className=''>{date}</span>
           <span className='flex items-center'>
             <Clock size={18} />

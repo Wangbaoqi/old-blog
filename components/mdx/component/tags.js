@@ -15,7 +15,7 @@ const Tags = ({
         tags.map((t, id) => {
           const typeCls = tagTheme[t]
           return (
-            <strong className={` rounded-md py-0.5 px-2 text-pre ${typeCls}`} key={id}>{t}</strong>
+            <strong className={` rounded-md py-0.5 px-2 text-pre tag-${typeCls}`} key={id}>{t}</strong>
           )
         })
       }

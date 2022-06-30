@@ -10,9 +10,10 @@ const CategoryWrapper = ({
 }) => {
 
   const leftChild = (
-    <div className="grid md:grid-cols-2 gap-10">
+    <div className="grid md:grid-cols-2 gap-16">
       <FeatureCard
         mode='col'
+        lineNum='2'
         posts={categoryPost}
       />
     </div>
