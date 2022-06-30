@@ -9,6 +9,7 @@ const DayTablePost = ({
   showTitle = true
 }) => {
   console.log('test');
+  console.log('test revert');
   return (
     <section className="mt-14">
       { showTitle ? <Title title="Every Day" className='my-20' showAll={true} allHref={`/algorithm/page/1`} /> : '' }
