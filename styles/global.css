@@ -203,7 +203,8 @@
   content: "\f10b";
 }
 .icon-blog:before,
-.icon-http-browser:before {
+.icon-http-browser:before,
+.icon-algorithm:before {
   content: "\f101"
 }
 
@@ -264,10 +265,6 @@
 
 .icon-search:before {
   content: "\f10f"
-}
-
-.icon-algorithm:before {
-  content: "\f10c"
 }
 
 

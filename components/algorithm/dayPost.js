@@ -18,23 +18,20 @@ const DayTablePost = ({
           <table className="table-auto min-w-full leading-normal ">
             <thead className=" ">
               <tr>
-                <th className="px-5 py-5 font-Sriracha text-lg text-left">num</th>
-                <th className="px-5 py-5 font-Sriracha text-lg text-left min-w-t-topic">
+                <th className="px-5 py-5 text-lg text-left">num</th>
+                <th className="px-5 py-5 text-lg text-left min-w-t-topic">
                   topic
                 </th>
-                <th className="px-5 py-5 font-Sriracha text-lg text-left">
+                <th className="px-5 py-5 text-lg text-left">
                   tags
                 </th>
-                <th className="px-5 py-5 font-Sriracha text-lg text-left">
+                <th className="px-5 py-5 text-lg text-left">
                   level
                 </th>
-                <th className="px-5 py-5 font-Sriracha text-lg text-left">
+                <th className="px-5 py-5 text-lg text-left">
                   date
                 </th>
-                <th className="px-5 py-5 font-Sriracha text-lg text-left">hot</th>
-                <th className="px-5 py-5 font-Sriracha text-lg text-left">
-                  author
-                </th>
+                <th className="px-5 py-5 text-lg text-left">hot</th>
               </tr>
             </thead>
             <tbody>
@@ -71,11 +68,6 @@ const DayTablePost = ({
                           .map((s, idx) => (
                             <Star key={idx} size={16} />
                           ))}
-                      </div>
-                    </td>
-                    <td className="px-5 py-4">
-                      <div>
-                        <Avatar {...item.author} />
                       </div>
                     </td>
                   </tr>
