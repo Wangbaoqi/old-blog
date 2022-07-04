@@ -27,7 +27,7 @@ const PostHeader = ({
   return (
     <header className="">
       <section className='-mt-44 mb-20 z-20'>
-        <div className='flex items-center font-Sriracha'>
+        <div className='flex items-center'>
           <Link href='/' >
             <span className='cursor-pointer hover:text-hover-color'>Home</span>
           </Link>

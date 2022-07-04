@@ -1,0 +1,45 @@
+---
+id: 392
+title: 392. 判断子序列
+date: '2022-07-01'
+level: easy
+hot: 4
+author:
+  name: NateWang
+  picture: 'https://media.wangbaoqi.tech/assets/authors/logo.png'
+postShow: true
+tags:
+  - 二分法
+category: Algorithm
+subCategory: everyDay
+---
+
+**LeetCode** [判断子序列](https://leetcode.cn/problems/is-subsequence/)
+
+import Para from './mdx/component/para.js'
+
+
+> <Para>给定字符串 **s** 和 **t** ，判断 s 是否为 t 的子序列。</Para>
+> <Para>字符串的一个子序列是原始字符串删除一些（也可以不删除）字符而不改变剩余字符相对位置形成的新字符串。（例如，"ace"是"abcde"的一个子序列，而"aec"不是）。</Para>
+> <Para>**进阶：**</Para>
+> <Para>如果有大量输入的 S，称作 S1, S2, ... , Sk 其中 k >= 10亿，你需要依次检查它们是否为 T 的子序列。在这种情况下，你会怎样改变代码？</Para>
+
+
+**示例**
+
+```
+输入: s = "abc", t = "ahbgdc"
+输出: true
+
+输入: s = "axc", t = "ahbgdc"
+输出: false
+```
+
+**提示**
+
+* `0 <= s.length <= 100`
+* `0 <= t.length <= 10^4`
+* 两个字符串都只由小写字符组成。
+
+
+## 思路

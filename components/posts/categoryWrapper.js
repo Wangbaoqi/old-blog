@@ -13,7 +13,7 @@ const CategoryWrapper = ({
     <div className="grid md:grid-cols-2 gap-16">
       <FeatureCard
         mode='col'
-        lineNum='2'
+        lineNum={2}
         posts={categoryPost}
       />
     </div>

@@ -8,7 +8,7 @@ const NextPost = ({ prev, next }) => {
         <ChevronLeft size={20} />
         <div className="flex flex-col items-start mb-1 justify-between cursor-pointer">
           <span className="uppercase">previous</span>
-          <h3 className="text-hover-color font-SourceCode">
+          <h3 className="text-hover-color">
           {prev.title}
         </h3>
         </div>
@@ -21,7 +21,7 @@ const NextPost = ({ prev, next }) => {
       <div className="flex items-center gap-4 cursor-pointer text-sm hover:bg-hover-bg px-4 py-4 rounded-md -mr-4">
         <div className="flex flex-col mb-1 justify-end cursor-pointer">
           <span className="uppercase text-right">next</span>
-            <h3 className="text-hover-color font-SourceCode">
+            <h3 className="text-hover-color ">
             {next.title}
           </h3>
         </div>

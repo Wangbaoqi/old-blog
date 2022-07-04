@@ -1,6 +1,6 @@
 ---
 title: JavaScript 数组使用总结解析
-excerpt: JS 数组API的 polifill 以及其使用整理
+excerpt: JavaScript 数组API(forEach、 map、 some、 every、 reduce等)的 polifill 实现以及其使用(去重)整理
 coverImage: 'https://media.wangbaoqi.tech/assets/blog/js/cover/array.webp'
 date: '2020-03-16'
 author:
@@ -15,7 +15,8 @@ category: Js&Ts
 
 数组的使用操作API
 
-![](https://media.wangbaoqi.tech/assets/blog/js/array/array_methods.webp)
+
+<Processon diagramId='62c292161efad4078e38aa40'/>
 
 
 ### 常见的操作数组的API
@@ -326,11 +327,8 @@ function uniqueArray(a) {
 }
 ```
 
-### 二维数组多维数组
 
-二维数组的访问以及二维数组的扁平化
-
-#### 二维数组的定义以及访问
+### 二维数组的定义以及访问
 
 ```javascript
 Array.matrix = function(numrows, numcols, initial) {
@@ -370,9 +368,7 @@ for(let r = 0; r < dataList.length; r++) {
 }
 ```
 
-#### 多维数组的扁平化
-
-**面试题**
+### 多维数组的扁平化
 
 ```javascript
 var arr = [1,2[3,4,[5,6,7],8,9],10]

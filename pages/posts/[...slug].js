@@ -9,7 +9,7 @@ import useSWR from 'swr'
 const Post = ({ post }) => {
   const { slug, toc = [], ...rest } = post;
   const { data = {} } = useSWR(`/api/visitor/${slug}`, fetcher);
-
+  const { subCategory, title, excerpt} = post.frontmatter;
   useEffect(() => {
     const registerView = () =>
       fetcher(`/api/visitor/${slug}`, {
@@ -18,12 +18,12 @@ const Post = ({ post }) => {
     registerView();
   }, [slug]);
 
-  const showToc = toc.length;
+  const showToc = subCategory != 'everyDay';
   return (
     <>
       <Layout type='post' title={`${post.frontmatter.title} | Nate Wang Blog `} description={post.frontmatter.excerpt}>
         <section className="flex flex-col md:flex-row mt-10 px-3 md:px-0">
-          <div className={ `w-full ${showToc ? 'md:w-9/12' : ''} md:px-6`}>
+          <div className={ `w-full ${showToc ? 'md:w-9/12' : ''}`}>
             <MDXRenderer {...rest} views={data.total}/>
           </div>
 
