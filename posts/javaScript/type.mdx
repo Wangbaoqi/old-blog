@@ -263,6 +263,14 @@ JS类型转换的情况大致有三种：
 | 除了数组的引用类型                 |  number | NaN                                 |
 | symbol                    |  number | 报错                                  |
 
+
+**宽松比较规律**
+
+1. **Boolean**转换其他类型 - 转换成**Number**类型
+2. **Number**转换为**String**类型 - 转换成**Number**类型
+3. **Object**转换为**原始**类型 - 转换成**原始**类型
+
+
 ### 转换成Boolean
 
 除了 null, undefined, false, 0, -0, '', NaN为false，其他都为true

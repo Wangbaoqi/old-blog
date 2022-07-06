@@ -18,7 +18,7 @@ const Tags = ({
   }, [tags])
 
   return (
-    <div className="py-4 flex items-center ">
+    <div className="py-4 flex items-start">
       <h3 className='text-second-color font-Sriracha text-base mr-2 md:mr-4'>Tags: </h3>
       <div className='flex flex-wrap gap-3 flex-1'>
         {

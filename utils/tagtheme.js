@@ -7,6 +7,7 @@ export const tagTheme = {
   '哈希表': 'hash',
   '排序': 'sort',
   '双指针': 'doublePoint',
+  '二分法': 'binary',
   'easy': 'easy',
   'medium': 'medium',
   'hard': 'hard',
