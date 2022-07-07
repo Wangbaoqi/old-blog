@@ -80,5 +80,86 @@ const findDuplicate = (nums: number[]): number => {
 此方式从时间复杂度**O(logn + n)**来讲，并不是最优的，而且该解法违反了题意中的**不可改变原数组**的规定。
 
 
-## 哈希表
+## 利用Set数据结构
 
+利用Set数据结构来存储数组中唯一的值, 如果含有重复的值，可以立即获取到。
+
+```ts
+const findDuplicate = (nums: number[]): number => {
+
+  const set = new Set();
+  for (const num of nums) {
+    
+    if (set.has(num)) {
+      return num
+    }
+    set.add(num)
+  }
+  return -1
+}
+```
+
+这种利用数据结构在空间复杂度上会更高一点**O(n)**, 而时间复杂度为**O(n)**, 因为循环了一遍数组。
+
+## 二分法
+
+可以看到,`nums`并不具备有序的条件，可以利用[抽屉原理]()， 记`cnt[i]`为`nums`中所有小于`i`的数量；而`cnt`随着`i`的变大是具有单调性的，这也可以使用二分法来查找。
+
+如果`cnt[i] <= i`, 那么重复的数字就有可能在`i`的右侧，反之在左侧。
+
+```ts
+const findDuplicate = (nums: number[]): number => {
+  const n = nums.length;
+
+  let l = 0, r = n -1;
+  let ans = -1;
+
+  while(l <= r) {
+    let m = (l + r) >> 1;
+    let cnt = 0;
+    for (let i = 0; i < n; i++) {
+      cnt += Number(nums[i] <= m)      
+    }
+    if(cnt <= m) {
+      l = m + 1
+    }else {
+      r = m - 1
+      ans = m
+    }
+  }
+
+  return ans
+}
+```
+
+利用二分法，时间和空间复杂度都有了一定程度的提升，时间复杂度**O(nlogn)**，而空间复杂度**O(1)**，只有常量级。
+
+
+
+## 执行代码
+
+export const js = `
+const findDuplicate = (nums) => {
+  const n = nums.length;
+  let l = 0, r = n -1;
+  let ans = -1;
+  while(l <= r) {
+    let m = (l + r) >> 1;
+    let cnt = 0;
+    for (let i = 0; i < n; i++) {
+      cnt += Number(nums[i] <= m)      
+    }
+    if(cnt <= m) {
+      l = m + 1
+    }else {
+      r = m - 1
+      ans = m
+    }
+  }
+  return ans
+}`
+export const options = {
+  mainEntry: 'findDuplicate'
+}
+
+<PlayGround js={js} mode='algo' options={options}/> 
