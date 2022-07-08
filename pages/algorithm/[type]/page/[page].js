@@ -7,7 +7,7 @@ import { Input, PerPage, Select } from '@components/ui';
 
 import { useState, useEffect, useCallback, useMemo } from "react";
 import { useLocalStorage, useDebounceValue } from "@hooks/index";
-
+import { tagTheme } from "@utils/tagtheme";
 
 const POSTS_PER_PAGE = 20;
 
@@ -87,24 +87,36 @@ export async function getStaticPaths(ctx) {
     params: { page: (i + 1).toString() },
   }))
 
+
+  console.log(tagGroup, 'tagGroup');
+
+
   const path = tagGroup.map((tag) => {
-    return Array.from({ length: tag.value }, (_, i) => ({
-      params: {
-        type: tag.key,
-        page: (i + 1).toString()
+    return Array.from({ length: tag.value }, (_, i) => {
+
+
+      console.log(tagTheme[tag.key], 'tagTheme');
+
+      return {
+        params: {
+          type: tagTheme[tag.key],
+          page: (i + 1).toString()
+        }
       }
-    }))
+     
+      
+    })
   })
-
   return {
-    paths,
+    paths: path.flat(),
     fallback: false,
-  }
-
+  };
 }
 
 
 export const getStaticProps = async (ctx) => {
+  console.log(ctx, 'path');
+
   const {
     params: { page }
   } = ctx;

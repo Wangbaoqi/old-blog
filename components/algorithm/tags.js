@@ -1,7 +1,7 @@
 import { memo, useState, useEffect } from 'react';
 import { tagTheme } from "@utils/tagtheme";
 import { Check } from 'react-feather';
-
+import Link from 'next/link';
 const Tags = ({
   tagsList = [],
   setTagChange
@@ -23,19 +23,21 @@ const Tags = ({
       <div className='flex flex-wrap gap-3 flex-1'>
         {
           tags.map((tag, idx) => {
-            const typeCls = tagTheme[tag.key]
+            const typeTag = tagTheme[tag.key]
             const tagCls = tag.check ? ' text-code' : 'bg-second-bg';
             return (
-              <span
-                className={`rounded flex items-center gap-3 text-sm cursor-pointer px-4 py-1 tag-${typeCls} ${tagCls}`}
-                key={tag.key}
-                onClick={() => checkTags(idx)}
-              >
-                {tag.key} {tag.value}
-                {
-                  tag.check ? <Check size={15}  className=' '/> : ''
-                }
-              </span>
+              <Link href={`/algorithm/${typeTag}/page/1`} key={tag.key}>
+                <span
+                  className={`rounded flex items-center gap-3 text-sm cursor-pointer px-4 py-1 tag-${typeTag} ${tagCls}`}
+                  onClick={() => checkTags(idx)}
+                >
+                  {tag.key} {tag.value}
+                  {
+                    tag.check ? <Check size={15}  className=' '/> : ''
+                  }
+                </span>
+              </Link>
+              
             )
           })
         }

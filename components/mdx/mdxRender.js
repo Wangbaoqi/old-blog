@@ -16,7 +16,8 @@ import {
   Iframe,
   Whimsical,
   CodePen,
-  Processon
+  Processon,
+  Carbon
 } from "@components/mdx";
 import { NextPost } from "@components/posts";
 import PlayGround from "@components/playground/playground";
@@ -66,7 +67,8 @@ const MDXRenderer = ({ code, frontmatter, prev, next, views }) => {
     Iframe,
     Whimsical,
     CodePen,
-    Processon
+    Processon,
+    Carbon
   };
 
   const mdxExport = getMDXExport(code);
