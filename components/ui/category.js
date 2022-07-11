@@ -21,7 +21,6 @@ const Category = ({
       <h2 className="text-xl text-anchor-color">Categories</h2>
       {
         cateList.map((cate) => {
-          console.log(tagTheme[cate.key]);
           const clsIcon = cn('relative rounded-xl icon', 'h-12 w-12',
             'before:absolute before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:text-3xl',
             [`icon-${tagTheme[cate.key].toLowerCase()}`])

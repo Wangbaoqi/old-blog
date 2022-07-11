@@ -2,20 +2,21 @@ import { memo, useState, useEffect } from 'react';
 import { tagTheme } from "@utils/tagtheme";
 import { Check } from 'react-feather';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+
 const Tags = ({
   tagsList = [],
   setTagChange
 }) => {
+  const { query = {} } = useRouter();
+  const { type = '' } = query;
 
   const [tags, setTags] = useState(tagsList);
   const checkTags = (idx) => {
+    tags.forEach(e => e.check = false);
     tags[idx].check = !tags[idx].check;
     setTags([...tags])
   }
-  useEffect(() => {
-    const checkList = tags.filter(e => e.check).map(e => e.key)
-    setTagChange(checkList)
-  }, [tags])
 
   return (
     <div className="py-4 flex items-start">
@@ -33,7 +34,7 @@ const Tags = ({
                 >
                   {tag.key} {tag.value}
                   {
-                    tag.check ? <Check size={15}  className=' '/> : ''
+                    tag.check || typeTag == type ? <Check size={15}  className=''/> : ''
                   }
                 </span>
               </Link>

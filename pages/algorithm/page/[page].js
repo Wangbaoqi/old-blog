@@ -29,7 +29,6 @@ const AlgorithmWrapper = ({
   }
 
   const handleTags = (tags) => {
-    console.log(tags, posts.length, 'tags');
   }
 
   const handleInput = (val) => {

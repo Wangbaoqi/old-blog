@@ -1,4 +1,4 @@
-import { getAlgorithmPost } from "@lib/mdx";
+import { getAlgorithmPost, getAlgorithmEveryByType } from "@lib/mdx";
 import { useRouter } from "next/router";
 
 import { DayTablePost, Tags, PageNation } from '@components/algorithm';
@@ -7,7 +7,8 @@ import { Input, PerPage, Select } from '@components/ui';
 
 import { useState, useEffect, useCallback, useMemo } from "react";
 import { useLocalStorage, useDebounceValue } from "@hooks/index";
-import { tagTheme } from "@utils/tagtheme";
+import { tagTheme, tagAlgo } from "@utils/tagtheme";
+import { invertObject } from "@utils/utils"
 
 const POSTS_PER_PAGE = 20;
 
@@ -29,7 +30,6 @@ const AlgorithmWrapper = ({
   }
 
   const handleTags = (tags) => {
-    console.log(tags, posts.length, 'tags');
   }
 
   const handleInput = (val) => {
@@ -80,31 +80,15 @@ export default AlgorithmWrapper
 
 
 export async function getStaticPaths(ctx) {
-
-  const { everyDay, tagGroup } = await getAlgorithmPost();
-  const totalPages = Math.ceil(everyDay.length / POSTS_PER_PAGE);
-  const paths = Array.from({ length: totalPages }, (_, i) => ({
-    params: { page: (i + 1).toString() },
-  }))
-
-
-  console.log(tagGroup, 'tagGroup');
-
-
+  const { tagGroup } = await getAlgorithmPost();
   const path = tagGroup.map((tag) => {
     return Array.from({ length: tag.value }, (_, i) => {
-
-
-      console.log(tagTheme[tag.key], 'tagTheme');
-
       return {
         params: {
           type: tagTheme[tag.key],
           page: (i + 1).toString()
         }
       }
-     
-      
     })
   })
   return {
@@ -115,17 +99,16 @@ export async function getStaticPaths(ctx) {
 
 
 export const getStaticProps = async (ctx) => {
-  console.log(ctx, 'path');
-
   const {
-    params: { page }
+    params: { page, type }
   } = ctx;
   const perPage = POSTS_PER_PAGE;
-  const { everyDay, tagGroup } = await getAlgorithmPost();
-  
+  const tagType = invertObject(tagAlgo);
+  const everyDay = await getAlgorithmEveryByType(tagType[type]);
+  const { tagGroup } = await getAlgorithmPost();
+
   const pageNumber = parseInt(page);
   const afterTopicList = everyDay.sort((a, b) => a.id - b.id);
-
   const initPosts = everyDay.slice(
     perPage * (pageNumber - 1),
     perPage * pageNumber
