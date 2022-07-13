@@ -152,7 +152,7 @@ const obj = {
 
 可以使用typeof运算符来判断值的类型, 返回字符串类型
 
-```javascript
+```js
 typeof null; // "Object“
 typeof undefined; // "undefined"
 typeof 10; // "number"
@@ -161,6 +161,9 @@ typeof {}; // "object"
 typeof function(){}; // "function"
 typeof [1,3]; // "object"
 typeof Symbol(); // ”symbol“
+typeof NaN; // number
+typeof document.all; // 'undefined'
+
 ```
 
 **因此使用typeof并不能准确的判断所有的类型**
@@ -169,7 +172,7 @@ typeof Symbol(); // ”symbol“
 
 undefined 和 undeclared（未声明）不是同一个概念；undefined是已经声明了，并未赋值；而undeclared是没有声明，已经使用了 
 
-```javascript
+```js
 var a;
 typeof a; // undefined
 
@@ -181,7 +184,7 @@ typeof b; // undefined
 
 判断类型也可以使用instanceof，其原理是通过原型链来判断的
 
-```javascript
+```js
 let obj = new Object();
 obj instanceof Object; // true
 
@@ -199,7 +202,9 @@ str instanceof String; // true
 
 **因此instanceof是不能判断基本类型的值，除了 hack 的方式**
 
-```javascript
+*注意*: 在多**iframe** 窗口之间使用`instanceof`判断类型不准确。
+
+```js
 class CheckIsNumber {
   static [Symbol.hasInstance](number) {
     return typeof number === 'number'
@@ -214,7 +219,7 @@ class CheckIsNumber {
 
 null和undefined在判断的时候会报错, 这种方法知道就好，不建议使用
 
-```javascript
+```js
 let obj = {};
 obj.constructor === Object
 [].constructor === Array
@@ -222,20 +227,57 @@ obj.constructor === Object
 22..constructor === Number
 ```
 
+### isPrototypeOf
+
+**用于判断一个对象在另一个对象的原型链上**
+
+[MDN isPrototypeOf](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/isPrototypeOf)
+
+```js
+function Foo(){};
+function Bar(){};
+
+Bar.prototype = Object.create(Foo.prototype);
+
+const bar = new Bar();
+
+console.log(Foo.prototype.isPrototypeOf(bar));
+
+```
+
+
 ### toString判断类型
 
 toString 方法可以算是判断类型的终极解决方法
 
 ```javascript
-Object.prototype.toString.call(333) // "[Object Number]"
-Object.prototype.toString.call("hello") // "[Object String]"
-Object.prototype.toString.call(false) // "[Object Boolean]"
-Object.prototype.toString.call({name: 'xiaofan'}) // "[Object Object]"
-Object.prototype.toString.call(null) // "[Object Null]"
-Object.prototype.toString.call(undefiend) // "[Object Undefiend]"
-Object.prototype.toString.call(function(){}) // "[Object Function]"
-Object.prototype.toString.call([1,2,4]) // "[Object Array]"
+Object.prototype.toString.call(333) // "[object Number]"
+Object.prototype.toString.call("hello") // "[object String]"
+Object.prototype.toString.call(false) // "[object Boolean]"
+Object.prototype.toString.call({name: 'xiaofan'}) // "[object Object]"
+Object.prototype.toString.call(null) // "[object Null]"
+Object.prototype.toString.call(undefiend) // "[object Undefiend]"
+Object.prototype.toString.call(function(){}) // "[object Function]"
+Object.prototype.toString.call([1,2,4]) // "[object Array]"
 ```
+
+### Symbol.toStringTag
+
+**Symbol.toStringTag**作为`toString`判断的一种hack的方式, 用来识别自定义对象
+
+```js
+class MyType {
+  get [Symbol.toStringTag] {
+    return 'MyType'
+  }
+}
+Object.prototype.toString.call(MyType); // "[object MyType]"
+```
+
+
+### 等比较
+
+等比较主要是针对`undefiend`, 可以使用`void 0 === undefined`来比较
 
 ## 类型转换
 
