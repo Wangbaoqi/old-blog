@@ -10,7 +10,7 @@ import { useLocalStorage, useDebounceValue } from "@hooks/index";
 import { tagTheme, tagAlgo } from "@utils/tagtheme";
 import { invertObject } from "@utils/utils"
 
-const POSTS_PER_PAGE = 20;
+const POSTS_PER_PAGE = 10;
 
 
 const AlgorithmWrapper = ({
