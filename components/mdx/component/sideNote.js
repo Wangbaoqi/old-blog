@@ -27,8 +27,8 @@ const SideNote = ({
       <span className={`absolute top-0 -left-0.5 p-2 rounded-full  bg-primary-bg -translate-x-1/2 -translate-y-1/2 ${iconCls}`}>
         <Icon size={24} />
       </span>
-      <h3 className=' text-base font-Sriracha mb-4'>{title}</h3>
-      <div className=' text-sm' >
+      <h3 className='text-base font-Sriracha mb-4'>{title}</h3>
+      <div className='text-sm' >
         {children}
       </div>
     </aside>

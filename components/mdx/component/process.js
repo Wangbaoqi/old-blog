@@ -10,7 +10,7 @@ const Processon = ({
   return (
     <iframe
       title={`processon-${diagramId}`}
-      src={`https://www.processon.com/embed/${diagramId}`}
+      src={`https://v3.processon.com/embed/${diagramId}`}
       frameBorder="0"
       allowFullScreen
       className={className}
