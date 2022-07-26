@@ -22,7 +22,8 @@ const AlgorithmWrapper = ({
 }) => {
   const router = useRouter();
 
-  const { query: { perPage = '', searchVal = '',  } } = router;
+  console.log(router);
+  const { query: { type = '', page = '', searchVal = '' } } = router;
 
   const displayList =  initPosts;
   const handlePerPage = (perPage) => {
@@ -48,24 +49,30 @@ const AlgorithmWrapper = ({
     <Layout type='page' title={'all algorithm posts and leetCode Solved topics'} >
       <section className="py-20 px-3 md:px-0">
         <h1 className=" text-xl mb-10 font-Sriracha bg-header-color dark:bg-clip-text dark:text-transparent">Solved leetCode question</h1>
-        <div className="flex items-center font-Sriracha">
+        <div className="flex items-center ">
+          <span className="mr-2 w-8 text-anchor-color">All:</span>
           <span>{`${allCount} 道题目`}</span>
         </div>
         <Tags tagsList={tagGroup} setTagChange={handleTags} />
         <div className="py-5 flex items-center flex-wrap gap-3">
-          <Input initVal={searchVal} setInputChange={handleInput}/>
-          <Select initVal='简单' optionList={['简单', '中等', '困难']} setSelect={handleLevel}/>
-          <Select initVal='4星' optionList={['3星', '4星', '5星']} setSelect={handleLevel}/>
+          <span className="mr-2 w-8 text-anchor-color">Filter:</span>
+          <div className="flex items-center flex-wrap gap-3">
+            <Input initVal={searchVal} setInputChange={handleInput}/>
+            <Select initVal='简单' optionList={['简单', '中等', '困难']} setSelect={handleLevel}/>
+            <Select initVal='4星' optionList={['3星', '4星', '5星']} setSelect={handleLevel}/>
+          </div>
+         
         </div>
-        <div className="-mx-3 md:mx-0">
+        <div className="-mx-3 md:mx-0 -mt-10">
           <DayTablePost dayList={displayList} showTitle={false} />
         </div>
         <div className='flex flex-col md:flex-row justify-between items-center py-10'>
-          <PerPage
+          {/* <PerPage
             initPer={perPage}
             setPerPageChange={handlePerPage}
-          />
+          /> */}
           <PageNation
+            type={type}
             pagination={pagination}
             setPagenationChange={handlePagenation}
           />

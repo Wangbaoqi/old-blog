@@ -7,6 +7,7 @@ import Link from 'next/link'
 
 
 const PageNation = ({
+  type,
   pagination,
   setPagenationChange
 }) => {
@@ -14,6 +15,8 @@ const PageNation = ({
   const pageList = pagenationInit(currentPage, totalPages);
 
   const prePage = currentPage - 1
+
+  const algoType = type ? `${type}/` : ''
 
   return (
     <div className="flex justify-center space-x-1">
@@ -26,7 +29,7 @@ const PageNation = ({
           const aCls = page === currentPage ? 'bg-hover-bg' : '';
           const isDisable = typeof page !== 'number';
           return (
-            <Link href={`/algorithm/page/${page}`} key={idx}>
+            <Link href={`/algorithm/${algoType}page/${page}`} key={idx}>
               <button
                 disabled={isDisable}
                 onClick={() => setPagenationChange(page)}
