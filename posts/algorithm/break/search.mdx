@@ -29,7 +29,9 @@ n n/2 n/4 n/8 ... n/2^k
 * **基本框架**
 * **查询边界框架**
 
-## 基本框架 
+## 基本查询方法
+
+### 基本框架 
  
 > 在一个**有序的集合**中查找**特定**的字符，有则返回其索引，无则返回-1。
 
@@ -120,12 +122,6 @@ function bSearch(arr, low, high, target) {
 
 这种查找方式在找到目标值的时候并不会直接结束查找，而是缩小对应的区间，直到循环结束。要注意的一点是循环结束要进行打补丁，否则查找结果会超出区间范围。
 
-### 有关查找左右侧边界的题目
-
-* [278. 第一个错误的版本](https://leetcode-cn.com/problems/first-bad-version/)
-* [153. 寻找旋转排序数组中的最小值](https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/)
-* [162. 寻找峰值](https://leetcode-cn.com/problems/find-peak-element/)
-* [34. 在排序数组中查找元素的第一个和最后一个位置](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/)
 
 ### 寻找左侧边界的二分法
 
@@ -179,45 +175,9 @@ function rightBinSearch(num, target) {
 }
 ```
 
-### 第一个错误的版本
+### 有关查找左右侧边界的题目
 
-![first-error](https://media.wangbaoqi.tech/assets/blog/algorithm/binarySearch/first-error.webp)
-
-```js
-/**
- * Definition for isBadVersion()
- * 
- * @param {integer} version number
- * @return {boolean} whether the version is bad
- * isBadVersion = function(version) {
- *     ...
- * };
- */
-
-/**
- * @param {function} isBadVersion()
- * @return {function}
- */
-var solution = function(isBadVersion) {
-    /**
-     * @param {integer} n Total versions
-     * @return {integer} The first bad version
-     */
-    return function(n) {
-       let l = 1, r = n;
-       
-       while(l < r) {
-         let mid = l + ((r - l) >> 1);
-         let isBad = isBadVersion(mid);
-         if(isBad) {
-           r = mid;
-         }else {
-           l = mid + 1;
-         }
-       }
-       if(l <= n && isBadVersion(l)) return l;
-       return -1;
-    };
-};
-```
-
+* [278. 第一个错误的版本](https://leetcode-cn.com/problems/first-bad-version/)
+* [153. 寻找旋转排序数组中的最小值](https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/)
+* [162. 寻找峰值](https://leetcode-cn.com/problems/find-peak-element/)
+* [34. 在排序数组中查找元素的第一个和最后一个位置](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/)
