@@ -15,7 +15,7 @@ const CategoryInner = ({
   }
   return (
     <section className="">
-      <h2 className="text-2xl px-4 text-anchor-color font-Sriracha">Snippets Collections</h2>
+      <h2 className="text-xl px-4 text-anchor-color">Snippets Collections</h2>
       {
         cateList.map((cate) => {
           const clsIcon = cn('relative rounded-2xl icon', 'h-14 w-14',

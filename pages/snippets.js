@@ -1,4 +1,3 @@
-
 import { getGroupBySnippets, getallSnippets } from "@lib/mdx";
 import { Layout } from '@components/layouts';
 import { SnippetWrapper } from '@components/posts';

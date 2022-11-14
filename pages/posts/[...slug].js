@@ -4,39 +4,39 @@ import { Layout, Container } from "@components/layouts";
 import { MDXRenderer, TableContent } from "@components/mdx";
 import { formatSlug } from "@lib/mdx";
 import fetcher from "@lib/fetcher";
-import useSWR from 'swr'
+import useSWR from "swr";
 
 const Post = ({ post }) => {
   const { slug, toc = [], ...rest } = post;
   const { data = {} } = useSWR(`/api/visitor/${slug}`, fetcher);
-  const { subCategory, title, excerpt} = post.frontmatter;
+  const { subCategory, title, excerpt } = post.frontmatter;
   useEffect(() => {
     const registerView = () =>
       fetcher(`/api/visitor/${slug}`, {
-        method: 'POST'
+        method: "POST",
       });
     registerView();
   }, [slug]);
 
-  const showToc = subCategory != 'everyDay';
+
+  const showToc = toc.length ;
   return (
     <>
-      <Layout type='post' title={`${post.frontmatter.title} | Nate Wang Blog `} description={post.frontmatter.excerpt}>
+      <Layout
+        type="post"
+        title={`${post.frontmatter.title} | Nate Wang Blog `}
+        description={post.frontmatter.excerpt}
+      >
         <section className="flex flex-col md:flex-row mt-10 px-3 md:px-0">
-          <div className={ `w-full ${showToc ? 'md:w-9/12' : ''}`}>
-            <MDXRenderer {...rest} views={data.total}/>
+          <div className={`w-full ${showToc ? "md:w-9/12" : ""}`}>
+            <MDXRenderer {...rest} views={data.total} />
           </div>
 
-          {
-            showToc ? 
-              <div className="w-full md:w-3/12 hidden md:block md:pl-20 pt-5">
-                {
-                  <TableContent toc={toc} />
-                }
-              </div> : null
-            
-          }
-          
+          {showToc ? (
+            <div className="w-full md:w-3/12 hidden md:block md:pl-20 pt-5">
+              {<TableContent toc={toc} />}
+            </div>
+          ) : null}
         </section>
       </Layout>
     </>

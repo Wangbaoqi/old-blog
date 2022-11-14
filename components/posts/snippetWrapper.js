@@ -22,7 +22,7 @@ const SnippetWrapper = ({
     <Container>
       <SplitLayout
         mode='left'
-        leftTitle='Snippets Topics'
+        leftTitle='Snippets Recenetly Topics'
         leftChild={leftChild}
         rightChild={rightChild}
       />
