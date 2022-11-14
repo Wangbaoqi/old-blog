@@ -15,6 +15,7 @@
     "@docsearch/react": "3",
     "@prisma/client": "^3.14.0",
     "@reduxjs/toolkit": "^1.8.1",
+    "@vercel/analytics": "^0.1.4",
     "algoliasearch": "^4.13.0",
     "classnames": "^2.3.1",
     "dayjs": "^1.11.1",

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ThemeProvider } from 'next-themes';
-import { Provider } from 'react-redux'
+import { Provider } from 'react-redux';
+import { Analytics } from '@vercel/analytics/react';
 import store from 'store/store';
 import { event } from "nextjs-google-analytics";
 
@@ -35,6 +36,7 @@ export default function MyApp({ Component, pageProps }) {
       <Provider store={store} >
         <ThemeProvider attribute="class" defaultTheme='dark' enableSystem={true} enableColorScheme >
           <Component {...pageProps} />
+          <Analytics />
         </ThemeProvider>
       </Provider>
     )
