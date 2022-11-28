@@ -21,11 +21,8 @@ const AlgorithmPost = ({
   )
 }
 
-
 export const getStaticProps = async () => {
-  // const posts = await getAllPosts();
   const algoProps = await getAlgorithmPost();
-
   return {
     props: { ...algoProps },
   };

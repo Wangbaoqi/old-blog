@@ -1,16 +1,11 @@
 import { getAlgorithmPost } from "@lib/mdx";
 import { useRouter } from "next/router";
 
-import { DayTablePost, Tags, PageNation } from '@components/algorithm';
+import { Tags, PageNation } from '@components/algorithm';
 import { Layout } from '@components/layouts';
 import { Input, PerPage, Select } from '@components/ui';
 
-import { useState, useEffect, useCallback, useMemo } from "react";
-import { useLocalStorage, useDebounceValue } from "@hooks/index";
-
-
 const POSTS_PER_PAGE = 20;
-
 
 const AlgorithmWrapper = ({
   allCount,
@@ -57,7 +52,7 @@ const AlgorithmWrapper = ({
           <Select initVal='4星' optionList={['3星', '4星', '5星']} setSelect={handleLevel}/>
         </div>
         <div className="-mx-3 md:mx-0">
-          <DayTablePost dayList={displayList} showTitle={false} />
+          {/* <DayTablePost dayList={displayList} showTitle={false} /> */}
         </div>
         <div className='flex flex-col md:flex-row justify-between items-center py-10'>
           <PerPage

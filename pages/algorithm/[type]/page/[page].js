@@ -64,7 +64,7 @@ const AlgorithmWrapper = ({
          
         </div>
         <div className="-mx-3 md:mx-0 -mt-10">
-          <DayTablePost dayList={displayList} showTitle={false} />
+          {/* <DayTablePost dayList={displayList} showTitle={false} /> */}
         </div>
         <div className='flex flex-col md:flex-row justify-between items-center py-10'>
           {/* <PerPage

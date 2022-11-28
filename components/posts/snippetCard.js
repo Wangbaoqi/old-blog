@@ -17,7 +17,7 @@ const SnippetCard = ({
                 <div className={clsIcon}></div>
                 <div className='ml-4 h-14 flex flex-col justify-between'>
                   <Link href={`/posts/${post.slug}`}>
-                    <h3 className='dark:text-white text-2xl dark:hover:text-second-color cursor-pointer'>{post.title}</h3>
+                    <h3 className='dark:text-white md:text-xl text-md dark:hover:text-second-color cursor-pointer'>{post.title}</h3>
                   </Link>
                   <p className=''>
                     {

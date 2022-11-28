@@ -22,7 +22,7 @@ const CategoryInner = ({
             'before:absolute before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:text-4xl',
             [`icon-${cate.key.toLowerCase()}`])
           return (
-            <Link key={cate.key} href={`/snippet/${cate.key}`}>
+            <Link key={cate.key} href={`/snippets/${cate.key}/page/1`}>
               <div className="relative overflow-hidden hover:bg-primary-bg-float  py-3 px-4 rounded-xl dark:shadow-3xl mt-5  flex  items-center cursor-pointer">
                 <div className={clsIcon}>
                 </div>

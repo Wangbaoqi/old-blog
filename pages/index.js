@@ -1,7 +1,6 @@
-import { getFeaturePost, getRecentPost, getGroupByCategory, getAlgorithmEvery } from "@lib/mdx";
+import { getFeaturePost, getRecentPost, getGroupByCategory } from "@lib/mdx";
 import { Layout } from '@components/layouts';
 import { FeatureWrapper, RecentWrapper, RecomendWrapper } from '@components/posts';
-import { DayTablePost } from "@components/algorithm";
 
 export default function BlogList({ featurePosts, categoryGroup, recentPost, everyList }) {
   return (
@@ -18,7 +17,6 @@ export default function BlogList({ featurePosts, categoryGroup, recentPost, ever
         <RecentWrapper
           recentPosts={recentPost}
         />
-        <DayTablePost dayList={everyList}/>
       </Layout>
     </>
   );
@@ -28,8 +26,7 @@ export const getStaticProps = async () => {
   const featurePosts = await getFeaturePost();
   const categoryGroup = await getGroupByCategory('category');
   const recentPost = await getRecentPost();
-  const everyList = await getAlgorithmEvery();
   return {
-    props: { featurePosts, categoryGroup, recentPost, everyList },
+    props: { featurePosts, categoryGroup, recentPost },
   };
 };

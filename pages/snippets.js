@@ -20,7 +20,6 @@ const Snippets = ({
   )
 }
 
-
 export const getStaticProps = async () => {
   const allSnippets = await getallSnippets();
   const groupSnippets = await getGroupBySnippets()

@@ -1,12 +1,10 @@
 
-import { DayTablePost, } from '@components/algorithm';
 import { RecomendWrapper, FeatureCard } from '@components/posts';
 import { Title } from '@components/ui';
 
 const AlgorithmWrapper = ({
   structureList = [],
   breakList = [],
-  dayData = []
 }) => {
   return (
     <>
@@ -17,7 +15,6 @@ const AlgorithmWrapper = ({
         </div>
       </section>
       <RecomendWrapper recomendPosts={breakList} title='breakThrough' />
-      <DayTablePost dayList={dayData}/>
     </>
   )
 }
