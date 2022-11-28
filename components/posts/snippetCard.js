@@ -12,7 +12,7 @@ const SnippetCard = ({
             'before:absolute before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:text-4xl',
             [`icon-${post.snippet.toLowerCase()}`])
           return (
-            <li key={idx} className='bg-primary-bg-float py-6 px-3 mb-8 rounded-xl'>
+            <li key={idx} className='bg-primary-bg-float py-4 px-3 mb-8 rounded-xl'>
               <div className='flex justify-start items-center'>
                 <div className={clsIcon}></div>
                 <div className='ml-4 h-14 flex flex-col justify-between'>

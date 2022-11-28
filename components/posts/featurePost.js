@@ -23,7 +23,7 @@ export default function FeaturePost({
     <article className={`cursor-pointer group overflow-hidden`}>
       <Link className='relative flex flex-col justify-between' href={`/posts/${slug}`}>
         <div>
-          <h3 className="md:text-xl text-md leading-snug dark:text-white group-hover:text-second-color">
+          <h3 className="md:text-xl text-md font-medium leading-snug dark:text-white group-hover:text-second-color">
             {title}
           </h3>
           <p className={`text-sm my-3 leading-8 pr-4 ${lineCls}`}>{excerpt}</p>

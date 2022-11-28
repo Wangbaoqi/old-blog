@@ -1,5 +1,4 @@
 
-
 import { RecentPost } from '@components/posts';
 
 const RecentCard = ({
@@ -7,7 +6,8 @@ const RecentCard = ({
 }) => {
 
   return (
-    <>
+    <div className=''>
+      <h2 className="text-xl mt-10 mb-5 text-anchor-color">Featured Topics</h2>
       {
         posts.map(post => (
           <ul key={post.slug}>
@@ -21,7 +21,7 @@ const RecentCard = ({
           </ul>
         ))
       }
-    </>
+    </div>
   )
 }
 
