@@ -9,7 +9,7 @@ import { cateNav } from "@data/headNav";
 export default function Footer() {
   const date = dayjs().format("YYYY");
 
-  const { data = {}, error } = useSWR("/api/visitor", fetcher);
+  // const { data = {}, error } = useSWR("/api/visitor", fetcher);
 
   return (
     <footer className="bg-header-cover">
@@ -55,11 +55,11 @@ export default function Footer() {
                 </a>
               </div>
 
-              <div className="capitalize text-primary-color opacity-80 font-SourceCode pt-5 text-sm">visitors</div>
+              {/* <div className="capitalize text-primary-color opacity-80 font-SourceCode pt-5 text-sm">visitors</div>
               <div className="flex items-center">
                 <Eye size={18} />
                 <span className="ml-2">{ data.total || 1}</span>
-              </div>
+              </div> */}
             </div>
           </div>
           <div className="text-xs block md:hidden">

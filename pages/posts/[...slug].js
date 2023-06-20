@@ -8,14 +8,14 @@ import useSWR from "swr";
 
 const Post = ({ post }) => {
   const { slug, toc = [], ...rest } = post;
-  const { data = {} } = useSWR(`/api/visitor/${slug}`, fetcher);
+  // const { data = {} } = useSWR(`/api/visitor/${slug}`, fetcher);
   const { subCategory, title, excerpt } = post.frontmatter;
   useEffect(() => {
     const registerView = () =>
       fetcher(`/api/visitor/${slug}`, {
         method: "POST",
       });
-    registerView();
+    // registerView();
   }, [slug]);
 
 
@@ -29,7 +29,7 @@ const Post = ({ post }) => {
       >
         <section className="flex flex-col md:flex-row mt-10 px-3 md:px-0">
           <div className={`w-full ${showToc ? "md:w-9/12" : ""}`}>
-            <MDXRenderer {...rest} views={data.total} />
+            <MDXRenderer {...rest} />
           </div>
 
           {showToc ? (

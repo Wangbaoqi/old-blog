@@ -2,7 +2,7 @@
 :root.dark {
   --bg-primary: hsl(210deg, 30%, 8%);
   --bg-primary-float: hsl(210deg, 22%, 20%);
-  --fg-primary: hsl(210, 17%, 82%);
+  --fg-primary: #c9d1d9;
 
   --bg-primary-light: rgba(208, 179, 255, 0);
   --bg-primary-dark: hsla(200deg, 100%, 85%, 0.1);

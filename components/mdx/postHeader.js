@@ -47,7 +47,7 @@ const PostHeader = ({
       <div className="flex items-center justify-start mb-12 font-Sriracha">
         <div className='flex items-center flex-wrap gap-4'>
           <span className={` rounded px-2 py-1 tag-${tagTheme[category || snippet]}`}>{ category || snippet }</span>
-          <span className=''>{date}</span>
+          {/* <span className=''>{date}</span> */}
           <span className='flex items-center'>
             <Clock size={18} />
             <strong className='ml-1'>{readTime.text}</strong>
@@ -56,10 +56,10 @@ const PostHeader = ({
             <Type size={18} />
             <strong  className='ml-1'>{readTime.words}</strong>
           </span>
-          <span className='flex items-center h-5'>
+          {/* <span className='flex items-center h-5'>
             <Eye size={18} />
             <strong  className='ml-1'>{views}</strong>
-          </span>
+          </span> */}
           
           <Avatar {...author} />
         </div>

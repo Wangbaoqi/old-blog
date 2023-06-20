@@ -7,7 +7,7 @@ export const headNav = [
     href: '/category',
     title: 'Category'
   }, {
-    href: '/algorithm',
+    href: 'https://algo.wangbaoqi.tech/',
     title: 'Algorithm'
   }, {
     href: '/snippets',
@@ -21,10 +21,10 @@ export const cateNav = [
     href: '/category/React',
     title: 'React'
   },
-  {
-    href: '/category/Algorithm',
-    title: 'Algorithm'
-  },
+  // {
+  //   href: '/category/Algorithm',
+  //   title: 'Algorithm'
+  // },
   {
     href: '/category/Html&Css',
     title: 'Html&Css'
